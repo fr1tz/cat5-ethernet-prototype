@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// Revenge Of The Cats: Ethernet
+// Cat5
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ function displayHelp()
 	Parent::displayHelp();
 	
 	error(
-		"Ethernet options:\n"@
+		"Game options:\n"@
 		"  -dedicated          Start as dedicated server\n"@
 		"  -connect <address>  For non-dedicated: Connect to a game at <address>\n" @
 		"  -srv <filename>     For dedicated: Use specified server settings file\n" @
@@ -95,12 +95,11 @@ function onStart()
 {
 	Parent::onStart();
 	
-	echo("\n--------- Initializing MOD: Ethernet ---------");
+	echo("\n--------- Initializing MOD: Game ---------");
 
 	// Load the scripts that start it all...
 	exec("./client/init.cs");
 	exec("./server/init.cs");
-	exec("./data/init.cs");
 
 	// Start up in either client, or dedicated server mode
 	if($Server::Dedicated)
@@ -118,7 +117,7 @@ function onStart()
 			if($Server::MissionFile !$= "")
 				$misArg = $Server::MissionFile;
 			else
-				$misArg = "game/arenas/rotc-ethernet/eth-pond.mis";			
+				$misArg = "game/arenas/cat5/eth-pond.mis";			
 		}
 			
 		initBaseServer(); // The common module provides basic server functionality

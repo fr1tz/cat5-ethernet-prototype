@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// Revenge Of The Cats: Ethernet
+// Cat5
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Revenge Of The Cats - missilelauncher.gfx.blue.cs
+// Cat5 - missilelauncher.gfx.blue.cs
 // Eye-candy for the missile launcher
 //------------------------------------------------------------------------------
 

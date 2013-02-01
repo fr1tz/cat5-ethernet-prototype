@@ -18,7 +18,7 @@ Torque Exporter 0.97 Beta3
          from "Cylinder" to "Cylinder.005".
    ****************************************************************************
 
- Writing shape to  '/home/mike/current/rotc/rotc-ethernet/ethernet/data/weapons/chaingun/image.red.dts'.
+ Writing shape to  '/home/mike/current/rotc/cat5/ethernet/data/weapons/chaingun/image.red.dts'.
  Processing...
     Loading sequence 'fire'...
        Frames: 6 

@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// Revenge Of The Cats: Ethernet
+// Cat5
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Revenge Of The Cats - shapebase.cs
+// Cat5 - shapebase.cs
 // This file contains ShapeBase methods used by all the derived classes
 //------------------------------------------------------------------------------
 

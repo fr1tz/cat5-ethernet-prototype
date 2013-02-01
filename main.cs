@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// Revenge Of The Cats: Ethernet
+// Cat5
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
@@ -8,8 +8,8 @@
 // Copyright (C) GarageGames.com, Inc.
 //-----------------------------------------------------------------------------
 
-$GameNameString = "rotc-ethernet";
-$GameVersionString = "p.5.3+dev2";
+$GameNameString = "cat5";
+$GameVersionString = "0.1-dev";
 
 //------------------------------------------------------------------------------
 
@@ -233,7 +233,7 @@ function displayHelp() {
 		// the logfile when the application shuts down.  (default)
 
 	error(
-		"ROTC command line options:\n"@
+		"Cat5 command line options:\n"@
         "  -log <logmode>      Logging behavior; see main.cs comments for details\n"@
 		"  -game <game_name>   Reset list of mods to only contain <game_name>\n"@
 		"  <game_name>         Works like the -game argument\n"@

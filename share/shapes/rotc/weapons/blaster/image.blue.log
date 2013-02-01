@@ -43,7 +43,7 @@ Torque Exporter 0.97 Beta3
          from "Plane" to "Plane.004".
    ****************************************************************************
 
- Writing shape to  '/home/mike/current/rotc/rotc-ethernet/ethernet/data/weapons/blaster/image.blue.dts'.
+ Writing shape to  '/home/mike/current/rotc/cat5/ethernet/data/weapons/blaster/image.blue.dts'.
  Processing...
     Loading sequence 'fire'...
        Frames: 6 

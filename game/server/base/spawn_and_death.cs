@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// Revenge Of The Cats: Ethernet
+// Cat5
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Revenge Of The Cats - spawn_and_death.cs
+// Cat5 - spawn_and_death.cs
 // Code which deals with spawning and death of players
 //------------------------------------------------------------------------------
 

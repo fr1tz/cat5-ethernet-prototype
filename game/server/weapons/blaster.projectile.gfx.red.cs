@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// Revenge Of The Cats: Ethernet
+// Cat5
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Revenge Of The Cats - blaster.projectile.gfx.red.cs
+// Cat5 - blaster.projectile.gfx.red.cs
 // Eyecandy for the blaster projectile
 //------------------------------------------------------------------------------
 

@@ -1,10 +1,10 @@
 **********************************************************************
 
-Revenge Of The Cats: Ethernet
+Cat5
 
 Copyright (C) 2008-2013 Michael Goldener <mg@wasted.ch>
 
-Revenge Of The Cats: Ethernet is licensed under the pretty restrictive
+Cat5 is licensed under the pretty restrictive
 Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 
 License (http://creativecommons.org/licenses/by-nc-nd/3.0/).
 
@@ -18,7 +18,7 @@ files and everything in the lib/ directory).
 
 **********************************************************************
 
-Revenge Of The Cats: Ethernet uses a font from openfontlibrary.org:
+Cat5 uses a font from openfontlibrary.org:
 
 NovaSquare (http://openfontlibrary.org/files/wmk69/408)
 -------------------------------------------------------
@@ -133,7 +133,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 
 **********************************************************************
 
-Revenge Of The Cats: Ethernet includes the following third-party libs:
+Cat5 includes the following third-party libs:
 
 **********************************************************************
 
@@ -253,7 +253,7 @@ http://connect.creativelabs.com/openal/default.aspx
 
 **********************************************************************
 
-The Linux version of the Revenge Of The Cats engine is linked against
+The Linux version of the Cat5 engine is linked against
 the libSDL library as a shared object. libSDL falls under the terms of
 the LGPL license (see last section in this file).
 libSDL can be obtained at http://www.libsdl.org. 

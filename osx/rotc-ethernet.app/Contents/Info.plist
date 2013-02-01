@@ -7,13 +7,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>rotc-ethernet</string>
+	<string>cat5</string>
 	<key>CFBundleGetInfoString</key>
 	<string>© mEthLab Interactive</string>
 	<key>CFBundleIconFile</key>
 	<string>rotc.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>ch.wasted.ethernet.rotc-ethernet</string>
+	<string>ch.wasted.ethernet.cat5</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

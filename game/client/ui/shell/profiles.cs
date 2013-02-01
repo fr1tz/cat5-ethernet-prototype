@@ -1,11 +1,11 @@
 //------------------------------------------------------------------------------
-// Revenge Of The Cats: Ethernet
+// Cat5
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Revenge Of The Cats - profiles.cs
-// GuiControlProfiles for Revenge Of The Cats' shell
+// Cat5 - profiles.cs
+// GuiControlProfiles for Cat5' shell
 //------------------------------------------------------------------------------
 
 new AudioProfile(GuiSoundButtonDown)

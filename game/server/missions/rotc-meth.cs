@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// Revenge Of The Cats: Ethernet
+// Cat5
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
@@ -10,12 +10,12 @@
 exec("./rotc-types.cs");
 
 $Server::MissionFile = strreplace($Server::MissionFile, 
-	"/rotc-methmatch/", "/rotc-ethernet/");
+	"/rotc-methmatch/", "/cat5/");
 
 exec("./rotc-eth.cs");
 
 $Server::MissionFile = strreplace($Server::MissionFile, 
-	"/rotc-ethernet/", "/rotc-methmatch/");
+	"/cat5/", "/rotc-methmatch/");
 
 $Game::GameType = $Game::mEthMatch;
 $Game::GameTypeString = "ROTC: mEthMatch";

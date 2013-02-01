@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// Revenge Of The Cats: Ethernet
+// Cat5
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Revenge Of The Cats - simplecontrol.gfx.cs
+// Cat5 - simplecontrol.gfx.cs
 // standard effects for ROTC's "simple control (tm)"
 //------------------------------------------------------------------------------
 

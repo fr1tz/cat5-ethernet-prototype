@@ -1,11 +1,11 @@
 //------------------------------------------------------------------------------
-// Revenge Of The Cats: Ethernet
+// Cat5
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Revenge Of The Cats - shell.cs
-// Code for Revenge Of The Cats' Shell
+// Cat5 - shell.cs
+// Code for Cat5' Shell
 //------------------------------------------------------------------------------
 
 if(isObject(DefaultCursor))

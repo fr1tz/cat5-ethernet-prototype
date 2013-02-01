@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// Revenge Of The Cats: Ethernet
+// Cat5
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
@@ -9,7 +9,7 @@
 //-----------------------------------------------------------------------------
 
 // Default mission for the server
-$Server::MissionFile = "game/arenas/rotc-ethernet/eth-pond.mis";
+$Server::MissionFile = "game/arenas/cat5/eth-pond.mis";
 
 // Information about the server
 $Pref::Server::RegionMask = 2;
@@ -35,7 +35,7 @@ $Pref::Server::Mutators = ""
 // usefull to the client, such as the url or ftp address of where the
 // latest version of the game can be obtained.
 $Pref::Server::ConnectionError =
-	"You do not have the correct version of Revenge Of The Cats or "@
+	"You do not have the correct version of Cat5 or "@
 	"the related art needed to connect to this server.";
 
 // The network port is also defined by the client, this value 

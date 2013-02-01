@@ -1,9 +1,9 @@
 !include MUI2.nsh ;include modern UI
 
 !define VERSION    "prototype1.10"
-!define SHORTNAME  "rotc-ethernet"
-!define TECHNAME   "rotc-ethernet-${VERSION}"
-!define PRETTYNAME "Revenge of the Cats: Ethernet"
+!define SHORTNAME  "cat5"
+!define TECHNAME   "cat5-${VERSION}"
+!define PRETTYNAME "Cat5"
 
 Name "${PRETTYNAME}"
 Outfile "${TECHNAME}-win32.exe"
@@ -67,14 +67,14 @@ Section "Dummy Section" SecDummy
   File /r "..\..\*"
   
   ;Store installation folder
-  WriteRegStr HKCU "Software\rotc-ethernet" "installDir" $INSTDIR
-  WriteRegStr HKCU "Software\rotc-ethernet" "version" "${VERSION}"
+  WriteRegStr HKCU "Software\cat5" "installDir" $INSTDIR
+  WriteRegStr HKCU "Software\cat5" "version" "${VERSION}"
   
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     
     ;Create shortcuts
     CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\rotc-ethernet.lnk" "$INSTDIR\rotc.exe"
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\cat5.lnk" "$INSTDIR\rotc.exe"
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\manual.lnk" "$INSTDIR\manual.html"
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\uninstall.lnk" "$INSTDIR\uninstall.exe"
   
@@ -107,7 +107,7 @@ Section "Uninstall"
   RMDir /r $INSTDIR
 
   !insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuFolder
-  Delete "$SMPROGRAMS\$StartMenuFolder\rotc-ethernet.lnk"
+  Delete "$SMPROGRAMS\$StartMenuFolder\cat5.lnk"
   Delete "$SMPROGRAMS\$StartMenuFolder\manual.lnk"
   Delete "$SMPROGRAMS\$StartMenuFolder\uninstall.lnk"
   RMDIR "$SMPROGRAMS\$StartMenuFolder"

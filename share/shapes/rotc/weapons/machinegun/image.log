@@ -29,7 +29,7 @@ Torque Exporter 0.97 Beta3
          from "Cube" to "Cube.001".
    ****************************************************************************
 
- Writing shape to  '/home/mike/current/rotc/rotc-ethernet/ethernet/data/weapons/machinegun/image.dts'.
+ Writing shape to  '/home/mike/current/rotc/cat5/ethernet/data/weapons/machinegun/image.dts'.
  Processing...
     Loading sequence 'fire'...
        Frames: 21 

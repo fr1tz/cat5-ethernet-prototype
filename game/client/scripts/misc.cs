@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// Revenge Of The Cats: Ethernet
+// Cat5
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Revenge Of The Cats - misc.cs
+// Cat5 - misc.cs
 // client-side functions which are too small to jusitfy an own file for them
 //------------------------------------------------------------------------------
 

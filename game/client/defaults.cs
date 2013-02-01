@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// Revenge Of The Cats: Ethernet
+// Cat5
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ $Pref::Server::Info =
 	"Daily meetup time: 8pm CET<spop>\n" @
 	"Scheduled matches: None";
 $Pref::Server::ConnectionError =
-	"You do not have the correct version of Revenge Of The Cats or "@
+	"You do not have the correct version of Cat5 or "@
 	"the related art needed to connect to this server.";
 $Pref::Server::Port = 28000;
 $Pref::Server::Password = "";

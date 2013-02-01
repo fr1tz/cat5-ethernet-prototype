@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// Revenge Of The Cats: Ethernet
+// Cat5
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Revenge Of The Cats - gameconnection.cs
+// Cat5 - gameconnection.cs
 // Sstuff for the objects that represent client connections
 //------------------------------------------------------------------------------
 
