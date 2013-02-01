@@ -48,7 +48,7 @@ $pref::ChatHudLength = 1;
 
 $Pref::IRC::Name = "newbie";
 $Pref::IRC::Server = "irc.freenode.net";
-$Pref::IRC::Channel = "#rotc";
+$Pref::IRC::Channel = "#cat5";
 $Pref::IRC::ToChat::Status = true;
 $Pref::IRC::ToChat::Talk = true;
 $Pref::IRC::ToChat::Topic = true;
