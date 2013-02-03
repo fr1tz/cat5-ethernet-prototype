@@ -3,12 +3,85 @@
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
-//------------------------------------------------------------------------------
-// Cat5 - standard.cs
-// Code for the standard CAT
-//------------------------------------------------------------------------------
+datablock TSShapeConstructor(FrmSoldierDts)
+{
+	baseShape = "share/shapes/cat5/boxman.dts";
+	sequenceBaseDir = "share/shapes/rotc/players/a/";
 
-exec("share/shapes/rotc/players/standardcat/player.cs");
+	// movement when standing...
+	sequence0  = "tl/root.dsq root";
+	sequence1  = "nm/run.dsq run";
+	sequence2  = "nm/back.dsq back";
+	sequence3  = "nm/side.dsq side";
+
+	// movement when marching...
+	sequence4  = "tl/root.dsq rootMarching";
+	sequence5  = "nm/run.dsq runMarching";
+	sequence6  = "nm/back.dsq backMarching";
+	sequence7  = "nm/side.dsq sideMarching";
+
+	// movement when crouched...
+	sequence8  = "tl/rootcrouched.dsq UNUSED_rootCrouched";
+	sequence9  = "nm/run.dsq runCrouched";
+	sequence10  = "nm/back.dsq backCrouched";
+	sequence11  = "nm/side.dsq sideCrouched";
+
+	// movement when prone...
+	sequence12 = "fb/rootprone.dsq rootProne";
+	sequence13 = "fb/rootprone.dsq rootProne";
+	sequence14 = "fb/rootprone.dsq rootProne";
+	sequence15 = "fb/rootprone.dsq rootProne";
+
+	// arm threads...
+	sequence16 = "a/holdnoweapon.dsq look";
+	sequence17 = "a/discdeflect_left_base.dsq discdeflect_left_base";
+	sequence18 = "a/holdgun_onehand.dsq look2";
+	sequence52 = "a/holdblaster.dsq holdblaster";
+	sequence53 = "ub/aimblaster.dsq aimblaster";
+	sequence19 = "ub/holdrifle.dsq holdrifle";
+	sequence51 = "ub/aimrifle.dsq aimrifle";
+	sequence20 = "ub/holdshield.dsq holdshield";
+	sequence46 = "a/holdspear.dsq holdspear";
+	sequence47 = "a/holdaimspear.dsq holdaimspear";
+
+	// other...
+	sequence21 = "nm/diehead.dsq death1";
+	sequence22 = "nm/diechest.dsq death2";
+	sequence23 = "nm/dieback.dsq death3";
+	sequence24 = "nm/diesidelf.dsq death4";
+	sequence25 = "nm/diesidert.dsq death5";
+	sequence26 = "nm/dieleglf.dsq death6";
+	sequence27 = "nm/dielegrt.dsq death7";
+	sequence28 = "nm/dieslump.dsq death8";
+	sequence29 = "nm/dieknees.dsq death9";
+	sequence30 = "nm/dieforward.dsq death10";
+	sequence31 = "nm/diespin.dsq death11";
+
+	sequence32 = "nm/headside.dsq headside";
+	sequence33 = "nm/recoilde.dsq light_recoil";
+	sequence34 = "nm/sitting.dsq sitting";
+	sequence35 = "fb/cel_headbang.dsq celsalute";
+	sequence36 = "nm/tauntbest.dsq celwave";
+	sequence37 = "nm/standjump.dsq standjump";
+
+	sequence38 = "nm/head.dsq head";
+	sequence39 = "nm/fall.dsq fall";
+	sequence40 = "nm/land.dsq land";
+	sequence41 = "nm/jump.dsq jump";
+
+	sequence42 = "fb/cel_hail.dsq celhail";
+
+	sequence43 = "ub/throwsidearm.dsq throwSidearm";
+	sequence44 = "ub/aimarmcannon.dsq aimarmcannon";
+	sequence48 = "ub/aimspear.dsq aimSpear";
+	sequence49 = "ub/throwSpear.dsq throwSpear";
+	sequence50 = "ub/discdeflect_left_anim.dsq discdeflect_left_anim";
+	sequence54 = "ub/throwinterceptor.dsq throwInterceptor";
+
+	sequence45 = "fb/flyer.dsq flyer";
+
+	sequence55  = "b/slide.dsq slide";
+};
 
 exec("./standard.sfx.cs");
 exec("./standard.gfx.cs");
@@ -17,7 +90,7 @@ datablock PlayerData(RedStandardCat)
 {
 	className = StandardCat;
 	
-	firstPersonOnly = true;
+	thirdPersonOnly = true;
 	
 	targetLockTimeMS = 200;
 	
@@ -35,7 +108,7 @@ datablock PlayerData(RedStandardCat)
 	cameraMinDist = 1;
 	cameraMaxDist = 5;
 
-	shapeFile = "share/shapes/rotc/players/standardcat/player2.red.dts";
+	shapeFile = "share/shapes/cat5/boxman.dts";
  
 	//cloakTexture = "share/shapes/rotc/effects/explosion_white.png";
 	shapeFxTexture[0] = "share/textures/rotc/connection2.png";
@@ -62,14 +135,14 @@ datablock PlayerData(RedStandardCat)
 
 	aiAvoidThis = true;
 
-	minLookAngle = -1.5;
-	maxLookAngle = 1.5;
-	minLookAngleMarching = -1.5;
-	maxLookAngleMarching = 1.5;
-	minLookAngleCrouched = -1.5;
-	maxLookAngleCrouched = 1.5;
-	minLookAngleProne = -0.8;
-	maxLookAngleProne = 0.8;
+	minLookAngle = 0;
+	maxLookAngle = 0;
+	minLookAngleMarching = 0;
+	maxLookAngleMarching = 0;
+	minLookAngleCrouched = 0;
+	maxLookAngleCrouched = 0;
+	minLookAngleProne = 0;
+	maxLookAngleProne =0 ;
 
 	maxFreelookAngle = 3.0;
 
@@ -78,8 +151,8 @@ datablock PlayerData(RedStandardCat)
 	density = 10;
 	gravityMod = 1.0;
 
-	maxDamage = 75;
-	damageBuffer = 25;
+	maxDamage = 100;
+	damageBuffer = 0;
 	maxEnergy = 100;
 
 	repairRate = 0.8;
@@ -87,28 +160,28 @@ datablock PlayerData(RedStandardCat)
 	damageBufferDischargeRate = 0.15;
 	energyRechargeRate = 0.4;
 
-	skidSpeed = 20 * $Server::Game.slowpokemod;
+	skidSpeed = 30 * $Server::Game.slowpokemod;
 	skidFactor = 0.4;
 
 	flyForce = 10 * 90 * $Server::Game.slowpokemod;
 
 	runForce = 100 * 90 * $Server::Game.slowpokemod; // formerly 48 * 90
-	runEnergyDrain = 0;
-	minRunEnergy = 0;
+	runEnergyDrain = 1;
+	minRunEnergy = 5;
 	
 	slideForce = 20 * 90 * $Server::Game.slowpokemod;
 	slideEnergyDrain = 0;
 	minSlideEnergy = 0;
 
-	maxForwardSpeed = 15 * $Server::Game.slowpokemod;
-	maxBackwardSpeed = 12 * $Server::Game.slowpokemod;
-	maxSideSpeed = 12 * $Server::Game.slowpokemod;
+	maxForwardSpeed = 20 * $Server::Game.slowpokemod;
+	maxBackwardSpeed = 20 * $Server::Game.slowpokemod;
+	maxSideSpeed = 20 * $Server::Game.slowpokemod;
 	maxForwardSpeedSliding = 30 * $Server::Game.slowpokemod;
 	maxBackwardSpeedSliding = 25 * $Server::Game.slowpokemod;
 	maxSideSpeedSliding = 12 * $Server::Game.slowpokemod;
-	maxForwardSpeedMarching = 8 * $Server::Game.slowpokemod;
-	maxBackwardSpeedMarching = 8 * $Server::Game.slowpokemod;
-	maxSideSpeedMarching = 5 * $Server::Game.slowpokemod;
+	maxForwardSpeedMarching = 12 * $Server::Game.slowpokemod;
+	maxBackwardSpeedMarching = 12 * $Server::Game.slowpokemod;
+	maxSideSpeedMarching = 12 * $Server::Game.slowpokemod;
 //	maxForwardSpeedCrouched = 15; NOT USED
 //	maxBackwardSpeedCrouched = 12; NOT USED
 //	maxSideSpeedCrouched = 10; NOT USED
@@ -125,7 +198,7 @@ datablock PlayerData(RedStandardCat)
 	jumpEnergyDrain = 0;
    reJumpForce = 10 * 90; // script field
    reJumpEnergyDrain = 20; // script field
-	minJumpEnergy = 00;
+	minJumpEnergy = 9999;
 	jumpDelay = 0;
 	
 	recoverDelay = 9;
@@ -180,9 +253,9 @@ datablock PlayerData(RedStandardCat)
 	footPuffRadius = 0.2;
 	
 	// ground connection beam
-	groundConnectionBeam = StandardCatGroundConnectionBeam;
+	//groundConnectionBeam = StandardCatGroundConnectionBeam;
 
-   numShapeTrails = 5;
+   numShapeTrails = 0;
 
 	// slide emitters
 	//slideContactParticleFootEmitter = RedSlideEmitter;
@@ -280,7 +353,7 @@ function RedStandardCat::onAdd(%this, %obj)
 
 datablock PlayerData(BlueStandardCat : RedStandardCat)
 {
-	shapeFile = "share/shapes/rotc/players/standardcat/player2.blue.dts";
+	shapeFile = "share/shapes/cat5/boxman.dts";
 	shapeFxTexture[2] = "share/textures/rotc/barrier.orange.png";
 	shapeFxTexture[4] = "share/textures/rotc/armor.cyan.png";
 	shapeFxTexture[5] = "share/textures/rotc/bounce.green.hit.png";

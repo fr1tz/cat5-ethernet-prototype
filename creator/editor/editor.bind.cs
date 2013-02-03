@@ -12,6 +12,9 @@
 // Mission Editor Manager
 new ActionMap(EditorMap);
 
+EditorMap.bind(mouse0, "xaxis", S, $pref::Input::MouseSensitivity, yaw);
+EditorMap.bind(mouse0, "yaxis", S, $pref::Input::MouseSensitivity, pitch);
+
 EditorMap.bindCmd(keyboard, "f2", "editor.setEditor(WorldEditor);", "");
 EditorMap.bindCmd(keyboard, "f3", "editor.setEditor(TerrainEditor);", "");
 EditorMap.bindCmd(keyboard, "f4", "editor.setEditor(Terraformer);", "");	

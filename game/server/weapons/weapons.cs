@@ -16,6 +16,9 @@ $DamageType::Splash = 1;
 $DamageType::Force  = 2;
 $DamageType::BOUNCE = 3;
 
+$ImpactDamageFalloff::None = 0;
+$ImpactDamageFalloff::Linear = 1;
+
 $SplashDamageFalloff::Linear = 0;
 $SplashDamageFalloff::Exponential = 1;
 $SplashDamageFalloff::None = 2;
@@ -112,16 +115,28 @@ function ProjectileData::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist)
 	if( %this.impactDamage == 0 )
 		return;
 
+   %dmg = %this.impactDamage;
+
+   // Reduce damage based on distance?
+	if(%this.impactDamageFalloff == $ImpactDamageFalloff::Linear)
+   {
+      %distScale = 1 - %dist/%this.impactDamageMaxDist;
+      if(%distScale < 0)
+         %distScale = 0;
+      %dmg *= %distScale;
+      //error("1-" @ %dist @ "/" @ %this.impactDamageMaxDist SPC "=" SPC %distScale SPC "->" SPC %dmg);
+   }
+
 	// call damage func...
-	%col.damage(%obj, %pos, %this.impactDamage, $DamageType::Impact);
+	%col.damage(%obj, %pos, %dmg, $DamageType::Impact);
 	
 	// if projectile was fired by a player, regain some of his energy...
-	%sourceObject = %obj.getSourceObject();
-	if(%sourceObject.getType() & $TypeMasks::PlayerObjectType)
-	{
-		%newSrcEnergy = %sourceObject.getEnergyLevel() + %this.energyDrain;
-		%sourceObject.setEnergyLevel(%newSrcEnergy);
-	}
+//	%sourceObject = %obj.getSourceObject();
+//	if(%sourceObject.getType() & $TypeMasks::PlayerObjectType)
+//	{
+//		%newSrcEnergy = %sourceObject.getEnergyLevel() + %this.energyDrain;
+//		%sourceObject.setEnergyLevel(%newSrcEnergy);
+//	}
 }
 
 function ProjectileData::onExplode(%this,%obj,%pos,%normal,%fade,%dist,%expType)

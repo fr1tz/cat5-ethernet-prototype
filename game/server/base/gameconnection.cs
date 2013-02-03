@@ -609,8 +609,7 @@ function GameConnection::togglePlayerForm(%this, %forced)
 	%buf = %this.player.getDamageBufferLevel();
 	%vel = %this.player.getVelocity();
 
-	%obj.setTransform(%mat);
-	%obj.setTransform(%pos);
+	%obj.setTransform(getWord(%pos,0) SPC getWord(%pos,1) SPC "21 0 0 1 0");
 	%obj.setDamageLevel(%dmg);
 	%obj.setShieldLevel(%buf);
 	
@@ -618,14 +617,14 @@ function GameConnection::togglePlayerForm(%this, %forced)
 		%obj.setTagged();
 
 	%this.control(%obj);
+
+	// remove any z-velocity...
+	%vel = getWord(%vel, 0) SPC getWord(%vel, 1) SPC "0";
 	
 	if(%this.player.getClassName() $= "Etherform")
 	{
 		// Etherform -> Manifestation
 		
-		// remove any z-velocity...
-		%vel = getWord(%vel, 0) SPC getWord(%vel, 1) SPC "0";
-	
 		%this.player.delete();
 
 		%obj.setEnergyLevel(%nrg);

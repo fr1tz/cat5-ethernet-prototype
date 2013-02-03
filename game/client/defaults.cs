@@ -28,7 +28,7 @@ $Pref::Server::Info =
 $Pref::Server::ConnectionError =
 	"You do not have the correct version of Cat5 or "@
 	"the related art needed to connect to this server.";
-$Pref::Server::Port = 28000;
+$Pref::Server::Port = 30000;
 $Pref::Server::Password = "";
 $Pref::Server::AdminPassword = "";
 $Pref::Server::MaxPlayers = 64;

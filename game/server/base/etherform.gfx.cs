@@ -20,7 +20,7 @@ datablock ShapeBaseImageData(RedEtherformLightImage)
 	lightType = "ConstantLight";
 	lightColor = "0.8 0.0 0.0";
 	lightTime = 1000;
-	lightRadius = 8;
+	lightRadius = 3;
 	lightCastsShadows = true;
 	lightAffectsShapes = true;
 
@@ -29,7 +29,7 @@ datablock ShapeBaseImageData(RedEtherformLightImage)
 
 datablock ShapeBaseImageData(BlueEtherformLightImage : RedEtherformLightImage)
 {
-	lightColor = "0.0 0.4 0.8";
+	lightColor = "0.0 0.0 0.8";
 };
 
 //------------------------------------------------------------------------------

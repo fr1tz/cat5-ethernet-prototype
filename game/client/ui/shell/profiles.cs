@@ -46,7 +46,7 @@ new GuiControlProfile(GuiDefaultProfile)
 	fontSize = 14;
 
 	fontColor = "200 200 200";
-	fontColorHL = "0 255 0";
+	fontColorHL = "0 210 255";
 	fontColorNA = "100 100 100";
 	fontColorSEL= "200 200 200";
 	fontColors[4] = "255 96 96"; // aka fontColorLink
@@ -291,8 +291,8 @@ new GuiControlProfile(GuiWindowProfile : GuiDefaultProfile)
 	fillColor = "0 0 0 220";
 	fillColorHL = "0 0 0 220";
 	fillColorNA = "0 0 0 220";
-	fontColor = "100 255 100";
-	fontColorHL = "100 255 100";
+	fontColor = "0 210 255";
+	fontColorHL = "0 210 255";
 	text = "GuiWindowCtrl test";
 	bitmap = "./pixmaps/mg_window6";
 	textOffset = "12 6";

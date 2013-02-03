@@ -144,6 +144,8 @@ function PlayerData::onAdd(%this,%obj)
 	%obj.updateAccuracy();
 	%obj.updatePose();
 
+   %obj.nonSnipingBodyPose = $PlayerBodyPose::Marching;
+	%obj.setBodyPose(%obj.nonSnipingBodyPose);
 	if(%client.hasPermaboard)
 		%obj.setBodyPose($PlayerBodyPose::Sliding);
   
@@ -567,12 +569,12 @@ function PlayerData::onTrigger(%this, %obj, %triggerNum, %val)
 		if(%val)
         {
             if(%triggerNum == 4)
-    			%obj.nonSnipingBodyPose = $PlayerBodyPose::Marching;
+    			%obj.nonSnipingBodyPose = $PlayerBodyPose::Standard;
             else if(%triggerNum == 5 && %obj.client.hasEtherboard)
     			%obj.nonSnipingBodyPose = $PlayerBodyPose::Sliding;
         }
 		else
-			%obj.nonSnipingBodyPose = $PlayerBodyPose::Standard;
+			%obj.nonSnipingBodyPose = $PlayerBodyPose::Marching;
  
         if(!%obj.isSniping)
             %obj.setBodyPose(%obj.nonSnipingBodyPose);
@@ -940,6 +942,7 @@ function Player::checkReJump(%this)
 
 function PlayerData::checkReJump(%this, %obj)
 {
+   return;
     if(%obj.lastJumpTime != getSimTime() && %obj.getEnergyLevel() > %this.reJumpEnergyDrain)
     {
        	createExplosion(CatJumpExplosion, %obj.getPosition(), "0 0 1");

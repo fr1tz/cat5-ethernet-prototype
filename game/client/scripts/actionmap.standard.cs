@@ -33,8 +33,8 @@ MoveMap.bind( keyboard, "a", moveleft );
 MoveMap.bind( keyboard, "d", moveright );
 MoveMap.bind( keyboard, "w", moveforward );
 MoveMap.bind( keyboard, "s", movebackward );
-MoveMap.bind(mouse0, "xaxis", S, $pref::Input::MouseSensitivity, yaw);
-MoveMap.bind(mouse0, "yaxis", S, $pref::Input::MouseSensitivity, pitch);
+MoveMap.bind(mouse0, "xaxis", S, $pref::Input::MouseSensitivity, horizontal);
+MoveMap.bind(mouse0, "yaxis", S, $pref::Input::MouseSensitivity, vertical);
 
 //------------------------------------------------------------------------------
 // triggers...

@@ -8,23 +8,20 @@ function GameConnection::loadDefaultLoadout(%this, %no)
    switch(%no)
    {
       case 1:
-         %this.loadoutName[%no] = "Commando";
-         %this.loadoutCode[%no] = "216";
+         %this.loadoutName[%no] = "Shotgunner";
+         %this.loadoutCode[%no] = "1";
       case 2:
-         %this.loadoutName[%no] = "Ranger";
-         %this.loadoutCode[%no] = "236";
+         %this.loadoutName[%no] = "Sniper";
+         %this.loadoutCode[%no] = "3";
       case 3:
-         %this.loadoutName[%no] = "Skirmisher";
-         %this.loadoutCode[%no] = "276";
+         %this.loadoutName[%no] = "Minigunner";
+         %this.loadoutCode[%no] = "4";
       case 4:
-         %this.loadoutName[%no] = "Protector";
-         %this.loadoutCode[%no] = "275";
-      case 5:
-         %this.loadoutName[%no] = "Backup";
-         %this.loadoutCode[%no] = "477";
+         %this.loadoutName[%no] = "Defender";
+         %this.loadoutCode[%no] = "2";
       default:
          %this.loadoutName[%no] = "";
-         %this.loadoutCode[%no] = "216";
+         %this.loadoutCode[%no] = "1";
    }
 }
 
@@ -37,55 +34,16 @@ function GameConnection::defaultLoadout(%this)
 
 	if($Game::GameType == $Game::Ethernet)
 	{
-		%this.loadout[1] = $CatEquipment::BattleRifle;
-		%this.loadout[2] = $CatEquipment::Blaster;
-		%this.loadout[3] = $CatEquipment::Etherboard;
-		%this.loadout[4] = $CatEquipment::Damper;
-		%this.loadout[5] = $CatEquipment::VAMP;
-		%this.loadout[6] = $CatEquipment::Anchor;
-		%this.loadout[7] = $CatEquipment::Grenade;
-		%this.loadout[8] = $CatEquipment::Bounce;
-		%this.loadout[9] = $CatEquipment::RepelDisc;
-		%this.loadout[10] = $CatEquipment::ExplosiveDisc;
-	}
-	else if($Game::GameType == $Game::Infantry)
-	{
 		%this.loadout[1] = $CatEquipment::Blaster;
-		%this.loadout[2] = $CatEquipment::BattleRifle;
-		%this.loadout[3] = $CatEquipment::Etherboard;
-	}
-	else if($Game::GameType == $Game::TeamJoust)
-	{
-		%this.loadout[1] = $CatEquipment::Blaster;
-		%this.loadout[2] = $CatEquipment::BattleRifle;
-		%this.loadout[3] = $CatEquipment::GrenadeLauncher;
-		%this.loadout[4] = $CatEquipment::Damper;
-		%this.loadout[5] = $CatEquipment::VAMP;
-		%this.loadout[6] = $CatEquipment::Stabilizer;
-		%this.loadout[7] = $CatEquipment::Grenade;
-		%this.loadout[8] = $CatEquipment::Permaboard;
-		%this.loadout[9] = $CatEquipment::SlasherDisc;
-	}
-	else if($Game::GameType == $Game::TeamDragRace)
-	{
-		%this.loadout[1] = $CatEquipment::Blaster;
-		%this.loadout[2] = $CatEquipment::BattleRifle;
-		%this.loadout[3] = $CatEquipment::GrenadeLauncher;
-		%this.loadout[4] = $CatEquipment::Damper;
-		%this.loadout[5] = $CatEquipment::VAMP;
-		%this.loadout[6] = $CatEquipment::Stabilizer;
-		%this.loadout[7] = $CatEquipment::Grenade;
-		%this.loadout[8] = $CatEquipment::SlasherDisc;
-	}
-	else if($Game::GameType == $Game::GridWars)
-	{
-		%this.loadout[1] = $CatEquipment::BattleRifle;
-		%this.loadout[2] = $CatEquipment::SniperRifle;
-		%this.loadout[3] = $CatEquipment::Etherboard;
-		%this.loadout[4] = $CatEquipment::Grenade;
-		%this.loadout[5] = $CatEquipment::Bounce;
-		%this.loadout[6] = $CatEquipment::RepelDisc;
-		%this.loadout[7] = $CatEquipment::ExplosiveDisc;
+		//%this.loadout[2] = $CatEquipment::Blaster;
+		//%this.loadout[3] = $CatEquipment::Etherboard;
+		//%this.loadout[4] = $CatEquipment::Damper;
+		//%this.loadout[5] = $CatEquipment::VAMP;
+		//%this.loadout[6] = $CatEquipment::Anchor;
+		//%this.loadout[7] = $CatEquipment::Grenade;
+		//%this.loadout[8] = $CatEquipment::Bounce;
+		//%this.loadout[9] = $CatEquipment::RepelDisc;
+		//%this.loadout[10] = $CatEquipment::ExplosiveDisc;
 	}
 	else
 	{
@@ -120,19 +78,19 @@ function GameConnection::updateLoadout(%this)
 		if(%this.loadout[%i] $= "")
 			continue;
 
-		if(%this.loadout[%i] == $CatEquipment::Damper)
-		{
-			%this.hasDamper = true;
-		}
-		else if(%this.loadout[%i] == $CatEquipment::Anchor)
-		{
-			%this.hasAnchor = true;
-		}
-		else if(%this.loadout[%i] == $CatEquipment::Stabilizer)
-		{
-			%this.hasStabilizer = true;
-		}
-		else if(%this.loadout[%i] == $CatEquipment::SlasherDisc)
+		//if(%this.loadout[%i] == $CatEquipment::Damper)
+		//{
+		//	%this.hasDamper = true;
+		//}
+		//else if(%this.loadout[%i] == $CatEquipment::Anchor)
+		//{
+		//	%this.hasAnchor = true;
+		//}
+		//else if(%this.loadout[%i] == $CatEquipment::Stabilizer)
+		//{
+		//	%this.hasStabilizer = true;
+		//}
+		if(%this.loadout[%i] == $CatEquipment::SlasherDisc)
 		{
 			%this.hasSlasherDisc = true;
 		}
@@ -148,22 +106,22 @@ function GameConnection::updateLoadout(%this)
 		{
 			%this.hasGrenade = true;
 		}
-		else if(%this.loadout[%i] == $CatEquipment::Bounce)
-		{
-			%this.hasBounce = true;
-		}
+		//else if(%this.loadout[%i] == $CatEquipment::Bounce)
+		//{
+		//	%this.hasBounce = true;
+		//}
 		else if(%this.loadout[%i] == $CatEquipment::Etherboard)
 		{
-			%this.hasEtherboard = true;
+		   %this.hasEtherboard = true;
 		}
 		else if(%this.loadout[%i] == $CatEquipment::Permaboard)
 		{
 			%this.hasPermaboard = true;
 		}
-		else if(%this.loadout[%i] == $CatEquipment::VAMP)
-		{
-			%this.numVAMPs++;
-		}
+		//else if(%this.loadout[%i] == $CatEquipment::VAMP)
+		//{
+		//	%this.numVAMPs++;
+		//}
 		else if(%this.loadout[%i] == $CatEquipment::Regeneration)
 		{
 			%this.numRegenerators++;
@@ -467,20 +425,20 @@ function GameConnection::changeInventory(%this, %nr)
 
 	if(%this.inventoryMode $= "show")
 	{
-      if(%nr == -17)
+      if(false && %nr == -17)
       {
 			%this.inventoryMode = "select";
 			%this.inventoryMode[1] = 1;
       }
-		else if(%nr >= 0 && %nr <= 10)
+		else if(%nr >= 1 && %nr <= 10)
 		{
          if(%this.loadoutName[%nr] $= "")
             return;
 
-         for(%i = 0; %i < 3; %i++)
+         for(%i = 0; %i < 1; %i++)
          {
             %c = getSubStr(%this.loadoutCode[%nr], %i, 1);
-            if(%c < 1 || %c > 7)
+            if(%c < 1 || %c > 4)
             {
                %this.loadout[1] = 0;
               	%this.play2D(BeepMessageSound);

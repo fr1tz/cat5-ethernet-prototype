@@ -18,20 +18,6 @@ new GuiBitmapCtrl(Shell) {
    bitmap = "./pixmaps/root.png";
    wrap = "0";
 
-   new GuiBitmapCtrl() {
-      canSaveDynamicFields = "0";
-      Profile = "GuiDefaultProfile";
-      HorizSizing = "center";
-      VertSizing = "center";
-      Position = "0 0";
-      Extent = "640 480";
-      MinExtent = "480 480";
-      canSave = "1";
-      Visible = "1";
-      hovertime = "1000";
-      bitmap = "./pixmaps/logo.png";
-      wrap = "0";
-   };
    new GuiTextCtrl(ShellVersionString) {
       canSaveDynamicFields = "0";
       Profile = "GuiTextProfile";
@@ -191,7 +177,7 @@ new GuiBitmapCtrl(Shell) {
          Visible = "1";
          Command = "quit();";
          hovertime = "1000";
-         text = "Quit ROTC";
+         text = "Quit Cat5";
          groupNum = "-1";
          buttonType = "PushButton";
       };

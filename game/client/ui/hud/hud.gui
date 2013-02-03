@@ -4,7 +4,7 @@
 //------------------------------------------------------------------------------
 
 //--- OBJECT WRITE BEGIN ---
-new GameTSCtrl(HUD) {
+new GuiTopdownTSCtrl(HUD) {
    canSaveDynamicFields = "1";
    Profile = "HudDefaultProfile";
    HorizSizing = "right";
@@ -18,14 +18,7 @@ new GameTSCtrl(HUD) {
    applyFilterToChildren = "1";
    cameraZRot = "0";
    forceFOV = "0";
-      zUpdateMetricsThread = "4398";
-      zAnimThread = "12325";
       noCursor = "1";
-      flashWarningsThread = "12324";
-      zBackgroundAlpha1 = "0";
-      zBackgroundAlpha2 = "0";
-      zBackgroundAlpha3 = "0";
-      zWarningsFlash = "0";
 
    new GuiScannerHud(ScannerHud) {
       canSaveDynamicFields = "0";
@@ -366,8 +359,8 @@ new GameTSCtrl(HUD) {
       Profile = "HudDefaultProfile";
       HorizSizing = "width";
       VertSizing = "height";
-      position = "0 0";
-      Extent = "640 480";
+      position = "80 0";
+      Extent = "480 480";
       MinExtent = "8 8";
       canSave = "1";
       Visible = "0";

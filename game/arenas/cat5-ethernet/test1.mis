@@ -1,0 +1,5 @@
+exec("./common.cs");
+$MissionInfo::Name = "Test 1";
+$MissionInfo::Desc = "TODO";
+
+

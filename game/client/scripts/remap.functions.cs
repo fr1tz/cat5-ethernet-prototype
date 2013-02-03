@@ -102,6 +102,16 @@ function pitch(%val)
 	$mvPitch += getMouseAdjustAmount(%val);
 }
 
+function horizontal(%val)
+{
+	$mvHorizontalPos += getMouseAdjustAmount(%val);
+}
+
+function vertical(%val)
+{
+	$mvVerticalPos -= getMouseAdjustAmount(%val);
+}
+
 //------------------------------------------------------------------------------
 // Triggers
 //------------------------------------------------------------------------------
@@ -206,23 +216,25 @@ function mouseZoom(%val)
 	if(Canvas.isCursorOn())
 		return;
 
+	%minZoom = 0.2;
+   %maxZoom = 2;
+	%step = (%maxZoom - %minZoom)/$Pref::Player::MouseZoomSteps;
+
 	if($MouseZoomValue == 0)
-		$MouseZoomValue = $Pref::Player::DefaultFov;
-		
-	%minFov = ServerConnection.getControlObject().getDataBlock().cameraMinFov;
-	%step = ($Pref::Player::DefaultFov - %minFov)/$Pref::Player::MouseZoomSteps;
+		$MouseZoomValue = 0.2;
 
 	if(%val > 0)
 		$MouseZoomValue -= %step;
 	else
 		$MouseZoomValue += %step;
 		
-	if($MouseZoomValue < %minFov)
-		$MouseZoomValue = %minFov;
-	else if($MouseZoomValue > $Pref::Player::DefaultFov)
-		$MouseZoomValue = $Pref::Player::DefaultFov;
+	if($MouseZoomValue < %minZoom)
+		$MouseZoomValue = %minZoom;
+	else if($MouseZoomValue > %maxZoom)
+		$MouseZoomValue = %maxZoom;
 
-	setFov($MouseZoomValue);
+   Hud.zoom($MouseZoomValue);
+	//setFov($MouseZoomValue);
 }
 
 //------------------------------------------------------------------------------
