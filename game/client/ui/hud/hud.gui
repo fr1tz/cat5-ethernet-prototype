@@ -20,7 +20,7 @@ new GuiTopdownTSCtrl(HUD) {
    forceFOV = "0";
       noCursor = "1";
 
-   new GuiScannerHud(ScannerHud) {
+    new GuiScannerHud(ScannerHud) {
       canSaveDynamicFields = "0";
       Profile = "HudDefaultProfile";
       HorizSizing = "relative";
@@ -258,7 +258,7 @@ new GuiTopdownTSCtrl(HUD) {
       canSave = "1";
       Visible = "0";
       hovertime = "1000";
-      rotate = "1";
+      rotate = "0";
       visRadius = "4000";
    };
    new GuiClockHud(HudClock) {
@@ -280,7 +280,7 @@ new GuiTopdownTSCtrl(HUD) {
       Profile = "HudMetricsProfile";
       HorizSizing = "left";
       VertSizing = "top";
-      position = "332 456";
+      position = "382 456";
       Extent = "258 14";
       MinExtent = "8 8";
       canSave = "1";
@@ -306,14 +306,14 @@ new GuiTopdownTSCtrl(HUD) {
       Profile = "HudDefaultProfile";
       HorizSizing = "right";
       VertSizing = "top";
-      position = "40 330";
+      position = "0 330";
       Extent = "150 150";
       MinExtent = "8 2";
       canSave = "1";
       Visible = "1";
       hovertime = "1000";
-      rotate = "1";
-      visRadius = "1000";
+      rotate = "0";
+      visRadius = "250";
    };
    new GuiTankControlHud() {
       canSaveDynamicFields = "0";
@@ -359,8 +359,8 @@ new GuiTopdownTSCtrl(HUD) {
       Profile = "HudDefaultProfile";
       HorizSizing = "width";
       VertSizing = "height";
-      position = "80 0";
-      Extent = "480 480";
+      position = "0 0";
+      Extent = "640 480";
       MinExtent = "8 8";
       canSave = "1";
       Visible = "0";
@@ -393,6 +393,57 @@ new GuiTopdownTSCtrl(HUD) {
       hovertime = "1000";
       bitmap = "";
       wrap = "0";
+   };
+   new GuiHealthBarHud(HealthMeter) {
+      canSaveDynamicFields = "0";
+      Profile = "HudDefaultProfile";
+      HorizSizing = "right";
+      VertSizing = "top";
+      position = "160 340";
+      Extent = "16 106";
+      MinExtent = "8 8";
+      canSave = "1";
+      Visible = "1";
+      hovertime = "1000";
+      pulseRate = "1000";
+      pulseThreshold = "0.3";
+      showFrame = "0";
+      displayEnergy = "0";
+      displayDamageBuffer = "1";
+      bitmap = "./pixmaps/health_meter.png";
+      bufferBitmap = "./pixmaps/health_meter_buffer.png";
+   };
+	new GuiAdditiveBitmapCtrl(HealthIcon) {
+		canSaveDynamicFields = "0";
+		Profile = "HudDefaultProfile";
+		HorizSizing = "right";
+		VertSizing = "top";
+		position = "160 452";
+		Extent = "16 16";
+		MinExtent = "8 2";
+		canSave = "1";
+		Visible = "1";
+		hovertime = "1000";
+		bitmap = "./pixmaps/health_icon.png";
+		wrap = "0";
+	};   
+   new GuiHealthBarHud(EnergyMeter) {
+      canSaveDynamicFields = "0";
+      Profile = "HudDefaultProfile";
+      HorizSizing = "center";
+      VertSizing = "top";
+      position = "192 438";
+      Extent = "256 32";
+      MinExtent = "8 8";
+      canSave = "1";
+      Visible = "1";
+      hovertime = "1000";
+      pulseRate = "500";
+      pulseThreshold = "0.3";
+      showFrame = "0";
+      displayEnergy = "1";
+      displayDamageBuffer = "0";
+      bitmap = "./pixmaps/energy_meter.png";
    };
    new GuiBackgroundCtrl() {
       canSaveDynamicFields = "0";
@@ -525,60 +576,9 @@ new GuiTopdownTSCtrl(HUD) {
          Extent = "40 40";
          MinExtent = "8 2";
          canSave = "1";
-         Visible = "1";
+         Visible = "0";
          hovertime = "1000";
          bitmap = "./pixmaps/energy_icon.png";
-         wrap = "0";
-      };
-      new GuiHealthBarHud(HealthMeter) {
-         canSaveDynamicFields = "0";
-         Profile = "HudDefaultProfile";
-         HorizSizing = "right";
-         VertSizing = "height";
-         position = "0 0";
-         Extent = "40 340";
-         MinExtent = "8 8";
-         canSave = "1";
-         Visible = "1";
-         hovertime = "1000";
-         pulseRate = "1000";
-         pulseThreshold = "0.3";
-         showFrame = "0";
-         displayEnergy = "0";
-         displayDamageBuffer = "1";
-         bitmap = "./pixmaps/health_meter.png";
-         bufferBitmap = "./pixmaps/health_meter_buffer.png";
-      };
-      new GuiHealthBarHud(EnergyMeter) {
-         canSaveDynamicFields = "0";
-         Profile = "HudDefaultProfile";
-         HorizSizing = "left";
-         VertSizing = "height";
-         position = "600 0";
-         Extent = "40 340";
-         MinExtent = "8 8";
-         canSave = "1";
-         Visible = "1";
-         hovertime = "1000";
-         pulseRate = "500";
-         pulseThreshold = "0.3";
-         showFrame = "0";
-         displayEnergy = "1";
-         displayDamageBuffer = "0";
-         bitmap = "./pixmaps/energy_meter.png";
-      };
-      new GuiAdditiveBitmapCtrl(HealthIcon) {
-         canSaveDynamicFields = "0";
-         Profile = "HudDefaultProfile";
-         HorizSizing = "right";
-         VertSizing = "top";
-         position = "0 340";
-         Extent = "40 40";
-         MinExtent = "8 2";
-         canSave = "1";
-         Visible = "1";
-         hovertime = "1000";
-         bitmap = "./pixmaps/health_icon.png";
          wrap = "0";
       };
    };
@@ -625,8 +625,8 @@ new GuiTopdownTSCtrl(HUD) {
          Profile = "HudDefaultProfile";
          HorizSizing = "right";
          VertSizing = "height";
-         position = "50 0";
-         Extent = "590 14";
+         position = "10 0";
+         Extent = "630 14";
          MinExtent = "0 0";
          canSave = "1";
          Visible = "1";
@@ -641,7 +641,7 @@ new GuiTopdownTSCtrl(HUD) {
          HorizSizing = "left";
          VertSizing = "height";
          position = "0 0";
-         Extent = "590 14";
+         Extent = "630 14";
          MinExtent = "0 0";
          canSave = "1";
          Visible = "1";
