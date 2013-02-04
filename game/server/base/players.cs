@@ -130,7 +130,7 @@ function PlayerData::onAdd(%this,%obj)
 	//
 	// disc management...
 	//
-	%obj.setDiscs(2);         // players have two discs
+	%obj.setDiscs(0);
 	%obj.attackingDiscs = 0;  // Number of discs that are attacking the player
 
 	//
