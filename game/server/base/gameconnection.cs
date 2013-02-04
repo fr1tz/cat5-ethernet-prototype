@@ -314,9 +314,9 @@ function GameConnection::updateHudColors(%this)
 function GameConnection::setDefaultCrosshair(%this)
 {
    commandToClient(%this, 'Crosshair', 0);
-   commandToClient(%this, 'Crosshair', 2, 2);
-   //commandToClient(%this, 'Crosshair', 3, 2, 20);
-   commandToClient(%this, 'Crosshair', 5, "./rotc/ch1");
+   //commandToClient(%this, 'Crosshair', 2, 2);
+   commandToClient(%this, 'Crosshair', 3, 1, 3);
+   //commandToClient(%this, 'Crosshair', 5, "./rotc/ch1");
    commandToClient(%this, 'Crosshair', 1);
 }
 

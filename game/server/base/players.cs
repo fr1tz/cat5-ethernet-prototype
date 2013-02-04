@@ -850,7 +850,7 @@ function Player::updateAccuracy(%this)
       %this.firingInaccuracy = 0;
 
    %image = %this.getMountedImage(0);
-   if(isObject(%image) && %image.isMethod("getBulletSpread"))
+   if(false) //isObject(%image) && %image.isMethod("getBulletSpread"))
    {
    	%spread = %image.getBulletSpread(%this);
       %mod = 2-(%this.getCameraFov()/80);
