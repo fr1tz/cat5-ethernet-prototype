@@ -55,7 +55,7 @@ function showSettings(%client, %section)
 	%newtxt = %newtxt @ "\n\n";				
 	
 	%n = 0;
-	%schemeName[%n] = "";
+	%schemeName[%n] = "condition";
 	%schemeDesc[%n] = "based_on_condition"; %n++;
 	%schemeName[%n] = "team";
 	%schemeDesc[%n] = "based_on_team"; %n++;

@@ -54,7 +54,7 @@ function GameConnection::onCookiesReceived(%this, %cookies)
 	%this.hudColor = arrayGetValue(%cookies, "ROTC_HudColor");
 	%this.initialTopHudMenu = arrayGetValue(%cookies, "ROTC_HudMenuTMode");
 	if(%this.initialTopHudMenu $= "")
-		%this.initialTopHudMenu = "newbiehelp";
+		%this.initialTopHudMenu = "invisible";
 	%this.damageScreenMode = arrayGetValue(%cookies, "ROTC_DamageScreenMode");
 	if(%this.damageScreenMode $= "")
 		%this.damageScreenMode = 1;
@@ -290,7 +290,7 @@ function GameConnection::updateHudColors(%this)
 			%c2 = "200 200 255";
 		}
 	}
-	else
+	else if(%this.hudColor $= "condition")
 	{
 		%player = %this.player;
 		%data = %player.getDataBlock();
@@ -300,6 +300,11 @@ function GameConnection::updateHudColors(%this)
 			0;
 		%v = mFloatLength(125*(1-%v)+125, 0);
 		%c2 =  %v SPC %v SPC %v;
+	}
+	else
+	{
+		%c1 = "200 200 200";
+		%c2 = "255 255 255";
 	}
 	commandToClient(%this,'SetHudColor', %c1, %c2);	
 }
@@ -941,64 +946,75 @@ function GameConnection::updateTopHudMenuThread(%this)
 {
 	cancel(%this.updateTopHudMenuThread);
 	%this.updateTopHudMenuThread = %this.schedule(200,"updateTopHudMenuThread");
-	
+
 	if(%this.topHudMenu $= "invisible")
 		return;
-	
-	%this.setHudMenuT(0, "\n<just:center><color:888888>Showing: ", 1, 1);			
-	%this.setHudMenuT(2, "(@bind66 to change)\n<just:left>", 1, 1);			
+
+	%this.setHudMenuT(0, "\n<just:center>", 1, 1);
+	//%this.setHudMenuT(0, "\n<just:center><color:888888>Showing: ", 1, 1);
+	//%this.setHudMenuT(2, "(@bind66 to change)\n<just:left>", 1, 1);
 	%i = 2;
-	
+
 	if(%this.topHudMenu $= "newbiehelp")
 	{
-		if(%this.newbieHelpAge == 0)
-			%this.play2D(NewbieHelperSound);
-	
-		%this.newbieHelpAge++;	
-		%this.setHudMenuT(1, "Newbie Helper", 1, 1);
+		//if(%this.newbieHelpAge == 0)
+		//	%this.play2D(NewbieHelperSound);
+
+		%this.newbieHelpAge++;
+		//%this.setHudMenuT(1, "Tip", 1, 1);
 
 		%color = "FFFFFF";
-		%alpha = 255;		
-		
+		%alpha = 255;
+
 		%text = %this.newbieHelpText;
-		if(%this.newbieHelpAge < 6)
+		//if(%this.newbieHelpAge < 6)
+      if(false)
 		{
 			%text = "[ Downloading... ]";
 			if(%this.newbieHelpAge % 2 == 0)
-				%color = "88FF88";			
+				%color = "88FF88";
 		}
-		
+
 		if(%this.newbieHelpTime > 0 && %this.newbieHelpAge > %this.newbieHelpTime)
 			%alpha = 255 - (%this.newbieHelpAge-%this.newbieHelpTime)*15;
-		
+
 		if(%alpha <= 0)
 		{
 			%alpha = 0;
 			%this.setHudMenuT(5, "", 1, 0);
-			%this.setHudMenuT(8, "", 1, 0);		
+			%this.setHudMenuT(8, "", 1, 0);
+         %this.setHudMenuT(%i++, "", 1, false);
+         %this.setHudMenuT(%i++, "", 1, false);
+         %this.setHudMenuT(%i++, "", 1, false);
+         %this.setHudMenuT(%i++, "", 1, false);
+         %this.setHudMenuT(%i++, "", 1, false);
+         %this.setHudMenuT(%i++, "", 1, false);
 		}
-
-		%this.setHudMenuT(%i++, "<just:center>(Press @bind65 for a random hint)\n<font:NovaSquare:18><color:FFFFFF", 1, 1);
-		%this.setHudMenuT(%i++, byteToHex(%alpha), 1, 1);				
-		%this.setHudMenuT(%i++, ">Hint:\n<color:", 1, 1);		
-		%this.setHudMenuT(%i++, %color, 1, 1);					
-		%this.setHudMenuT(%i++, byteToHex(%alpha), 1, 1);				
-		%this.setHudMenuT(%i++, ">" @ %text, 1, 1);
-	}	
+      else
+      {
+   		%this.setHudMenuT(%i++, "<spush><just:center><font:NovaSquare:18><color:FFFFFF", 1, 1);
+         %this.setHudMenuT(%i++, byteToHex(%alpha), 1, 1);
+         %this.setHudMenuT(%i++, ">Tip:\n<color:", 1, 1);
+         %this.setHudMenuT(%i++, %color, 1, 1);
+         %this.setHudMenuT(%i++, byteToHex(%alpha), 1, 1);
+         %this.setHudMenuT(%i++, ">" @ %text @ "\n<spop>", 1, 1);
+      }
+		%this.setHudMenuT(%i++, "(Press @bind65 for a random hint)", 1, 1);
+	}
 	else if(%this.topHudMenu $= "healthbalance")
-	{	
+	{
 		%this.setHudMenuT(1, "Health balance", 1, 1);
 		%this.setHudMenuT(3, "<lmargin:180><bitmap:share/hud/rotc/spec><sbreak>", 1, 1);
 		%this.setHudMenuT(4, "<bitmap:share/hud/rotc/spacer.1x14>", $Server::GameStatus::HealthBalance::Spacers, 1);
-		%this.setHudMenuT(5, "<bitmap:share/hud/rotc/marker.up>", 1, 1);			
+		%this.setHudMenuT(5, "<bitmap:share/hud/rotc/marker.up>", 1, 1);
 	}
 	else if(%this.topHudMenu $= "teamjoustclock")
-	{		
+	{
 		%this.setHudMenuT(1, "Clock", 1, 1);
 
 	}
 	else if(%this.topHudMenu $= "nothing")
-	{		
+	{
 		%this.setHudMenuT(1, "Nothing", 1, 1);
 	}
 }
