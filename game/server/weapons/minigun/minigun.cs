@@ -104,6 +104,7 @@ datablock ShapeBaseImageData(RedMinigunImage)
 		stateArmThread[2]                = "holdblaster";
 		stateSpinThread[2]               = "Stop";
 		stateSequence[2]                 = "idle";
+		stateScript[2]                   = "onReady";
 
 		// charge...
 		stateName[3]                     = "Charge";
@@ -180,8 +181,15 @@ function RedMinigunImage::getBulletSpread(%this, %obj)
    return 0.015;
 }
 
+function RedMinigunImage::onReady(%this, %obj, %slot)
+{
+   %obj.zCurrentMinigunBullet = 0;
+}
+
 function RedMinigunImage::onFire(%this, %obj, %slot)
 {
+   %obj.zCurrentMinigunBullet += 1;
+
 	%projectile = %this.projectile;
 
 	// determine muzzle-point...
@@ -193,14 +201,32 @@ function RedMinigunImage::onFire(%this, %obj, %slot)
 	//
 	%p = VectorAdd(%muzzlePoint, %muzzleVector);
 	%r = 0.1;
-	for(%i = 0; %i < 3; %i++)
-	{
-		%rand = getRandom(10)-5;
-		if(%rand == 0)
-			%newpos[%i] = getWord(%p, %i);
-		else
-			%newpos[%i] = getWord(%p, %i) + %r / %rand;			
-	}
+
+   if(%obj.zCurrentMinigunBullet == 1)
+   {
+      %newPos[0] = getWord(%p, 0);
+      %newPos[1] = getWord(%p, 1);
+      %newPos[2] = getWord(%p, 2);
+   }
+   else
+   {
+   	for(%i = 0; %i < 2; %i++)
+   	{
+   		%rand = getRandom(10)-5;
+   		if(%rand == 0)
+   			%newpos[%i] = getWord(%p, %i);
+   		else
+   			%newpos[%i] = getWord(%p, %i) + %r / %rand;
+   	}
+      if(%obj.zCurrentMinigunBullet & 1)
+         %newpos[2] = getWord(%p, 2);
+      else
+      {
+   		%rand = getRandom(10)-5;
+  			%newpos[2] = getWord(%p, 2) + %r / %rand;
+      }
+   }
+
 	%muzzleVector = VectorSub(%newpos[0] SPC %newpos[1] SPC %newpos[2], %muzzlePoint);
 	%muzzleVector = VectorNormalize(%muzzleVector );
 
@@ -243,6 +269,11 @@ datablock ShapeBaseImageData(BlueMinigunImage : RedMinigunImage)
 function BlueMinigunImage::getBulletSpread(%this, %obj)
 {
    return RedMinigunImage::getBulletSpread(%this, %obj);
+}
+
+function BlueMinigunImage::onReady(%this, %obj, %slot)
+{
+   RedMinigunImage::onReady(%this, %obj, %slot);
 }
 
 function BlueMinigunImage::onFire(%this, %obj, %slot)
