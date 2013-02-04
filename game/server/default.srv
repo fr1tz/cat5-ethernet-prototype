@@ -40,7 +40,7 @@ $Pref::Server::ConnectionError =
 
 // The network port is also defined by the client, this value 
 // overrides pref::net::port for dedicated servers
-$Pref::Server::Port = 30000;
+$Pref::Server::Port = 27015;
 
 // If the password is set, clients must provide it in order
 // to connect to the server

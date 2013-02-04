@@ -22,7 +22,7 @@ $Pref::Server::Name = "Lazy Hoster's Funhouse";
 $Pref::Server::Info =
 	"<just:center>" @
 	"\n[ Default Arena description ]\n" @
-	"<spush><font:NovaSquare:16><color:AA0000>" @
+	"<spush><font:Arial:16><color:AA0000>" @
 	"Daily meetup time: 8pm CET<spop>\n" @
 	"Scheduled matches: None";
 $Pref::Server::ConnectionError =
