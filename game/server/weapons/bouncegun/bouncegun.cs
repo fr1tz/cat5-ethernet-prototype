@@ -69,8 +69,8 @@ datablock ProjectileData(RedBounceGunProjectile1)
 
 	// script damage properties...
 	impactDamage       = 0;
-	impactImpulse      = 2500;
-	splashDamage       = 50;
+	impactImpulse      = 500;
+	splashDamage       = 40;
 	splashDamageRadius = 2;
 	splashImpulse      = 0;
 	bypassDamageBuffer = false;
@@ -268,7 +268,7 @@ datablock ShapeBaseImageData(RedBounceGunImage)
 		
 		stateName[3]                     = "Fire";
 		stateTransitionOnTriggerUp[3]    = "KeepAiming";
-		//stateTimeoutValue[3]             = 0.0;
+		stateTimeoutValue[3]             = 0.5;
 		stateFire[3]                     = true;
 		stateFireProjectile[3]           = BounceGunPseudoProjectile;
 		stateRecoil[3]                   = MediumRecoil;
