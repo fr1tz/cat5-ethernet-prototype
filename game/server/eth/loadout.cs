@@ -11,13 +11,10 @@ function GameConnection::loadDefaultLoadout(%this, %no)
          %this.loadoutName[%no] = "Shotgunner";
          %this.loadoutCode[%no] = "1";
       case 2:
-         %this.loadoutName[%no] = "Sniper";
-         %this.loadoutCode[%no] = "3";
-      case 3:
          %this.loadoutName[%no] = "Minigunner";
          %this.loadoutCode[%no] = "4";
-      case 4:
-         %this.loadoutName[%no] = "Defender";
+      case 3:
+         %this.loadoutName[%no] = "Specialist";
          %this.loadoutCode[%no] = "2";
       default:
          %this.loadoutName[%no] = "";
