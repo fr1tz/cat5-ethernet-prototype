@@ -485,11 +485,11 @@ function GameConnection::togglePlayerForm(%this, %forced)
 				return;
 			}
 			
-			if(%this.player.getEnergyLevel() < 50)
-			{
-				%this.beepMsg("You need at least 50% energy to manifest!");
-				return;
-			}
+			//if(%this.player.getEnergyLevel() < 50)
+			//{
+			//	%this.beepMsg("You need at least 50% energy to manifest!");
+			//	return;
+			//}
 
 			%ownTeamId = %this.player.getTeamId();
 	
@@ -655,7 +655,8 @@ function GameConnection::togglePlayerForm(%this, %forced)
 			//}
 		}
 		
-		%obj.setEnergyLevel(%nrg - 50);
+		//%obj.setEnergyLevel(%nrg - 50);
+      %obj.setDamageLevel(%dmg + 50);
 		%obj.applyImpulse(%pos, VectorScale(%vel,100));
 		%obj.playAudio(0, EtherformSpawnSound);	
 	}
