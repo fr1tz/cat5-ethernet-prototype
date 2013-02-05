@@ -15,7 +15,7 @@ datablock ShotgunProjectileData(RedShotgunProjectile)
 	stat = "blaster";
 
 	// script damage properties...
-	impactDamage        = 15;
+	impactDamage        = 20;
    impactDamageFalloff = $ImpactDamageFalloff::Linear;
    impactDamageMaxDist = 100;
 	impactImpulse       = 100;
