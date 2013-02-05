@@ -165,8 +165,8 @@ datablock PlayerData(RedStandardCat)
 
 	flyForce = 10 * 90 * $Server::Game.slowpokemod;
 
-	runForce = 100 * 90 * $Server::Game.slowpokemod; // formerly 48 * 90
-	runEnergyDrain = 1;
+	runForce = 200 * 90 * $Server::Game.slowpokemod; // formerly 48 * 90
+	runEnergyDrain = 2;
 	minRunEnergy = 5;
 	
 	slideForce = 20 * 90 * $Server::Game.slowpokemod;
