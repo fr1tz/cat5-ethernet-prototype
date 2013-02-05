@@ -22,7 +22,7 @@ MoveMap.bind( keyboard, "escape", toggleShellDlg );
 // camera & view...
 //------------------------------------------------------------------------------
 
-MoveMap.bind(keyboard, "lessthan", freeLook );
+MoveMap.bind(mouse, "button2", freeLook ); // middle button
 MoveMap.bind(keyboard, "p", toggleFirstPerson );
 
 //------------------------------------------------------------------------------
@@ -33,6 +33,7 @@ MoveMap.bind( keyboard, "a", moveleft );
 MoveMap.bind( keyboard, "d", moveright );
 MoveMap.bind( keyboard, "w", moveforward );
 MoveMap.bind( keyboard, "s", movebackward );
+
 MoveMap.bind(mouse0, "xaxis", S, $pref::Input::MouseSensitivity, horizontal);
 MoveMap.bind(mouse0, "yaxis", S, $pref::Input::MouseSensitivity, vertical);
 
@@ -41,10 +42,9 @@ MoveMap.bind(mouse0, "yaxis", S, $pref::Input::MouseSensitivity, vertical);
 //------------------------------------------------------------------------------
 
 MoveMap.bind( mouse, "button0", trigger0 ); // left button
-MoveMap.bind( mouse, "button2", trigger3 ); // middle button
-MoveMap.bind( mouse, "button1", trigger1 ); // right button
+MoveMap.bind( mouse, "button1", trigger4 ); // right button
 MoveMap.bind( keyboard, "space", trigger2 );
-MoveMap.bind( keyboard, "lshift", trigger4 );
+MoveMap.bind( keyboard, "lshift", trigger1 );
 MoveMap.bind( keyboard, "lcontrol", trigger5 );
 
 //------------------------------------------------------------------------------
