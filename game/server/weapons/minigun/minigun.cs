@@ -100,7 +100,7 @@ datablock ShapeBaseImageData(RedMinigunImage)
 		stateName[2]                     = "Ready";
 		stateTransitionOnNoAmmo[2]       = "NoAmmo";
 		stateTransitionOnNotLoaded[2]    = "Disabled";
-		stateTransitionOnTriggerDown[2]  = "Fire";
+		stateTransitionOnTriggerDown[2]  = "Charge";
 		stateArmThread[2]                = "holdblaster";
 		stateSpinThread[2]               = "Stop";
 		stateSequence[2]                 = "idle";
@@ -115,6 +115,7 @@ datablock ShapeBaseImageData(RedMinigunImage)
 		stateArmThread[3]                = "aimblaster";
 		stateSound[3]                    = MinigunSpinUpSound;
 		stateSpinThread[3]               = "SpinUp";
+		stateScript[3]                   = "onCharge";
 
 		stateName[9]                     = "Spin";
 		stateTransitionOnTriggerUp[9]    = "Cooldown";
@@ -153,6 +154,7 @@ datablock ShapeBaseImageData(RedMinigunImage)
 		stateArmThread[5]                = "aimblaster";
 		stateSound[5]                    = MinigunSpinDownSound;
 		stateSpinThread[5]               = "SpinDown";
+		stateScript[5]                   = "onCooldown";
 		
 		// no ammo...
 		stateName[6]                     = "NoAmmo";
@@ -184,6 +186,13 @@ function RedMinigunImage::getBulletSpread(%this, %obj)
 function RedMinigunImage::onReady(%this, %obj, %slot)
 {
    %obj.zCurrentMinigunBullet = 0;
+   %obj.setSniping(false);
+}
+
+function RedMinigunImage::onCharge(%this, %obj, %slot)
+{
+	//error("Minigun: onCharge()");
+    %obj.setSniping(true);
 }
 
 function RedMinigunImage::onFire(%this, %obj, %slot)
@@ -218,12 +227,15 @@ function RedMinigunImage::onFire(%this, %obj, %slot)
    		else
    			%newpos[%i] = getWord(%p, %i) + %r / %rand;
    	}
-      if(%obj.zCurrentMinigunBullet & 1)
+      if(true || %obj.zCurrentMinigunBullet & 1)
          %newpos[2] = getWord(%p, 2);
       else
       {
    		%rand = getRandom(10)-5;
-  			%newpos[2] = getWord(%p, 2) + %r / %rand;
+   		if(%rand == 0)
+   			%newpos[2] = getWord(%p, 2);
+   		else
+   			%newpos[2] = getWord(%p, 2) + %r / %rand;
       }
    }
 
@@ -256,6 +268,10 @@ function RedMinigunImage::onFire(%this, %obj, %slot)
 	return %p;
 }
 
+function RedMinigunImage::onCooldown(%this, %obj, %slot)
+{
+   %obj.setSniping(false);
+}
 
 //------------------------------------------------------------------------------
 
@@ -276,8 +292,18 @@ function BlueMinigunImage::onReady(%this, %obj, %slot)
    RedMinigunImage::onReady(%this, %obj, %slot);
 }
 
+function BlueMinigunImage::onCharge(%this, %obj, %slot)
+{
+   RedMinigunImage::onCharge(%this, %obj, %slot);
+}
+
 function BlueMinigunImage::onFire(%this, %obj, %slot)
 {
 	RedMinigunImage::onFire(%this, %obj, %slot);
+}
+
+function BlueMinigunImage::onCooldown(%this, %obj, %slot)
+{
+   RedMinigunImage::onCooldown(%this, %obj, %slot);
 }
 

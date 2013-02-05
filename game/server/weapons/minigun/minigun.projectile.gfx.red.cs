@@ -57,20 +57,20 @@ datablock LaserBeamData(RedMinigunProjectileLaserTail)
 	lineWidth		  = 2.0;
 
 	hasInner = true;
-	innerStartColor = "1.00 1.00 0.00 0.0";
-	innerBetweenColor = "1.00 1.00 0.00 1.0";
-	innerEndColor = "1.00 1.00 1.00 1.0";
-	innerStartWidth = "0.5";
-	innerBetweenWidth = "0.5";
-	innerEndWidth = "0.5";
+	innerStartColor = "1.00 0.00 0.00 0.0";
+	innerBetweenColor = "1.00 0.00 0.00 1.0";
+	innerEndColor = "1.00 0.00 0.00 1.0";
+	innerStartWidth = "0.2";
+	innerBetweenWidth = "0.2";
+	innerEndWidth = "0.2";
 
-	hasOuter = false;
-	outerStartColor = "0.00 0.00 0.90 0.0";
-	outerBetweenColor = "0.50 0.00 0.90 0.8";
-	outerEndColor = "1.00 1.00 1.00 0.8";
+	hasOuter = true;
+	outerStartColor = "1.00 1.00 0.00 0.0";
+	outerBetweenColor = "1.00 1.00 0.00 1.0";
+	outerEndColor = "1.00 1.00 0.00 1.0";
 	outerStartWidth = "0.3";
-	outerBetweenWidth = "0.25";
-	outerEndWidth = "0.1";
+	outerBetweenWidth = "0.3";
+	outerEndWidth = "0.3";
 	
 //	bitmap = "share/shapes/rotc/weapons/blaster/lasertail.red";
 //	bitmapWidth = 0.20;
