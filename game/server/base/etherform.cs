@@ -91,8 +91,8 @@ datablock EtherformData(RedEtherform)
 	drag = 0.999;
 	density = 10;
 
-	maxDamage = 75;
-	damageBuffer = 25;
+	maxDamage = 100;
+	damageBuffer = 0;
 	maxEnergy = 100;
 
 	damageBufferRechargeRate = 0.15;
