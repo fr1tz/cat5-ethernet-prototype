@@ -111,6 +111,9 @@ function GameConnection::onClientEnterGame(%this)
 	%this.simpleControl = new Array();
 	MissionCleanup.add(%this.simpleControl);
 
+   // Minimap
+	commandToClient(%this, 'Hud', "minimap", true, 450, false);
+
 	// HUD Backgrounds...
 	for(%i = 1; %i <= 3; %i++)
 	{
@@ -315,7 +318,7 @@ function GameConnection::setDefaultCrosshair(%this)
 {
    commandToClient(%this, 'Crosshair', 0);
    //commandToClient(%this, 'Crosshair', 2, 2);
-   commandToClient(%this, 'Crosshair', 3, 1, 3);
+   commandToClient(%this, 'Crosshair', 3, 1, 10);
    //commandToClient(%this, 'Crosshair', 5, "./rotc/ch1");
    commandToClient(%this, 'Crosshair', 1);
 }
@@ -881,6 +884,8 @@ function GameConnection::updateHudWarningsThread(%this)
 		%this.setHudWarning(3, "", false);	
 		return;
 	}
+
+   return;
 
 	%health = %player.getDataBlock().maxDamage 
 		- %player.getDamageLevel() 
