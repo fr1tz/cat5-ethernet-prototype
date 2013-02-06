@@ -63,11 +63,11 @@ $Pref::Recording::SpeedPreset6 = 10;
 $Pref::Recording::FreelookMoveSpeed = 40;
 
 if($platform $= "windows")
-	$pref::Player::Name = "progman.exe";
+	$pref::Player::Name = "LazyWindowsUser";
 else if($platform $= "macos")
-	$pref::Player::Name = "player.app";
+	$pref::Player::Name = "LazyMacUser";
 else
-	$pref::Player::Name = "/bin/cat";
+	$pref::Player::Name = "LazyLinuxUser";
 $pref::Player::DefaultFov = 110;
 $pref::Player::ZoomSpeed = 200;
 $pref::Player::MouseZoomSteps = 3;
