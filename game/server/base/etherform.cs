@@ -87,7 +87,7 @@ datablock EtherformData(RedEtherform)
 	//debris = BomberDebris;
 	//debrisShapeName = "share/shapes/rotc/vehicles/bomber/vehicle.dts";
 
-	mass = 90;
+	mass = 40;
 	drag = 0.999;
 	density = 10;
 
@@ -103,7 +103,7 @@ datablock EtherformData(RedEtherform)
     boundingBox = "1.0 1.0 1.0";
  
     // etherform movement...
-    accelerationForce = 150;
+    accelerationForce = 200;
 
 	// impact damage...
 	minImpactSpeed = 1;		// If hit ground at speed above this then it's an impact. Meters/second
