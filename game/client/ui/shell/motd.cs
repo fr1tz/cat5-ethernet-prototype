@@ -22,8 +22,8 @@ function MotdWindow::onWake(%this)
 function MotdWindow::refresh(%this)
 {
 	$MOTD::Text = "";
-	MotdText.setText("--- FETCHING http://ethernet.wasted.ch/motd ---\n");
-	MOTDconn.get("ethernet.wasted.ch:80", "/motd");
+	MotdText.setText("--- FETCHING http://cat5.wasted.ch/motd ---\n");
+	MOTDconn.get("cat5.wasted.ch:80", "/motd");
 }
 
 function MotdWindow::setMotd()
