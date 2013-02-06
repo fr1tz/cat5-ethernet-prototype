@@ -93,7 +93,7 @@ datablock EtherformData(RedEtherform)
 
 	maxDamage = 100;
 	damageBuffer = 0;
-	maxEnergy = 100;
+	maxEnergy = 0;
 
 	damageBufferRechargeRate = 0.15;
 	damageBufferDischargeRate = 0.05;
