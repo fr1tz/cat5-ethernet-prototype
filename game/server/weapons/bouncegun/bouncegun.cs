@@ -15,7 +15,7 @@ datablock TracerProjectileData(BounceGunPseudoProjectile)
    // Keep these three in sync with the real projectiles down below!
 	energyDrain = 16; 
 	muzzleVelocity = 50 * $Server::Game.slowpokemod;
-	velInheritFactor = 1.0 * $Server::Game.slowpokemod;
+	velInheritFactor = 0.0 * $Server::Game.slowpokemod;
 };
 
 function BounceGunPseudoProjectile::onAdd(%this, %obj)
@@ -107,7 +107,7 @@ datablock ProjectileData(RedBounceGunProjectile1)
    // Keep these three in sync with the pseudo projectile above!
 	energyDrain = 16;
 	muzzleVelocity	= 50 * $Server::Game.slowpokemod;
-	velInheritFactor = 1.0 * $Server::Game.slowpokemod;
+	velInheritFactor = 0.0 * $Server::Game.slowpokemod;
 	
 	isBallistic = false;
 	gravityMod  = 5.0 * $Server::Game.slowpokemod;
