@@ -199,27 +199,27 @@ function GameConnection::displayInventory(%this, %obj)
 	{
 		%this.setHudMenuL(0, "\n", 8, 1);
 		%this.setHudMenuL(1, "<lmargin:100><font:Arial:18><tab:120,175,200>" @
-         "Select Loadout:\n\n", 1, 1);
+         "Select class:\n\n", 1, 1);
 
 		%slot = 2;
-		%prefix = "<bitmap:share/hud/rotc/icon.";
-		%suffix = ".50x15> ";
-		for(%i = 1; %i <= 3; %i++)
-		{
-		   for(%j = 1; %j <= %numItems; %j++)
-		   {
-				if(%this.loadout[%i] == %item[%j])
-				{
-					%icon = %iconname[%item[%j]];
-					%this.setHudMenuL(%slot, %prefix @ %icon @ %suffix, 1, 1);
-					%slot++;
-		 	   }
-		   }
-		}
-		%this.setHudMenuL(%slot, "<sbreak><font:Arial:14>" @
-         "<bitmap:share/hud/rotc/icon.quickswitch.50x15>" @
-         "Press @bind51 to exchange\n\nLoad:\n", 1, 1);
-      %slot++;
+//		%prefix = "<bitmap:share/hud/rotc/icon.";
+//		%suffix = ".50x15> ";
+//		for(%i = 1; %i <= 3; %i++)
+//		{
+//		   for(%j = 1; %j <= %numItems; %j++)
+//		   {
+//				if(%this.loadout[%i] == %item[%j])
+//				{
+//					%icon = %iconname[%item[%j]];
+//					%this.setHudMenuL(%slot, %prefix @ %icon @ %suffix, 1, 1);
+//					%slot++;
+//		 	   }
+//		   }
+//		}
+//		%this.setHudMenuL(%slot, "<sbreak><font:Arial:14>" @
+//         "<bitmap:share/hud/rotc/icon.quickswitch.50x15>" @
+//         "Press @bind51 to exchange\n\nLoad:\n", 1, 1);
+//      %slot++;
 
       %tmp = "";
 		for(%i = 1; %i <= 10; %i++)
