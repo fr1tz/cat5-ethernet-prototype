@@ -180,7 +180,7 @@ datablock ExplosionData(BlueBounceGunProjectileBounceExplosion)
 	emitter[0] = BlueBounceGunProjectileBounceExplosion_SmokeEmitter;
 	
 	// Dynamic light
-	lightStartRadius = 10;
+	lightStartRadius = 5;
 	lightEndRadius = 0;
 	lightStartColor = "1 1 1";
 	lightEndColor = "1 1 1";
@@ -205,8 +205,8 @@ datablock ParticleData(BlueBounceGunProjectileExplosion_Cloud)
 	textureName = "share/textures/rotc/corona.png";
 
 	colors[0]	  = "1.0 1.0 1.0 1.0";
-	colors[1]	  = "1.0 0.5 0.0 0.5";
-	colors[2]	  = "1.0 0.5 0.0 0.0";
+	colors[1]	  = "0.0 0.0 1.0 0.5";
+	colors[2]	  = "0.0 0.0 1.0 0.0";
 	sizes[0]		= 2.0;
 	sizes[1]		= 4.0;
 	sizes[2]		= 8.0;
@@ -326,10 +326,10 @@ datablock ParticleData(BlueBounceGunProjectileExplosion_Sparks)
 	constantAcceleration = 0.0;
 	lifetimeMS			  = 300;
 	lifetimeVarianceMS	= 150;
-	textureName			 = "share/textures/rotc/spark00.png";
+	textureName			 = "share/textures/rotc/spark01.png";
 	colors[0]	  = "1 1 1 1";
-	colors[1]	  = "1 1 1 1";
-	colors[2]	  = "1 1 1 0";
+	colors[1]	  = "0 0 1 1";
+	colors[2]	  = "0 0 1 0";
 	sizes[0]		= 2.0;
 	sizes[1]		= 1.0;
 	sizes[2]		= 0.0;
@@ -424,7 +424,7 @@ datablock ExplosionData(BlueBounceGunProjectileExplosion)
 	particleRadius = 0.5;
 
 	emitter[0] = BlueBounceGunProjectileExplosion_DustEmitter;
-	emitter[1] = BlueBounceGunProjectileExplosion_SparksEmitter;
+	emitter[1] = 0; //BlueBounceGunProjectileExplosion_SparksEmitter;
 	emitter[2] = 0; //BlueBounceGunProjectileExplosion_SmokeEmitter;
 
 	// Camera shake
