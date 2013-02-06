@@ -255,7 +255,7 @@ datablock PlayerData(RedStandardCat)
 	// ground connection beam
 	//groundConnectionBeam = StandardCatGroundConnectionBeam;
 
-   numShapeTrails = 0;
+   numShapeTrails = 10;
 
 	// slide emitters
 	//slideContactParticleFootEmitter = RedSlideEmitter;
