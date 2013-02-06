@@ -636,7 +636,7 @@ function GameConnection::togglePlayerForm(%this, %forced)
 		%this.player.delete();
 
 		%obj.setEnergyLevel(%nrg);
-		%obj.setVelocity(VectorScale(%vel, 0.25));
+		//%obj.setVelocity(VectorScale(%vel, 0.25));
 		
 		%obj.startFade(1000,0,false);
 		%obj.playAudio(0, CatSpawnSound);		
