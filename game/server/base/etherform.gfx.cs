@@ -296,28 +296,28 @@ datablock MultiNodeLaserBeamData(RedEtherform_LaserTrailOne)
 	lineColor	= "1.00 1.00 0.00 0.7";
 
 	hasInner = true;
-	innerColor = "1.0 0.0 0.0 0.5";
-	innerWidth = "0.75";
+	innerColor = "1.0 1.0 1.0 0.5";
+	innerWidth = "0.3";
 
-	hasOuter = false;
-	outerColor = "1.00 0.00 1.00 0.1";
-	outerWidth = "0.10";
+	hasOuter = true;
+	outerColor = "1.0 0.0 0.0 0.5";
+	outerWidth = "0.6";
 
 	//bitmap = "share/shapes/rotc/vehicles/team1scoutflyer/lasertrail";
 	//bitmapWidth = 1;
 
 	blendMode = 1;
-	fadeTime = 1000;
+	fadeTime = 300;
 };
 
 datablock MultiNodeLaserBeamData(RedEtherform_LaserTrailTwo)
 {
-	hasLine = true;
+	hasLine = false;
 	lineColor	= "1.00 0.50 0.00 0.5";
 
-	hasInner = false;
+	hasInner = true;
 	innerColor = "1.0 0.0 0.0 0.5";
-	innerWidth = "0.75";
+	innerWidth = "0.3";
 
 	hasOuter = false;
 	outerColor = "1.00 0.00 1.00 0.1";
@@ -327,7 +327,7 @@ datablock MultiNodeLaserBeamData(RedEtherform_LaserTrailTwo)
 	//bitmapWidth = 1;
 
 	blendMode = 1;
-	fadeTime = 4000;
+	fadeTime = 600;
 };
 
 datablock MultiNodeLaserBeamData(BlueEtherform_LaserTrailOne)
@@ -336,28 +336,28 @@ datablock MultiNodeLaserBeamData(BlueEtherform_LaserTrailOne)
 	lineColor	= "1.00 1.00 0.00 0.7";
 
 	hasInner = true;
-	innerColor = "0.0 0.0 1.0 0.5";
-	innerWidth = "0.75";
+	innerColor = "1.0 1.0 1.0 0.5";
+	innerWidth = "0.3";
 
-	hasOuter = false;
-	outerColor = "1.00 0.00 1.00 0.1";
-	outerWidth = "0.10";
+	hasOuter = true;
+	outerColor = "0.0 0.0 1.0 0.5";
+	outerWidth = "0.6";
 
 	//bitmap = "share/shapes/rotc/vehicles/team1scoutflyer/lasertrail";
 	//bitmapWidth = 1;
 
 	blendMode = 1;
-	fadeTime = 1000;
+	fadeTime = 300;
 };
 
 datablock MultiNodeLaserBeamData(BlueEtherform_LaserTrailTwo)
 {
-	hasLine = true;
-	lineColor	= "0.00 0.50 1.00 0.5";
+	hasLine = false;
+	lineColor	= "1.00 0.50 0.00 0.5";
 
-	hasInner = false;
+	hasInner = true;
 	innerColor = "0.0 0.0 1.0 0.5";
-	innerWidth = "0.75";
+	innerWidth = "0.3";
 
 	hasOuter = false;
 	outerColor = "1.00 0.00 1.00 0.1";
@@ -367,7 +367,7 @@ datablock MultiNodeLaserBeamData(BlueEtherform_LaserTrailTwo)
 	//bitmapWidth = 1;
 
 	blendMode = 1;
-	fadeTime = 4000;
+	fadeTime = 600;
 };
 
 datablock MultiNodeLaserBeamData(NyanEtherform_LaserTrail)
