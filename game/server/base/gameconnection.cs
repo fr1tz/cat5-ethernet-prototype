@@ -635,7 +635,8 @@ function GameConnection::togglePlayerForm(%this, %forced)
 		
 		%this.player.delete();
 
-		%obj.setEnergyLevel(%nrg);
+		//%obj.setEnergyLevel(%nrg);
+      %obj.setEnergyLevel(%obj.getDataBlock().maxEnergy);
 		//%obj.setVelocity(VectorScale(%vel, 0.25));
 		
 		%obj.startFade(1000,0,false);
