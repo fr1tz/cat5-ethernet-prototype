@@ -4,40 +4,6 @@
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Cat5 - cats.gfx.cs
-// eyecandy shared by all CATs
-//------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------
-// light images...
-
-datablock ShapeBaseImageData(RedCatLightImage)
-{
-	// basic item properties
-	shapeFile = "share/shapes/rotc/misc/nothing.dts";
-	emap = true;
-
-	// mount point & mount offset...
-	mountPoint  = 4;
-	offset = "0 0 0";
-	
-	// light properties...
-	lightType = "ConstantLight";
-	lightColor = "1 0 0";
-	lightTime = 1000;
-	lightRadius = 4;
-	lightCastsShadows = false;
-	lightAffectsShapes = false;
-
-	stateName[0] = "DoNothing";
-};
-
-datablock ShapeBaseImageData(BlueCatLightImage : RedCatLightImage)
-{
-	lightColor = "0 0.5 1";
-};
-
-//------------------------------------------------------------------------------
 // damage buffer particle emitter...
 
 datablock ParticleData(RedCatDamageBufferEmitter_Particle)

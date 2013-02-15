@@ -3,96 +3,138 @@
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
-exec("./shotgun.projectile.cs");
 exec("./shotgun.sfx.cs");
+exec("./shotgun.gfx.white.cs");
+
+datablock TracerProjectileData(ShotgunPseudoProjectile)
+{
+	energyDrain = 40;
+	lifetime = 1000;
+	muzzleVelocity = 100 * $Server::Game.slowpokemod;
+	velInheritFactor = 0.0 * $Server::Game.slowpokemod;
+};
+
+function ShotgunPseudoProjectile::onAdd(%this, %obj)
+{
+	%player = %obj.sourceObject;
+	%slot = %obj.sourceSlot;
+	%image = %player.getMountedImage(%slot);
+
+	%muzzlePoint = %obj.initialPosition;
+	%muzzleVec = %obj.initialVelocity;
+	%muzzleTransform = createOrientFromDir(VectorNormalize(%muzzleVector));
+
+   %pos = %muzzlePoint;
+
+   %projectile = %image.fireprojectile[0];
+
+	for(%i = 0; %i < 9; %i++)
+	{
+      %spread = %image.getBulletSpread(%player);
+      %randX = %spread * ((getRandom(1000)-500)/1000);
+      %vec = %randX SPC "1 0";
+      %mat = createOrientFromDir(VectorNormalize(%muzzleVec));
+      %vel = VectorScale(MatrixMulVector(%mat, %vec), %this.muzzleVelocity);
+      %pos = VectorAdd(%pos, VectorScale(VectorNormalize(%vel),getRandom(1000)/1000));
+      %pos = VectorSub(%pos, VectorScale(VectorNormalize(%vel),0.5));
+
+		// create the projectile object...
+		%p = new Projectile() {
+			dataBlock       = %projectile;
+			teamId          = %obj.teamId;
+			initialVelocity = %vel;
+			initialPosition = %pos;
+			sourceObject    = %player;
+			sourceSlot      = %slot;
+			client          = %player.client;
+		};
+		MissionCleanup.add(%p);
+	}
+
+	// no need to ghost pseudo projectile to clients...
+	%obj.delete();
+}
 
 //-----------------------------------------------------------------------------
-// fire particle emitter
+// projectile datablock...
 
-datablock ParticleData(RedShotgunFireEmitter_Particles)
+datablock ProjectileData(ShotgunActualProjectile)
 {
-	dragCoefficient       = 1;
-	gravityCoefficient    = 0.0;
-	windCoefficient       = 0.0;
-	inheritedVelFactor    = 1.0;
-	constantAcceleration  = 0.0;
-	lifetimeMS            = 100;
-	lifetimeVarianceMS    = 0;
-	textureName           = "share/textures/rotc/smoke_particle";
-	colors[0]             = "1.0 1.0 1.0 1.0";
-	colors[1]             = "1.0 0.0 0.0 1.0";
-	colors[2]             = "1.0 0.0 0.0 0.0";
-	sizes[0]              = 0.5;
-	sizes[1]              = 0.5;
-	sizes[2]              = 0.0;
-	times[0]              = 0.0;
-	times[1]              = 0.5;
-	times[2]              = 1.0;
+   allowColorization = true;
 
+	stat = "shotgun";
+
+	// script damage properties...
+	impactDamage       = 21;
+	impactImpulse      = 400;
+	splashDamage       = 0;
+	splashDamageRadius = 0;
+	splashImpulse      = 0;
+	bypassDamageBuffer = false;
+
+	trackingAgility = 0;
+
+	explodesNearEnemies			= false;
+	explodesNearEnemiesRadius	= 2;
+	explodesNearEnemiesMask	  = $TypeMasks::PlayerObjectType;
+
+	//sound = ShotgunProjectileSound;
+
+   //projectileShapeName = "share/shapes/rotc/weapons/assaultrifle/projectile2.red.dts";
+
+	explosion             = WhiteShotgunProjectileImpact;
+//	bounceExplosion       = ShotgunProjectileBounceExplosion;
+	hitEnemyExplosion     = WhiteShotgunProjectileHit;
+//	nearEnemyExplosion    = ShotgunProjectileExplosion;
+	hitTeammateExplosion  = WhiteShotgunProjectileHit;
+//	hitDeflectorExplosion = DiscDeflectedEffect;
+
+	missEnemyEffectRadius = 10;
+	missEnemyEffect = WhiteShotgunProjectileMissedEnemyEffect;
+
+//	particleEmitter = ShotgunProjectileParticleEmitter;
+//	laserTrail[0]   = ShotgunProjectileLaserTrail;
+//	laserTrail[1]   = ShotgunProjectileLaserTrail;
+	laserTail	    = WhiteShotgunProjectileLaserTail;
+	laserTailLen    = 3.5;
+
+	muzzleVelocity	= 0; // Handled by ShotgunPseudoProjectile
+	velInheritFactor = 0; // Handled by ShotgunPseudoProjectile
+
+	isBallistic			= false;
+	gravityMod			 = 1.0 * $Server::Game.slowpokemod;
+
+	armingDelay			= 0;
+	lifetime		   	= 1500;
+	fadeDelay			= 0;
+
+	numBounces = 0;
+
+	decals[0] = BulletHoleDecalOne;
+
+	bounceDecals[0] = SmashDecalOne;
+	bounceDecals[1] = SmashDecalTwo;
+	bounceDecals[2] = SmashDecalThree;
+	bounceDecals[3] = SmashDecalFour;
+
+	hasLight	 = true;
+	lightRadius = 2.0;
+	lightColor  = "0.05 0.05 0.05";
 };
 
-datablock ParticleEmitterData(RedShotgunFireEmitter)
+function ShotgunActualProjectile::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist)
 {
-	ejectionPeriodMS = 10;
-	periodVarianceMS = 0;
-	ejectionVelocity = 5.0*10;
-	velocityVariance = 0.2;
-	ejectionOffset   = 0;
-	thetaMin         = 0;
-	thetaMax         = 0;
-	phiReferenceVel  = 0;
-	phiVariance      = 360;
-	overrideAdvances = false;
-	orientParticles  = false;
-	lifetimeMS       = 0;
-	particles        = "RedShotgunFireEmitter_Particles";
-};
+    Parent::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist);
+	 if( !(%col.getType() & $TypeMasks::ShapeBaseObjectType) )
+		return;
+}
 
-datablock ParticleData(BlueShotgunFireEmitter_Particles)
-{
-	dragCoefficient       = 1;
-	gravityCoefficient    = 0.0;
-	windCoefficient       = 0.0;
-	inheritedVelFactor    = 1.0;
-	constantAcceleration  = 0.0;
-	lifetimeMS            = 100;
-	lifetimeVarianceMS    = 0;
-	textureName           = "share/textures/rotc/smoke_particle";
-	colors[0]             = "1.0 1.0 1.0 1.0";
-	colors[1]             = "0.0 0.0 1.0 1.0";
-	colors[2]             = "0.0 0.0 1.0 0.0";
-	sizes[0]              = 0.5;
-	sizes[1]              = 0.5;
-	sizes[2]              = 0.0;
-	times[0]              = 0.0;
-	times[1]              = 0.5;
-	times[2]              = 1.0;
-
-};
-
-datablock ParticleEmitterData(BlueShotgunFireEmitter)
-{
-	ejectionPeriodMS = 10;
-	periodVarianceMS = 0;
-	ejectionVelocity = 5.0*10;
-	velocityVariance = 0.2;
-	ejectionOffset   = 0;
-	thetaMin         = 0;
-	thetaMax         = 0;
-	phiReferenceVel  = 0;
-	phiVariance      = 360;
-	overrideAdvances = false;
-	orientParticles  = false;
-	lifetimeMS       = 0;
-	particles        = "BlueShotgunFireEmitter_Particles";
-};
-
-//------------------------------------------------------------------------------
+//--------------------------------------------------------------------------
 // weapon image which does all the work...
 // (images do not normally exist in the world, they can only
 // be mounted on ShapeBase objects)
 
-datablock ShapeBaseImageData(RedShotgunImage)
+datablock ShapeBaseImageData(ShotgunImage)
 {
 	// add the WeaponImage namespace as a parent
 	className = WeaponImage;
@@ -112,131 +154,102 @@ datablock ShapeBaseImageData(RedShotgunImage)
 	correctMuzzleVector = true;
 
 	usesEnergy = true;
-	minEnergy = 27;
+	minEnergy = 40;
 
-	projectile = RedShotgunProjectile;
+	projectile = ShotgunPseudoProjectile;
 
-    // charging...
-    minCharge = 0.4;
- 
+	// light properties...
+	lightType = "WeaponFireLight";
+	lightColor = "1 0.5 0";
+	lightTime = 100;
+	lightRadius = 15;
+	lightCastsShadows = false;
+	lightAffectsShapes = true;
+
 	// script fields...
-	iconId = 5;
-	armThread = "holdblaster";  // armThread to use when holding this weapon
-	crosshair = "blaster"; // crosshair to display when holding this weapon
-	
+	iconId = 7;
+	mainWeapon = true;
+	armThread  = "aimblaster";  // armThread to use when holding this weapon
+	crosshair  = "assaultrifle"; // crosshair to display when holding this weapon
+	fireprojectile[0] = ShotgunActualProjectile;
+
 	//-------------------------------------------------
 	// image states...
 	//
 		// preactivation...
 		stateName[0]                     = "Preactivate";
 		stateTransitionOnAmmo[0]         = "Activate";
-		stateTransitionOnNoAmmo[0]       = "NoAmmo";
+		stateTransitionOnNoAmmo[0]		 = "NoAmmo";
 
 		// when mounted...
 		stateName[1]                     = "Activate";
 		stateTransitionOnTimeout[1]      = "Ready";
 		stateTimeoutValue[1]             = 0.5;
-		stateSequence[1]                 = "activate";
-		stateSpinThread[1]               = "SpinDown";
+		stateSequence[1]                 = "idle";
+		stateSpinThread[1]               = "SpinUp";
 
 		// ready to fire, just waiting for the trigger...
 		stateName[2]                     = "Ready";
 		stateTransitionOnNoAmmo[2]       = "NoAmmo";
-		stateTransitionOnNotLoaded[2]    = "Disabled";
+  		stateTransitionOnNotLoaded[2]    = "Disabled";
 		stateTransitionOnTriggerDown[2]  = "Fire";
-		stateArmThread[2]                = "holdblaster";
-		stateSpinThread[2]               = "Stop";
-		//stateSequence[2]                 = "idle";
+      stateArmThread[2]                = "aimblaster";
+		stateSpinThread[2]               = "FullSpeed";
+		stateSequence[2]                 = "idle";
 
-		// fire!...
 		stateName[3]                     = "Fire";
+		stateTimeoutValue[3]             = 0.00;
 		stateTransitionOnTimeout[3]      = "AfterFire";
-		stateTimeoutValue[3]             = 0.8;
 		stateFire[3]                     = true;
-		stateFireProjectile[3]           = RedShotgunProjectile;
+		stateFireProjectile[3]           = ShotgunPseudoProjectile;
 		stateRecoil[3]                   = MediumRecoil;
 		stateAllowImageChange[3]         = false;
 		stateEjectShell[3]               = true;
 		stateArmThread[3]                = "aimblaster";
-		stateSequence[3]                 = "fire";
+		stateSequence[3]                 = "Fire";
 		stateSound[3]                    = ShotgunFireSound;
-		stateEmitter[3]                  = RedShotgunFireEmitter;
-		stateEmitterNode[3]              = "fireparticles";
-		stateEmitterTime[3]              = 0.1;
-		stateSpinThread[3]               = "Stop";
-		stateScript[3]                   = "onFire";
-		
-		// after fire...
-		stateName[4]                     = "AfterFire";
-		stateTransitionOnTriggerUp[4]    = "KeepAiming";
 
-		// keep aiming...
-		stateName[5]                     = "KeepAiming";
-		stateTransitionOnNoAmmo[5]       = "NoAmmo";
-		stateTransitionOnTriggerDown[5]  = "Fire";
-		stateTransitionOnTimeout[5]      = "Ready";
-		stateTransitionOnNotLoaded[5]    = "Disabled";
-		stateWaitForTimeout[5]           = false;
-		stateTimeoutValue[5]             = 2.00;
-			
-		// no ammo...
-		stateName[6]                     = "NoAmmo";
-        stateTransitionOnTriggerDown[6]  = "DryFire";
-		stateTransitionOnAmmo[6]         = "Ready";
-		stateTimeoutValue[6]             = 0.50;
-		//stateSequence[6]                 = "idle";
-  
+		// after fire...
+		stateName[8]                     = "AfterFire";
+		stateTransitionOnTriggerUp[8]    = "KeepAiming";
+
+		stateName[4]                     = "KeepAiming";
+		stateTransitionOnNoAmmo[4]       = "NoAmmo";
+		stateTransitionOnNotLoaded[4]    = "Disabled";
+		stateTransitionOnTriggerDown[4]  = "Fire";
+		stateTransitionOnTimeout[4]      = "Ready";
+		stateWaitForTimeout[4]           = false;
+		stateTimeoutValue[4]             = 2.00;
+
+        // no ammo...
+		stateName[5]                     = "NoAmmo";
+		stateTransitionOnAmmo[5]         = "Ready";
+        stateTransitionOnTriggerDown[5]  = "DryFire";
+		stateTimeoutValue[5]             = 0.50;
+		stateSequence[5]                 = "idle";
+
         // dry fire...
-		stateName[7]                     = "DryFire";
-		stateTransitionOnTriggerUp[7]    = "NoAmmo";
-		stateSound[7]                    = WeaponEmptySound;
-		//stateSequence[7]                 = "idle";
+		stateName[6]                     = "DryFire";
+		stateTransitionOnTriggerUp[6]    = "NoAmmo";
+		stateSound[6]                    = WeaponEmptySound;
 
 		// disabled...
-		stateName[8]                     = "Disabled";
-		stateTransitionOnLoaded[8]       = "Ready";
-		stateAllowImageChange[8]         = false;
-		//stateSequence[8]                 = "idle";
+		stateName[7]                     = "Disabled";
+		stateTransitionOnLoaded[7]       = "Ready";
+		stateAllowImageChange[7]         = false;
 	//
 	// ...end of image states
 	//-------------------------------------------------
 };
 
-function RedShotgunImage::getBulletSpread(%this, %obj)
+function ShotgunImage::getBulletSpread(%this, %obj)
 {
-   return 0.07;
+   return 0.3;
 }
 
-function RedShotgunImage::onMount(%this, %obj, %slot)
+function ShotgunImage::onMount(%this, %obj, %slot)
 {
-   Parent::onMount(%this, %obj, %slot);
-
-   // Set up recoil
-   %obj.setImageRecoilEnabled(%slot, true);
-   %obj.setImageCurrentRecoil(%slot, 70);
-   %obj.setImageMaxRecoil(%slot, 70);
-   %obj.setImageRecoilAdd(%slot, 0);
-   %obj.setImageRecoilDelta(%slot, -0);
-}
-
-//------------------------------------------------------------------------------
-
-datablock ShapeBaseImageData(BlueShotgunImage : RedShotgunImage)
-{
-	shapeFile = "share/shapes/rotc/weapons/blaster/image2.blue.dts";
-	projectile = BlueShotgunProjectile;
-	stateFireProjectile[3] = BlueShotgunProjectile;
-    stateEmitter[3] = BlueShotgunFireEmitter;
-};
-
-function BlueShotgunImage::getBulletSpread(%this, %obj)
-{
-   return RedShotgunImage::getBulletSpread(%this, %obj);
-}
-
-function BlueShotgunImage::onMount(%this, %obj, %slot)
-{
-   RedShotgunImage::onMount(%this, %obj, %slot);
+    Parent::onMount(%this, %obj, %slot);
 }
 
 

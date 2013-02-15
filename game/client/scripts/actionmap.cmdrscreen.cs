@@ -13,7 +13,7 @@ new ActionMap(CmdrScreenActionMap);
 function cmdrscreen_deactivate(%val)
 {
 	if(%val)
-		Canvas.setContent(Hud);
+		Canvas.setContent(Cockpit);
 }
 
 CmdrScreenActionMap.bind(keyboard, "c", cmdrscreen_deactivate );

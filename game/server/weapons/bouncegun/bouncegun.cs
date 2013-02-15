@@ -5,15 +5,14 @@
 
 exec("./bouncegun.sfx.cs");
 exec("./bouncegun.gfx.cs");
-exec("./bouncegun.gfx.red.cs");
-exec("./bouncegun.gfx.blue.cs");
+exec("./bouncegun.gfx.white.cs");
 
 datablock TracerProjectileData(BounceGunPseudoProjectile)
 {
 	lifetime = 1000;
 
    // Keep these three in sync with the real projectiles down below!
-	energyDrain = 16; 
+	energyDrain = 15;
 	muzzleVelocity = 50 * $Server::Game.slowpokemod;
 	velInheritFactor = 0.0 * $Server::Game.slowpokemod;
 };
@@ -46,7 +45,7 @@ function BounceGunPseudoProjectile::onAdd(%this, %obj)
 		// create the projectile object...
 		%p = new Projectile() {
 			dataBlock       = %projectile;
-			teamId          = %obj.teamId;
+			teamId          = %player.teamId;
 			initialVelocity = %velocity;
 			initialPosition = %position;
 			sourceObject    = %player;
@@ -63,8 +62,10 @@ function BounceGunPseudoProjectile::onAdd(%this, %obj)
 //-----------------------------------------------------------------------------
 // projectile datablock...
 
-datablock ProjectileData(RedBounceGunProjectile1)
+datablock ProjectileData(BounceGunProjectile)
 {
+   allowColorization = true;
+
 	stat = "br";
 
 	// script damage properties...
@@ -83,29 +84,29 @@ datablock ProjectileData(RedBounceGunProjectile1)
 
 	//sound = BounceGunProjectileSound;
  
-    projectileShapeName = "share/shapes/rotc/weapons/assaultrifle/projectile2.red.dts";
+   projectileShapeName = "share/shapes/cat5/bounceprojectile.dts";
 
-	explosion             = RedBounceGunProjectileImpact;
-	bounceExplosion       = RedBounceGunProjectileBounceExplosion;
-	hitEnemyExplosion     = RedBounceGunProjectileExplosion;
-	nearEnemyExplosion    = RedBounceGunProjectileExplosion;
-	hitTeammateExplosion  = RedBounceGunProjectileExplosion;
+	explosion             = WhiteBounceGunProjectileImpact;
+	bounceExplosion       = WhiteBounceGunProjectileBounceExplosion;
+	hitEnemyExplosion     = WhiteBounceGunProjectileExplosion;
+	nearEnemyExplosion    = WhiteBounceGunProjectileExplosion;
+	hitTeammateExplosion  = WhiteBounceGunProjectileExplosion;
 //	hitDeflectorExplosion = DiscDeflectedEffect;
 
 	missEnemyEffectRadius = 10;
 	missEnemyEffect = BounceGunProjectileMissedEnemyEffect;
 
-	particleEmitter = RedBounceGunProjectileParticleEmitter;
+	particleEmitter = WhiteBounceGunProjectileParticleEmitter;
 //	laserTrail[0]   = BounceGunProjectileLaserTrail;
-//	laserTrail[1]   = RedBounceGunProjectileLaserTrail;
-	laserTail	    = RedBounceGunProjectileLaserTail;
+//	laserTrail[1]   = GreenBounceGunProjectileLaserTrail;
+	laserTail	    = WhiteBounceGunProjectileLaserTail;
 	laserTailLen    = 2;
 
 	posOffset = "0 0 0";
 	velOffset = "0 0.005";
 
    // Keep these three in sync with the pseudo projectile above!
-	energyDrain = 16;
+	energyDrain = 15;
 	muzzleVelocity	= 50 * $Server::Game.slowpokemod;
 	velInheritFactor = 0.0 * $Server::Game.slowpokemod;
 	
@@ -127,72 +128,12 @@ datablock ProjectileData(RedBounceGunProjectile1)
 	
 	hasLight	 = true;
 	lightRadius = 4.0;
-	lightColor  = "1.0 0.0 0.0";
+	lightColor  = "0.4 0.4 0.4";
 };
 
-datablock ProjectileData(RedBounceGunProjectile2 : RedBounceGunProjectile1)
-{
-	posOffset = "0 0 0.1";
-	velOffset = "0 0.025";
-	bounceDecals[0] = SmashDecalFive;
-	bounceDecals[1] = SmashDecalSix;
-	bounceDecals[2] = SmashDecalSeven;
-	bounceDecals[3] = SmashDecalEight;	
-};
-
-function RedBounceGunProjectile1::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist)
+function BounceGunProjectile::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist)
 {
     Parent::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist);
-
-	if( !(%col.getType() & $TypeMasks::ShapeBaseObjectType) )
-		return;
-
-    %src =  %obj.getSourceObject();
-    if(%src)
-        %src.setDiscTarget(%col);
-}
-
-function RedBounceGunProjectile2::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist)
-{
-    RedBounceGunProjectile1::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist);
-}
-
-//--------------------------------------------------------------------------
-
-datablock ProjectileData(BlueBounceGunProjectile1 : RedBounceGunProjectile1)
-{
-	projectileShapeName = "share/shapes/rotc/weapons/assaultrifle/projectile2.blue.dts";    
-	explosion = BlueBounceGunProjectileImpact;
-	bounceExplosion = BlueBounceGunProjectileBounceExplosion;
-	hitEnemyExplosion = BlueBounceGunProjectileExplosion;
-	nearEnemyExplosion = BlueBounceGunProjectileExplosion;
-	hitTeammateExplosion = BlueBounceGunProjectileExplosion;
-	particleEmitter = BlueBounceGunProjectileParticleEmitter;
-	laserTail = BlueBounceGunProjectileLaserTail;
-	lightColor  = "0.0 0.0 1.0";
-};
-
-datablock ProjectileData(BlueBounceGunProjectile2 : RedBounceGunProjectile2)
-{
-	projectileShapeName = "share/shapes/rotc/weapons/assaultrifle/projectile2.blue.dts";    
-	explosion = BlueBounceGunProjectileImpact;
-	bounceExplosion = BlueBounceGunProjectileBounceExplosion;
-	hitEnemyExplosion = BlueBounceGunProjectileExplosion;
-	nearEnemyExplosion = BlueBounceGunProjectileExplosion;
-	hitTeammateExplosion = BlueBounceGunProjectileExplosion;
-	particleEmitter = BlueBounceGunProjectileParticleEmitter;
-	laserTail = BlueBounceGunProjectileLaserTail;
-	lightColor  = "0.0 0.0 1.0";	
-};
-
-function BlueBounceGunProjectile1::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist)
-{
-    RedBounceGunProjectile1::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist);
-}
-
-function BlueBounceGunProjectile2::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist)
-{
-    RedBounceGunProjectile1::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist);
 }
 
 //--------------------------------------------------------------------------
@@ -200,13 +141,13 @@ function BlueBounceGunProjectile2::onCollision(%this,%obj,%col,%fade,%pos,%norma
 // (images do not normally exist in the world, they can only
 // be mounted on ShapeBase objects)
 
-datablock ShapeBaseImageData(RedBounceGunImage)
+datablock ShapeBaseImageData(BounceGunImage)
 {
 	// add the WeaponImage namespace as a parent
 	className = WeaponImage;
 	
 	// basic item properties
-	shapeFile = "share/shapes/rotc/weapons/assaultrifle/image3.red.dts";
+   shapeFile = "share/shapes/rotc/weapons/grenadelauncher/image2.dts";
 	emap = true;
 
 	// mount point & mount offset...
@@ -220,7 +161,7 @@ datablock ShapeBaseImageData(RedBounceGunImage)
 	correctMuzzleVector = true;
 
 	usesEnergy = true;
-	minEnergy = 16;
+	minEnergy = 15;
 
 	projectile = BounceGunPseudoProjectile;
 
@@ -235,10 +176,10 @@ datablock ShapeBaseImageData(RedBounceGunImage)
 	// script fields...
 	iconId = 7;
 	mainWeapon = true;
-	armThread  = "holdrifle";  // armThread to use when holding this weapon
+	armThread  = "aimrifle";  // armThread to use when holding this weapon
 	crosshair  = "assaultrifle"; // crosshair to display when holding this weapon
-	fireprojectile[0] = RedBounceGunProjectile1;
-	fireprojectile[1] = RedBounceGunProjectile2;
+	fireprojectile[0] = BounceGunProjectile;
+	//fireprojectile[1] = BounceGunProjectile;
 
 	//-------------------------------------------------
 	// image states...
@@ -262,7 +203,7 @@ datablock ShapeBaseImageData(RedBounceGunImage)
 		stateTransitionOnNoAmmo[2]       = "NoAmmo";
   		stateTransitionOnNotLoaded[2]    = "Disabled";
 		stateTransitionOnTriggerDown[2]  = "Fire";
-      stateArmThread[2]                = "holdrifle";
+      stateArmThread[2]                = "aimrifle";
 		stateSpinThread[2]               = "FullSpeed";
 		stateSequence[2]                 = "idle";
 		
@@ -306,7 +247,7 @@ datablock ShapeBaseImageData(RedBounceGunImage)
 	//-------------------------------------------------
 };
 
-function RedBounceGunImage::onMount(%this, %obj, %slot)
+function BounceGunImage::onMount(%this, %obj, %slot)
 {
    Parent::onMount(%this, %obj, %slot);
 
@@ -316,22 +257,5 @@ function RedBounceGunImage::onMount(%this, %obj, %slot)
    %obj.setImageMaxRecoil(%slot, 80);
    %obj.setImageRecoilAdd(%slot, 0);
    %obj.setImageRecoilDelta(%slot, -0);
-}
-
-//------------------------------------------------------------------------------
-
-datablock ShapeBaseImageData(BlueBounceGunImage : RedBounceGunImage)
-{
-	shapeFile = "share/shapes/rotc/weapons/assaultrifle/image3.blue.dts";
-	fireprojectile[0] = BlueBounceGunProjectile1;
-	fireprojectile[1] = BlueBounceGunProjectile2;
-	lightColor = "0 0.5 1";
-	//stateFireProjectile[3] = BlueBounceGunProjectile1;
-	//stateFireProjectile[8] = BlueBounceGunProjectile2;
-};
-
-function BlueBounceGunImage::onMount(%this, %obj, %slot)
-{
-    RedBounceGunImage::onMount(%this, %obj, %slot);
 }
 

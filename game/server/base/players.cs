@@ -567,17 +567,17 @@ function PlayerData::onTrigger(%this, %obj, %triggerNum, %val)
 			return;
 
 		if(%val)
-        {
-            if(%triggerNum == 4)
+      {
+         if(%triggerNum == 4 && %obj.getEnergyLevel() > 20)
     			%obj.nonSnipingBodyPose = $PlayerBodyPose::Standard;
-            else if(%triggerNum == 5 && %obj.client.hasEtherboard)
-    			%obj.nonSnipingBodyPose = $PlayerBodyPose::Sliding;
-        }
+         else if(%triggerNum == 5 && %obj.client.hasEtherboard)
+            %obj.nonSnipingBodyPose = $PlayerBodyPose::Sliding;
+      }
 		else
 			%obj.nonSnipingBodyPose = $PlayerBodyPose::Marching;
  
-        if(!%obj.isSniping)
-            %obj.setBodyPose(%obj.nonSnipingBodyPose);
+      if(!%obj.isSniping)
+         %obj.setBodyPose(%obj.nonSnipingBodyPose);
 	}
 }
 
@@ -593,7 +593,7 @@ function Player::setSniping(%this, %sniping)
 
     %this.isSniping = %sniping;
     if(%this.isSniping)
-        %this.setBodyPose($PlayerBodyPose::Marching);
+        %this.setBodyPose($PlayerBodyPose::Crouched);
     else
         %this.setBodyPose(%this.nonSnipingBodyPose);
 }

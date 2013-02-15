@@ -9,7 +9,7 @@ new GuiBitmapCtrl(Shell) {
    Profile = "GuiContentProfile";
    HorizSizing = "width";
    VertSizing = "height";
-   Position = "0 0";
+   position = "0 0";
    Extent = "640 480";
    MinExtent = "8 8";
    canSave = "1";
@@ -23,21 +23,35 @@ new GuiBitmapCtrl(Shell) {
       Profile = "GuiTextProfile";
       HorizSizing = "right";
       VertSizing = "top";
-      Position = "8 454";
-      Extent = "129 18";
+      position = "8 454";
+      Extent = "107 18";
       MinExtent = "8 2";
       canSave = "1";
       Visible = "1";
       hovertime = "1000";
-      text = "client version: p.5.1+dev6";
+      text = "client version: 0.1-dev";
       maxLength = "1024";
+   };
+   new GuiBitmapCtrl() {
+      canSaveDynamicFields = "0";
+      Profile = "GuiDefaultProfile";
+      HorizSizing = "center";
+      VertSizing = "bottom";
+      position = "178 10";
+      Extent = "302 157";
+      MinExtent = "8 2";
+      canSave = "1";
+      Visible = "1";
+      hovertime = "1000";
+      bitmap = "./pixmaps/test.png";
+      wrap = "0";
    };
    new GuiWindowCtrl(RootMenuWindow) {
       canSaveDynamicFields = "0";
       Profile = "GuiInactiveWindowProfile";
       HorizSizing = "right";
       VertSizing = "bottom";
-      Position = "10 10";
+      position = "10 10";
       Extent = "137 331";
       MinExtent = "8 8";
       canSave = "1";
@@ -58,7 +72,7 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "14 29";
+         position = "14 29";
          Extent = "110 23";
          MinExtent = "8 8";
          canSave = "1";
@@ -74,7 +88,7 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "14 58";
+         position = "14 58";
          Extent = "110 23";
          MinExtent = "8 8";
          canSave = "1";
@@ -90,7 +104,7 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "14 88";
+         position = "14 88";
          Extent = "110 23";
          MinExtent = "8 8";
          canSave = "1";
@@ -106,7 +120,7 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "14 118";
+         position = "14 118";
          Extent = "110 23";
          MinExtent = "8 8";
          canSave = "1";
@@ -122,7 +136,7 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "14 148";
+         position = "14 148";
          Extent = "110 23";
          MinExtent = "8 8";
          canSave = "1";
@@ -138,7 +152,7 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "14 178";
+         position = "14 178";
          Extent = "110 23";
          MinExtent = "8 8";
          canSave = "1";
@@ -154,7 +168,7 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "14 238";
+         position = "14 238";
          Extent = "110 23";
          MinExtent = "8 8";
          canSave = "1";
@@ -170,7 +184,7 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "14 298";
+         position = "14 298";
          Extent = "110 23";
          MinExtent = "8 8";
          canSave = "1";
@@ -186,7 +200,7 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "14 208";
+         position = "14 208";
          Extent = "110 23";
          MinExtent = "8 8";
          canSave = "1";
@@ -202,7 +216,7 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "14 268";
+         position = "14 268";
          Extent = "110 23";
          MinExtent = "8 8";
          canSave = "1";

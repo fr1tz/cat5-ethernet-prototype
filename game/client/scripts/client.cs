@@ -49,7 +49,7 @@ function GameConnection::prepDemoPlayback(%this)
 {
 	for(%i = 0; %i < %this.demoChatLines; %i++)
 		HudMessageVector.pushBackLine(%this.demoChatText[%i], %this.demoChatTag[%i]);
-	Canvas.setContent(Hud);
+	Canvas.setContent(Cockpit);
 }
 
 //------------------------------------------------------------------------------

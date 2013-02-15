@@ -17,7 +17,7 @@ datablock AudioProfile(StandardCatLeftFootSoftSound)
 
 datablock AudioProfile(StandardCatLeftFootHardSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/lf.hard.wav";
+	filename	 = "share/sounds/rotc/footsteps1/lf.hard.wav";
 	description = AudioClose3d;
 	preload = true;
 };
@@ -59,7 +59,7 @@ datablock AudioProfile(StandardCatRightFootSoftSound)
 
 datablock AudioProfile(StandardCatRightFootHardSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/rf.hard.wav";
+	filename	 = "share/sounds/rotc/footsteps1/rf.hard.wav";
 	description = AudioClose3d;
 	preload = true;
 };

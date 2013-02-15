@@ -42,7 +42,7 @@ new GuiControlProfile(GuiDefaultProfile)
 	borderColorNA = "100 100 100 220";
 
 	// font
-	fontType = "Arial";
+	fontType = "Cat5";
 	fontSize = 14;
 
 	fontColor = "200 200 200";
@@ -57,7 +57,7 @@ new GuiControlProfile(GuiDefaultProfile)
 	fontColors[9] = "0 200 255 255";
 
 	// bitmap information
-	bitmap = "./pixmaps/mg_window6";
+	bitmap = "./pixmaps/cat5window";
 	bitmapBase = "";
 	textOffset = "0 0";
 
@@ -294,7 +294,7 @@ new GuiControlProfile(GuiWindowProfile : GuiDefaultProfile)
 	fontColor = "0 210 255";
 	fontColorHL = "0 210 255";
 	text = "GuiWindowCtrl test";
-	bitmap = "./pixmaps/mg_window6";
+	bitmap = "./pixmaps/cat5window";
 	textOffset = "12 6";
 	hasBitmapArray = true;
 	justify = "left";
@@ -311,7 +311,7 @@ new GuiControlProfile(GuiInactiveWindowProfile : GuiDefaultProfile)
 	fontColor = "170 170 170";
 	fontColorHL = "170 170 170";
 	text = "GuiWindowCtrl test";
-	bitmap = "./pixmaps/mg_window6inactive";
+	bitmap = "./pixmaps/cat5window";
 	textOffset = "12 6";
 	hasBitmapArray = true;
 	justify = "left";
@@ -327,7 +327,7 @@ new GuiControlProfile(GuiTransparentWindowProfile : GuiDefaultProfile)
 	fontColor = "255 255 255";
 	fontColorHL = "255 255 255";
 	text = "GuiWindowCtrl test";
-	bitmap = "./pixmaps/mg_window4";
+	bitmap = "./pixmaps/cat5window";
 	textOffset = "6 6";
 	hasBitmapArray = true;
 	justify = "center";

@@ -4,6 +4,7 @@
 //------------------------------------------------------------------------------
 
 exec("./minigun.projectile.cs");
+exec("./minigun.tracer.cs");
 
 exec("./minigun.sfx.cs");
 
@@ -54,7 +55,7 @@ datablock ParticleEmitterData(MinigunFireEmitter)
 // (images do not normally exist in the world, they can only
 // be mounted on ShapeBase objects)
 
-datablock ShapeBaseImageData(RedMinigunImage)
+datablock ShapeBaseImageData(MinigunImage)
 {
 	// add the WeaponImage namespace as a parent
 	className = WeaponImage;
@@ -74,12 +75,12 @@ datablock ShapeBaseImageData(RedMinigunImage)
 	correctMuzzleVector = true;
 
 	usesEnergy = true;
-	minEnergy = 10;
+	minEnergy = 1;
 
-	projectile = RedMinigunProjectile;
+	projectile = MinigunProjectile;
 
 	// script fields...
-	armThread = "holdblaster";  // armThread to use when holding this weapon
+	armThread = "aimblaster";  // armThread to use when holding this weapon
 	
 	//-------------------------------------------------
 	// image states...
@@ -101,7 +102,7 @@ datablock ShapeBaseImageData(RedMinigunImage)
 		stateTransitionOnNoAmmo[2]       = "NoAmmo";
 		stateTransitionOnNotLoaded[2]    = "Disabled";
 		stateTransitionOnTriggerDown[2]  = "Charge";
-		stateArmThread[2]                = "holdblaster";
+		stateArmThread[2]                = "aimblaster";
 		stateSpinThread[2]               = "Stop";
 		stateSequence[2]                 = "idle";
 		stateScript[2]                   = "onReady";
@@ -111,6 +112,7 @@ datablock ShapeBaseImageData(RedMinigunImage)
 		stateTransitionOnTriggerUp[3]    = "Cooldown";
 		stateTransitionOnTimeout[3]      = "Spin";
 		stateTimeoutValue[3]             = 0.5;
+      stateEnergyDrain[3]              = 50;
 		stateAllowImageChange[3]         = false;
 		stateArmThread[3]                = "aimblaster";
 		stateSound[3]                    = MinigunSpinUpSound;
@@ -121,6 +123,7 @@ datablock ShapeBaseImageData(RedMinigunImage)
 		stateTransitionOnTriggerUp[9]    = "Cooldown";
 		stateTransitionOnTimeout[9]      = "Fire";
 		stateTimeoutValue[9]             = 0.1;
+      stateEnergyDrain[9]              = 20;
 		stateAllowImageChange[9]         = false;
 		stateArmThread[9]                = "aimblaster";
 		stateSound[9]                    = MinigunSpinSound;
@@ -132,13 +135,15 @@ datablock ShapeBaseImageData(RedMinigunImage)
 		stateTransitionOnTriggerUp[4]    = "Cooldown";
 		stateTransitionOnNoAmmo[4]       = "Cooldown";
 		stateTimeoutValue[4]             = 0.075; 
+      stateEnergyDrain[4]              = 20;
 		stateFire[4]                     = true;
+		stateFireProjectile[4]           = MinigunProjectile;
 		stateAllowImageChange[4]         = false;
 		stateEjectShell[4]               = true;
 		stateArmThread[4]                = "aimblaster";
 		stateSequence[4]                 = "fire";
 		stateSequenceRandomFlash[4]      = true;
-		stateSound[4]                    = MinigunFireSound;
+		stateSound[4]                    = MinigunSpinSound;
 		stateEmitter[4]                  = MinigunFireEmitter;
 		stateEmitterNode[4]              = "fireparticles";
 		stateEmitterTime[4]              = 0.1;
@@ -178,69 +183,39 @@ datablock ShapeBaseImageData(RedMinigunImage)
 	//-------------------------------------------------
 };
 
-function RedMinigunImage::getBulletSpread(%this, %obj)
+function MinigunImage::getBulletSpread(%this, %obj)
 {
    return 0.015;
 }
 
-function RedMinigunImage::onReady(%this, %obj, %slot)
+function MinigunImage::onReady(%this, %obj, %slot)
 {
-   %obj.zCurrentMinigunBullet = 0;
+   %obj.zCurrentMinigunTracer = -1;
    %obj.setSniping(false);
 }
 
-function RedMinigunImage::onCharge(%this, %obj, %slot)
+function MinigunImage::onCharge(%this, %obj, %slot)
 {
 	//error("Minigun: onCharge()");
     %obj.setSniping(true);
 }
 
-function RedMinigunImage::onFire(%this, %obj, %slot)
+function MinigunImage::onFire(%this, %obj, %slot)
 {
-   %obj.zCurrentMinigunBullet += 1;
+   return;
 
-	%projectile = %this.projectile;
+   %obj.zCurrentMinigunTracer += 1;
+
+   if(!(%obj.zCurrentMinigunTracer % 4 == 0))
+      return;
+
+	%projectile = MinigunTracer;
 
 	// determine muzzle-point...
 	%muzzlePoint = %obj.getMuzzlePoint(%slot);
 
 	// determine initial projectile velocity...
 	%muzzleVector = %obj.getMuzzleVector(%slot);
-
-	//
-	%p = VectorAdd(%muzzlePoint, %muzzleVector);
-	%r = 0.1;
-
-   if(%obj.zCurrentMinigunBullet == 1)
-   {
-      %newPos[0] = getWord(%p, 0);
-      %newPos[1] = getWord(%p, 1);
-      %newPos[2] = getWord(%p, 2);
-   }
-   else
-   {
-   	for(%i = 0; %i < 2; %i++)
-   	{
-   		%rand = getRandom(10)-5;
-   		if(%rand == 0)
-   			%newpos[%i] = getWord(%p, %i);
-   		else
-   			%newpos[%i] = getWord(%p, %i) + %r / %rand;
-   	}
-      if(true || %obj.zCurrentMinigunBullet & 1)
-         %newpos[2] = getWord(%p, 2);
-      else
-      {
-   		%rand = getRandom(10)-5;
-   		if(%rand == 0)
-   			%newpos[2] = getWord(%p, 2);
-   		else
-   			%newpos[2] = getWord(%p, 2) + %r / %rand;
-      }
-   }
-
-	%muzzleVector = VectorSub(%newpos[0] SPC %newpos[1] SPC %newpos[2], %muzzlePoint);
-	%muzzleVector = VectorNormalize(%muzzleVector );
 
 	%objectVelocity = %obj.getVelocity();
 	%muzzleVelocity = VectorAdd(
@@ -259,51 +234,12 @@ function RedMinigunImage::onFire(%this, %obj, %slot)
 	};
 	MissionCleanup.add(%p);
 
-	%obj.setEnergyLevel(%obj.getEnergyLevel() - %projectile.energyDrain);
- 
-	%target = %obj.getImageTarget(%slot);
-	if(isObject(%target))
-		%p.setTarget(%target);
-        
 	return %p;
 }
 
-function RedMinigunImage::onCooldown(%this, %obj, %slot)
+function MinigunImage::onCooldown(%this, %obj, %slot)
 {
    %obj.setSniping(false);
 }
 
-//------------------------------------------------------------------------------
-
-datablock ShapeBaseImageData(BlueMinigunImage : RedMinigunImage)
-{
-	shapeFile = "share/shapes/rotc/weapons/minigun/image2.blue.dts";
-	projectile = BlueMinigunProjectile;
-	//stateEmitter[3] = BlueMinigunFireEmitter;
-};
-
-function BlueMinigunImage::getBulletSpread(%this, %obj)
-{
-   return RedMinigunImage::getBulletSpread(%this, %obj);
-}
-
-function BlueMinigunImage::onReady(%this, %obj, %slot)
-{
-   RedMinigunImage::onReady(%this, %obj, %slot);
-}
-
-function BlueMinigunImage::onCharge(%this, %obj, %slot)
-{
-   RedMinigunImage::onCharge(%this, %obj, %slot);
-}
-
-function BlueMinigunImage::onFire(%this, %obj, %slot)
-{
-	RedMinigunImage::onFire(%this, %obj, %slot);
-}
-
-function BlueMinigunImage::onCooldown(%this, %obj, %slot)
-{
-   RedMinigunImage::onCooldown(%this, %obj, %slot);
-}
 

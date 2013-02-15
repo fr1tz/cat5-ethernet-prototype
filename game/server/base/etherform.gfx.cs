@@ -6,7 +6,7 @@
 //------------------------------------------------------------------------------
 // light images...
 
-datablock ShapeBaseImageData(RedEtherformLightImage)
+datablock ShapeBaseImageData(GreenEtherformLightImage)
 {
 	// basic item properties
 	shapeFile = "share/shapes/rotc/misc/nothing.dts";
@@ -18,22 +18,64 @@ datablock ShapeBaseImageData(RedEtherformLightImage)
 	
 	// light properties...
 	lightType = "ConstantLight";
-	lightColor = "0.8 0.0 0.0";
+	lightColor = "0.0 0.2 0.0";
 	lightTime = 1000;
-	lightRadius = 3;
+	lightRadius = 8;
 	lightCastsShadows = true;
 	lightAffectsShapes = true;
 
 	stateName[0] = "DoNothing";
 };
 
-datablock ShapeBaseImageData(BlueEtherformLightImage : RedEtherformLightImage)
+datablock ShapeBaseImageData(RedEtherformLightImage : GreenEtherformLightImage)
 {
-	lightColor = "0.0 0.0 0.8";
+	lightColor = "0.2 0.0 0.0";
 };
 
 //------------------------------------------------------------------------------
 // damage buffer particle emitter...
+
+datablock ParticleData(GreenEtherformDamageBufferEmitter_Particle)
+{
+	dragCoefficient		= 1.0;
+	gravityCoefficient	= 0.0;
+	inheritedVelFactor	= 0.0;
+	constantAcceleration = 0.0;
+	lifetimeMS			  = 500;
+	lifetimeVarianceMS	= 0;
+	colors[0]	  = "1.0 1.0 1.0 1.0";
+	colors[1]	  = "1.0 1.0 1.0 0.2";
+	colors[2]	  = "1.0 1.0 1.0 0.0";
+	sizes[0]		= 1.0;
+	sizes[1]		= 1.0;
+	sizes[2]		= 1.0;
+	times[0]		= 0.0;
+	times[1]		= 0.5;
+	times[2]		= 1.0;
+	spinRandomMin = 0.0;
+	spinRandomMax = 0.0;
+	textureName	= "share/textures/rotc/corona";
+	allowLighting = false;
+};
+
+datablock ParticleEmitterData(GreenEtherformDamageBufferEmitter)
+{
+	ejectionPeriodMS = 10;
+	periodVarianceMS = 0;
+	ejectionVelocity = 5;
+	velocityVariance = 0;
+	ejectionOffset	= 0.0;
+	thetaMin			= 0;
+	thetaMax			= 180;
+	phiReferenceVel  = 0;
+	phiVariance		= 360;
+	overrideAdvance  = false;
+	orientParticles  = false;
+	lifetimeMS		 = 0; // forever
+	particles = GreenEtherformDamageBufferEmitter_Particle;
+};
+
+//-------------------------------
 
 datablock ParticleData(RedEtherformDamageBufferEmitter_Particle)
 {
@@ -75,38 +117,39 @@ datablock ParticleEmitterData(RedEtherformDamageBufferEmitter)
 	particles = RedEtherformDamageBufferEmitter_Particle;
 };
 
-//-------------------------------
+//------------------------------------------------------------------------------
+// damage repair particle emitter...
 
-datablock ParticleData(BlueEtherformDamageBufferEmitter_Particle)
+datablock ParticleData(GreenEtherformRepairEmitter_Particle)
 {
-	dragCoefficient		= 1.0;
+	dragCoefficient		= 0.0;
 	gravityCoefficient	= 0.0;
 	inheritedVelFactor	= 0.0;
 	constantAcceleration = 0.0;
-	lifetimeMS			  = 500;
+	lifetimeMS			  = 220;
 	lifetimeVarianceMS	= 0;
-	colors[0]	  = "1.0 1.0 1.0 1.0";
-	colors[1]	  = "1.0 1.0 1.0 0.2";
-	colors[2]	  = "1.0 1.0 1.0 0.0";
-	sizes[0]		= 1.0;
-	sizes[1]		= 1.0;
-	sizes[2]		= 1.0;
+	colors[0]	  = "1.0 1.0 1.0 0.0";
+	colors[1]	  = "1.0 1.0 1.0 1.0";
+	colors[2]	  = "1.0 1.0 1.0 1.0";
+	sizes[0]		= 3.0;
+	sizes[1]		= 2.0;
+	sizes[2]		= 0.0;
 	times[0]		= 0.0;
 	times[1]		= 0.5;
 	times[2]		= 1.0;
 	spinRandomMin = 0.0;
 	spinRandomMax = 0.0;
-	textureName	= "share/textures/rotc/corona";
+	textureName	= "share/textures/rotc/cross1";
 	allowLighting = false;
 };
 
-datablock ParticleEmitterData(BlueEtherformDamageBufferEmitter)
+datablock ParticleEmitterData(GreenEtherformRepairEmitter)
 {
 	ejectionPeriodMS = 10;
 	periodVarianceMS = 0;
-	ejectionVelocity = 5;
-	velocityVariance = 0;
-	ejectionOffset	= 0.0;
+	ejectionVelocity = -20.0;
+	velocityVariance = 0.0;
+	ejectionOffset	= 4.0;
 	thetaMin			= 0;
 	thetaMax			= 180;
 	phiReferenceVel  = 0;
@@ -114,11 +157,10 @@ datablock ParticleEmitterData(BlueEtherformDamageBufferEmitter)
 	overrideAdvance  = false;
 	orientParticles  = false;
 	lifetimeMS		 = 0; // forever
-	particles = BlueEtherformDamageBufferEmitter_Particle;
+	particles = GreenEtherformRepairEmitter_Particle;
 };
 
-//------------------------------------------------------------------------------
-// damage repair particle emitter...
+//-------------------------------
 
 datablock ParticleData(RedEtherformRepairEmitter_Particle)
 {
@@ -128,9 +170,9 @@ datablock ParticleData(RedEtherformRepairEmitter_Particle)
 	constantAcceleration = 0.0;
 	lifetimeMS			  = 220;
 	lifetimeVarianceMS	= 0;
-	colors[0]	  = "1.0 0.5 0.0 0.0";
-	colors[1]	  = "1.0 0.5 0.0 1.0";
-	colors[2]	  = "1.0 0.5 0.0 1.0";
+	colors[0]	  = "0.0 1.0 1.0 0.0";
+	colors[1]	  = "0.0 1.0 1.0 1.0";
+	colors[2]	  = "0.0 1.0 1.0 1.0";
 	sizes[0]		= 3.0;
 	sizes[1]		= 2.0;
 	sizes[2]		= 0.0;
@@ -160,9 +202,10 @@ datablock ParticleEmitterData(RedEtherformRepairEmitter)
 	particles = RedEtherformRepairEmitter_Particle;
 };
 
-//-------------------------------
+//------------------------------------------------------------------------------
+// damage buffer repair particle emitter...
 
-datablock ParticleData(BlueEtherformRepairEmitter_Particle)
+datablock ParticleData(GreenEtherformBufferRepairEmitter_Particle)
 {
 	dragCoefficient		= 0.0;
 	gravityCoefficient	= 0.0;
@@ -170,9 +213,9 @@ datablock ParticleData(BlueEtherformRepairEmitter_Particle)
 	constantAcceleration = 0.0;
 	lifetimeMS			  = 220;
 	lifetimeVarianceMS	= 0;
-	colors[0]	  = "0.0 1.0 1.0 0.0";
-	colors[1]	  = "0.0 1.0 1.0 1.0";
-	colors[2]	  = "0.0 1.0 1.0 1.0";
+	colors[0]	  = "1.0 1.0 1.0 0.0";
+	colors[1]	  = "1.0 1.0 1.0 1.0";
+	colors[2]	  = "1.0 1.0 1.0 1.0";
 	sizes[0]		= 3.0;
 	sizes[1]		= 2.0;
 	sizes[2]		= 0.0;
@@ -185,12 +228,12 @@ datablock ParticleData(BlueEtherformRepairEmitter_Particle)
 	allowLighting = false;
 };
 
-datablock ParticleEmitterData(BlueEtherformRepairEmitter)
+datablock ParticleEmitterData(GreenEtherformBufferRepairEmitter)
 {
-	ejectionPeriodMS = 10;
+	ejectionPeriodMS = 500;
 	periodVarianceMS = 0;
 	ejectionVelocity = -20.0;
-	velocityVariance = 0.0;
+	velocityVariance = 0;
 	ejectionOffset	= 4.0;
 	thetaMin			= 0;
 	thetaMax			= 180;
@@ -199,11 +242,10 @@ datablock ParticleEmitterData(BlueEtherformRepairEmitter)
 	overrideAdvance  = false;
 	orientParticles  = false;
 	lifetimeMS		 = 0; // forever
-	particles = BlueEtherformRepairEmitter_Particle;
+	particles = GreenEtherformBufferRepairEmitter_Particle;
 };
 
-//------------------------------------------------------------------------------
-// damage buffer repair particle emitter...
+//-------------------------------
 
 datablock ParticleData(RedEtherformBufferRepairEmitter_Particle)
 {
@@ -245,50 +287,48 @@ datablock ParticleEmitterData(RedEtherformBufferRepairEmitter)
 	particles = RedEtherformBufferRepairEmitter_Particle;
 };
 
-//-------------------------------
-
-datablock ParticleData(BlueEtherformBufferRepairEmitter_Particle)
-{
-	dragCoefficient		= 0.0;
-	gravityCoefficient	= 0.0;
-	inheritedVelFactor	= 0.0;
-	constantAcceleration = 0.0;
-	lifetimeMS			  = 220;
-	lifetimeVarianceMS	= 0;
-	colors[0]	  = "1.0 1.0 1.0 0.0";
-	colors[1]	  = "1.0 1.0 1.0 1.0";
-	colors[2]	  = "1.0 1.0 1.0 1.0";
-	sizes[0]		= 3.0;
-	sizes[1]		= 2.0;
-	sizes[2]		= 0.0;
-	times[0]		= 0.0;
-	times[1]		= 0.5;
-	times[2]		= 1.0;
-	spinRandomMin = 0.0;
-	spinRandomMax = 0.0;
-	textureName	= "share/textures/rotc/cross1";
-	allowLighting = false;
-};
-
-datablock ParticleEmitterData(BlueEtherformBufferRepairEmitter)
-{
-	ejectionPeriodMS = 500;
-	periodVarianceMS = 0;
-	ejectionVelocity = -20.0;
-	velocityVariance = 0;
-	ejectionOffset	= 4.0;
-	thetaMin			= 0;
-	thetaMax			= 180;
-	phiReferenceVel  = 0;
-	phiVariance		= 360;
-	overrideAdvance  = false;
-	orientParticles  = false;
-	lifetimeMS		 = 0; // forever
-	particles = BlueEtherformBufferRepairEmitter_Particle;
-};
-
 //------------------------------------------------------------------------------
 // laserTrail...
+
+datablock MultiNodeLaserBeamData(GreenEtherform_LaserTrailOne)
+{
+	hasLine = false;
+	lineColor	= "1.00 1.00 0.00 0.7";
+
+	hasInner = true;
+	innerColor = "1.0 1.0 1.0 1.0";
+	innerWidth = "0.3";
+
+	hasOuter = true;
+	outerColor = "0.0 1.0 0.0 0.5";
+	outerWidth = "0.6";
+
+	//bitmap = "share/shapes/rotc/vehicles/team1scoutflyer/lasertrail";
+	//bitmapWidth = 1;
+
+	blendMode = 1;
+	fadeTime = 300;
+};
+
+datablock MultiNodeLaserBeamData(GreenEtherform_LaserTrailTwo)
+{
+	hasLine = false;
+	lineColor	= "0.00 1.00 0.00 0.5";
+
+	hasInner = true;
+	innerColor = "0.0 1.0 0.0 0.5";
+	innerWidth = "0.3";
+
+	hasOuter = false;
+	outerColor = "1.00 0.00 1.00 0.1";
+	outerWidth = "0.10";
+
+	//bitmap = "share/shapes/rotc/vehicles/team1scoutflyer/lasertrail";
+	//bitmapWidth = 1;
+
+	blendMode = 1;
+	fadeTime = 600;
+};
 
 datablock MultiNodeLaserBeamData(RedEtherform_LaserTrailOne)
 {
@@ -296,11 +336,11 @@ datablock MultiNodeLaserBeamData(RedEtherform_LaserTrailOne)
 	lineColor	= "1.00 1.00 0.00 0.7";
 
 	hasInner = true;
-	innerColor = "1.0 1.0 1.0 0.5";
+	innerColor = "1.0 1.0 1.0 1.0";
 	innerWidth = "0.3";
 
 	hasOuter = true;
-	outerColor = "1.0 0.0 0.0 0.5";
+	outerColor = "0.5 0.0 0.0 0.5";
 	outerWidth = "0.6";
 
 	//bitmap = "share/shapes/rotc/vehicles/team1scoutflyer/lasertrail";
@@ -316,47 +356,7 @@ datablock MultiNodeLaserBeamData(RedEtherform_LaserTrailTwo)
 	lineColor	= "1.00 0.50 0.00 0.5";
 
 	hasInner = true;
-	innerColor = "1.0 0.0 0.0 0.5";
-	innerWidth = "0.3";
-
-	hasOuter = false;
-	outerColor = "1.00 0.00 1.00 0.1";
-	outerWidth = "0.10";
-
-	//bitmap = "share/shapes/rotc/vehicles/team1scoutflyer/lasertrail";
-	//bitmapWidth = 1;
-
-	blendMode = 1;
-	fadeTime = 600;
-};
-
-datablock MultiNodeLaserBeamData(BlueEtherform_LaserTrailOne)
-{
-	hasLine = false;
-	lineColor	= "1.00 1.00 0.00 0.7";
-
-	hasInner = true;
-	innerColor = "1.0 1.0 1.0 0.5";
-	innerWidth = "0.3";
-
-	hasOuter = true;
-	outerColor = "0.0 0.0 1.0 0.5";
-	outerWidth = "0.6";
-
-	//bitmap = "share/shapes/rotc/vehicles/team1scoutflyer/lasertrail";
-	//bitmapWidth = 1;
-
-	blendMode = 1;
-	fadeTime = 300;
-};
-
-datablock MultiNodeLaserBeamData(BlueEtherform_LaserTrailTwo)
-{
-	hasLine = false;
-	lineColor	= "1.00 0.50 0.00 0.5";
-
-	hasInner = true;
-	innerColor = "0.0 0.0 1.0 0.5";
+	innerColor = "0.5 0.0 0.0 0.5";
 	innerWidth = "0.3";
 
 	hasOuter = false;
@@ -409,7 +409,7 @@ datablock MultiNodeLaserBeamData(NyanEtherform_LaserTrail)
 //-----------------------------------------------------------------------------
 // contrail...
 
-datablock ParticleData(RedEtherform_ContrailParticle)
+datablock ParticleData(GreenEtherform_ContrailParticle)
 {
 	dragCoefficient		= 1.0;
 	gravityCoefficient	= -0.2;
@@ -421,6 +421,47 @@ datablock ParticleData(RedEtherform_ContrailParticle)
 	colors[0]	  = "1.0 0.0 0.0 1.0";
 	colors[1]	  = "1.0 0.0 1.0 0.66";
 	colors[2]	  = "1.0 1.0 0.0 0.33";
+	colors[3]	  = "0.0 5.0 0.0 0.0";
+	sizes[0]		= 0.25;
+	sizes[1]		= 0.25;
+	sizes[2]		= 0.25;
+	sizes[3]		= 0.25;
+	times[0]		= 0.0;
+	times[1]		= 0.333;
+	times[2]		= 0.666;
+	times[3]		= 1.0;
+	renderDot = true;
+};
+
+datablock ParticleEmitterData(GreenEtherform_ContrailEmitter)
+{
+	ejectionPeriodMS = 5;
+	periodVarianceMS = 0;
+	ejectionVelocity = 2;
+	velocityVariance = 0;
+	ejectionOffset	= 0.0;
+	thetaMin			= 90;
+	thetaMax			= 90;
+	phiReferenceVel  = 3000;
+	phiVariance		= 0;
+	overrideAdvances = false;
+	orientParticles  = false;
+	lifetimeMS		 = 0;
+	particles = "GreenEtherform_ContrailParticle";
+};
+
+datablock ParticleData(RedEtherform_ContrailParticle)
+{
+	dragCoefficient		= 1.0;
+	gravityCoefficient	= -0.2;
+	inheritedVelFactor	= 0.0;
+	constantAcceleration = 0.0;
+	lifetimeMS			  = 1000;
+	lifetimeVarianceMS	= 0;
+	textureName			 = "share/textures/rotc/small_particle4";
+	colors[0]	  = "0.0 0.0 1.0 1.0";
+	colors[1]	  = "1.0 0.0 1.0 0.66";
+	colors[2]	  = "0.0 1.0 1.0 0.33";
 	colors[3]	  = "0.0 5.0 0.0 0.0";
 	sizes[0]		= 0.25;
 	sizes[1]		= 0.25;
@@ -448,45 +489,4 @@ datablock ParticleEmitterData(RedEtherform_ContrailEmitter)
 	orientParticles  = false;
 	lifetimeMS		 = 0;
 	particles = "RedEtherform_ContrailParticle";
-};
-
-datablock ParticleData(BlueEtherform_ContrailParticle)
-{
-	dragCoefficient		= 1.0;
-	gravityCoefficient	= -0.2;
-	inheritedVelFactor	= 0.0;
-	constantAcceleration = 0.0;
-	lifetimeMS			  = 1000;
-	lifetimeVarianceMS	= 0;
-	textureName			 = "share/textures/rotc/small_particle4";
-	colors[0]	  = "0.0 0.0 1.0 1.0";
-	colors[1]	  = "1.0 0.0 1.0 0.66";
-	colors[2]	  = "0.0 1.0 1.0 0.33";
-	colors[3]	  = "0.0 5.0 0.0 0.0";
-	sizes[0]		= 0.25;
-	sizes[1]		= 0.25;
-	sizes[2]		= 0.25;
-	sizes[3]		= 0.25;
-	times[0]		= 0.0;
-	times[1]		= 0.333;
-	times[2]		= 0.666;
-	times[3]		= 1.0;
-	renderDot = true;
-};
-
-datablock ParticleEmitterData(BlueEtherform_ContrailEmitter)
-{
-	ejectionPeriodMS = 5;
-	periodVarianceMS = 0;
-	ejectionVelocity = 2;
-	velocityVariance = 0;
-	ejectionOffset	= 0.0;
-	thetaMin			= 90;
-	thetaMax			= 90;
-	phiReferenceVel  = 3000;
-	phiVariance		= 0;
-	overrideAdvances = false;
-	orientParticles  = false;
-	lifetimeMS		 = 0;
-	particles = "BlueEtherform_ContrailParticle";
 };

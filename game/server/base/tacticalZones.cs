@@ -204,6 +204,8 @@ datablock AudioProfile(ZoneAttackedSound)
 
 datablock TacticalZoneData(TerritoryZone)
 {
+   allowColorization = true;
+
 	category = "Tactical Zones"; // for the mission editor
 
 	// The period is value is used to control how often the console
@@ -213,23 +215,8 @@ datablock TacticalZoneData(TerritoryZone)
 
 	colorChangeTimeMS = 200;
 
-	colors[1]  = "1 1 1 0.3";  // neutral
-	colors[2]  = "1 0.5 0 0.3";   // red
-	colors[3]  = "0 0.5 1 0.3";   // blue
-	colors[4]  = "1 0.5 0 0.1";   // red zBlocked
-	colors[5]  = "0 0.5 1 0.1";   // blue zBlocked
-
-	colors[6]  = "1 1 1 0.75";  // white flash
-	colors[7]  = "1 0 0 0.9";   // red flash
-	colors[8]  = "0 0 1 0.9";   // blue flash
-	colors[9]  = "1 0.5 0 0.75";   // red zBlocked flash
-	colors[10] = "0 0.5 1 0.75";   // blue zBlocked flash
-
-	colors[11] = "0 1 0 0.75";   // bright green
-	colors[12] = "1 1 0 0.75";   // bright yellow
-	colors[13] = "0 1 0 0.1";   // constantly neutral
-	colors[14] = "0 1 0 0.4";   // protected
-	colors[15] = "1 1 1 1"; 
+	colors[0]  = "0.5 0.5 0.5 0.5"; // default
+	colors[1]  = "1.0 1.0 1.0 0.9"; // flash
 
     texture = "share/textures/cat5/zone.grid";
 };
@@ -342,23 +329,23 @@ function TerritoryZone::updateOwner(%this, %zone)
 	{
 		%this.setZoneOwner(%zone, 0);		
 	}
-	else if(%numConnections == 1)
-	{
-		if(%zone.getTeamId() != 1 && %connectedToRed) // blue end zone
-		{
-			if(%zone.zNumReds > 0)
-				%this.setZoneOwner(%zone, 0);
-			else if(%zone.zNumBlues > 0)
-				%this.setZoneOwner(%zone, 2);
-		}
-		else if(%zone.getTeamId() != 2 && %connectedToBlue) // red end zone
-		{
-			if(%zone.zNumBlues > 0)
-				%this.setZoneOwner(%zone, 0);
-			else if(%zone.zNumReds > 0)
-				%this.setZoneOwner(%zone, 1);
-		}			
-	}
+//	else if(%numConnections == 1)
+//	{
+//		if(%zone.getTeamId() != 1 && %connectedToRed) // blue end zone
+//		{
+//			if(%zone.zNumReds > 0)
+//				%this.setZoneOwner(%zone, 0);
+//			else if(%zone.zNumBlues > 0)
+//				%this.setZoneOwner(%zone, 2);
+//		}
+//		else if(%zone.getTeamId() != 2 && %connectedToBlue) // red end zone
+//		{
+//			if(%zone.zNumBlues > 0)
+//				%this.setZoneOwner(%zone, 0);
+//			else if(%zone.zNumReds > 0)
+//				%this.setZoneOwner(%zone, 1);
+//		}
+//	}
 
 	%zone.zBlocked = false;
 
@@ -382,10 +369,14 @@ function TerritoryZone::updateOwner(%this, %zone)
 	else if(%zone.getTeamId() == 1)
 		%color = 2;
 
-	%zone.setColor(%color, %color, 1);
+	//%zone.setColor(%color, %color, 1);
+   //%zone.setColor(%color, %color, 1);
 
 	if(%color != %zone.zColor)
-		%zone.flash(%color + 5, %color + 5, 1);
+   {
+      %zone.flash(1, 1, 1);
+		//%zone.flash(%color + 5, %color + 5, 1);
+   }
 
 	%zone.zColor = %color;
 }

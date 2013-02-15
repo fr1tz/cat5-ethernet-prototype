@@ -124,7 +124,7 @@ function ProjectileData::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist)
       if(%distScale < 0)
          %distScale = 0;
       %dmg *= %distScale;
-      //error("1-" @ %dist @ "/" @ %this.impactDamageMaxDist SPC "=" SPC %distScale SPC "->" SPC %dmg);
+      error("1-" @ %dist @ "/" @ %this.impactDamageMaxDist SPC "=" SPC %distScale SPC "->" SPC %dmg);
    }
 
 	// call damage func...

@@ -4,59 +4,70 @@
 //------------------------------------------------------------------------------
 
 exec("./minigun.projectile.sfx.cs");
-exec("./minigun.projectile.gfx.red.cs");
-exec("./minigun.projectile.gfx.blue.cs");
+exec("./minigun.projectile.gfx.white.cs");
 
 //-----------------------------------------------------------------------------
 // projectile datablock...
 
-datablock ProjectileData(RedMinigunProjectile)
+datablock ShotgunProjectileData(MinigunProjectile)
 {
+   allowColorization = true;
+
 	stat = "minigun";
 
 	// script damage properties...
-	impactDamage       = 60;
-	impactImpulse      = 500;
-	splashDamage       = 0;
-	splashDamageRadius = 0;
-	splashImpulse      = 0;
+	impactDamage        = 30;
+   impactDamageFalloff = $ImpactDamageFalloff::Linear;
+   impactDamageMaxDist = 100;
+	impactImpulse       = 0;
+	splashDamage        = 0;
+	splashDamageRadius  = 0;
+	splashImpulse       = 0;
 
-	energyDrain = 2; // how much energy does firing this projectile drain?
+	energyDrain = 0; // how much energy does firing this projectile drain?
+
+	numBullets = 1; // 9 // number of shotgun bullets
+
+	range = 100; // shotgun range
+	muzzleSpreadRadius = 0.0;
+	referenceSpreadRadius = 0.0;
+	referenceSpreadDistance = 25;
 
 	explodesNearEnemies	      = false;
-	explodesNearEnemiesRadius = 10;
+	explodesNearEnemiesRadius = 4;
 	explodesNearEnemiesMask   = $TypeMasks::PlayerObjectType;
 
-	//sound = MinigunProjectileFlybySound;
+	//sound = PumpgunProjectileFlybySound;
 
 	//projectileShapeName = "share/shapes/rotc/weapons/blaster/projectile.red.dts";
 
-	explosion               = RedMinigunProjectileImpact;
-	hitEnemyExplosion       = RedMinigunProjectileImpact;
-	hitTeammateExplosion    = RedMinigunProjectileImpact;
+	//explosion               = WhiteMinigunProjectileImpact;
+	//hitEnemyExplosion       = WhiteMinigunProjectileHit;
+	//hitTeammateExplosion    = WhiteMinigunProjectileHit;
 	//nearEnemyExplosion	= DefaultProjectileNearEnemyExplosion;
 	//hitDeflectorExplosion = SeekerDiscBounceEffect;
 
-	//fxLight					= RedMinigunProjectileFxLight;
+	//fxLight					= WhitePumpgunProjectileFxLight;
 
-	missEnemyEffect = RedMinigunProjectileMissedEnemyEffect;
+	missEnemyEffect		 = WhiteMinigunProjectileMissedEnemyEffect;
 
-	laserTail    = RedMinigunProjectileLaserTail;
-	laserTailLen = 8.0;
+	//laserTail				 = WhitePumpgunProjectileLaserTail;
+	//laserTailLen			 = 10.0;
 
-	//laserTrail[0] = RedMinigunProjectileLaserTrail;
+	laserTrail[0]			= WhiteMinigunProjectileLaserTrailOne;
+	laserTrailFlags[0]   = 1;
 
-	//particleEmitter	  = RedMinigunProjectileParticleEmitter;
+	//particleEmitter	  = WhitePumpgunProjectileParticleEmitter;
 
-	muzzleVelocity   = 400 * $Server::Game.slowpokemod;
-	velInheritFactor = 1.0 * $Server::Game.slowpokemod;
+	muzzleVelocity   = 9999;
+	velInheritFactor = 0.0;
 
-	isBallistic = false;
-	gravityMod  = 4.0 * $Server::Game.slowpokemod;
+	isBallistic			= false;
+	gravityMod			 = 10.0;
 
-	armingDelay	= 1000*0;
-	lifetime	= 3000;
-	fadeDelay	= 5000;
+	armingDelay			= 1000*0;
+	lifetime				= 3000;
+	fadeDelay			  = 5000;
 
 	decals[0] = BulletHoleDecalOne;
 
@@ -65,34 +76,9 @@ datablock ProjectileData(RedMinigunProjectile)
 	lightColor  = "1.0 0.0 0.0";
 };
 
-function RedMinigunProjectile::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist)
+function MinigunProjectile::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist)
 {
     Parent::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist);
-
-	if( !(%col.getType() & $TypeMasks::ShapeBaseObjectType) )
-		return;
 }
 
-//-----------------------------------------------------------------------------
 
-datablock ProjectileData(BlueMinigunProjectile : RedMinigunProjectile)
-{
-	//projectileShapeName = "share/shapes/rotc/weapons/blaster/projectile.blue.dts";
-
-	explosion            = BlueMinigunProjectileImpact;
-	hitEnemyExplosion    = BlueMinigunProjectileImpact;
-	hitTeammateExplosion = BlueMinigunProjectileImpact;
-
-	missEnemyEffect    = BlueMinigunProjectileMissedEnemyEffect;
-
-	laserTail          = BlueMinigunProjectileLaserTail;
-
-	//laserTrail[0]      = BlueMinigunProjectileLaserTrail;
-
-	lightColor  = "0.0 0.0 1.0";
-};
-
-function BlueMinigunProjectile::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist)
-{
-    RedMinigunProjectile::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist);
-}

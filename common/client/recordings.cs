@@ -83,10 +83,10 @@ function RecordingSettingsWindow::onSleep(%this)
 
 function demoSetViewHud(%val)
 {
-    if(!%val || Canvas.getContent() == HUD.getId())
+    if(!%val || Canvas.getContent() == Cockpit.getId())
 		return;
 
-	Canvas.setContent(HUD);
+	Canvas.setContent(Cockpit);
 	ServerConnection.setFirstPerson($firstPerson); 
 }
 

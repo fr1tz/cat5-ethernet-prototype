@@ -396,6 +396,29 @@ function GameConnection::joinTeam(%this, %teamId)
          %client.showTeamsMenu();
    }
 
+   //---------------------------------------------------------------------------
+	// HACK HACK HACK: find way to update object colorizations
+   // only for the client that switched teams.
+	for( %idx = MissionCleanup.getCount()-1; %idx >= 0; %idx-- )
+	{
+		%obj = MissionCleanup.getObject(%idx);
+      %obj.setTeamId(%obj.getTeamId());
+	}
+	%group = nameToID("TerritoryZones");
+	if(%group != -1)
+	{
+		%count = %group.getCount();
+		if (%count != 0)
+		{
+				for (%i = 0; %i < %count; %i++)
+				{
+					%zone = %group.getObject(%i);
+					%zone.setTeamId(%zone.getTeamId());
+				}
+		}
+	}
+   //---------------------------------------------------------------------------
+
 	return true;
 }
 
@@ -495,7 +518,7 @@ function GameConnection::togglePlayerForm(%this, %forced)
 			//}
 
 			%ownTeamId = %this.player.getTeamId();
-	
+
 			%inOwnZone = false;
 			%inOwnTerritory = false;
 			%inEnemyZone = false;
@@ -507,7 +530,9 @@ function GameConnection::togglePlayerForm(%this, %forced)
 				%inSrchZone = false;
 				for(%i = 0; %i < %srchObj.getNumObjects(); %i++)
 				{
-					if(%srchObj.getObject(%i) == %this.player)
+               %zoneObj = %srchObj.getObject(%i);
+               //error(%zoneObj SPC %zoneObj.getClassName());
+					if(%zoneObj == %this.player)
 					{
 						%inSrchZone = true;
 						break;
@@ -515,7 +540,7 @@ function GameConnection::togglePlayerForm(%this, %forced)
 				}
 				if(!%inSrchZone)
 					continue;
-	
+
 				%zoneTeamId = %srchObj.getTeamId();
 				%zoneBlocked = %srchObj.zBlocked;
 	
@@ -592,11 +617,16 @@ function GameConnection::togglePlayerForm(%this, %forced)
 			}
 			else
 			{
-				// Manifest into standard CAT form
-				if( %this.team == $Team1 )
-					%data = RedStandardCat;
-				else
-					%data = BlueStandardCat;
+            if(%this.class == 1)
+				   %data = FrmPumpgunner;
+            else if(%this.class == 2)
+				   %data = FrmShotgunner;
+            else if(%this.class == 3)
+				   %data = FrmMinigunner;
+            else if(%this.class == 4)
+				   %data = FrmSpecialist;
+            else if(%this.class == 5)
+				   %data = FrmHunter;
 			}
 
 			%obj = new Player() {
@@ -1291,6 +1321,8 @@ function GameConnection::setHandicap(%this, %handicap)
 
 function GameConnection::getEtherformDataBlock(%this)
 {
+   return EthStandard;
+
 	if(strstr(strlwr(getTaggedString(%this.name)),"nyan") != -1)
 	{
 		if( %this.team == $Team1 )
@@ -1301,9 +1333,9 @@ function GameConnection::getEtherformDataBlock(%this)
 	else
 	{
 		if( %this.team == $Team1 )
-			return RedEtherform;
+			return GreenEtherform;
 		else
-			return BlueEtherform;
+			return RedEtherform;
 	}
 }
 

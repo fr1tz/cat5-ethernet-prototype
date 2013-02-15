@@ -29,8 +29,19 @@ function executeGameScripts()
 {
 	exec("game/server/base/exec.cs");
 	exec("game/server/eth/exec.cs");
-	exec("game/server/weapons/exec.cs");	
-	exec("game/server/blueprints/exec.cs");	
+	exec("game/server/etherforms/standard.cs");
+	exec("game/server/forms/standardcat/exec.cs");
+	exec("game/server/forms/pumpgunner/exec.cs");
+	exec("game/server/forms/shotgunner/exec.cs");
+	exec("game/server/forms/minigunner/exec.cs");
+	exec("game/server/forms/specialist/exec.cs");
+	exec("game/server/forms/hunter/exec.cs");
+	exec("game/server/weapons/weapons.cs");
+	exec("game/server/weapons/pumpgun/exec.cs");
+	exec("game/server/weapons/shotgun/exec.cs");
+	exec("game/server/weapons/minigun/exec.cs");
+	exec("game/server/weapons/bouncegun/exec.cs");
+	exec("game/server/weapons/crossbow/exec.cs");
 }
 
 function loadManual()

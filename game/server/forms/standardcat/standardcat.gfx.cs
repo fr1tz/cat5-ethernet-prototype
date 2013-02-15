@@ -4,11 +4,34 @@
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Cat5 - standard.gfx.cs
-// Eyecandy for the standard CAT
+// light images...
+
+datablock ShapeBaseImageData(StandardCatLightImage)
+{
+   allowColorization = true;
+
+	// basic item properties
+	shapeFile = "share/shapes/rotc/misc/nothing.dts";
+	emap = true;
+
+	// mount point & mount offset...
+	mountPoint  = 4;
+	offset = "0 0 0";
+
+	// light properties...
+	lightType = "ConstantLight";
+	lightColor = "0.9 0.9 0.9";
+	lightTime = 1000;
+	lightRadius = 3.25;
+	lightCastsShadows = false;
+	lightAffectsShapes = false;
+
+	stateName[0] = "DoNothing";
+};
+
 //------------------------------------------------------------------------------
 
-datablock ParticleData(RedCatSlideFootEmitter_Particle)
+datablock ParticleData(StandardCatSlideFootEmitter_Particle)
 {
 	dragCoefficient		= 1.0;
 	gravityCoefficient	= 2.0;
@@ -29,7 +52,7 @@ datablock ParticleData(RedCatSlideFootEmitter_Particle)
 	allowLighting = false;
 };
 
-datablock ParticleEmitterData(RedCatSlideFootEmitter)
+datablock ParticleEmitterData(StandardCatSlideFootEmitter)
 {
 	ejectionPeriodMS = 5;
 	periodVarianceMS = 0;
@@ -43,47 +66,7 @@ datablock ParticleEmitterData(RedCatSlideFootEmitter)
 	overrideAdvances = false;
 	orientParticles  = false;
 	lifetimeMS		 = 0; // forever
-	particles = RedCatSlideFootEmitter_Particle;
-};
-
-//------------------------------------------------------------------------------
-
-datablock ParticleData(BlueCatSlideFootEmitter_Particle)
-{
-	dragCoefficient		= 1.0;
-	gravityCoefficient	= 2.0;
-	inheritedVelFactor	= 0.0;
-	constantAcceleration = 0.0;
-	lifetimeMS			  = 300;
-	lifetimeVarianceMS	= 100;
-	colors[0]	  = "1.0 1.0 1.0 1.0";
-	colors[1]	  = "0.0 0.0 1.0 0.5";
-	colors[2]	  = "0.0 0.0 1.0 0.0";
-	sizes[0]		= 1.0;
-	sizes[1]		= 1.0;
-	sizes[2]		= 1.0;
-	times[0]		= 0.0;
-	times[1]		= 0.5;
-	times[2]		= 1.0;
-	textureName	= "share/textures/rotc/dustParticle";
-	allowLighting = false;
-};
-
-datablock ParticleEmitterData(BlueCatSlideFootEmitter)
-{
-	ejectionPeriodMS = 5;
-	periodVarianceMS = 0;
-	ejectionVelocity = -5;
-	velocityVariance = 0;
-	ejectionOffset	= 0.75;
-	thetaMin			= 90;
-	thetaMax			= 90;
-	phiReferenceVel  = 0;
-	phiVariance		= 360;
-	overrideAdvances = false;
-	orientParticles  = false;
-	lifetimeMS		 = 0; // forever
-	particles = BlueCatSlideFootEmitter_Particle;
+	particles = StandardCatSlideFootEmitter_Particle;
 };
 
 //------------------------------------------------------------------------------
@@ -125,132 +108,6 @@ datablock ParticleEmitterData(CatSlideContactTrailEmitter)
 	orientParticles  = false;
 	lifetimeMS		 = 0; // forever
 	particles = CatSlideContactTrailEmitter_Particle;
-};
-
-//------------------------------------------------------------------------------
-
-datablock ParticleData(WhiteSlideEmitter_Particle)
-{
-	dragCoefficient		= 1.0;
-	gravityCoefficient	= 0.0;
-	inheritedVelFactor	= 0.0;
-	constantAcceleration = 0.0;
-	lifetimeMS			  = 1000;
-	lifetimeVarianceMS	= 350;
-	colors[0]	  = "1.0 1.0 1.0 1.0";
-	colors[1]	  = "1.0 1.0 1.0 0.5";
-	colors[2]	  = "1.0 1.0 1.0 0.0";
-	sizes[0]		= 1.0;
-	sizes[1]		= 1.0;
-	sizes[2]		= 1.0;
-	times[0]		= 0.0;
-	times[1]		= 0.5;
-	times[2]		= 1.0;
-	textureName	= "share/textures/rotc/dustParticle";
-	allowLighting = false;
-};
-
-datablock ParticleEmitterData(WhiteSlideEmitter)
-{
-	ejectionPeriodMS = 5;
-	periodVarianceMS = 0;
-	ejectionVelocity = 2;
-	velocityVariance = 1;
-	ejectionOffset	= 0.75;
-	thetaMin			= 90;
-	thetaMax			= 90;
-	phiReferenceVel  = 0;
-	phiVariance		= 360;
-	overrideAdvances = false;
-	orientParticles  = false;
-	lifetimeMS		 = 0; // forever
-	particles = WhiteSlideEmitter_Particle;
-};
-
-//------------------------------------------------------------------------------
-
-datablock ParticleData(RedSlideEmitter_Particle)
-{
-	dragCoefficient		= 0.0;
-	gravityCoefficient	= 0.0;
-	inheritedVelFactor	= 0.0;
-	constantAcceleration = 0.0;
-	lifetimeMS			  = 250;
-	lifetimeVarianceMS	= 0;
-	colors[0]	  = "1.0 0.0 1.0 1.0";
-	colors[1]	  = "1.0 0.0 0.0 1.0";
-	colors[2]	  = "1.0 1.0 0.0 1.0";
-	colors[3]	  = "0.0 5.0 0.0 0.0";
-	sizes[0]		= 0.2;
-	sizes[1]		= 0.2;
-	sizes[2]		= 0.2;
-	sizes[3]		= 0.2;
-	times[0]		= 0.0;
-	times[1]		= 0.333;
-	times[2]		= 0.666;
-	times[3]		= 1.0;
-	textureName	= "share/textures/rotc/small_particle4";
-	allowLighting = false;
-};
-
-datablock ParticleEmitterData(RedSlideEmitter)
-{
-	ejectionPeriodMS = 5;
-	periodVarianceMS = 0;
-	ejectionVelocity = 10;
-	velocityVariance = 3;
-	ejectionOffset	= 0.5;
-	thetaMin			= 60;
-	thetaMax			= 85;
-	phiReferenceVel  = 0;
-	phiVariance		= 360;
-	overrideAdvances = false;
-	orientParticles  = false;
-	lifetimeMS		 = 0; // forever
-	particles = RedSlideEmitter_Particle;
-};
-
-//------------------------------------------------------------------------------
-
-datablock ParticleData(BlueSlideEmitter_Particle)
-{
-	dragCoefficient		= 0.0;
-	gravityCoefficient	= 0.0;
-	inheritedVelFactor	= 0.0;
-	constantAcceleration = 0.0;
-	lifetimeMS			  = 250;
-	lifetimeVarianceMS	= 0;
-	colors[0]	  = "1.0 0.0 1.0 1.0";
-	colors[1]	  = "0.0 0.0 1.0 1.0";
-	colors[2]	  = "0.0 1.0 1.0 1.0";
-	colors[3]	  = "0.0 5.0 0.0 0.0";
-	sizes[0]		= 0.2;
-	sizes[1]		= 0.2;
-	sizes[2]		= 0.2;
-	sizes[3]		= 0.2;
-	times[0]		= 0.0;
-	times[1]		= 0.333;
-	times[2]		= 0.666;
-	times[3]		= 1.0;
-	textureName	= "share/textures/rotc/small_particle4";
-	allowLighting = false;
-};
-
-datablock ParticleEmitterData(BlueSlideEmitter)
-{
-	ejectionPeriodMS = 5;
-	periodVarianceMS = 0;
-	ejectionVelocity = 10;
-	velocityVariance = 3;
-	ejectionOffset	= 0.5;
-	thetaMin			= 60;
-	thetaMax			= 85;
-	phiReferenceVel  = 0;
-	phiVariance		= 360;
-	overrideAdvances = false;
-	orientParticles  = false;
-	lifetimeMS		 = 0; // forever
-	particles = BlueSlideEmitter_Particle;
 };
 
 //------------------------------------------------------------------------------
@@ -626,7 +483,7 @@ datablock SplashData(StandardCatSplash)
 // Foot prints
 //----------------------------------------------------------------------------
 
-datablock DecalData(RedStandardCatFootprint)
+datablock DecalData(StandardCatFootprint)
 {
 	sizeX = "0.60";
 	sizeY = "0.60";
@@ -634,7 +491,7 @@ datablock DecalData(RedStandardCatFootprint)
 	SelfIlluminated = true;
 };
 
-datablock DecalData(BlueStandardCatFootprint)
+datablock DecalData(RedStandardCatFootprint)
 {
 	sizeX = "0.60";
 	sizeY = "0.60";
@@ -646,7 +503,7 @@ datablock DecalData(BlueStandardCatFootprint)
 // Foot puffs
 //----------------------------------------------------------------------------
 
-datablock ParticleData(RedStandardCatFootPuff)
+datablock ParticleData(StandardCatFootPuff)
 {
 	dragCoefficient		= 2.0;
 	gravityCoefficient	= -0.3;
@@ -669,7 +526,7 @@ datablock ParticleData(RedStandardCatFootPuff)
 	textureName	= "share/textures/rotc/smoke_particle";
 };
 
-datablock ParticleEmitterData(RedStandardCatFootPuffEmitter)
+datablock ParticleEmitterData(StandardCatFootPuffEmitter)
 {
 	ejectionPeriodMS = 35;
 	periodVarianceMS = 10;
@@ -682,48 +539,8 @@ datablock ParticleEmitterData(RedStandardCatFootPuffEmitter)
 	phiVariance		= 360;
 	overrideAdvances = false;
 	useEmitterColors = false;
-	particles = RedStandardCatFootPuff;
+	particles = StandardCatFootPuff;
 };
-
-datablock ParticleData(BlueStandardCatFootPuff)
-{
-	dragCoefficient		= 2.0;
-	gravityCoefficient	= -0.3;
-	inheritedVelFactor	= 0.0;
-	constantAcceleration = 0.0;
-	lifetimeMS			  = 1200;
-	lifetimeVarianceMS	= 0;
-	useInvAlpha			 = false;
-	spinRandomMin		  = -35.0;
-	spinRandomMax		  = 35.0;
-	colors[0]	  = "1.0 1.0 1.0 1.0";
-	colors[1]	  = "0.5 0.5 1.0 0.5";
-	colors[2]	  = "0.5 0.5 0.5 0.0";
-	sizes[0]		= 0.8;
-	sizes[1]		= 1.2;
-	sizes[2]		= 0.0;
-	times[0]		= 0.0;
-	times[1]		= 0.5;
-	times[2]		= 1.0;
-	textureName	= "share/textures/rotc/smoke_particle";
-};
-
-datablock ParticleEmitterData(BlueStandardCatFootPuffEmitter)
-{
-	ejectionPeriodMS = 35;
-	periodVarianceMS = 10;
-	ejectionVelocity = 0;
-	velocityVariance = 0.1;
-	ejectionOffset   = -0.6;
-	thetaMin         = 0;
-	thetaMax         = 0;
-	phiReferenceVel  = 0;
-	phiVariance		= 360;
-	overrideAdvances = false;
-	useEmitterColors = false;
-	particles = BlueStandardCatFootPuff;
-};
-
 
 //----------------------------------------------------------------------------
 // Liftoff dust

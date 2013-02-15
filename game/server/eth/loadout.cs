@@ -8,14 +8,20 @@ function GameConnection::loadDefaultLoadout(%this, %no)
    switch(%no)
    {
       case 1:
-         %this.loadoutName[%no] = "Shotgunner";
+         %this.loadoutName[%no] = "Cobra";
          %this.loadoutCode[%no] = "1";
       case 2:
-         %this.loadoutName[%no] = "Minigunner";
-         %this.loadoutCode[%no] = "4";
-      case 3:
-         %this.loadoutName[%no] = "Specialist";
+         %this.loadoutName[%no] = "Malone";
          %this.loadoutCode[%no] = "2";
+      case 3:
+         %this.loadoutName[%no] = "Terminator";
+         %this.loadoutCode[%no] = "3";
+      case 4:
+         %this.loadoutName[%no] = "Commando";
+         %this.loadoutCode[%no] = "4";
+      case 5:
+         %this.loadoutName[%no] = "Predator";
+         %this.loadoutCode[%no] = "5";
       default:
          %this.loadoutName[%no] = "";
          %this.loadoutCode[%no] = "1";
@@ -28,6 +34,8 @@ function GameConnection::defaultLoadout(%this)
 {
 	for(%i = 1; %i <= 9; %i++)
 		this.loadout[%i] = "";
+
+   %this.class = 1;
 
 	if($Game::GameType == $Game::Ethernet)
 	{
@@ -431,6 +439,10 @@ function GameConnection::changeInventory(%this, %nr)
 		{
          if(%this.loadoutName[%nr] $= "")
             return;
+
+         %this.class = %nr;
+  	      %this.play2D(BipMessageSound);
+         return;
 
          for(%i = 0; %i < 1; %i++)
          {

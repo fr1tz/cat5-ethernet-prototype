@@ -44,7 +44,7 @@ function GameConnection::initialControlSet(%this)
 	{
 		if (Canvas.getContent() == Shell.getId())
 		{
-			Canvas.setContent(Hud);
+			Canvas.setContent(Cockpit);
 			showShellDlg(true);
 			
 			// Make sure we're displaying the IRC window if we're not offline...

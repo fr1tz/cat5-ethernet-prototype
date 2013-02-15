@@ -519,13 +519,13 @@ function ShapeBaseData::damage(%this, %obj, %sourceObject, %pos, %damage, %damag
    }
 	else
    {
-      %bleed = %this.getBleed(%obj, %healthDamageDealt, %sourceObject);
-      if(isObject(%bleed))
-      {
-         %norm = VectorNormalize(VectorSub(%pos, %obj.getWorldBoxCenter()));
-         %bpos = %damageType == $DamageType::Impact ? %pos : %obj.getWorldBoxCenter();
-         createExplosion(%bleed, %bpos, %norm);
-      }
+      //%bleed = %this.getBleed(%obj, %healthDamageDealt, %sourceObject);
+      //if(isObject(%bleed))
+      //{
+      //   %norm = VectorNormalize(VectorSub(%pos, %obj.getWorldBoxCenter()));
+      //   %bpos = %damageType == $DamageType::Impact ? %pos : %obj.getWorldBoxCenter();
+      //   createExplosion(%bleed, %bpos, %norm);
+      //}
    }
 
     if(%obj.client)

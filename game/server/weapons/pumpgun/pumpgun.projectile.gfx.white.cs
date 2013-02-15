@@ -6,7 +6,7 @@
 //-----------------------------------------------------------------------------
 // projectile particle emitter
 
-datablock ParticleData(RedShotgunProjectileParticleEmitter_Particles)
+datablock ParticleData(WhitePumpgunProjectileParticleEmitter_Particles)
 {
 	dragCoefficient      = 1;
 	gravityCoefficient   = 0.0;
@@ -28,7 +28,7 @@ datablock ParticleData(RedShotgunProjectileParticleEmitter_Particles)
 	renderDot            = true;
 };
 
-datablock ParticleEmitterData(RedShotgunProjectileParticleEmitter)
+datablock ParticleEmitterData(WhitePumpgunProjectileParticleEmitter)
 {
 	ejectionPeriodMS = 10;
 	periodVarianceMS = 2;
@@ -42,13 +42,13 @@ datablock ParticleEmitterData(RedShotgunProjectileParticleEmitter)
 	overrideAdvances = false;
 	orientParticles  = false;
 	lifetimeMS		 = 0;
-	particles = "RedShotgunProjectileParticleEmitter_Particles";
+	particles = "WhitePumpgunProjectileParticleEmitter_Particles";
 };
 
 //-----------------------------------------------------------------------------
 // laser tail...
 
-datablock LaserBeamData(RedShotgunProjectileLaserTail)
+datablock LaserBeamData(WhitePumpgunProjectileLaserTail)
 {
 	hasLine = true;
 	lineStartColor	= "1.00 0.00 0.00 0.0";
@@ -84,13 +84,15 @@ datablock LaserBeamData(RedShotgunProjectileLaserTail)
 //-----------------------------------------------------------------------------
 // laser trail
 
-datablock MultiNodeLaserBeamData(RedShotgunProjectileLaserTrail)
+datablock MultiNodeLaserBeamData(WhitePumpgunProjectileLaserTrail)
 {
+   allowColorization = true;
+
 	hasLine = true;
-	lineColor	= "1.00 0.00 0.00 1.0";
+	lineColor	= "0.90 0.90 0.90 0.5";
 
 	hasInner = true;
-	innerColor = "1.00 1.00 0.00 1.0";
+	innerColor = "0.90 0.90 0.90 0.5";
 	innerWidth = "0.10";
 
 	hasOuter = false;
@@ -102,7 +104,8 @@ datablock MultiNodeLaserBeamData(RedShotgunProjectileLaserTrail)
 
 	blendMode = 1;
 	renderMode = $MultiNodeLaserBeamRenderMode::FaceViewer;
-	fadeTime = 100*20;
+//	fadeTime = 100*20;
+	fadeTime = 2000;
     
 	windCoefficient = 0.0;
     
@@ -122,10 +125,51 @@ datablock MultiNodeLaserBeamData(RedShotgunProjectileLaserTrail)
     nodeDistance = 5;
 };
 
+datablock MultiNodeLaserBeamData(WhitePumpgunProjectileLaserTrailTwo)
+{
+   allowColorization = true;
+
+	hasLine   = false;
+	lineColor = "0.90 0.90 0.90 0.5";
+	lineWidth = 2.0;
+
+	hasInner = false;
+	innerColor = "0.90 0.90 0.90 0.5";
+	innerWidth = "0.5";
+
+	hasOuter = false;
+	outerColor = "1.00 0.00 0.00 0.75";
+	outerWidth = "0.20";
+
+	bitmap = "share/textures/cat5/smoke2";
+	bitmapWidth = 0.75;
+
+	blendMode = 1;
+	renderMode = $MultiNodeLaserBeamRenderMode::FaceViewer;
+	fadeTime = 250;
+
+    windCoefficient = 0.0;
+
+    // node x movement...
+    nodeMoveMode[0]     = $NodeMoveMode::ConstantSpeed;
+    nodeMoveSpeed[0]    = -2.0;
+    nodeMoveSpeedAdd[0] =  4.0;
+    // node y movement...
+    nodeMoveMode[1]     = $NodeMoveMode::ConstantSpeed;
+    nodeMoveSpeed[1]    = -2.0;
+    nodeMoveSpeedAdd[1] =  4.0;
+    // node z movement...
+    nodeMoveMode[2]     = $NodeMoveMode::ConstantSpeed;
+    nodeMoveSpeed[2]    = -2.0;
+    nodeMoveSpeedAdd[2] =  4.0;
+
+    nodeDistance = 1;
+};
+
 //-----------------------------------------------------------------------------
 // impact...
 
-datablock ParticleData(RedShotgunProjectileImpact_Smoke)
+datablock ParticleData(WhitePumpgunProjectileImpact_Smoke)
 {
 	dragCoeffiecient	  = 0.4;
 	gravityCoefficient	= -0.4;
@@ -148,7 +192,7 @@ datablock ParticleData(RedShotgunProjectileImpact_Smoke)
 	allowLighting = false;
 };
 
-datablock ParticleEmitterData(RedShotgunProjectileImpact_SmokeEmitter)
+datablock ParticleEmitterData(WhitePumpgunProjectileImpact_SmokeEmitter)
 {
 	ejectionOffset	= 0;
 
@@ -163,10 +207,10 @@ datablock ParticleEmitterData(RedShotgunProjectileImpact_SmokeEmitter)
 
 	lifetimeMS		 = 100;
 
-	particles = "RedShotgunProjectileImpact_Smoke";
+	particles = "WhitePumpgunProjectileImpact_Smoke";
 };
 
-datablock DebrisData(RedShotgunProjectileImpact_Debris)
+datablock DebrisData(WhitePumpgunProjectileImpact_Debris)
 {
 	// shape...
 	shapeFile = "share/shapes/rotc/misc/debris1.white.dts";
@@ -189,9 +233,9 @@ datablock DebrisData(RedShotgunProjectileImpact_Debris)
 	lifetimeVariance = 1.0;
 };
 
-datablock ExplosionData(RedShotgunProjectileImpact)
+datablock ExplosionData(WhitePumpgunProjectileImpact)
 {
-	soundProfile = ShotgunProjectileImpactSound;
+	soundProfile = PumpgunProjectileImpactSound;
 
 	lifetimeMS = 3000;
  
@@ -205,9 +249,9 @@ datablock ExplosionData(RedShotgunProjectileImpact)
 	times[1] = 1.0;
 
 	emitter[0] = DefaultSmallWhiteDebrisEmitter;
-	emitter[1] = RedShotgunProjectileImpact_SmokeEmitter;
+	emitter[1] = WhitePumpgunProjectileImpact_SmokeEmitter;
 
-	//debris = RedShotgunProjectileImpact_Debris;
+	//debris = WhitePumpgunProjectileImpact_Debris;
 	//debrisThetaMin = 0;
 	//debrisThetaMax = 60;
 	//debrisNum = 1;
@@ -228,7 +272,7 @@ datablock ExplosionData(RedShotgunProjectileImpact)
 //-----------------------------------------------------------------------------
 // hit enemy...
 
-datablock ParticleData(RedShotgunProjectileHit_Particle)
+datablock ParticleData(WhitePumpgunProjectileHit_Particle)
 {
 	dragCoefficient    = 0.0;
 	windCoefficient    = 0.0;
@@ -256,7 +300,7 @@ datablock ParticleData(RedShotgunProjectileHit_Particle)
 	renderDot = true;
 };
 
-datablock ParticleEmitterData(RedShotgunProjectileHit_Emitter)
+datablock ParticleEmitterData(WhitePumpgunProjectileHit_Emitter)
 {
 	ejectionOffset	= 0;
 
@@ -271,16 +315,16 @@ datablock ParticleEmitterData(RedShotgunProjectileHit_Emitter)
 
 	lifetimeMS		 = 100;
 
-	particles = "RedShotgunProjectileHit_Particle";
+	particles = "WhitePumpgunProjectileHit_Particle";
 };
 
-datablock ExplosionData(RedShotgunProjectileHit)
+datablock ExplosionData(WhitePumpgunProjectileHit)
 {
-	soundProfile = ShotgunProjectileImpactSound;
+	soundProfile = PumpgunProjectileImpactSound;
 
 	lifetimeMS = 450;
 
-	particleEmitter = RedShotgunProjectileHit_Emitter;
+	particleEmitter = WhitePumpgunProjectileHit_Emitter;
 	particleDensity = 1;
 	particleRadius = 0;
 
@@ -295,25 +339,25 @@ datablock ExplosionData(RedShotgunProjectileHit)
 //-----------------------------------------------------------------------------
 // missed enemy...
 
-datablock ExplosionData(RedShotgunProjectileMissedEnemyEffect)
+datablock ExplosionData(WhitePumpgunProjectileMissedEnemyEffect)
 {
-	soundProfile = ShotgunProjectileMissedEnemySound;
+	soundProfile = PumpgunProjectileMissedEnemySound;
 
 	// shape...
-	explosionShape = "share/shapes/rotc/effects/explosion2_white.dts";
-	faceViewer	  = true;
-	playSpeed = 8.0;
-	sizes[0] = "0.07 0.07 0.07";
-	sizes[1] = "0.01 0.01 0.01";
-	times[0] = 0.0;
-	times[1] = 1.0;
+	//explosionShape = "share/shapes/rotc/effects/explosion2_white.dts";
+	//faceViewer	  = true;
+	//playSpeed = 8.0;
+	//sizes[0] = "0.07 0.07 0.07";
+	//sizes[1] = "0.01 0.01 0.01";
+	//times[0] = 0.0;
+	//times[1] = 1.0;
 
 	// dynamic light...
-	lightStartRadius = 0;
-	lightEndRadius = 2;
-	lightStartColor = "0.5 0.5 0.5";
-	lightEndColor = "0.0 0.0 0.0";
-    lightCastShadows = false;
+	//lightStartRadius = 0;
+	//lightEndRadius = 0;
+	//lightStartColor = "1 1 1";
+	//lightEndColor = "0 0 0";
+   //lightCastShadows = false;
 };
 
 

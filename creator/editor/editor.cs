@@ -106,7 +106,7 @@ function toggleEditor(%make)
 			}
 
 			if (Canvas.getContent() == EditorGui.getId())
-				Editor.close("Hud");
+				Editor.close("Cockpit");
 			else
 				Editor.open();
 		}

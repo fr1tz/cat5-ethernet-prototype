@@ -60,16 +60,13 @@ function aiAdd(%teamid, %weaponNum)
 	else if($Game::GameType == $Game::Infantry)
 	{
 		if(%teamid == 1)
-			%playerData = RedInfantryCat;
+			%playerData = GreenInfantryCat;
 		else
-			%playerData = BlueInfantryCat;
+			%playerData = RedInfantryCat;
 	}
 	else
 	{
-		if(%teamid == 1)
-			%playerData = RedStandardCat;
-		else
-			%playerData = BlueStandardCat;
+		%playerData = StandardCat;
 	}
 
 	%player = new AiPlayer() {

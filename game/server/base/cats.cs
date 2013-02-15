@@ -37,22 +37,17 @@ function executeCatScripts()
 	
 	exec("./cats.sfx.cs");
 	exec("./cats.gfx.cs");
-
-	// partytime!
-	exec("./cats/partysounds.cs");
-	exec("./cats/partyanims.cs");
-
-	// CATs...
-	exec("./cats/standard/standard.cs");
 }
 
 executeCatScripts();
 
 //------------------------------------------------------------------------------
 
-function StandardCat::useWeapon(%this, %obj, %nr)
+function Cat::useWeapon(%this, %obj, %nr)
 {
 	%client = %obj.client;
+
+   return;
 
 	if(%nr == 4)
 	{
@@ -95,45 +90,27 @@ function StandardCat::useWeapon(%this, %obj, %nr)
 
 	if(%wpn == 1)
 	{
-		if(%obj.getTeamId() == 1)
-			%obj.mountImage(RedShotgunImage, 0, -1, true);
-		else
-			%obj.mountImage(BlueShotgunImage, 0, -1, true);
+   	%obj.mountImage(ShotgunImage, 0, -1, true);
 	}
 	else if(%wpn == $CatEquipment::BattleRifle)
 	{
-		if(%obj.getTeamId() == 1)
-			%obj.mountImage(RedBounceGunImage, 0, -1, true);
-		else
-			%obj.mountImage(BlueBounceGunImage, 0, -1, true);
+		%obj.mountImage(BounceGunImage, 0, -1, true);
 	}
 	else if(%wpn == $CatEquipment::SniperRifle)
 	{
-		if(%obj.getTeamId() == 1)
-			%obj.mountImage(RedSniperRifleImage, 0, -1, true);
-		else
-			%obj.mountImage(BlueSniperRifleImage, 0, -1, true);
+		%obj.mountImage(SniperRifleImage, 0, -1, true);
 	}
 	else if(%wpn == $CatEquipment::MiniGun)
 	{
-		if(%obj.getTeamId() == 1)
-			%obj.mountImage(RedMinigunImage, 0, -1, true);
-		else
-			%obj.mountImage(BlueMinigunImage, 0, -1, true);
+		%obj.mountImage(MinigunImage, 0, -1, true);
 	}
 	else if(%wpn == $CatEquipment::RepelGun)
 	{
-		if(%obj.getTeamId() == 1)
-			%obj.mountImage(RedRepelGunImage, 0, -1, true);
-		else
-			%obj.mountImage(BlueRepelGunImage, 0, -1, true);
+		%obj.mountImage(RepelGunImage, 0, -1, true);
 	}
 	else if(%wpn == $CatEquipment::GrenadeLauncher)
 	{
-		if(%obj.getTeamId() == 1)
-			%obj.mountImage(RedGrenadeLauncherImage, 0, -1, true);
-		else
-			%obj.mountImage(BlueGrenadeLauncherImage, 0, -1, true);
+		%obj.mountImage(GrenadeLauncherImage, 0, -1, true);
 	}
 }
 
