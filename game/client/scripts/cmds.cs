@@ -84,7 +84,7 @@ function clientCmdCockpitMode(%mode, %arg1, %arg2, %arg3, %arg4, %arg5)
       $mvPosActive = true;
       HUD.viewMode = 3;
    }
-   else
+   else if(%mode == 2)
    {
       %pos = %arg1;
       HudRulerH.visible = false;
@@ -94,5 +94,21 @@ function clientCmdCockpitMode(%mode, %arg1, %arg2, %arg3, %arg4, %arg5)
       $mvMapX = getWord(%pos, 0);
       $mvMapY = getWord(%pos, 1);
       HUD.viewMode = 2;
+   }
+   else if(%mode == 3)
+   {
+      HudRulerH.visible = true;
+      HudRulerV.visible = true;
+      $mvMapActive = false;
+      $mvPosActive = false;
+      HUD.viewMode = 5;
+   }
+   else if(%mode == 4)
+   {
+      HudRulerH.visible = true;
+      HudRulerV.visible = true;
+      $mvMapActive = false;
+      $mvPosActive = false;
+      HUD.viewMode = 6;
    }
 }

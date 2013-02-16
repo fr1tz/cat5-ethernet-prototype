@@ -141,19 +141,21 @@ function pitch(%val)
 
 function mouseX(%val)
 {
-	//$mvYaw += getMouseAdjustAmount(%val);
-   if($mvPosActive)
+   if(!$mvPosActive && !$mvMapActive)
+      $mvYaw += getMouseAdjustAmount(%val);
+   //if($mvPosActive)
 	   $mvHorizontalPos += getMouseAdjustAmount(%val);
-   if($mvMapActive)
+   //if($mvMapActive)
  	   $mvMapX += %val;
 }
 
 function mouseY(%val)
 {
-	//$mvPitch += getMouseAdjustAmount(%val);
-   if($mvPosActive)
+   //if(!$mvPosActive && !$mvMapActive)
+   //   $mvPitch += getMouseAdjustAmount(%val);
+   //if($mvPosActive)
 	   $mvVerticalPos -= getMouseAdjustAmount(%val);
-   if($mvMapActive)
+   //if($mvMapActive)
       $mvMapY -= %val;
 }
 
