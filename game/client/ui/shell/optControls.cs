@@ -244,7 +244,7 @@ function OptControlsUpdateMouse()
         "xaxis",
         S,
         $Pref::Input::MouseSensitivity,
-        horizontal
+        mouseX
     );
     
     MoveMap.bind(
@@ -252,7 +252,7 @@ function OptControlsUpdateMouse()
         "yaxis",
         $Pref::Input::InvertMouse ? "SI" : "S",
         $Pref::Input::MouseSensitivity,
-        vertical
+        mouseY
     );
     
     OptControlsMouseSensitivity.setValue($Pref::Input::MouseSensitivity);

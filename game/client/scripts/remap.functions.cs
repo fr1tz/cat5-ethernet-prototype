@@ -26,7 +26,44 @@ function toggleShellDlg(%val)
 
 function freeLook( %val )
 {
-	$mvFreeLook = %val;
+   if(HUD.zMode == 0)
+   {
+      if(false && %val)
+      {
+         %panpos = HUD.getPan();
+
+//         %ctrl = ServerConnection.getControlObject();
+//         if(!isObject(%ctrl))
+//            return;
+//         %ctrlpos = %ctrl.getPosition();
+         %lookpos = $mvMapX SPC $mvMapY;
+
+         %vec = VectorSub(%lookpos, %panpos);
+
+         %panpos = VectorAdd(%panpos, %vec);
+         %lookpos = VectorAdd(%panpos, %vec);
+
+         HUD.pan(getWord(%panpos,0), getWord(%panpos,1));
+         $mvMapX = getWord(%lookpos,0);
+         $mvMapY = getWord(%lookpos,1);
+      }
+      //return;
+
+      if(%val)
+      {
+         %pan = HUD.getPan();
+         $mvMapX = getWord(%pan, 0);
+         $mvMapY = getWord(%pan, 1);
+         HUD.viewMode = 2;
+      }
+      else
+      {
+         HUD.viewMode = 1;
+         HUD.pan($mvMapX, $mvMapY);
+      }
+   }
+   else
+	   $mvFreeLook = %val;
 }
 
 function toggleFirstPerson(%val)
@@ -102,14 +139,22 @@ function pitch(%val)
 	$mvPitch += getMouseAdjustAmount(%val);
 }
 
-function horizontal(%val)
+function mouseX(%val)
 {
-	$mvHorizontalPos += getMouseAdjustAmount(%val);
+	//$mvYaw += getMouseAdjustAmount(%val);
+   if($mvPosActive)
+	   $mvHorizontalPos += getMouseAdjustAmount(%val);
+   if($mvMapActive)
+ 	   $mvMapX += %val;
 }
 
-function vertical(%val)
+function mouseY(%val)
 {
-	$mvVerticalPos -= getMouseAdjustAmount(%val);
+	//$mvPitch += getMouseAdjustAmount(%val);
+   if($mvPosActive)
+	   $mvVerticalPos -= getMouseAdjustAmount(%val);
+   if($mvMapActive)
+      $mvMapY -= %val;
 }
 
 //------------------------------------------------------------------------------

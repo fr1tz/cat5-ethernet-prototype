@@ -449,6 +449,9 @@ function GameConnection::spawnPlayer(%this)
 	%obj.setCurrTagged(0);
 	%obj.setCurrTaggedPos("0 0 0");
 
+   // set up client's cockpit
+   commandToClient(%this, 'CockpitMode', 0, %obj.getPosition());
+
 	// update the client's observer camera to start with the player...
 	%this.camera.setMode("Observer");
 	%this.camera.setTransform(%this.player.getEyeTransform());

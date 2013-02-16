@@ -65,6 +65,18 @@ function serverCmdPlayerAction(%client, %nr, %val)
 	{
 		%client.getControlObject().useWeapon(%nr-20);
 	}
+	else if(%nr == 35 && %val)
+	{
+      commandToClient(%client, 'CockpitMode', 0, %client.player.getPosition());
+	}
+	else if(%nr == 36 && %val)
+	{
+      commandToClient(%client, 'CockpitMode', 1);
+	}
+	else if(%nr == 37 && %val)
+	{
+      commandToClient(%client, 'CockpitMode', 2, %client.player.getPosition());
+	}
 	else if(%nr == 39 && %val)
 	{		
 		serverCmdToggleCamera(%client);

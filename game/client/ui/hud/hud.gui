@@ -376,7 +376,7 @@ new GuiBitmapCtrl(Cockpit) {
          currentlyTargetedBitmap = "./pixmaps/black";
          controllableBitmap = "./pixmaps/black";
       };
-      new GuiRulerHud() {
+      new GuiRulerHud(HudRulerV) {
          canSaveDynamicFields = "0";
          Profile = "HudDefaultProfile";
          HorizSizing = "right";
@@ -389,7 +389,7 @@ new GuiBitmapCtrl(Cockpit) {
          hovertime = "1000";
          refCtrl = "�\c2";
       };
-      new GuiRulerHud() {
+      new GuiRulerHud(HudRulerH) {
          canSaveDynamicFields = "0";
          Profile = "HudDefaultProfile";
          HorizSizing = "width";

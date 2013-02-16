@@ -59,3 +59,40 @@ function clientCmdHud(%option, %arg1, %arg2, %arg3, %arg4, %arg5)
 
    }
 }
+
+function clientCmdCockpitMode(%mode, %arg1, %arg2, %arg3, %arg4, %arg5)
+{
+   //error("clientCmdCockpitMode():" SPC %mode SPC %arg1 SPC %arg2 SPC %arg3 SPC %arg4 SPC %arg5);
+   HUD.zMode = %mode;
+   if(%mode == 0)
+   {
+      %pos = %arg1;
+      HudRulerH.visible = false;
+      HudRulerV.visible = false;
+      $mvPosActive = false;
+      $mvMapActive = true;
+      $mvMapX = getWord(%pos, 0);
+      $mvMapY = getWord(%pos, 1);
+      HUD.viewMode = 1;
+      HUD.pan($mvMapX, $mvMapY);
+   }
+   else if(%mode == 1)
+   {
+      HudRulerH.visible = true;
+      HudRulerV.visible = true;
+      $mvMapActive = false;
+      $mvPosActive = true;
+      HUD.viewMode = 3;
+   }
+   else
+   {
+      %pos = %arg1;
+      HudRulerH.visible = false;
+      HudRulerV.visible = false;
+      $mvPosActive = false;
+      $mvMapActive = true;
+      $mvMapX = getWord(%pos, 0);
+      $mvMapY = getWord(%pos, 1);
+      HUD.viewMode = 2;
+   }
+}
