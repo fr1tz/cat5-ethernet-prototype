@@ -77,7 +77,7 @@ datablock ProjectileData(CrossbowProjectile)
 	
 	trackingAgility = 0;
 	
-	explodesNearEnemies			= true;
+	explodesNearEnemies			= false;
 	explodesNearEnemiesRadius	= 2;
 	explodesNearEnemiesMask	  = $TypeMasks::PlayerObjectType;
 
@@ -134,7 +134,7 @@ function CrossbowProjectile::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dis
 	if( !(%col.getType() & $TypeMasks::ShapeBaseObjectType) )
 		return;
 
-   %col.setDamageDt(1, $DamageType::Impact);
+   %col.setDamageDt(1, $DamageType::Impact, "crossbow");
 }
 
 //--------------------------------------------------------------------------

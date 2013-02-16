@@ -31,33 +31,39 @@ function ShapeBase::impulse(%this, %position, %impulseVec, %src)
 
 //-----------------------------------------------------------------------------
 
-function ShapeBase::setDamageDt(%this, %damageAmount, %damageType)
+function ShapeBase::setDamageDt(%this, %damageAmount, %damageType, %slot)
 {
 	// This function is used to apply damage over time.  The damage
 	// is applied at a fixed rate (50 ms).  Damage could be applied
 	// over time using the built in ShapBase C++ repair functions
 	// (using a neg. repair), but this has the advantage of going
 	// through the normal script channels.
-	if( %this.damageSchedule !$= "" )
-		cancel(%this.damageSchedule);
-	%this.damageSchedule = %this.schedule(0, "applyDamageDt", %damageAmount, %damageType);
+   if(%slot $= "")
+      %slot = "main";
+	if( %this.damageSchedule[%slot] !$= "" )
+		cancel(%this.damageSchedule[%slot]);
+	%this.damageSchedule[%slot] = %this.schedule(0, "applyDamageDt", %damageAmount, %damageType, %slot);
 }
 
-function ShapeBase::applyDamageDt(%this, %damageAmount, %damageType)
+function ShapeBase::applyDamageDt(%this, %damageAmount, %damageType, %slot)
 {
-	if( %this.damageSchedule !$= "" )
-		cancel(%this.damageSchedule);
+   if(%slot $= "")
+      %slot = "main";
+	if( %this.damageSchedule[%slot] !$= "" )
+		cancel(%this.damageSchedule[%slot]);
 	if(%this.getDamageState() $= "Enabled")
 		%this.damage(0, "0 0 0", %damageAmount, %damageType);
-	%this.damageSchedule = %this.schedule(50, "applyDamageDt", %damageAmount, %damageType);
+	%this.damageSchedule[%slot] = %this.schedule(50, "applyDamageDt", %damageAmount, %damageType, %slot);
 }
 
-function ShapeBase::clearDamageDt(%this)
+function ShapeBase::clearDamageDt(%this, %slot)
 {
-	if( %this.damageSchedule !$= "" )
+   if(%slot $= "")
+      %slot = "main";
+	if( %this.damageSchedule[%slot] !$= "" )
 	{
-		cancel(%this.damageSchedule);
-		%this.damageSchedule = "";
+		cancel(%this.damageSchedule[%slot]);
+		%this.damageSchedule[%slot] = "";
 	}
 }
 
