@@ -25,7 +25,7 @@
 // all take place in the PlayerData namespace.
 //-----------------------------------------------------------------------------
 
-function aiAdd(%teamid, %weaponNum)
+function aiAdd(%teamid, %class)
 {
 	if( !isObject($aiPlayers) )
 	{
@@ -66,7 +66,16 @@ function aiAdd(%teamid, %weaponNum)
 	}
 	else
 	{
-		%playerData = StandardCat;
+      if(%class == 1)
+	      %playerData = FrmPumpgunner;
+      else if(%class == 2)
+	      %playerData = FrmShotgunner;
+      else if(%class == 3)
+	      %playerData = FrmMinigunner;
+      else if(%class == 4)
+	      %playerData = FrmSpecialist;
+      else if(%class == 5)
+         %playerData = FrmHunter;
 	}
 
 	%player = new AiPlayer() {
