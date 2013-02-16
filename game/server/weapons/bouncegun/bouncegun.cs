@@ -78,8 +78,8 @@ datablock ProjectileData(BounceGunProjectile)
 	
 	trackingAgility = 0;
 	
-	explodesNearEnemies			= true;
-	explodesNearEnemiesRadius	= 2;
+	explodesNearEnemies			= false;
+	explodesNearEnemiesRadius	= 0.5;
 	explodesNearEnemiesMask	  = $TypeMasks::PlayerObjectType;
 
 	//sound = BounceGunProjectileSound;
