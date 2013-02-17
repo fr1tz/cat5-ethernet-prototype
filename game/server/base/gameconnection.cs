@@ -445,7 +445,7 @@ function GameConnection::spawnPlayer(%this)
 	};
 
 	// player setup...
-	%obj.setTransform(%spawnSphere.getTransform());
+	%obj.setTransform(setWord(%spawnSphere.getTransform(), 2, "20.5"));
 	%obj.setCurrTagged(0);
 	%obj.setCurrTaggedPos("0 0 0");
 
@@ -508,9 +508,9 @@ function GameConnection::togglePlayerForm(%this, %forced)
 
 		if(!%forced)
 		{
-			if(%this.player.getDamageLevel() > %this.player.getDataBlock().maxDamage*0.75)
+			if(%this.player.getDamageLevel() > 0)
 			{
-				%this.beepMsg("You need at least 25% health to manifest!");
+				%this.beepMsg("You're still blinking!");
 				return;
 			}
 			
@@ -650,7 +650,8 @@ function GameConnection::togglePlayerForm(%this, %forced)
 	%buf = %this.player.getDamageBufferLevel();
 	%vel = %this.player.getVelocity();
 
-	%obj.setTransform(getWord(%pos,0) SPC getWord(%pos,1) SPC "21 0 0 1 0");
+	//%obj.setTransform(getWord(%pos,0) SPC getWord(%pos,1) SPC "21 0 0 1 0");
+   %obj.setTransform(setWord(%mat, 2, "20.5"));
 	%obj.setDamageLevel(%dmg);
 	%obj.setShieldLevel(%buf);
 	
@@ -694,7 +695,7 @@ function GameConnection::togglePlayerForm(%this, %forced)
 		
 		//%obj.setEnergyLevel(%nrg - 50);
       %obj.setDamageLevel(%dmg + 50);
-		%obj.applyImpulse(%pos, VectorScale(%vel,100));
+		//%obj.applyImpulse(%pos, VectorScale(%vel,100));
 		%obj.playAudio(0, EtherformSpawnSound);	
 	}
 
