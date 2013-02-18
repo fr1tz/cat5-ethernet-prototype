@@ -92,7 +92,7 @@ datablock ShapeBaseImageData(EthStandard_LightImage)
 
 datablock EtherformData(EthStandard)
 {
-   lightImage = EthStandard_LightImage; // script field
+   //lightImage = EthStandard_LightImage; // script field
 
 	hudImageNameFriendly = "~/client/ui/hud/pixmaps/teammate.etherform.png";
 	hudImageNameEnemy = "~/client/ui/hud/pixmaps/enemy.etherform.png";
@@ -128,24 +128,24 @@ datablock EtherformData(EthStandard)
 	energyRechargeRate = 0.4;
 
     // collision box...
-    boundingBox = "1.0 1.0 1.0";
+    boundingBox = "2.0 2.0 0.01";
 
     // etherform movement...
-    accelerationForce = 200;
+    accelerationForce = 400;
 
 	// impact damage...
 	minImpactSpeed = 1;		// If hit ground at speed above this then it's an impact. Meters/second
 	speedDamageScale = 0.0;	// Dynamic field: impact damage multiplier
 
 	// damage info eyecandy...
-	damageBufferParticleEmitter = RedEtherformDamageBufferEmitter;
-	repairParticleEmitter = RedEtherformRepairEmitter;
+//	damageBufferParticleEmitter = RedEtherformDamageBufferEmitter;
+//	repairParticleEmitter = RedEtherformRepairEmitter;
 //	bufferRepairParticleEmitter = RedEtherformBufferRepairEmitter;
 
 	// laser trail...
-	laserTrail[0] = EthStandard_LaserTrailOne;
-	laserTrail[1] = EthStandard_LaserTrailTwo;
-	laserTrail[2] = EthStandard_LaserTrailThree;
+//	laserTrail[0] = EthStandard_LaserTrailOne;
+//	laserTrail[1] = EthStandard_LaserTrailTwo;
+//	laserTrail[2] = EthStandard_LaserTrailThree;
 
 	// contrail...
 	minTrailSpeed = 1;
@@ -155,12 +155,5 @@ datablock EtherformData(EthStandard)
 	//forwardJetEmitter = FlyerJetEmitter;
 	//downJetEmitter = FlyerJetEmitter;
 
-	//
-//	jetSound = Team1ScoutFlyerThrustSound;
-//	engineSound = EtherformSound;
-	softImpactSound = EtherformImpactSound;
-	hardImpactSound = EtherformImpactSound;
-	//wheelImpactSound = WheelImpactSound;
-
-
+   blinkSound = EtherformBlinkSound;
 };

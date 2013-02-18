@@ -26,7 +26,7 @@ function EtherformData::onAdd(%this, %obj)
 	%obj.playThread(0, "ambient");
 
 	// start singing...
-	%obj.playAudio(1, EtherformSingSound);
+	//%obj.playAudio(1, EtherformSingSound);
 
 	// Make sure grenade ammo bar is not visible...
 	messageClient(%obj.client, 'MsgGrenadeAmmo', "", 1);
