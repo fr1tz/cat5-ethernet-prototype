@@ -5,7 +5,7 @@
 
 datablock AudioProfile(BounceGunFireSound)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/lasershot1.wav";
 	description = AudioDefault3D;
 	preload = true;
 };

@@ -5,7 +5,7 @@
 
 datablock AudioProfile(CrossbowFireSound)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/arrowshot1.wav";
 	description = AudioDefault3D;
 	preload = true;
 };
