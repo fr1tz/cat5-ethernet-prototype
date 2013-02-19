@@ -40,12 +40,28 @@ function GameConnection::onConnect( %client,
 {	
 	%gameNameString = %arg0;
 	%gameVersionString = %arg1;
-	%name = %arg2;
+	%pseudonym = %arg2;
 
 	// Send down the connection error info, the client is
 	// responsible for displaying this message if a connection
 	// error occures.
 	messageClient(%client,'MsgConnectionError',"",$Pref::Server::ConnectionError);
+
+   // If the client's password is one of this server's player-passwords,
+   // the client gets a PPN (player password number).
+   %client.PPN = ""; //
+   if(%client.getJoinPassword() !$= "")
+   {
+      for(%i = 0; %i < 128; %i++)
+      {
+         %playerPassword = $Pref::Server::PlayerPassword[%i];
+         if(%client.getJoinPassword() $= %playerPassword)
+         {
+            %client.PPN = %i;
+            break;
+         }
+      }
+   }
 	
 	// Simulated client lag for testing...
 	// %client.setSimulatedNetParams(0.1, 30);
@@ -73,7 +89,16 @@ function GameConnection::onConnect( %client,
 	%client.armor = "Light";
 	%client.race = "Human";
 	%client.skin = addTaggedString( "base" );
-	%client.setPlayerName(%name);
+   if(%client.PPN !$= "")
+   {
+      %playerPassword = $Pref::Server::PlayerPassword[%client.PPN];
+      %playerName = getWord(%playerPassword, 0);
+      %client.setPlayerName(%playerName);
+   }
+   else
+   {
+      %client.setPlayerName(%pseudonym);
+   }
 	%client.score = 0;
 
 	// 
@@ -153,9 +178,21 @@ function GameConnection::setPlayerName(%client,%name)
 		%name = %nameTry;
 	}
 
-	// Tag the name with the "smurf" color:
+   // Is the client a pseudo?
+   if(%client.PPN $= "")
+   {
+      // Add (Pseudo) tag to name
+      %name = "(P)" SPC %name;
+   }
+
 	%client.nameBase = %name;
-	%client.name = addTaggedString("\cp\c8" @ %name @ "\co");
+   %client.name = %name;
+
+   if(%client.PPN $= "")
+   {
+   	// Tag the name with the "smurf" color
+   	%client.name = addTaggedString("\cp\c8" @ %name @ "\co");
+   }
 }
 
 function isNameUnique(%name)
