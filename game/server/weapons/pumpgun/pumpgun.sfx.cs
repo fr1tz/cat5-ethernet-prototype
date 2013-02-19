@@ -5,7 +5,14 @@
 
 datablock AudioProfile(PumpgunFireSound)
 {
-	filename = "share/sounds/rotc/fire1.wav";
+	filename = "share/sounds/cat5/gunshot1.wav";
+	description = AudioDefault3D;
+	preload = true;
+};
+
+datablock AudioProfile(PumpgunReloadSound)
+{
+	filename = "share/sounds/cat5/pumpgun1.wav";
 	description = AudioDefault3D;
 	preload = true;
 };

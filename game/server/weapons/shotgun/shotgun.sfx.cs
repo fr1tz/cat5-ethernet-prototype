@@ -5,7 +5,7 @@
 
 datablock AudioProfile(ShotgunFireSound)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/gunshot2.wav";
 	description = AudioDefault3D;
 	preload = true;
 };

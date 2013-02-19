@@ -111,38 +111,31 @@ datablock ShapeBaseImageData(PumpgunImage)
 
 		// fire!...
 		stateName[3]                     = "Fire";
-		stateTransitionOnTimeout[3]      = "AfterFire";
-		stateTimeoutValue[3]             = 0.8;
+		stateTransitionOnTimeout[3]      = "Reload";
+		stateTimeoutValue[3]             = 0.6;
 		stateFire[3]                     = true;
 		stateFireProjectile[3]           = PumpgunProjectile;
 		stateRecoil[3]                   = MediumRecoil;
 		stateAllowImageChange[3]         = false;
-		stateEjectShell[3]               = true;
-		stateArmThread[3]                = "aimblaster";
 		stateSequence[3]                 = "fire";
 		stateSound[3]                    = PumpgunFireSound;
-		stateEmitter[3]                  = WhitePumpgunFireEmitter;
+		stateEmitter[3]                  = PumpgunFireEmitter;
 		stateEmitterNode[3]              = "fireparticles";
 		stateEmitterTime[3]              = 0.1;
 		stateSpinThread[3]               = "Stop";
 		stateScript[3]                   = "onFire";
-		
-		// after fire...
-		stateName[4]                     = "AfterFire";
-		stateTransitionOnTriggerUp[4]    = "KeepAiming";
 
-		// keep aiming...
-		stateName[5]                     = "KeepAiming";
-		stateTransitionOnNoAmmo[5]       = "NoAmmo";
-		stateTransitionOnTriggerDown[5]  = "Fire";
-		stateTransitionOnTimeout[5]      = "Ready";
-		stateTransitionOnNotLoaded[5]    = "Disabled";
-		stateWaitForTimeout[5]           = false;
-		stateTimeoutValue[5]             = 2.00;
-			
+		// reload
+		stateName[4]                     = "Reload";
+		stateTransitionOnTimeout[4]      = "Ready";
+		stateTimeoutValue[4]             = 0.6;
+		stateAllowImageChange[4]         = false;
+		stateEjectShell[4]               = true;
+		stateSound[4]                    = PumpgunReloadSound;
+
 		// no ammo...
 		stateName[6]                     = "NoAmmo";
-        stateTransitionOnTriggerDown[6]  = "DryFire";
+      stateTransitionOnTriggerDown[6]  = "DryFire";
 		stateTransitionOnAmmo[6]         = "Ready";
 		stateTimeoutValue[6]             = 0.50;
 		//stateSequence[6]                 = "idle";
