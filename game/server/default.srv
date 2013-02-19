@@ -45,7 +45,9 @@ $Pref::Server::Port = 30000;
 // If the password is set, clients must provide it or a
 // valid player password in order to connect to the server
 $Pref::Server::Password = "";
-//$Pref::Server::PlayerPassword[0] = "name password";
+//$Pref::Server::PlayerPassword[0]  = "PASSWORD";
+//$Pref::Server::PlayerName[0]      = "NAME";
+//$Pref::Server::PlayerEtherform[0] = "EthStandard";
 
 // Password for admin clients
 $Pref::Server::AdminPassword = "";

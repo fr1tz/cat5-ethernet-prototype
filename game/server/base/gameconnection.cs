@@ -1325,22 +1325,14 @@ function GameConnection::setHandicap(%this, %handicap)
 
 function GameConnection::getEtherformDataBlock(%this)
 {
-   return EthStandard;
+   %data = EthStandard;
+   if(%this.PPN !$= "")
+      %data = $Pref::Server::PlayerEtherform[%this.PPN];
 
-	if(strstr(strlwr(getTaggedString(%this.name)),"nyan") != -1)
-	{
-		if( %this.team == $Team1 )
-			return RedNyanEtherform;
-		else
-			return BlueNyanEtherform;
-	}
-	else
-	{
-		if( %this.team == $Team1 )
-			return GreenEtherform;
-		else
-			return RedEtherform;
-	}
+   if(isObject(%data))
+      return %data;
+   else
+      return EthStandard;
 }
 
 

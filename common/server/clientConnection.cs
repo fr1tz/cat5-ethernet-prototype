@@ -91,9 +91,11 @@ function GameConnection::onConnect( %client,
 	%client.skin = addTaggedString( "base" );
    if(%client.PPN !$= "")
    {
-      %playerPassword = $Pref::Server::PlayerPassword[%client.PPN];
-      %playerName = getWord(%playerPassword, 0);
-      %client.setPlayerName(%playerName);
+      %playerName = $Pref::Server::PlayerName[%client.PPN];
+      if(%playerName !$= "")
+         %client.setPlayerName(%playerName);
+      else
+         %client.setPlayerName(%pseudonym);
    }
    else
    {
