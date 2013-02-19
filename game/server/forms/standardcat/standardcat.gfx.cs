@@ -20,9 +20,9 @@ datablock ShapeBaseImageData(StandardCatLightImage)
 
 	// light properties...
 	lightType = "ConstantLight";
-	lightColor = "0.9 0.9 0.9";
+	lightColor = "0.7 0.7 0.7";
 	lightTime = 1000;
-	lightRadius = 3.25;
+	lightRadius = 4.0;
 	lightCastsShadows = false;
 	lightAffectsShapes = false;
 
