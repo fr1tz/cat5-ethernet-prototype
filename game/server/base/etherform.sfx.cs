@@ -5,7 +5,7 @@
 
 datablock AudioProfile(EtherformSpawnSound)
 {
-	filename = "share/shapes/rotc/vehicles/etherform/sound.spawn.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioDefault3D;
 	preload = true;
 };
@@ -19,14 +19,14 @@ datablock AudioProfile(EtherformBlinkSound)
 
 //datablock AudioProfile(EtherformImpactSound)
 //{
-//	filename = "share/shapes/rotc/vehicles/etherform/sound.impact.wav";
+//	filename = "share/sounds/cat5/silence.wav";
 //	description = AudioDefault3D;
 //	preload = true;
 //};
 
 //datablock AudioProfile(EtherformSingSound)
 //{
-//	filename = "share/shapes/rotc/vehicles/etherform/sound.sing.wav";
+//	filename = "share/sounds/cat5/silence.wav";
 //	description = AudioClosestLooping3D;
 //	preload = true;
 //};

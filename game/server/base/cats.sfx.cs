@@ -10,35 +10,35 @@
 
 datablock AudioProfile(CatSpawnSound)
 {
-	filename	 = "share/sounds/rotc/deploy1.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioDefault3D;
 	preload = true;
 };
 
 datablock AudioProfile(PlayerSlideSound)
 {
-	filename	 = "share/sounds/rotc/slide2.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioCloseLooping3D;
 	preload = true;
 };
 
 datablock AudioProfile(PlayerSlideContactSound)
 {
-	filename	 = "share/sounds/rotc/slide1.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioCloseLooping3D;
 	preload = true;
 };
 
 datablock AudioProfile(PlayerSkidSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/slidecontact.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioCloseLooping3D;
 	preload = true;
 };
 
 datablock AudioProfile(CatJumpExplosionSound)
 {
-	filename = "share/sounds/rotc/explosion3.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioFar3D;
 	preload = true;
 };

@@ -10,42 +10,42 @@
 
 datablock AudioProfile(SniperRifleFireSound)
 {
-	filename = "share/sounds/rotc/fire6.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioDefault3D;
 	preload = true;
 };
 
 datablock AudioProfile(SniperExplosionSound)
 {
-	filename = "share/sounds/rotc/explosion5.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioFar3D;
 	preload = true;
 };
 
 datablock AudioProfile(SniperDebrisSound)
 {
-	filename = "share/sounds/rotc/debris1.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioDefault3D;
 	preload = true;
 };
 
 datablock AudioProfile(SniperPowerUpSound)
 {
-	filename = "share/sounds/rotc/charge2.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioClose3D;
 	preload = true;
 };
 
 datablock AudioProfile(SniperProjectileImpactSound)
 {
-	filename = "share/sounds/rotc/explosion5.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioDefault3D;
 	preload = true;
 };
 
 datablock AudioProfile(SniperProjectileMissedEnemySound)
 {
-	filename = "share/sounds/rotc/flyby1.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioClose3D;
 	preload = true;
 };

@@ -35,56 +35,56 @@ function playMusic(%teamId, %profile, %immediately)
 
 datablock AudioProfile(MusicStartup)
 {
-	filename = "share/music/eth1/work1_ethernet_startup.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioMusic;
 	preload = true;
 };
 
 datablock AudioProfile(MusicIdle)
 {
-	filename = "share/music/eth1/work1_ethernet_idle.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioMusic;
 	preload = true;
 };
 
 datablock AudioProfile(MusicVictory1)
 {
-	filename = "share/music/eth1/work1_ethernet_victory1.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioMusic;
 	preload = true;
 };
 
 datablock AudioProfile(MusicVictory2)
 {
-	filename = "share/music/eth1/work1_ethernet_victory2.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioMusic;
 	preload = true;
 };
 
 datablock AudioProfile(MusicVictory3)
 {
-	filename = "share/music/eth1/work1_ethernet_victory3.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioMusic;
 	preload = true;
 };
 
 datablock AudioProfile(MusicDefeat1)
 {
-	filename = "share/music/eth1/work1_ethernet_defeat1.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioMusic;
 	preload = true;
 };
 
 datablock AudioProfile(MusicDefeat2)
 {
-	filename = "share/music/eth1/work1_ethernet_defeat2.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioMusic;
 	preload = true;
 };
 
 datablock AudioProfile(MusicDefeat3)
 {
-	filename = "share/music/eth1/work1_ethernet_defeat3.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioMusic;
 	preload = true;
 };

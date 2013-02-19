@@ -971,14 +971,14 @@ function byteToHex(%byte)
 
 datablock AudioProfile(NewbieHelperSound)
 {
-	filename = "share/sounds/rotc/charge1.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioCritical2D;
 	preload = true;
 };
 
 datablock AudioProfile(ClockTickSound)
 {
-	filename = "share/sounds/rotc/charge3.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioCritical2D;
 	preload = true;
 };

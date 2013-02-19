@@ -186,14 +186,14 @@ function TerritoryZones_call(%func)
 
 datablock AudioProfile(ZoneAquiredSound)
 {
-	filename = "share/sounds/rotc/events/zone.aquired.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioCritical2D;
 	preload = true;
 };
 
 datablock AudioProfile(ZoneAttackedSound)
 {
-	filename = "share/sounds/rotc/events/zone.attacked.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioCritical2D;
 	preload = true;
 };

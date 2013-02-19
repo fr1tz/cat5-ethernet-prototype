@@ -10,98 +10,98 @@
 
 datablock AudioProfile(StandardCatLeftFootSoftSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/lf.soft.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClosest3d;
 	preload = true;
 };
 
 datablock AudioProfile(StandardCatLeftFootHardSound)
 {
-	filename	 = "share/sounds/rotc/footsteps1/lf.hard.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClose3d;
 	preload = true;
 };
 
 datablock AudioProfile(StandardCatLeftFootMetalSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/lf.metal.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClose3d;
 	preload = true;
 };
 
 datablock AudioProfile(StandardCatLeftFootSnowSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/lf.snow.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClosest3d;
 	preload = true;
 };
 
 datablock AudioProfile(StandardCatLeftFootShallowSplashSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/lf.water.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClose3d;
 	preload = true;
 };
 
 datablock AudioProfile(StandardCatLeftFootWadingSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/lf.uw.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClose3d;
 	preload = true;
 };
 
 datablock AudioProfile(StandardCatRightFootSoftSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/rf.soft.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClosest3d;
 	preload = true;
 };
 
 datablock AudioProfile(StandardCatRightFootHardSound)
 {
-	filename	 = "share/sounds/rotc/footsteps1/rf.hard.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClose3d;
 	preload = true;
 };
 
 datablock AudioProfile(StandardCatRightFootMetalSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/rf.metal.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClose3d;
 	preload = true;
 };
 
 datablock AudioProfile(StandardCatRightFootSnowSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/rf.snow.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClosest3d;
 	preload = true;
 };
 
 datablock AudioProfile(StandardCatRightFootShallowSplashSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/rf.water.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClose3d;
 	preload = true;
 };
 
 datablock AudioProfile(StandardCatRightFootWadingSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/rf.uw.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClose3d;
 	preload = true;
 };
 
 datablock AudioProfile(StandardCatFootUnderwaterSound)
 {
-	filename	 = "share/sounds/rotc/footfall.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClosest3d;
 	preload = true;
 };
 
 //datablock AudioProfile(StandardCatFootBubblesSound)
 //{
-//	filename	 = "share/sounds/rotc/replaceme.wav";
+//	filename	 = "share/sounds/cat5/silence.wav";
 //	description = AudioClose3d;
 //	preload = true;
 //};
@@ -110,7 +110,7 @@ datablock AudioProfile(StandardCatFootUnderwaterSound)
 
 datablock AudioProfile(StandardCatImpactSoftSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/land.soft.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClose3d;
 	preload = true;
 	effect = ImpactSoftEffect;
@@ -118,7 +118,7 @@ datablock AudioProfile(StandardCatImpactSoftSound)
 
 datablock AudioProfile(StandardCatImpactHardSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/land.hard.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClose3d;
 	preload = true;
 	effect = ImpactHardEffect;
@@ -126,7 +126,7 @@ datablock AudioProfile(StandardCatImpactHardSound)
 
 datablock AudioProfile(StandardCatImpactMetalSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/land.metal.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClose3d;
 	preload = true;
 	effect = ImpactMetalEffect;
@@ -134,7 +134,7 @@ datablock AudioProfile(StandardCatImpactMetalSound)
 
 datablock AudioProfile(StandardCatImpactSnowSound)
 {
-	filename	 = "share/shapes/rotc/players/standardcat/land.snow.wav";
+	filename	 = "share/sounds/cat5/silence.wav";
 	description = AudioClosest3d;
 	preload = true;
 	effect = ImpactSnowEffect;

@@ -5,28 +5,28 @@
 
 datablock AudioProfile(MinigunSpinUpSound)
 {
-	filename = "share/sounds/rotc/spin2up.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioDefault3D;
 	preload = true;
 };
 
 datablock AudioProfile(MinigunSpinDownSound)
 {
-	filename = "share/sounds/rotc/spin2down.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioDefault3D;
 	preload = true;
 };
 
 datablock AudioProfile(MinigunSpinSound)
 {
-	filename = "share/sounds/rotc/spin2.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioDefaultLooping3D;
 	preload = true;
 };
 
 datablock AudioProfile(MinigunFireSound)
 {
-	filename = "share/sounds/rotc/spin2fire.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioDefaultLooping3D;
 	preload = true;
 };

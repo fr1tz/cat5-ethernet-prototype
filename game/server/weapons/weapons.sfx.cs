@@ -10,21 +10,21 @@
 
 datablock AudioProfile(WeaponSwitchSound)
 {
-	filename = "share/sounds/rotc/weaponSwitch.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioClosest3D;
 	preload = true;
 };
 
 datablock AudioProfile(WeaponEmptySound)
 {
-	filename = "share/sounds/rotc/weaponEmpty.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioClosest3D;
 	preload = true;
 };
 
 datablock AudioProfile(DefaultProjectileNearEnemyExplosionSound)
 {
-	filename = "share/shapes/rotc/weapons/sniperrifle/sound.nearenemyexp.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioClose3D;
 	preload = true;
 };

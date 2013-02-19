@@ -36,56 +36,49 @@ function fxLightData::create(%data)
 
 datablock AudioProfile(BipMessageSound)
 {
-	filename = "share/sounds/rotc/damage1.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioCritical2D;
 	preload = true;
 };
 
 datablock AudioProfile(BeepMessageSound)
 {
-	filename = "share/sounds/rotc/denied1.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioCritical2D;
 	preload = true;
 };
 
 datablock AudioProfile(ChatMessageSound)
 {
-	filename = "share/sounds/rotc/powerdown2.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioCritical2D;
-	preload = true;
-};
-
-datablock AudioProfile(ClownSound)
-{
-	filename = "share/sounds/rotc/events/clown.wav";
-	description = Audio2D;
 	preload = true;
 };
 
 datablock AudioProfile(RedVictorySound)
 {
-	filename = "share/sounds/rotc/events/victory.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = Audio2D;
 	preload = true;
 };
 
 datablock AudioProfile(BlueVictorySound)
 {
-	filename = "share/sounds/rotc/events/victory.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = Audio2D;
 	preload = true;
 };
 
 datablock AudioProfile(DamageSoundOne)
 {
-	filename = "share/sounds/rotc/damage1.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioCritical2D;
 	preload = true;
 };
 
 datablock AudioProfile(DamageSoundTwo)
 {
-	filename = "share/sounds/rotc/damage2.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioCritical2D;
 	preload = true;
 };

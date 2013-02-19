@@ -10,14 +10,14 @@
 
 new AudioProfile(GuiSoundButtonDown)
 {
-	filename = "share/sounds/rotc/damage1.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioGui;
 	preload = true;
 };
 
 new AudioProfile(GuiSoundButtonOver)
 {
-	filename = "share/sounds/rotc/weaponEmpty.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioGui;
 	preload = true;
 };

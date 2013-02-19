@@ -5,21 +5,21 @@
 
 datablock AudioProfile(PumpgunProjectileImpactSound)
 {
-	filename = "share/sounds/rotc/impact1.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioDefault3D;
 	preload = true;
 };
 
 datablock AudioProfile(PumpgunProjectileFlybySound)
 {
-	filename = "share/sounds/rotc/flyby1.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioCloseLooping3D;
 	preload = true;
 };
 
 datablock AudioProfile(PumpgunProjectileMissedEnemySound)
 {
-	filename = "share/sounds/rotc/flyby1.wav";
+	filename = "share/sounds/cat5/silence.wav";
 	description = AudioClose3D;
 	preload = true;
 };
