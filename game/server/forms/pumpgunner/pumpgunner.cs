@@ -6,8 +6,90 @@
 //exec("./standardcat.sfx.cs");
 //exec("./standardcat.gfx.cs");
 
+datablock TSShapeConstructor(PumpgunnerDts)
+{
+	baseShape = "share/shapes/cat5/pumpgunner.dts";
+	sequenceBaseDir = "share/shapes/rotc/players/a/";
+
+	// movement when standing...
+	sequence0  = "tl/root.dsq root";
+	sequence1  = "nm/run.dsq run";
+	sequence2  = "nm/back.dsq back";
+	sequence3  = "nm/side.dsq side";
+
+	// movement when marching...
+	sequence4  = "tl/root.dsq rootMarching";
+	sequence5  = "nm/run.dsq runMarching";
+	sequence6  = "nm/back.dsq backMarching";
+	sequence7  = "nm/side.dsq sideMarching";
+
+	// movement when crouched...
+	sequence8  = "tl/root.dsq rootCrouched";
+	sequence9  = "nm/run.dsq runCrouched";
+	sequence10  = "nm/back.dsq backCrouched";
+	sequence11  = "nm/side.dsq sideCrouched";
+
+	// movement when prone...
+	sequence12 = "fb/rootprone.dsq rootProne";
+	sequence13 = "fb/rootprone.dsq rootProne";
+	sequence14 = "fb/rootprone.dsq rootProne";
+	sequence15 = "fb/rootprone.dsq rootProne";
+
+	// arm threads...
+	sequence16 = "a/holdnoweapon.dsq look";
+	sequence17 = "a/discdeflect_left_base.dsq discdeflect_left_base";
+	sequence18 = "a/holdgun_onehand.dsq look2";
+	sequence52 = "a/holdblaster.dsq holdblaster";
+	sequence53 = "ub/aimblaster.dsq aimblaster";
+	sequence19 = "ub/holdrifle.dsq holdrifle";
+	sequence51 = "ub/aimrifle.dsq aimrifle";
+	sequence20 = "ub/holdshield.dsq holdshield";
+	sequence46 = "a/holdspear.dsq holdspear";
+	sequence47 = "a/holdaimspear.dsq holdaimspear";
+
+	// other...
+	sequence21 = "nm/diehead.dsq death1";
+	sequence22 = "nm/diechest.dsq death2";
+	sequence23 = "nm/dieback.dsq death3";
+	sequence24 = "nm/diesidelf.dsq death4";
+	sequence25 = "nm/diesidert.dsq death5";
+	sequence26 = "nm/dieleglf.dsq death6";
+	sequence27 = "nm/dielegrt.dsq death7";
+	sequence28 = "nm/dieslump.dsq death8";
+	sequence29 = "nm/dieknees.dsq death9";
+	sequence30 = "nm/dieforward.dsq death10";
+	sequence31 = "nm/diespin.dsq death11";
+
+	sequence32 = "nm/headside.dsq headside";
+	sequence33 = "nm/recoilde.dsq light_recoil";
+	sequence34 = "nm/sitting.dsq sitting";
+	sequence35 = "fb/cel_headbang.dsq celsalute";
+	sequence36 = "nm/tauntbest.dsq celwave";
+	sequence37 = "nm/standjump.dsq standjump";
+
+	sequence38 = "nm/head.dsq head";
+	sequence39 = "nm/fall.dsq fall";
+	sequence40 = "nm/land.dsq land";
+	sequence41 = "nm/jump.dsq jump";
+
+	sequence42 = "fb/cel_hail.dsq celhail";
+
+	sequence43 = "ub/throwsidearm.dsq throwSidearm";
+	sequence44 = "ub/aimarmcannon.dsq aimarmcannon";
+	sequence48 = "ub/aimspear.dsq aimSpear";
+	sequence49 = "ub/throwSpear.dsq throwSpear";
+	sequence50 = "ub/discdeflect_left_anim.dsq discdeflect_left_anim";
+	sequence54 = "ub/throwinterceptor.dsq throwInterceptor";
+
+	sequence45 = "fb/flyer.dsq flyer";
+
+	sequence55  = "b/slide.dsq slide";
+};
+
 datablock PlayerData(FrmPumpgunner)
 {
+   allowColorization = true;
+
 	className = Cat;
 	
 	thirdPersonOnly = true;
@@ -28,7 +110,7 @@ datablock PlayerData(FrmPumpgunner)
 	cameraMinDist = 1;
 	cameraMaxDist = 5;
 
-	shapeFile = "share/shapes/cat5/boxman.dts";
+	shapeFile = "share/shapes/cat5/pumpgunner.dts";
  
 	//cloakTexture = "share/shapes/rotc/effects/explosion_white.png";
 	shapeFxTexture[0] = "share/textures/rotc/connection2.png";
@@ -263,5 +345,3 @@ function FrmPumpgunner::onAdd(%this, %obj)
 	%obj.mountImage(StandardCatLightImage, 3);
    %obj.mountImage(PumpgunImage, 0, -1, true);
 }
-
-
