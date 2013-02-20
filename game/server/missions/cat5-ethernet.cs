@@ -29,8 +29,7 @@ function executeGameScripts()
 {
 	exec("game/server/base/exec.cs");
 	exec("game/server/eth/exec.cs");
-	exec("game/server/etherforms/standard.cs");
-	exec("game/server/etherforms/fr1tz.cs");
+	exec("game/server/etherforms/exec.cs");
 	exec("game/server/forms/standardcat/exec.cs");
 	exec("game/server/forms/pumpgunner/exec.cs");
 	exec("game/server/forms/shotgunner/exec.cs");
