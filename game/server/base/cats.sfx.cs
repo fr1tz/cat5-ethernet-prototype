@@ -10,7 +10,7 @@
 
 datablock AudioProfile(CatSpawnSound)
 {
-	filename	 = "share/sounds/cat5/cat.spawn.wav";
+	filename	 = "share/sounds/cat5/explosion1.wav";
 	description = AudioDefault3D;
 	preload = true;
 };
