@@ -5,7 +5,7 @@
 
 datablock AudioProfile(EtherformSpawnSound)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/etherform.spawn.wav";
 	description = AudioDefault3D;
 	preload = true;
 };

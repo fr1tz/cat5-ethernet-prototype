@@ -675,6 +675,7 @@ function GameConnection::togglePlayerForm(%this, %forced)
 		
 		//%obj.startFade(1000,0,false);
 		//%obj.playAudio(0, CatSpawnSound);
+      createExplosion(PumpgunnerSpawnExplosion, %obj.getPosition(), "0 0 1");
 	}
 	else
 	{
