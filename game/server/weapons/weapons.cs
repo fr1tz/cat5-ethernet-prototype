@@ -127,6 +127,10 @@ function ProjectileData::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist)
       error("1-" @ %dist @ "/" @ %this.impactDamageMaxDist SPC "=" SPC %distScale SPC "->" SPC %dmg);
    }
 
+   // set damage vercor...
+   //error(%obj.getVelocity());
+   %col.setDamageVector(%obj.getVelocity());
+
 	// call damage func...
 	%col.damage(%obj, %pos, %dmg, $DamageType::Impact);
 	
@@ -209,6 +213,10 @@ function ProjectileData::onExplode(%this,%obj,%pos,%normal,%fade,%dist,%expType)
 		// bail out here if projectile doesn't do splash damage...
 		if( %this.splashDamage == 0 )
 			continue;
+
+      // set damage vercor...
+      //error(%impulseVec);
+      %col.setDamageVector(%impulseVec);
 
 		// call damage func...
 		%targetObject.damage(%obj, %pos,
