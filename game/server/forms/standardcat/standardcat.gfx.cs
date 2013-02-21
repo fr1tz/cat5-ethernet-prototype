@@ -22,7 +22,7 @@ datablock ShapeBaseImageData(StandardCatLightImage)
 	lightType = "ConstantLight";
 	lightColor = "0.7 0.7 0.7";
 	lightTime = 1000;
-	lightRadius = 4.0;
+	lightRadius = 5.0;
 	lightCastsShadows = false;
 	lightAffectsShapes = false;
 
@@ -234,6 +234,59 @@ datablock ParticleEmitterData(CatSkidTrailEmitter1)
 
 //------------------------------------------------------------------------------
 
+datablock ParticleData(StandardCatDebris_SmokeEmitter_Particles)
+{
+	dragCoeffiecient	  = 0.0;
+	gravityCoefficient	= -0.1;
+	inheritedVelFactor	= 0.0;
+
+	lifetimeMS			  = 1000;
+	lifetimeVarianceMS	= 300;
+
+	useInvAlpha =  true;
+	spinRandomMin = -200.0;
+	spinRandomMax =  200.0;
+
+	textureName = "share/textures/cat5/smoke1.png";
+
+	colors[0]	  = "1.0 1.0 1.0 0.4";
+	colors[1]	  = "1.0 1.0 1.0 0.2";
+	colors[2]	  = "1.0 1.0 1.0 0.0";
+	sizes[0]		= 1.0;
+	sizes[1]		= 1.5;
+	sizes[2]		= 2.0;
+	times[0]		= 0.0;
+	times[1]		= 0.5;
+	times[2]		= 1.0;
+
+	allowLighting = false;
+};
+
+datablock ParticleEmitterData(StandardCatDebris_SmokeEmitter)
+{
+	ejectionPeriodMS = 50;
+	periodVarianceMS = 0;
+	ejectionVelocity = 0.0;
+	velocityVariance = 0.0;
+	ejectionOffset	 = 0.0;
+	thetaMin		 = 0;
+	thetaMax		 = 0;
+	phiReferenceVel  = 0;
+	phiVariance		 = 0;
+	overrideAdvances = false;
+	orientParticles  = false;
+	lifetimeMS		 = 0;
+	particles = "StandardCatDebris_SmokeEmitter_Particles";
+};
+
+datablock DecalData(StandardCatDebrisDecalOne)
+{
+	sizeX = "4.0";
+	sizeY = "4.0";
+	textureName = "share/textures/cat5/bluedecal1";
+	SelfIlluminated = true;
+};
+
 datablock DebrisData(StandardCatDebris)
 {
 	explodeOnMaxBounce = false;
@@ -258,6 +311,10 @@ datablock DebrisData(StandardCatDebris)
 
 	velocity = 18.0;
 	velocityVariance = 12.0;
+
+   emitters[0] = StandardCatDebris_SmokeEmitter;
+
+   decals[0] = StandardCatDebrisDecalOne;
 };
 
 //----------------------------------------------------------------------------
