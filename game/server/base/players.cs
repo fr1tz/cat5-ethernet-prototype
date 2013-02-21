@@ -313,6 +313,9 @@ function PlayerData::damage(%this, %obj, %sourceObject, %pos, %damage, %damageTy
 	%totalDamage = %obj.getDamageLevel();
 	if(%totalDamage >= %this.maxDamage)
 	{
+      // Stop talking...
+      %obj.stopAudio(0);
+
 		// blow up when damage is high...
 		//if(%damage > 2 * %this.maxDamage)
 			%obj.setDamageState("Destroyed");
