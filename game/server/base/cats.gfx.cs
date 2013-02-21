@@ -476,22 +476,34 @@ datablock DebrisData(RedCatDamageDebris)
 	lifetimeVariance = 1.0;
 };
 
+datablock DecalData(BlueCatBloodDecalOne)
+{
+	sizeX = "2.0";
+	sizeY = "2.0";
+	textureName = "share/textures/cat5/bluedecal1";
+	SelfIlluminated = true;
+};
+
 datablock DebrisData(BlueCatDamageDebris)
 {
     // 2d billboard...
-    render2D = true;
-    texture = "share/textures/rotc/halo1.blue.png";
-    textureWidth = 0.5;
+    //render2D = true;
+    //texture = "share/textures/rotc/halo1.blue.png";
+    //textureWidth = 0.5;
 
 	// shape...
-	shapeFile = "share/shapes/rotc/misc/debris1.blue.dts";
+	shapeFile = "share/shapes/cat5/bluedebris1.dts";
+
+   // decals...
+	decals[0] = BlueCatBloodDecalOne;
 
 	// bounce...
-	staticOnMaxBounce = true;
-	numBounces = 5;
+	//staticOnMaxBounce = true;
+   explodeOnMaxBounce = true;
+	numBounces = 0;
 
 	// physics...
-	gravModifier = 2.0;
+	gravModifier = 4.0;
 	elasticity = 0.6;
 	friction = 0.1;
 
