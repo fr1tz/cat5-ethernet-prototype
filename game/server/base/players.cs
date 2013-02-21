@@ -314,10 +314,10 @@ function PlayerData::damage(%this, %obj, %sourceObject, %pos, %damage, %damageTy
 	if(%totalDamage >= %this.maxDamage)
 	{
 		// blow up when damage is high...
-		if(%damage > 2 * %this.maxDamage)
+		//if(%damage > 2 * %this.maxDamage)
 			%obj.setDamageState("Destroyed");
-		else
-			%obj.setDamageState("Disabled");
+		//else
+		//	%obj.setDamageState("Disabled");
 
 		%obj.playDeathCry();
 		%obj.setDamageFlash(0.75);
