@@ -210,7 +210,7 @@ datablock PlayerData(FrmHunter)
 	minImpactSpeed = 30; //
 	speedDamageScale = 3.0; // dynamic field: impact damage multiplier
 
-	boundingBox = "1.2 1.2 2.7";
+	boundingBox = "1.4 1.4 2.7";
 	pickupRadius = 0.75;
 
 	// Controls over slope of runnable/jumpable surfaces
