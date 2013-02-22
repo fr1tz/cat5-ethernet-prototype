@@ -132,7 +132,7 @@ datablock PlayerData(FrmPumpgunner)
 	cmdCategory = "Clients";
 
 	renderWhenDestroyed = false;
-	debrisShapeName = "share/shapes/rotc/players/standardcat/debris.blue.dts";
+	debrisShapeName = "share/shapes/cat5/shapedebris1.dts";
 	debris = StandardCatDebris;
 
 	aiAvoidThis = true;
@@ -209,7 +209,7 @@ datablock PlayerData(FrmPumpgunner)
 	minImpactSpeed = 30; //
 	speedDamageScale = 3.0; // dynamic field: impact damage multiplier
 
-	boundingBox = "1.2 1.2 2.7";
+	boundingBox = "1.4 1.4 2.7";
 	pickupRadius = 0.75;
 
 	// Controls over slope of runnable/jumpable surfaces
