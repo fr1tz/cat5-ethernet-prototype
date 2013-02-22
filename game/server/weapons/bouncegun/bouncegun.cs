@@ -147,7 +147,7 @@ datablock ShapeBaseImageData(BounceGunImage)
 	className = WeaponImage;
 	
 	// basic item properties
-   shapeFile = "share/shapes/rotc/weapons/grenadelauncher/image2.dts";
+   shapeFile = "share/shapes/cat5/nothing.dts";
 	emap = true;
 
 	// mount point & mount offset...

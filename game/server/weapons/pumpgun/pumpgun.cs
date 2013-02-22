@@ -59,7 +59,7 @@ datablock ShapeBaseImageData(PumpgunImage)
 	className = WeaponImage;
 
 	// basic item properties
-	shapeFile = "share/shapes/rotc/weapons/blaster/image2.red.dts";
+	shapeFile = "share/shapes/cat5/nothing.dts";
 	emap = true;
 
 	// mount point & mount offset...
