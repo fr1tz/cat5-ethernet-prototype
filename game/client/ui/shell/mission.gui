@@ -423,7 +423,7 @@ new GuiControl(MissionWindowForEditing) {
             MinExtent = "8 8";
             canSave = "1";
             Visible = "1";
-            Command = "toggleShellDlg();";
+            Command = "toggleShell();";
             hovertime = "1000";
             text = "Play!";
             groupNum = "-1";
