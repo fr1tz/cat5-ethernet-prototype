@@ -6,7 +6,7 @@
 //exec("./standardcat.sfx.cs");
 //exec("./standardcat.gfx.cs");
 
-datablock TSShapeConstructor(HunterDts)
+datablock TSShapeConstructor(ShotgunnerDts)
 {
 	baseShape = "share/shapes/cat5/shotgunner.dts";
 	sequenceBaseDir = "share/shapes/rotc/players/a/";
