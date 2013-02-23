@@ -20,9 +20,9 @@ new GuiControl(MessageHud)
 
 	new GuiControl(MessageHud_Frame) {
 		profile = "HudDefaultProfile";
-		horizSizing = "right";
+		horizSizing = "left";
 		vertSizing = "bottom";
-		position = "120 375";
+		position = "360 375";
 		extent = "400 40";
 		minExtent = "8 8";
 		visible = "1";
@@ -74,99 +74,111 @@ new GuiControl(MessageHud)
 
 //--- OBJECT WRITE BEGIN ---
 new GuiControl(MainChatHud) {
-	profile = "GuiModelessDialogProfile";
-	horizSizing = "width";
-	vertSizing = "height";
-	position = "0 0";
-	extent = "640 480";
-	minExtent = "8 8";
-	visible = "1";
-	helpTag = "0";
-		noCursor = "1";
+   canSaveDynamicFields = "0";
+   Profile = "GuiModelessDialogProfile";
+   HorizSizing = "width";
+   VertSizing = "height";
+   Position = "0 0";
+   Extent = "640 480";
+   MinExtent = "8 8";
+   canSave = "1";
+   Visible = "1";
+   hovertime = "1000";
+   noCursor = true;
 
-	new GuiControl() {
-		profile = "HudDefaultProfile";
-		horizSizing = "relative";
-		vertSizing = "bottom";
-		position = "0 0";
-		extent = "400 300";
-		minExtent = "8 8";
-		visible = "1";
-		helpTag = "0";
+   new GuiControl() {
+      canSaveDynamicFields = "0";
+      Profile = "HudDefaultProfile";
+      HorizSizing = "right";
+      VertSizing = "top";
+      Position = "160 400";
+      Extent = "320 80";
+      MinExtent = "8 8";
+      canSave = "1";
+      Visible = "1";
+      hovertime = "1000";
 
-		new GuiControl(OuterChatHud) {
-			profile = "HudDefaultProfile";
-			horizSizing = "width";
-			vertSizing = "bottom";
-			position = "0 0";
-			extent = "272 88";
-			minExtent = "8 8";
-			visible = "1";
-			helpTag = "0";
-				useVariable = "0";
-				tile = "0";
+      new GuiControl(OuterChatHud) {
+         canSaveDynamicFields = "0";
+         Profile = "HudDefaultProfile";
+         HorizSizing = "width";
+         VertSizing = "bottom";
+         Position = "0 0";
+         Extent = "320 80";
+         MinExtent = "8 8";
+         canSave = "1";
+         Visible = "1";
+         hovertime = "1000";
 
-			new GuiBitmapCtrl() {
-				profile = "HudDefaultProfile";
-				horizSizing = "width";
-				vertSizing = "height";
-				position = "8 8";
-				extent = "256 72";
-				minExtent = "8 8";
-				visible = "1";
-				helpTag = "0";
-				bitmap = "./pixmaps/hudfill.png";
-				wrap = "0";
-			};
+         new GuiButtonCtrl(ChatPageDown) {
+            canSaveDynamicFields = "0";
+            Profile = "HudButtonProfile";
+            HorizSizing = "left";
+            VertSizing = "top";
+            Position = "275 140";
+            Extent = "36 14";
+            MinExtent = "8 8";
+            canSave = "1";
+            Visible = "0";
+            hovertime = "1000";
+            text = "Dwn";
+            groupNum = "-1";
+            buttonType = "PushButton";
+         };
+         new GuiScrollCtrl(ChatScrollHud) {
+            canSaveDynamicFields = "0";
+            Profile = "HudScrollProfile";
+            HorizSizing = "width";
+            VertSizing = "height";
+            Position = "0 0";
+            Extent = "320 80";
+            MinExtent = "8 8";
+            canSave = "1";
+            Visible = "1";
+            hovertime = "1000";
+            willFirstRespond = "1";
+            hScrollBar = "alwaysOff";
+            vScrollBar = "alwaysOff";
+            constantThumbHeight = "0";
+            childMargin = "0 0";
 
-			new GuiButtonCtrl(chatPageDown) {
-				profile = "HudButtonProfile";
-				horizSizing = "left";
-				vertSizing = "top";
-				position = "220 58";
-				extent = "36 14";
-				minExtent = "8 8";
-				visible = "0";
-				helpTag = "0";
-				text = "Dwn";
-				groupNum = "-1";
-				buttonType = "PushButton";
-			};
-			new GuiScrollCtrl(ChatScrollHud) {
-				profile = "HudScrollProfile";
-				horizSizing = "width";
-				vertSizing = "height";
-				position = "8 8";
-				extent = "256 72";
-				minExtent = "8 8";
-				visible = "1";
-				helpTag = "0";
-				willFirstRespond = "1";
-				hScrollBar = "alwaysOff";
-				vScrollBar = "alwaysOff";
-				constantThumbHeight = "0";
-				childMargin = "0 0";
-
-				new GuiMessageVectorCtrl(ChatHud) {
-					profile = "HudChatMessageProfile";
-					horizSizing = "width";
-					vertSizing = "height";
-					position = "1 1";
-					extent = "252 16";
-					minExtent = "8 8";
-					visible = "1";
-					helpTag = "0";
-					lineSpacing = "0";
-					lineContinuedIndex = "10";
-					allowedMatches[0] = "http";
-					allowedMatches[1] = "tgeserver";
-					matchColor = "0 0 255 255";
-					maxColorIndex = "5";
-				};
-			};
-		};
-	};
+            new GuiMessageVectorCtrl(ChatHud) {
+               canSaveDynamicFields = "0";
+               Profile = "HudChatMessageProfile";
+               HorizSizing = "width";
+               VertSizing = "height";
+               Position = "1 1";
+               Extent = "320 14";
+               MinExtent = "8 8";
+               canSave = "1";
+               Visible = "1";
+               hovertime = "1000";
+               lineSpacing = "0";
+               lineContinuedIndex = "10";
+               allowedMatches[0] = "http";
+               allowedMatches[1] = "tgeserver";
+               matchColor = "0 0 255 255";
+               maxColorIndex = "5";
+            };
+         };
+      };
+   };
+   new GuiAdditiveBitmapCtrl(HudScanlines) {
+      canSaveDynamicFields = "0";
+      Profile = "HudDefaultProfile";
+      HorizSizing = "width";
+      VertSizing = "height";
+      Position = "0 0";
+      Extent = "640 480";
+      MinExtent = "8 2";
+      canSave = "1";
+      Visible = "1";
+      hovertime = "1000";
+      bitmap = "~/client/ui/hud/pixmaps/scanlines.png";
+      wrap = "1";
+   };
 };
 //--- OBJECT WRITE END ---
+
 
 

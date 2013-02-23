@@ -1041,7 +1041,10 @@ function Player::setDiscs(%this, %numDiscs)
 	%this.setImageAmmo(1, %hasDisc);
 
 	if(isObject(%this.client))
+   {
+      %this.client.inventoryMode = "hidden";
 		%this.client.displayInventory(%this);
+   }
 }
 
 function Player::incDiscs(%this)

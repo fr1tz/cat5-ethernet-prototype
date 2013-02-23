@@ -134,6 +134,8 @@ function MainChatHud::onWake( %this )
 
 function MainChatHud::setChatHudLength( %this, %length )
 {
+   return;    // Don't allow resizing for now
+
 	OuterChatHud.resize(firstWord(OuterChatHud.position), getWord(OuterChatHud.position, 1),
 							  firstWord(OuterChatHud.extent), $outerChatLenY[%length]);
 	ChatScrollHud.scrollToBottom();

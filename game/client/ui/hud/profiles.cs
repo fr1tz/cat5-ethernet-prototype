@@ -125,12 +125,12 @@ new GuiControlProfile (ChatHudTextProfile)
 new GuiControlProfile(HudChatMessageProfile : HudDefaultProfile)
 {
 	//fontType = "Arial";
-	fontSize = 14;
-	fontColor = "255 0 0";		// default color (death msgs, scoring, inventory)
-	fontColors[1] = "0 255 0";	// client join/drop, tournament mode
-	fontColors[2] = "0 100 255"; // gameplay, admin/voting, pack/deployable
+	fontSize = 12;
+	fontColor = "200 200 200";		// default color (death msgs, scoring, inventory)
+	fontColors[1] = "100 100 100";	// client join/drop, tournament mode
+	fontColors[2] = "255 255 0"; // gameplay, admin/voting, pack/deployable
 	fontColors[3] = "150 250 0";	// team chat, spam protection message, client tasks
-	fontColors[4] = "255 255 255";  // global chat
+	fontColors[4] = "200 200 200";  // global chat
 	fontColors[5] = "200 200 50 200";  // used in single player game
 	// WARNING! Colors 6-9 are reserved for name coloring
 	autoSizeWidth = true;
