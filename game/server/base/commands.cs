@@ -133,7 +133,7 @@ function serverCmdUsePrevWeapon(%client)
 
 function serverCmdToggleCamera(%client)
 {
-	if ($Server::TestCheats || $Server::ServerType $= "SinglePlayer")
+	if ($Server::TestCheats || $Server::ServerType !$= "MultiPlayer")
 	{
 		%control = %client.getControlObject();
 		if (%control == %client.player)

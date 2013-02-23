@@ -92,6 +92,8 @@ datablock ShapeBaseImageData(EthStandard_LightImage)
 
 datablock EtherformData(EthStandard)
 {
+   allowColorization = true;
+
    //lightImage = EthStandard_LightImage; // script field
 
 	hudImageNameFriendly = "~/client/ui/hud/pixmaps/teammate.etherform.png";

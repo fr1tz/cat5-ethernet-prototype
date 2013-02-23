@@ -677,8 +677,8 @@ function ShapeBaseData::onHitEnemy(%this, %obj, %enemy, %healthDmg, %bufDmg)
    // tagging...
    if($Server::Game.tagMode == $Server::Game.temptag)
       %enemy.setTagged();
-   if($Server::Game.tagMode != $Server::Game.nevertag)
-      %obj.setCurrTagged(%enemy);
+//   if($Server::Game.tagMode != $Server::Game.nevertag)
+//      %obj.setCurrTagged(%enemy);
 
     %obj.incGrenadeAmmo((%healthDmg+%bufDmg)/250);
 
