@@ -16,9 +16,9 @@ datablock ShotgunProjectileData(PumpgunProjectile)
 	stat = "pumpgun";
 
 	// script damage properties...
-	impactDamage        = 130;
-   impactDamageFalloff = $ImpactDamageFalloff::Linear;
-   impactDamageMaxDist = 100;
+	impactDamage        = 105;
+   //impactDamageFalloff = $ImpactDamageFalloff::Linear;
+   //impactDamageMaxDist = 100;
 	impactImpulse       = 100;
 	splashDamage        = 0;
 	splashDamageRadius  = 0;
@@ -28,7 +28,7 @@ datablock ShotgunProjectileData(PumpgunProjectile)
 
 	numBullets = 1; // 9 // number of shotgun bullets
 
-	range = 75; // shotgun range
+	range = 40; // shotgun range
 	muzzleSpreadRadius = 0.0;
 	referenceSpreadRadius = 0.0;
 	referenceSpreadDistance = 25;
@@ -55,7 +55,7 @@ datablock ShotgunProjectileData(PumpgunProjectile)
 	//laserTailLen			 = 10.0;
 
 	laserTrail[0]			= WhitePumpgunProjectileLaserTrailTwo;
-	laserTrailFlags[0]   = 1;
+	laserTrailFlags[0]   = 0;
 
 	//particleEmitter	  = WhitePumpgunProjectileParticleEmitter;
 
