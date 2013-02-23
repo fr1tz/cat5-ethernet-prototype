@@ -31,9 +31,9 @@ new GuiControlProfile(GuiDefaultProfile)
 
 	// fill color
 	opaque = false;
-	fillColor = "0 0 0 220";
-	fillColorHL = "50 50 50 220";
-	fillColorNA = "221 202 173 220";
+	fillColor = "0 0 0 150";
+	fillColorHL = "50 50 50 150";
+	fillColorNA = "221 202 173 150";
 
 	// border color
 	border = false;
@@ -46,7 +46,7 @@ new GuiControlProfile(GuiDefaultProfile)
 	fontSize = 14;
 
 	fontColor = "200 200 200";
-	fontColorHL = "0 210 255";
+	fontColorHL = "255 255 0";
 	fontColorNA = "100 100 100";
 	fontColorSEL= "200 200 200";
 	fontColors[4] = "255 96 96"; // aka fontColorLink
@@ -94,22 +94,23 @@ new GuiControlProfile(GuiConsoleProfile : GuiDefaultProfile)
 
 new GuiControlProfile(GuiButtonProfile : GuiDefaultProfile)
 {
+	fontColor = "39 55 157";
 	opaque = false;
 	border = true;
 	fixedExtent = true;
 	justify = "center";
 	canKeyFocus = false;
-	bitmap = "./pixmaps/mg_button6";
+	bitmap = "./pixmaps/cat5button";
 };
 
 new GuiControlProfile(GuiHilightButtonProfile : GuiButtonProfile)
 {
-	bitmap = "./pixmaps/mg_button6hilight";
+	bitmap = "./pixmaps/cat5buttonhilight";
 };
 
 new GuiControlProfile(GuiTitleButtonProfile : GuiButtonProfile)
 {
-	bitmap = "./pixmaps/mg_button6title";
+	bitmap = "./pixmaps/cat5button";
 };
 
 new GuiControlProfile(GuiRootMenuButtonProfile : GuiDefaultProfile)
@@ -288,9 +289,9 @@ new GuiControlProfile(GuiWindowProfile : GuiDefaultProfile)
 	canKeyFocus = true;
 	opaque = false;
 	border = 8;
-	fillColor = "0 0 0 220";
-	fillColorHL = "0 0 0 220";
-	fillColorNA = "0 0 0 220";
+	fillColor = "0 0 0 150";
+	fillColorHL = "0 0 0 150";
+	fillColorNA = "0 0 0 150";
 	fontColor = "0 210 255";
 	fontColorHL = "0 210 255";
 	text = "GuiWindowCtrl test";

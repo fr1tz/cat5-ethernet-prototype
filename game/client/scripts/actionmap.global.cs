@@ -9,10 +9,22 @@
 // misc...
 //------------------------------------------------------------------------------
 
+function toggleShell(%val)
+{
+	if(%val)
+		return;
+
+   if(Shell.isAwake() && IngameMenuReturn.isActive())
+      Canvas.setContent(Cockpit);
+   else if(!Shell.isAwake())
+      Canvas.setContent(Shell);
+}
+
 GlobalActionMap.bind(keyboard, "tilde", toggleConsole);
 GlobalActionMap.bind(keyboard, "F12", toggleConsole);
 GlobalActionMap.bindCmd(keyboard, "alt enter", "", "toggleFullScreen();");
 //GlobalActionMap.bindCmd(keyboard, "F1", "", "contextHelp();");
+GlobalActionMap.bind(keyboard, "escape", toggleShell);
 
 //------------------------------------------------------------------------------
 // debugging...

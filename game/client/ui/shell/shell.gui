@@ -15,65 +15,153 @@ new GuiBitmapCtrl(Shell) {
    canSave = "1";
    Visible = "1";
    hovertime = "1000";
-   bitmap = "./pixmaps/root.png";
-   wrap = "0";
-
-   new GuiTextCtrl(ShellVersionString) {
-      canSaveDynamicFields = "0";
-      Profile = "GuiTextProfile";
-      HorizSizing = "right";
-      VertSizing = "top";
-      position = "8 454";
-      Extent = "107 18";
-      MinExtent = "8 2";
-      canSave = "1";
-      Visible = "1";
-      hovertime = "1000";
-      text = "client version: 0.1-dev";
-      maxLength = "1024";
-   };
-   new GuiBitmapCtrl() {
-      canSaveDynamicFields = "0";
-      Profile = "GuiDefaultProfile";
-      HorizSizing = "center";
-      VertSizing = "bottom";
-      position = "178 10";
-      Extent = "302 157";
-      MinExtent = "8 2";
-      canSave = "1";
-      Visible = "1";
-      hovertime = "1000";
-      bitmap = "./pixmaps/test.png";
-      wrap = "0";
-   };
-   new GuiWindowCtrl(RootMenuWindow) {
-      canSaveDynamicFields = "0";
-      Profile = "GuiInactiveWindowProfile";
-      HorizSizing = "right";
-      VertSizing = "bottom";
-      position = "10 10";
-      Extent = "137 331";
+   bitmap = "./pixmaps/background.png";
+   wrap = "1";
+   
+   new GuiTopdownTSCtrl() {
+      canSaveDynamicFields = "1";
+      Profile = "HudDefaultProfile";
+      HorizSizing = "width";
+      VertSizing = "height";
+      position = "0 0";
+      Extent = "640 480";
       MinExtent = "8 8";
       canSave = "1";
       Visible = "1";
       hovertime = "1000";
-      text = " Client Toolbox";
-      maxLength = "255";
-      resizeWidth = "0";
-      resizeHeight = "0";
-      canMove = "1";
-      canClose = "0";
-      canMinimize = "0";
-      canMaximize = "0";
-      minSize = "50 50";
+      applyFilterToChildren = "1";
+      cameraZRot = "0";
+      forceFOV = "0";
+      camForwardAction = "0";
+      camBackwardAction = "0";
+      camUpAction = "0";
+      camDownAction = "0";
+      camLeftAction = "0";
+      camRightAction = "0";
+      camFreeLook = "0";
+      camPitch = "0";
+      camYaw = "0";
+      camRoll = "0";
+      camPitchUpSpeed = "0";
+      camPitchDownSpeed = "0";
+      camYawLeftSpeed = "0";
+      camYawRightSpeed = "0";
+      camRollLeftSpeed = "0";
+      camRollRightSpeed = "0";
+      camTriggerCount[0] = "0";
+      camTriggerCount[1] = "0";
+      camTriggerCount[2] = "0";
+      camTriggerCount[3] = "0";
+      camTriggerCount[4] = "0";
+      camTriggerCount[5] = "0";
+      viewMode = "0";
+      panSpeed = "10";
+      zoomSpeed = "0.05";
+   };   
+   
+      new GuiAdditiveBitmapCtrl(ShellScanlines) {
+         canSaveDynamicFields = "0";
+         Profile = "HudDefaultProfile";
+         HorizSizing = "width";
+         VertSizing = "height";
+         position = "0 0";
+         Extent = "640 480";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "0";
+         hovertime = "1000";
+         bitmap = "./pixmaps/scanlines.png";
+         wrap = "1";
+      };
+      
+new GuiControl(ShellStack) {
+   canSaveDynamicFields = "0";
+   Profile = "GuiDefaultProfile";
+      HorizSizing = "width";
+      VertSizing = "height";
+      position = "0 0";
+      Extent = "640 480";
+   MinExtent = "8 8";
+   canSave = "1";
+   Visible = "1";
+   hovertime = "1000";         
+      
+new GuiControl(ShellMissionWindowContainer) {
+   canSaveDynamicFields = "0";
+   Profile = "GuiDefaultProfile";
+      HorizSizing = "width";
+      VertSizing = "height";
+      position = "160 0";
+      Extent = "480 480";
+   MinExtent = "8 8";
+   canSave = "1";
+   Visible = "1";
+   hovertime = "1000";      
+      
+      };            
+      
+      new GuiControl(ShellWindows) {
+         canSaveDynamicFields = "0";
+         Profile = "GuiDefaultProfile";
+         HorizSizing = "center";
+         VertSizing = "center";
+         position = "0 0";
+         Extent = "640 480";
+         MinExtent = "8 8";
+         canSave = "1";
+         Visible = "1";
+         hovertime = "1000";
+      };      
+ 
+   new GuiBitmapCtrl(ShellSidebar) {
+      canSaveDynamicFields = "0";
+      Profile = "GuiContentProfile";
+      HorizSizing = "right";
+      VertSizing = "height";
+      position = "0 0";
+      Extent = "160 480";
+      MinExtent = "8 8";
+      canSave = "1";
+      Visible = "1";
+      hovertime = "1000";
+      bitmap = "./pixmaps/sidebar.png";
+      wrap = "1";
 
+      new GuiTextCtrl(ShellVersionString) {
+         canSaveDynamicFields = "0";
+         Profile = "GuiTextProfile";
+         HorizSizing = "right";
+         VertSizing = "top";
+         position = "8 454";
+         Extent = "143 18";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         hovertime = "1000";
+         text = "client version: 0.1-dev";
+         maxLength = "1024";
+      };
+      new GuiBitmapCtrl() {
+         canSaveDynamicFields = "0";
+         Profile = "GuiDefaultProfile";
+         HorizSizing = "center";
+         VertSizing = "bottom";
+         position = "19 16";
+         Extent = "123 66";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         hovertime = "1000";
+         bitmap = "./pixmaps/test.png";
+         wrap = "0";
+      };
       new GuiButtonCtrl() {
          canSaveDynamicFields = "0";
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         position = "14 29";
-         Extent = "110 23";
+         position = "10 130";
+         Extent = "140 40";
          MinExtent = "8 8";
          canSave = "1";
          Visible = "1";
@@ -88,8 +176,8 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         position = "14 58";
-         Extent = "110 23";
+         position = "10 90";
+         Extent = "140 40";
          MinExtent = "8 8";
          canSave = "1";
          Visible = "1";
@@ -104,8 +192,8 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         position = "14 88";
-         Extent = "110 23";
+         position = "10 170";
+         Extent = "140 40";
          MinExtent = "8 8";
          canSave = "1";
          Visible = "1";
@@ -120,8 +208,8 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         position = "14 118";
-         Extent = "110 23";
+         position = "10 210";
+         Extent = "140 40";
          MinExtent = "8 8";
          canSave = "1";
          Visible = "1";
@@ -136,8 +224,8 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         position = "14 148";
-         Extent = "110 23";
+         position = "10 250";
+         Extent = "140 40";
          MinExtent = "8 8";
          canSave = "1";
          Visible = "1";
@@ -152,24 +240,8 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         position = "14 178";
-         Extent = "110 23";
-         MinExtent = "8 8";
-         canSave = "1";
-         Visible = "1";
-         Command = "addWindow(MissileCommandWindow);";
-         hovertime = "1000";
-         text = "Ms. Isle Command";
-         groupNum = "-1";
-         buttonType = "PushButton";
-      };
-      new GuiButtonCtrl() {
-         canSaveDynamicFields = "0";
-         Profile = "GuiButtonProfile";
-         HorizSizing = "right";
-         VertSizing = "bottom";
-         position = "14 238";
-         Extent = "110 23";
+         position = "10 330";
+         Extent = "140 40";
          MinExtent = "8 8";
          canSave = "1";
          Visible = "1";
@@ -183,9 +255,9 @@ new GuiBitmapCtrl(Shell) {
          canSaveDynamicFields = "0";
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
-         VertSizing = "bottom";
-         position = "14 298";
-         Extent = "110 23";
+         VertSizing = "top";
+         position = "10 410";
+         Extent = "140 40";
          MinExtent = "8 8";
          canSave = "1";
          Visible = "1";
@@ -200,8 +272,8 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         position = "14 208";
-         Extent = "110 23";
+         position = "10 290";
+         Extent = "140 40";
          MinExtent = "8 8";
          canSave = "1";
          Visible = "1";
@@ -216,8 +288,8 @@ new GuiBitmapCtrl(Shell) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         position = "14 268";
-         Extent = "110 23";
+         position = "10 370";
+         Extent = "140 40";
          MinExtent = "8 8";
          canSave = "1";
          Visible = "1";
@@ -227,6 +299,34 @@ new GuiBitmapCtrl(Shell) {
          groupNum = "-1";
          buttonType = "PushButton";
       };
+   };
+};
+
+   new GuiRulerHud() {
+      canSaveDynamicFields = "0";
+      Profile = "HudDefaultProfile";
+      HorizSizing = "right";
+      VertSizing = "height";
+      position = "0 0";
+      Extent = "10 480";
+      MinExtent = "8 2";
+      canSave = "1";
+      Visible = "1";
+      hovertime = "1000";
+      refCtrl = "?\c2";
+   };
+   new GuiRulerHud() {
+      canSaveDynamicFields = "0";
+      Profile = "HudDefaultProfile";
+      HorizSizing = "width";
+      VertSizing = "bottom";
+      position = "0 0";
+      Extent = "640 10";
+      MinExtent = "8 2";
+      canSave = "1";
+      Visible = "1";
+      hovertime = "1000";
+      refCtrl = "?\c2";
    };
 };
 //--- OBJECT WRITE END ---

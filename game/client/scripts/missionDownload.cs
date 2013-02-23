@@ -22,13 +22,35 @@
 function onConnectionInitiated()
 {
 	// Reset all the loading stuff...
+   LoadingProgress.visible = true;
 	LoadingProgressTxt.setText("WAITING FOR SERVER");
 	IngameMenuReturn.setActive(false);
 	IngameMenuText.setText("");
 
-	addWindow(MissionWindow);
+   if($Server::ServerType $= "Menu")
+   {
+      ShellScanlines.visible = true;
+      IngameMenuDisconnect.visible = false;
+      IngameMenuReturn.visible = false;
+      IngameWindow.visible = false;
+   }
+   else
+   {
+      ShellScanlines.visible = true;
+      IngameMenuDisconnect.visible = true;
+      IngameMenuReturn.visible = true;
+      IngameWindow.visible = true;
+   }
+
+   ShellWindows.visible = false;
+   ShellSidebar.visible = true;
+   ShellMissionWindowContainer.visible = true;
+   ShellStack.pushToBack(ShellMissionWindowContainer);
+   ShellStack.pushToBack(ShellSidebar);
+
+	//addWindow(MissionWindow);
 	//addWindow(ServerMessagesWindow);
-	MissionWindow.resizeIdeal();
+	//MissionWindow.resizeIdeal();
 }
 
 //----------------------------------------------------------------------------
@@ -54,7 +76,7 @@ function onMissionDownloadPhase1(%missionEnvFile, %musicTrack)
 	LoadingProgressTxt.setValue("LOADING DATABLOCKS");
 	IngameMenuReturn.setActive(false);
 
-	addWindow(MissionWindow);
+	//addWindow(MissionWindow);
 	//addWindow(ServerMessagesWindow);	
 }
 
@@ -132,6 +154,9 @@ function onMissionDownloadComplete()
 
 	// Enable player to play...
 	IngameMenuReturn.setActive(true);
+
+   if($Server::ServerType $= "Menu")
+      LoadingProgress.visible = false;
 }
 
 

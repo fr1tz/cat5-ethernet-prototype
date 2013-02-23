@@ -3053,7 +3053,7 @@ function Editor::open(%this)
 	// prevent the mission editor from opening while the GuiEditor is open.
 	if(Canvas.getContent() == GuiEditorGui.getId())
 		return;
-	showShellDlg(false);
+	//showShellDlg(false);
 	Canvas.setContent(EditorGui);
 }
 

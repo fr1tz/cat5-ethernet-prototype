@@ -11,39 +11,39 @@
 // Callback function: called by "common" script code.
 function onCanvasContentChanged(%oldContent, %newContent)
 {
-	if(Canvas.getContent() != Shell.getId())
-		updateShellDlg();
+	//if(Canvas.getContent() != Shell.getId())
+	//	updateShellDlg();
 }
 
-function showShellDlg(%show)
-{
-	$ShellDlgActive = %show;
-	updateShellDlg();
-}
+//function showShellDlg(%show)
+//{
+//	$ShellDlgActive = %show;
+//	updateShellDlg();
+//}
 
 function updateShellDlg()
 {
 	if($ShellDlgActive)
 	{
-		if(!ShellDlg.isAwake())
-			Canvas.pushDialog(ShellDlg);
+		if(!Shell.isAwake())
+			Canvas.setContent(Shell);
 
-		addWindow(RootMenuWindow, true);
-			
+		//addWindow(RootMenuWindow, true);
+
 		if(ServerConnection.isDemoPlaying())
 		{
 			addWindow(RecordingControlsWindow, true);
 		}
-		else
-		{
-			addWindow(MissionWindow, true);
+		//else
+		//{
+		//	addWindow(MissionWindow, true);
 			//addWindow(ServerMessagesWindow);
-		}		
+		//}
 	}
 	else
 	{
-		if(ShellDlg.isAwake())
-			Canvas.popDialog(ShellDlg);
+		if(Shell.isAwake())
+			Canvas.popDialog(Shell);
 
 		hilightControl(IngameMenuReturn, false);
 	}

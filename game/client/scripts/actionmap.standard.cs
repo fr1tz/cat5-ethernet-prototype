@@ -16,7 +16,7 @@ new ActionMap(MoveMap);
 // In-game shell overlay
 //------------------------------------------------------------------------------
 
-MoveMap.bind( keyboard, "escape", toggleShellDlg );
+//MoveMap.bind( keyboard, "escape", toggleShellDlg );
 
 //------------------------------------------------------------------------------
 // camera & view...

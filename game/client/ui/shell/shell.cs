@@ -22,9 +22,7 @@ if(isObject(DefaultCursor))
 function addWindow(%control, %inactive)
 {
 	%oldparent = %control.getParent();
-	%parent = Shell;
-	if(Canvas.getContent() != Shell.getId())
-		%parent = ShellDlg;
+	%parent = ShellWindows;
 	if(%control.getParent().getId() != %parent.getId())
 	{
 		%parent.add(%control);
@@ -32,8 +30,15 @@ function addWindow(%control, %inactive)
 		if(%control.getParent() != %oldParent)
 			%control.onAddedAsWindow();
 	}
-	if(!%inactive)
-		windowSelected(%control);
+//	if(!%inactive)
+//		windowSelected(%control);
+   if(ShellWindows.getCount() > 0)
+   {
+      ShellSidebar.visible = false;
+      ShellMissionWindowContainer.visible = false;
+      ShellWindows.visible = true;
+      ShellStack.pushToBack(ShellWindows);
+   }
 	Canvas.repaint();
 }
 
@@ -41,6 +46,13 @@ function removeWindow(%control)
 {
 	%control.getParent().remove(%control);
 	%control.onRemovedAsWindow();
+   if(ShellWindows.getCount() == 0)
+   {
+      ShellSidebar.visible = true;
+      ShellMissionWindowContainer.visible = true;
+      ShellStack.pushToBack(ShellMissionWindowContainer);
+      ShellStack.pushToBack(ShellSidebar);
+   }
 	Canvas.repaint();
 }
 
@@ -112,7 +124,8 @@ function Shell::onAdd(%this)
 function Shell::onWake(%this)
 {
 	ShellVersionString.setText("client version:" SPC $GameVersionString);
-	windowSelected(RootMenuWindow);
+	//windowSelected(RootMenuWindow);
+   ShellMissionWindowContainer.add(MissionWindow);
 	startUpdateHilightedGuiControlsThread();
 }
 

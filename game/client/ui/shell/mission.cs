@@ -74,7 +74,7 @@ function clientCmdEndQuickbarTxt()
 	%y = getWord(IngameQuickbarScroll.position, 1);
 	IngameQuickbarScroll.setExtent(%w, %h);
 	%stor = getWord(IngameMenuScroll.position, 1);
-	IngameMenuScroll.setPosition(14, %y + %h - 2);
+	IngameMenuScroll.setPosition(5, %y + %h - 2);
 	%y = getWord(IngameMenuScroll.position, 1);
 	%h = getWord(IngameMenuScroll.extent, 1);
 	IngameMenuScroll.setExtent(%w, %h + (%stor - %y));

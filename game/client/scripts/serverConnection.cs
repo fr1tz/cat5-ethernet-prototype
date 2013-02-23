@@ -44,14 +44,14 @@ function GameConnection::initialControlSet(%this)
 	{
 		if (Canvas.getContent() == Shell.getId())
 		{
-			Canvas.setContent(Cockpit);
-			showShellDlg(true);
+			//Canvas.setContent(Cockpit);
+			//showShellDlg(true);
 			
 			// Make sure we're displaying the IRC window if we're not offline...
-			if(!$IRC::Offline)
-				addWindow(IrcWindow, true);
+			//if(!$IRC::Offline)
+			//	addWindow(IrcWindow, true);
 
-			hilightControl(IngameMenuReturn, true);
+			//hilightControl(IngameMenuReturn, true);
 		}
 	}
 }
@@ -195,19 +195,29 @@ function disconnectedCleanup()
 	clientCmdClearCenterPrint();
 	
 	// Make sure the certain windows will not be visible
-	removeWindow(MissionWindow);
-	removeWindow(ServerMessagesWindow);
-	removeWindow(RecordingControlsWindow);
+	//removeWindow(MissionWindow);
+	//removeWindow(ServerMessagesWindow);
+	//removeWindow(RecordingControlsWindow);
+
+   // Reset shell state
+   IngameMenuDisconnect.visible = false;
+   IngameMenuReturn.visible = false;
+   IngameWindow.visible = false;
+   ShellWindows.visible = false;
+   ShellSidebar.visible = true;
+   ShellMissionWindowContainer.visible = true;
+   ShellStack.pushToBack(ShellMissionWindowContainer);
+   ShellStack.pushToBack(ShellSidebar);
 
 	// Make sure we're displaying the shell
 	Canvas.setContent(Shell);
 
 	// Make sure we're displaying the toolbox
-	addWindow(RootMenuWindow);
+	//addWindow(RootMenuWindow);
 
 	// Make sure we're displaying the IRC window if we're not offline...
-	if(!$IRC::Offline)
-		addWindow(IrcWindow, true);
+	//if(!$IRC::Offline)
+	//	addWindow(IrcWindow, true);
 
 	// Dump anything we're not using
 	clearTextureHolds();

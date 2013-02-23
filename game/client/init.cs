@@ -33,6 +33,18 @@
 
 //-----------------------------------------------------------------------------
 
+function clientLoadMenu()
+{
+   disconnect();
+	createServer("Menu", "game/arenas/cat5-ethernet/menu.mis");
+   %conn = new GameConnection(ServerConnection);
+   RootGroup.add(ServerConnection);
+	%conn.setConnectArgs($GameNameString, $GameVersionString, $Pref::Player::Name);
+	%conn.setJoinPassword($Client::Password);
+   %conn.connectLocal();
+   onConnectionInitiated();
+}
+
 function initClient()
 {
 	echo("\n--------- Initializing Ethernet: Client ---------");
@@ -109,7 +121,8 @@ function initClient()
     else
     {
         // Otherwise go to the splash screen.
-        showTorqueSplashScreen(Shell);
+        // showTorqueSplashScreen(Shell);
+        clientLoadMenu();
     }
 }
 
