@@ -154,8 +154,8 @@ datablock ShapeBaseImageData(BounceGunImage)
 	mountPoint  = 0;
 	offset		= "0 0 0";
 	rotation	 = "0 0 0";
-	eyeOffset	= "0.275 0.1 -0.05";
-	eyeRotation = "0 0 0 0";
+	//eyeOffset	= "0.275 0.1 -0.05";
+	//eyeRotation = "0 0 0 0";
 
 	// Adjust firing vector to eye's LOS point?
 	correctMuzzleVector = true;

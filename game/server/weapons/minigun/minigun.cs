@@ -68,8 +68,8 @@ datablock ShapeBaseImageData(MinigunImage)
 	mountPoint  = 0;
 	offset      = "0 0 0";
 	rotation    = "0 0 0";
-	eyeOffset   = "0.275 -0.25 -0.2";
-	eyeRotation = "0 0 0";
+	//eyeOffset   = "0.275 -0.25 -0.2";
+	//eyeRotation = "0 0 0";
 
 	// Adjust firing vector to eye's LOS point?
 	correctMuzzleVector = true;
@@ -109,6 +109,7 @@ datablock ShapeBaseImageData(MinigunImage)
 
 		// charge...
 		stateName[3]                     = "Charge";
+		stateTransitionOnNoAmmo[3]       = "NoAmmo";
 		stateTransitionOnTriggerUp[3]    = "Cooldown";
 		stateTransitionOnTimeout[3]      = "Spin";
 		stateTimeoutValue[3]             = 0.5;
@@ -163,7 +164,7 @@ datablock ShapeBaseImageData(MinigunImage)
 		
 		// no ammo...
 		stateName[6]                     = "NoAmmo";
-        	stateTransitionOnTriggerDown[6]  = "DryFire";
+      stateTransitionOnTriggerDown[6]  = "DryFire";
 		stateTransitionOnAmmo[6]         = "Ready";
 		stateTimeoutValue[6]             = 0.50;
 		stateSequence[6]                 = "idle";
