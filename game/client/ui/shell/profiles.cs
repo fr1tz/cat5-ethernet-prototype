@@ -76,6 +76,20 @@ new GuiControlProfile(GuiDefaultProfile)
 };
 
 //--------------------------------------------------------------------------
+
+new GuiControlProfile(GuiCursorEffectsProfile : GuiDefaultProfile)
+{
+   modal = false;
+   fillColor = "0 255 255 200";
+};
+
+new GuiControlProfile(GuiScanlinesProfile : GuiDefaultProfile)
+{
+   modal = false;
+   fillColor = "0 255 255 100";
+};
+
+//--------------------------------------------------------------------------
 // Console Window
 //
 new GuiControlProfile(GuiConsoleProfile : GuiDefaultProfile)
@@ -94,7 +108,7 @@ new GuiControlProfile(GuiConsoleProfile : GuiDefaultProfile)
 
 new GuiControlProfile(GuiButtonProfile : GuiDefaultProfile)
 {
-	fontColor = "39 55 157";
+	fontColor = "63 89 255";
 	opaque = false;
 	border = true;
 	fixedExtent = true;
