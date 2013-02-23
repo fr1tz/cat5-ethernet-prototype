@@ -152,7 +152,7 @@ function Shell::onWake(%this)
 {
 	ShellVersionString.setText("version:" SPC $GameVersionString);
 	//windowSelected(RootMenuWindow);
-   //ShellMissionWindowContainer.add(MissionWindow);
+   ShellMissionWindowContainer.add(MissionWindow);
 	startUpdateHilightedGuiControlsThread();
 }
 
