@@ -14,8 +14,8 @@ if(isObject(DefaultCursor))
 
     new GuiCursor(DefaultCursor)
     {
-	   hotSpot = "2 2";
-	   bitmapName = "./pixmaps/mg_arrow7";
+	   hotSpot = "8 7";
+	   bitmapName = "./pixmaps/cat5cursor";
     };
 }
 
@@ -116,16 +116,43 @@ function hilightControl(%control, %hilight)
 	}
 }
 
+function clientUpdateScanlinesThread()
+{
+   schedule(50, 0, "clientUpdateScanlinesThread");
+
+   if(GuiScanlinesProfile.zPulseDt $= "")
+      GuiScanlinesProfile.zPulseDt = 4;
+
+   GuiScanlinesProfile.zPulse += GuiScanlinesProfile.zPulseDt;
+   if(GuiScanlinesProfile.zPulse > 255)
+   {
+      GuiScanlinesProfile.zPulse = 255;
+      GuiScanlinesProfile.zPulseDt = -4;
+   }
+   else if(GuiScanlinesProfile.zPulse < 0)
+   {
+      GuiScanlinesProfile.zPulse = 0;
+      GuiScanlinesProfile.zPulseDt = 4;
+   }
+
+   //error(GuiScanlinesProfile.zPulse);
+   GuiScanlinesProfile.fillColor = "0 255" SPC GuiScanlinesProfile.zPulse SPC "100";
+
+   //if(getRandom(100) == 0)
+   //   GuiScanlinesProfile.fillColor = "0 255 255 140";
+}
+
 function Shell::onAdd(%this)
 {
 	new SimSet(HilightedGuiControlsSet);
+   clientUpdateScanlinesThread();
 }
 
 function Shell::onWake(%this)
 {
-	ShellVersionString.setText("client version:" SPC $GameVersionString);
+	ShellVersionString.setText("version:" SPC $GameVersionString);
 	//windowSelected(RootMenuWindow);
-   ShellMissionWindowContainer.add(MissionWindow);
+   //ShellMissionWindowContainer.add(MissionWindow);
 	startUpdateHilightedGuiControlsThread();
 }
 

@@ -63,7 +63,7 @@ new GuiControlProfile(GuiDefaultProfile)
 
 	// used by guiTextControl
 	modal = true;
-	justify = "left";
+   justify = "left";
 	autoSizeWidth = false;
 	autoSizeHeight = false;
 	returnTab = false;
@@ -76,12 +76,6 @@ new GuiControlProfile(GuiDefaultProfile)
 };
 
 //--------------------------------------------------------------------------
-
-new GuiControlProfile(GuiCursorEffectsProfile : GuiDefaultProfile)
-{
-   modal = false;
-   fillColor = "0 255 255 200";
-};
 
 new GuiControlProfile(GuiScanlinesProfile : GuiDefaultProfile)
 {

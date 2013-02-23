@@ -23,8 +23,8 @@ new GuiBitmapCtrl(Shell) {
       Profile = "HudDefaultProfile";
       HorizSizing = "width";
       VertSizing = "height";
-      Position = "160 0";
-      Extent = "480 480";
+      Position = "0 0";
+      Extent = "640 480";
       MinExtent = "8 8";
       canSave = "1";
       Visible = "1";
@@ -79,7 +79,7 @@ new GuiBitmapCtrl(Shell) {
          Extent = "640 480";
          MinExtent = "8 8";
          canSave = "1";
-         Visible = "0";
+         Visible = "1";
          hovertime = "1000";
       };
       new GuiControl(ShellMissionWindowContainer) {
@@ -113,13 +113,13 @@ new GuiBitmapCtrl(Shell) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "top";
-            Position = "8 454";
-            Extent = "140 18";
+            Position = "29 454";
+            Extent = "102 18";
             MinExtent = "8 2";
             canSave = "1";
             Visible = "1";
             hovertime = "1000";
-            text = "client version: p.1-dev";
+            text = "version: p.1-dev";
             maxLength = "1024";
          };
          new GuiBitmapCtrl() {
@@ -128,12 +128,12 @@ new GuiBitmapCtrl(Shell) {
             HorizSizing = "center";
             VertSizing = "bottom";
             Position = "19 16";
-            Extent = "123 66";
+            Extent = "123 63";
             MinExtent = "8 2";
             canSave = "1";
             Visible = "1";
             hovertime = "1000";
-            bitmap = "./pixmaps/test.png";
+            bitmap = "./pixmaps/cat5logo.png";
             wrap = "0";
          };
          new GuiButtonCtrl() {
@@ -310,7 +310,7 @@ new GuiBitmapCtrl(Shell) {
    };
    new GuiCursorEffectsCtrl(ShellCursorEffects) {
       canSaveDynamicFields = "0";
-      Profile = "GuiCursorEffectsProfile";
+      Profile = "GuiScanlinesProfile";
       HorizSizing = "width";
       VertSizing = "height";
       Position = "0 0";
