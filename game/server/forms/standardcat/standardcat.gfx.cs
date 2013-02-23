@@ -359,8 +359,8 @@ datablock DebrisData(StandardCatDebris)
 
    terminalVelocity = 0;
 
-   emitters[1] = StandardCatDebris_FireEmitter;
    emitters[0] = StandardCatDebris_SmokeEmitter;
+   //emitters[1] = StandardCatDebris_FireEmitter;
 
    decals[0] = StandardCatDebrisDecalOne;
 };
