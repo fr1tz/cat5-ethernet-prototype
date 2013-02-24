@@ -167,7 +167,7 @@ datablock PlayerData(FrmMinigunner)
 
 	flyForce = 10 * 90 * $Server::Game.slowpokemod;
 
-	runForce = 200 * 90 * $Server::Game.slowpokemod; // formerly 48 * 90
+	runForce = 100 * 90 * $Server::Game.slowpokemod; // formerly 48 * 90
 	runEnergyDrain = 3;
 	minRunEnergy = 1;
 	

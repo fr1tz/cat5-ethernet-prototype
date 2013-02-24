@@ -167,7 +167,7 @@ datablock PlayerData(FrmSpecialist)
 
 	flyForce = 10 * 90 * $Server::Game.slowpokemod;
 
-	runForce = 200 * 90 * $Server::Game.slowpokemod; // formerly 48 * 90
+	runForce = 100 * 90 * $Server::Game.slowpokemod; // formerly 48 * 90
 	runEnergyDrain = 1.5;
 	minRunEnergy = 1;
 	
