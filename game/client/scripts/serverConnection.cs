@@ -58,6 +58,12 @@ function GameConnection::initialControlSet(%this)
 
 function GameConnection::onControlObjectChanged(%this)
 {
+   // hack hack hack
+   %aimModeStor = HUD.zAimMode;
+   HUD.zAimMode = -1;
+   cAim(0);
+   HUD.zAimMode = %aimModeStor;
+
 	%obj = %this.getControlObject();
 	if(isObject(%obj))
 		Hud.matchControlObject(%obj);

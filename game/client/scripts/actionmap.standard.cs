@@ -23,6 +23,7 @@ new ActionMap(MoveMap);
 //------------------------------------------------------------------------------
 
 MoveMap.bind(mouse, "button2", freeLook ); // middle button
+MoveMap.bind( mouse, "button1", cAim ); // right button
 MoveMap.bind(keyboard, "p", toggleFirstPerson );
 
 //------------------------------------------------------------------------------
@@ -42,10 +43,10 @@ MoveMap.bind(mouse0, "yaxis", S, $pref::Input::MouseSensitivity, mouseY);
 //------------------------------------------------------------------------------
 
 MoveMap.bind( mouse, "button0", trigger0 ); // left button
-MoveMap.bind( mouse, "button1", trigger4 ); // right button
-MoveMap.bind( keyboard, "space", trigger2 );
+MoveMap.bind( keyboard, "space", trigger4 );
 MoveMap.bind( keyboard, "lshift", trigger1 );
 MoveMap.bind( keyboard, "lcontrol", trigger5 );
+MoveMap.bind( keyboard, "lalt", trigger2 );
 
 //------------------------------------------------------------------------------
 // Zoom and FOV

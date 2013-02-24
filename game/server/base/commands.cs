@@ -67,23 +67,23 @@ function serverCmdPlayerAction(%client, %nr, %val)
 	}
 	else if(%nr == 34 && %val)
 	{
-      commandToClient(%client, 'CockpitMode', 3);
+      //commandToClient(%client, 'CockpitMode', 3);
 	}
 	else if(%nr == 35 && %val)
 	{
-      commandToClient(%client, 'CockpitMode', 0, %client.player.getPosition());
+      //commandToClient(%client, 'CockpitMode', 0, %client.player.getPosition());
 	}
 	else if(%nr == 36 && %val)
 	{
-      commandToClient(%client, 'CockpitMode', 1);
+      //commandToClient(%client, 'CockpitMode', 1);
 	}
 	else if(%nr == 37 && %val)
 	{
-      commandToClient(%client, 'CockpitMode', 2, %client.player.getPosition());
+      //commandToClient(%client, 'CockpitMode', 2, %client.player.getPosition());
 	}
 	else if(%nr == 38 && %val)
 	{
-      commandToClient(%client, 'CockpitMode', 4);
+      //commandToClient(%client, 'CockpitMode', 4);
 	}
 	else if(%nr == 39 && %val)
 	{		

@@ -467,8 +467,8 @@ function GameConnection::spawnPlayer(%this)
 	%obj.setCurrTagged(0);
 	%obj.setCurrTaggedPos("0 0 0");
 
-   // set up client's cockpit
-   commandToClient(%this, 'CockpitMode', 2, %obj.getPosition());
+   // Set up client's HUD
+   commandToClient(%this, 'Hud', "aimmode", 0);
 
 	// update the client's observer camera to start with the player...
 	%this.camera.setMode("Observer");
@@ -498,6 +498,7 @@ function GameConnection::togglePlayerForm(%this, %forced)
 	if(!isObject(%this.player))
 		return;
 		
+   %aimmode = 0;
 	%tagged = %this.player.isTagged();
 	%pos = %this.player.getWorldBoxCenter();
 
@@ -639,15 +640,30 @@ function GameConnection::togglePlayerForm(%this, %forced)
 			else
 			{
             if(%this.class == 1)
+            {
 				   %data = FrmPumpgunner;
+               %aimmode = 1;
+            }
             else if(%this.class == 2)
+            {
 				   %data = FrmShotgunner;
+               %aimmode = 1;
+            }
             else if(%this.class == 3)
+            {
 				   %data = FrmMinigunner;
+               %aimmode = 2;
+            }
             else if(%this.class == 4)
+            {
 				   %data = FrmSpecialist;
+               %aimmode = 2;
+            }
             else if(%this.class == 5)
+            {
 				   %data = FrmHunter;
+               %aimmode = 3;
+            }
 			}
 
 			%obj = new Player() {
@@ -659,8 +675,10 @@ function GameConnection::togglePlayerForm(%this, %forced)
 
 		$aiTarget = %obj;
 	}
-	
 	MissionCleanup.add(%obj);
+
+   // Set up client's HUD
+   commandToClient(%this, 'Hud', "aimmode", %aimmode);
 	
 	%mat = %this.player.getTransform();
 	%dmg = %this.player.getDamageLevel();

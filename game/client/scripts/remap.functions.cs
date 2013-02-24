@@ -26,44 +26,117 @@ function toggleShellDlg(%val)
 
 function freeLook( %val )
 {
-   if(HUD.zMode == 0)
+   $mvFreeLook = %val;
+}
+
+function cAim( %val )
+{
+   if(HUD.zAimMode == 0)
+      return;
+
+   %w = getWord(HUD.getExtent(), 0);
+   %h = getWord(HUD.getExtent(), 1);
+   %r = (%w > %h ? %h : %w);
+
+   if(!%val)
    {
-      if(false && %val)
+      $mvMapActive = false;
+      $mvPosActive = true;
+      HudRulerH.visible = true;
+      HudRulerV.visible = true;
+      %transform = ServerConnection.getControlObject().getTransform();
+      %vec = MatrixGetColumn(%transform, 1);
+      if(HUD.zAimMode == 1)
       {
-         %panpos = HUD.getPan();
-
-//         %ctrl = ServerConnection.getControlObject();
-//         if(!isObject(%ctrl))
-//            return;
-//         %ctrlpos = %ctrl.getPosition();
-         %lookpos = $mvMapX SPC $mvMapY;
-
-         %vec = VectorSub(%lookpos, %panpos);
-
-         %panpos = VectorAdd(%panpos, %vec);
-         %lookpos = VectorAdd(%panpos, %vec);
-
-         HUD.pan(getWord(%panpos,0), getWord(%panpos,1));
-         $mvMapX = getWord(%lookpos,0);
-         $mvMapY = getWord(%lookpos,1);
+         %ctrlPos = ServerConnection.getControlObject().getPosition();
+         %mapPos = $mvMapX SPC $mvMapY SPC getWord(%ctrlPos, 2);
+         switch(HUD.getZoom())
+         {
+            case 0.2: %scale = 0.0091;
+            case 0.4: %scale = 0.0082;
+            case 0.6: %scale = 0.0077;
+            case 0.8: %scale = 0.0072;
+            case 1.0: %scale = 0.0067;
+            case 1.2: %scale = 0.0061;
+            case 1.4: %scale = 0.0055;
+            case 1.6: %scale = 0.0050;
+            case 1.8: %scale = 0.0045;
+            case 2.0: %scale = 0.0040;
+            default: %scale = 0.0074;
+         }
+         //error(%scale);
+         %vec = VectorScale(VectorSub(%mapPos, %ctrlPos), %scale);
+         $mvHorizontalPos = getWord(%vec, 0);
+         $mvVerticalPos = getWord(%vec, 1);
       }
-      //return;
-
-      if(%val)
+      else if(HUD.zAimMode == 2)
       {
-         %pan = HUD.getPan();
-         $mvMapX = getWord(%pan, 0);
-         $mvMapY = getWord(%pan, 1);
-         HUD.viewMode = 2;
+         //%vec = VectorScale(%vec, (($mvVerticalPos+1)/4));
+         %vec = VectorScale(%vec, 0.1);
+         $mvHorizontalPos = getWord(%vec, 0);
+         $mvVerticalPos = getWord(%vec, 1);
       }
       else
       {
-         HUD.viewMode = 1;
-         HUD.pan($mvMapX, $mvMapY);
+         %vec = VectorScale(%vec, 0.1);
+         $mvHorizontalPos = getWord(%vec, 0);
+         $mvVerticalPos = getWord(%vec, 1);
       }
+      HUD.viewMode = 3;
+      return;
    }
-   else
-	   $mvFreeLook = %val;
+
+   if(HUD.zAimMode == 1)
+   {
+      //HUD.zOldHorizontalPos = $mvHorizontalPos;
+      //HUD.zOldVerticalPos = $mvVerticalPos;
+
+      // Freeze view
+      %p = HUD.unproject(%w/2 SPC %h/2 SPC -1);
+      HUD.pan(getWord(%p, 0), getWord(%p, 1));
+      HUD.viewMode = 1;
+
+      // Translate relative aim pos into absolute map pos
+      %camPos = HUD.getCamPos();
+      %ctrlPos = ServerConnection.getControlObject().getPosition();
+      %dist = 9999;
+      //%vec = VectorSub(%ctrlPos, %camPos);
+      //%dist = VectorLen(%vec);
+      %r = (%w > %h ? %h : %w);
+      %x = %w/2 + ($mvHorizontalPos/2)*%r;
+      %y = %h/2 - ($mvVerticalPos/2)*%r;
+      %p = HUD.unproject(%x SPC %y SPC -1);
+      %vec = VectorSub(%p, %camPos);
+      %vec = VectorNormalize(%vec);
+      %end = VectorAdd(%camPos, VectorScale(%vec, %dist));
+      %d = PlaneIntersect("0 0" SPC getWord(%ctrlPos,2), "0 0 1", %camPos, %end);
+      %p = VectorAdd(%camPos, VectorScale(%vec, %dist * %d));
+
+      $mvMapX = getWord(%p, 0);
+      $mvMapY = getWord(%p, 1);
+
+      $mvMapActive = true;
+      $mvPosActive = false;
+      HudRulerH.visible = false;
+      HudRulerV.visible = false;
+   }
+   else if(HUD.zAimMode == 2)
+   {
+      $mvMapActive = false;
+      $mvPosActive = false;
+      //$mvVerticalPos = 0.05;
+      HudRulerH.visible = true;
+      HudRulerV.visible = true;
+      HUD.viewMode = 5;
+   }
+   else if(HUD.zAimMode == 3)
+   {
+      $mvMapActive = false;
+      $mvPosActive = false;
+      HudRulerH.visible = false;
+      HudRulerV.visible = false;
+      HUD.viewMode = 6;
+   }
 }
 
 function toggleFirstPerson(%val)
@@ -145,6 +218,8 @@ function mouseX(%val)
       $mvYaw += getMouseAdjustAmount(%val);
    //if($mvPosActive)
 	   $mvHorizontalPos += getMouseAdjustAmount(%val);
+    //  if($mvHorizontalPos > 1.0) $mvHorizontalPos = 1.0;
+    //  else if($mvHorizontalPos < -1.0) $mvHorizontalPos = -1.0;
    //if($mvMapActive)
  	   $mvMapX += %val;
 }
@@ -155,6 +230,8 @@ function mouseY(%val)
    //   $mvPitch += getMouseAdjustAmount(%val);
    //if($mvPosActive)
 	   $mvVerticalPos -= getMouseAdjustAmount(%val);
+    //  if($mvVerticalPos > 1.0) $mvVerticalPos = 1.0;
+    //  else if($mvVerticalPos < -1.0) $mvVerticalPos = -1.0;
    //if($mvMapActive)
       $mvMapY -= %val;
 }
@@ -265,7 +342,7 @@ function mouseZoom(%val)
 
 	%minZoom = 0.2;
    %maxZoom = 2;
-	%step = (%maxZoom - %minZoom)/$Pref::Player::MouseZoomSteps;
+	%step = %maxZoom/$Pref::Player::MouseZoomSteps;
 
 	if($MouseZoomValue == 0)
 		$MouseZoomValue = 0.2;

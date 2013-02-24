@@ -70,7 +70,7 @@ else
 	$pref::Player::Name = "LazyLinuxUser";
 $pref::Player::DefaultFov = 110;
 $pref::Player::ZoomSpeed = 200;
-$pref::Player::MouseZoomSteps = 3;
+$pref::Player::MouseZoomSteps = 10;
 $pref::Player::RenderMyPlayer = 0;
 $pref::Player::RenderMyItems = 1;
 $Pref::Player::Trails::Amount = 1.0;
