@@ -3,7 +3,16 @@
 // Copyright notices are in the file named COPYING.
 //------------------------------------------------------------------------------
 
-// The stuff that was here has been moved into the opt*.cs files.
+function OptionsWindow::showWindow(%this, %window)
+{
+   OptPlayerWindow.visible = false;
+   OptGraphicsWindow.visible = false;
+   OptAudioWindow.visible = false;
+   OptNetworkWindow.visible = false;
+   OptControlsWindow.visible = false;
+   %window.visible= true;
+   %window.onAddedAsWindow();
+}
 
 
 

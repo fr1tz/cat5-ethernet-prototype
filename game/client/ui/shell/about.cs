@@ -5,34 +5,51 @@
 
 function AboutWindow::onAddedAsWindow(%this)
 {
-	AboutFileList.entryCount = 0;
-	AboutFileList.clear();
-
-	%files[0] = "README";
-	%files[1] = "NEWS";
-	%files[2] = "AUTHORS";
-	%files[3] = "COPYING";
-
-	for(%i = 0; %i < 4; %i++)
-	{
-		%file = %files[%i];
-		AboutFileList.fileName[AboutFileList.entryCount] = %file;
-		AboutFileList.addRow(AboutFileList.entryCount, %file);
-		AboutFileList.entryCount++;
-	}
-	AboutFileList.setSelectedRow(0);
+   //
 }
 
-function AboutFileList::onSelect(%this, %row)
+function AboutWindow::show(%this, %title, %filename)
 {
+   AboutWindowLabel.setText(%title);
+
 	%fo = new FileObject();
-	%fo.openForRead(%this.fileName[%row]);
+	%fo.openForRead(%filename);
 	%text = "";
 	while(!%fo.isEOF())
-		%text = %text @ %fo.readLine() @ "\n";
+   {
+      %line = %fo.readLine();
+		%text = %text @ %line @ "\n";
+   }
 
 	%fo.delete();
 
-	AboutText.setText("<font:Arial:14>" @ %text);
+	AboutText.setText("<font:Cat5:14>" @ %text);
+
+   addWindow(AboutWindow);
 }
+
+function AboutWindow::showReadme(%this)
+{
+   %this.show("Readme", "README");
+}
+
+function AboutWindow::showNews(%this)
+{
+   %this.show("Changelog", "NEWS");
+}
+
+function AboutWindow::showCredits(%this)
+{
+   %this.show("Credits", "CREDITS");
+}
+
+function AboutWindow::showCopying(%this)
+{
+   %this.show("Legal", "COPYING");
+}
+
+
+
+
+
 

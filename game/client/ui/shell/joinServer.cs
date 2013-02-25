@@ -117,11 +117,11 @@ function JoinServerWindow::onRemovedAsWindow()
 function JoinServerWindow::onWake()
 {
 	JS_HeaderList.setRowById(0,
-		"Arena" TAB
+		"Server Name" TAB
 		"Ping" TAB
 		"Players" TAB
 		"Game" TAB
-		"Environment" TAB
+		"Map" TAB
 		"Server Index" // <- This will never be visible
 	);
 	JS_HeaderList.setActive(false);

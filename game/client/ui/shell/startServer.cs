@@ -82,6 +82,11 @@ function SS_missionList::onSelect(%this, %id, %text)
 
 //----------------------------------------
 
+function StartServerWindow::showMutatorsWindow(%this, %show)
+{
+   MutatorsWindow.visible = %show;
+}
+
 function SS_AddMutator()
 {
 	%r = SS_AvailableMutatorsList.getSelectedRow();
@@ -100,6 +105,8 @@ function SS_AddMutator()
 	}
 
 	SS_ActiveMutatorsList.addRow(%rc, %line);
+
+   StartServerWindow.showMutatorsWindow(false);
 }
 
 function SS_RemoveMutator()

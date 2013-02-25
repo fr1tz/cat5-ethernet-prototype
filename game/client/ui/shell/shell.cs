@@ -25,6 +25,7 @@ function addWindow(%control, %inactive)
 	%parent = ShellWindows;
 	if(%control.getParent().getId() != %parent.getId())
 	{
+      %parent.clear();
 		%parent.add(%control);
 		%parent.pushToBack(%control);
 		if(%control.getParent() != %oldParent)
