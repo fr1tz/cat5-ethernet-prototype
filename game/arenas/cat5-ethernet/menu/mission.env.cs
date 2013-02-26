@@ -22,3 +22,18 @@ sgLoadDataBlocks($sgLightEditor::filterDBPath);
 %mapping.sound = $MaterialMapping::Sound::Metal;
 %mapping.color = "0 1 0 1.0 0.0";
 //%mapping.envmap = "share/textures/malloc/dark_blue_grid 0.5";
+
+//------------------------------------------------------------------------------
+// Precipitation
+//------------------------------------------------------------------------------
+
+datablock PrecipitationData(MissionRain)
+{
+   dropTexture = "share/textures/cat5-testmap1/raindrops";
+   //splashTexture = "share/textures/cat5-testmap1/raindrops.splash";
+   dropSize = 0.40;
+   //splashSize = 0.2;
+   useTrueBillboards = false;
+   splashMS = 200;
+};
+

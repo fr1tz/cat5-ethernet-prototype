@@ -154,13 +154,21 @@ function onMissionDownloadComplete()
 	MiniMap.setMapBitmap(%mapBitmap);
 	BigMap.setMapBitmap(%mapBitmap);
 
+   ShellTS.zoom(1.1);
    ShellTS.visible = true;
+   if($Server::ServerType $= "Menu")
+   {
+      LoadingProgress.visible = false;
+      ShellTS.viewMode = 1;
+      ShellTS.pan(-17, 48);
+   }
+   else
+   {
+      ShellTS.viewMode = 0;
+   }
 
 	// Enable player to play...
 	IngameMenuReturn.setActive(true);
-
-   if($Server::ServerType $= "Menu")
-      LoadingProgress.visible = false;
 }
 
 

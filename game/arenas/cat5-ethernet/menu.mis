@@ -1,5 +1,5 @@
 exec("./common.cs");
-$MissionInfo::Name = "Menu";
-$MissionInfo::Desc = "Small map that's shown in Cat5's menu.";
+$MissionInfo::Name = "Main Menu";
+$MissionInfo::Desc = "The map that's shown in cat5's main menu.";
 
 
