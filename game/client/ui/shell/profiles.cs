@@ -8,16 +8,16 @@
 // GuiControlProfiles for Cat5' shell
 //------------------------------------------------------------------------------
 
-new AudioProfile(GuiSoundButtonDown)
+new AudioProfile(GuiSoundButtonOver)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/beep1a.wav";
 	description = AudioGui;
 	preload = true;
 };
 
-new AudioProfile(GuiSoundButtonOver)
+new AudioProfile(GuiSoundButtonDown)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/beep1b.wav";
 	description = AudioGui;
 	preload = true;
 };
