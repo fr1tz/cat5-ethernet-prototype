@@ -18,7 +18,7 @@ new GuiBitmapCtrl(Shell) {
    bitmap = "./pixmaps/background.png";
    wrap = "1";
 
-   new GuiTopdownTSCtrl() {
+   new GuiTopdownTSCtrl(ShellTS) {
       canSaveDynamicFields = "1";
       Profile = "HudDefaultProfile";
       HorizSizing = "width";

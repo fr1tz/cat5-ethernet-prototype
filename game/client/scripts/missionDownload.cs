@@ -21,6 +21,8 @@
 
 function onConnectionInitiated()
 {
+   ShellTS.visible = false;
+
 	// Reset all the loading stuff...
    LoadingProgress.visible = true;
 	LoadingProgressTxt.setText("WAITING FOR SERVER");
@@ -151,6 +153,8 @@ function onMissionDownloadComplete()
 	%mapBitmap = filePath($Client::MissionEnvironmentFile) @ "/map.png";
 	MiniMap.setMapBitmap(%mapBitmap);
 	BigMap.setMapBitmap(%mapBitmap);
+
+   ShellTS.visible = true;
 
 	// Enable player to play...
 	IngameMenuReturn.setActive(true);
