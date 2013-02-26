@@ -67,26 +67,32 @@ function WarningMessageCallback(%msgType, %msgString, %a1, %a2, %a3, %a4, %a5, %
 	{
 		case 1:
 			if(%string !$= "") HudWarning1.setText(%string);
+			if(%visible !$= "") HudWarning1.zActive = %visible;
 			if(%visible !$= "") HudWarning1.setVisible(%visible);
 
 		case 2:
 			if(%string !$= "") HudWarning2.setText(%string);
+			if(%visible !$= "") HudWarning2.zActive = %visible;
 			if(%visible !$= "") HudWarning2.setVisible(%visible);
 
 		case 3:
 			if(%string !$= "") HudWarning3.setText(%string);
+			if(%visible !$= "") HudWarning3.zActive = %visible;
 			if(%visible !$= "") HudWarning3.setVisible(%visible);
 
 		case 4:
 			if(%string !$= "") HudWarning4.setText(%string);
+			if(%visible !$= "") HudWarning4.zActive = %visible;
 			if(%visible !$= "") HudWarning4.setVisible(%visible);
 
 		case 5:
 			if(%string !$= "") HudWarning5.setText(%string);
+			if(%visible !$= "") HudWarning5.zActive = %visible;
 			if(%visible !$= "") HudWarning5.setVisible(%visible);
 
 		case 6:
 			if(%string !$= "") HudWarning6.setText(%string);
+			if(%visible !$= "") HudWarning6.zActive = %visible;
 			if(%visible !$= "") HudWarning6.setVisible(%visible);
 	}
 }

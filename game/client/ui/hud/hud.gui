@@ -467,7 +467,7 @@ new GuiBitmapCtrl(Cockpit) {
       Extent = "36 14";
       MinExtent = "8 8";
       canSave = "1";
-      Visible = "1";
+      Visible = "0";
       hovertime = "1000";
       showFill = "0";
       showFrame = "1";
@@ -476,9 +476,9 @@ new GuiBitmapCtrl(Cockpit) {
       canSaveDynamicFields = "0";
       Profile = "HudDefaultProfile";
       HorizSizing = "right";
-      VertSizing = "top";
-      Position = "0 330";
-      Extent = "160 150";
+      VertSizing = "bottom";
+      Position = "0 0";
+      Extent = "160 160";
       MinExtent = "8 2";
       canSave = "1";
       Visible = "1";
@@ -587,7 +587,7 @@ new GuiBitmapCtrl(Cockpit) {
       Extent = "16 106";
       MinExtent = "8 8";
       canSave = "1";
-      Visible = "1";
+      Visible = "0";
       hovertime = "1000";
       pulseRate = "1000";
       pulseThreshold = "0.3";
@@ -606,7 +606,7 @@ new GuiBitmapCtrl(Cockpit) {
       Extent = "16 16";
       MinExtent = "8 2";
       canSave = "1";
-      Visible = "1";
+      Visible = "0";
       hovertime = "1000";
       bitmap = "./pixmaps/health_icon.png";
       wrap = "0";
@@ -620,7 +620,7 @@ new GuiBitmapCtrl(Cockpit) {
       Extent = "28 91";
       MinExtent = "8 8";
       canSave = "1";
-      Visible = "1";
+      Visible = "0";
       hovertime = "1000";
       pulseRate = "500";
       pulseThreshold = "0.3";

@@ -113,7 +113,14 @@ function Hud::flashWarnings(%this)
 	HudWarning5.setProfile(%profile);
 	HudWarning6.setProfile(%profile);
 
-	%this.flashWarningsThread = %this.schedule(500, "flashWarnings");
+   if(HudWarning1.zActive) HudWarning1.setVisible(%this.zWarningsFlash);
+	if(HudWarning2.zActive) HudWarning2.setVisible(%this.zWarningsFlash);
+	if(HudWarning3.zActive) HudWarning3.setVisible(%this.zWarningsFlash);
+	if(HudWarning4.zActive) HudWarning4.setVisible(%this.zWarningsFlash);
+	if(HudWarning5.zActive) HudWarning5.setVisible(%this.zWarningsFlash);
+	if(HudWarning6.zActive) HudWarning6.setVisible(%this.zWarningsFlash);
+
+	%this.flashWarningsThread = %this.schedule(100, "flashWarnings");
 }
 
 function Hud::animThread(%this)

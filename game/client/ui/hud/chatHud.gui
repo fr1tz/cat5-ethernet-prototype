@@ -90,8 +90,8 @@ new GuiControl(MainChatHud) {
       canSaveDynamicFields = "0";
       Profile = "HudDefaultProfile";
       HorizSizing = "right";
-      VertSizing = "top";
-      Position = "160 400";
+      VertSizing = "bottom";
+      Position = "160 20";
       Extent = "320 80";
       MinExtent = "8 8";
       canSave = "1";

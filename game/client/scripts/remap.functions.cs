@@ -32,7 +32,11 @@ function freeLook( %val )
 function cAim( %val )
 {
    if(HUD.zAimMode == 0)
+   {
+      $mvHorizontalPos = 0;
+      $mvVerticalPos = 0;
       return;
+   }
 
    %w = getWord(HUD.getExtent(), 0);
    %h = getWord(HUD.getExtent(), 1);

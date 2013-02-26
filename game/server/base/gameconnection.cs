@@ -484,6 +484,7 @@ function GameConnection::spawnPlayer(%this)
 
 function GameConnection::beepMsg(%this, %reason)
 {
+   return;
 	//MessageClient(%this, 'MsgBeep', '\c0Fail: %1', %reason);
 	//bottomPrint(%this, %reason, 3, 1 );
    %this.setHudWarning(2, %reason, true);
@@ -652,12 +653,12 @@ function GameConnection::togglePlayerForm(%this, %forced)
             else if(%this.class == 3)
             {
 				   %data = FrmMinigunner;
-               %aimmode = 2;
+               %aimmode = 1;
             }
             else if(%this.class == 4)
             {
 				   %data = FrmSpecialist;
-               %aimmode = 2;
+               %aimmode = 1;
             }
             else if(%this.class == 5)
             {
@@ -956,6 +957,13 @@ function GameConnection::updateHudWarningsThread(%this)
 		%this.setHudWarning(3, "", false);	
 		return;
 	}
+
+   %goGreen = false;
+   if(%player.getClassName() $= "Etherform" && !%player.zInOwnZone)
+      %goGreen = true;
+
+   %this.setHudWarning(2, "Go into a green zone!", %goGreen);
+
 
    return;
 

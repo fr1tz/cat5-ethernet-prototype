@@ -166,20 +166,27 @@ function GameConnection::displayInventory(%this, %obj)
    }
 	if(%this.inventoryMode $= "show")
 	{
-		%this.setHudMenuL(0, "\n", 4, 1);
-		%this.setHudMenuL(1, "<lmargin:100><font:Cat5:12>Current class:\n<lmargin:120>", 1, 1);
+		%this.setHudMenuL(0, "\n", 28, 1);
+		%this.setHudMenuL(1, "<lmargin:20><font:Cat5:14>", 1, 1);
 		%this.setHudMenuL(2, "<bitmap:share/ui/cat5/icon." @ %iconname[%this.class] @ ".64x64>", 1, 1);
-		%this.setHudMenuL(3, "<sbreak><lmargin:100>(Press @bind51 to change)", 1, 1);
+		%this.setHudMenuL(3, "<sbreak>Current class (press @bind51 to change)", 1, 1);
 		for(%i = 4; %i <= 9; %i++)
 			%this.setHudMenuL(%i, "", 1, 0);
 	}
 	else if(%this.inventoryMode $= "select")
 	{
    	%numItems = 5;
-		%this.setHudMenuL(0, "\n\n<lmargin:100><font:Cat5:12>Select new class:\n\n", 1, 1);
+		%this.setHudMenuL(0, "\n\n\n\n\n\n\n\n<lmargin:20><font:Cat5:12>", 1, 1);
 		for(%i = 1; %i <= %numItems; %i++)
-			%this.setHudMenuL(%i, "@bind" @ (%i < 6 ? 34 : 41) + %i @ ": " @ %itemname[%i]  @  "\n" @
-				"   <bitmap:share/ui/cat5/icon." @ %iconname[%i] @ ".64x64>" @ "<sbreak>", 1, 1);
+      {
+			//%this.setHudMenuL(%i, "@bind" @ (%i < 6 ? 34 : 41) + %i @ ": " @ %itemname[%i]  @  "\n" @
+			//	"   <bitmap:share/ui/cat5/icon." @ %iconname[%i] @ ".64x64>" @ "<sbreak>", 1, 1);
+			%this.setHudMenuL(%i,
+            "<bitmap:share/ui/cat5/icon." @ %iconname[%i] @ ".64x64>" SPC
+            "\n\n " @ %itemname[%i] @ " (@bind" @ (%i < 6 ? 34 : 41) + %i @ ")\n" @
+				"<sbreak>",
+            1, 1);
+      }
 		for(%i = %numItems + 2; %i <= 9; %i++)
 			%this.setHudMenuL(%i, "", 1, 0);
 	}
