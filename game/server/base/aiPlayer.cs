@@ -240,20 +240,29 @@ function xxx_aiUpdateTarget(%player)
 
 function xxx_aiUpdateMove(%player)
 {
-	%pos = %player.getPosition();
-	%dest = getTerrainLevel(getRandomHorizontalPos(%pos, 50));
+   %currPos = %player.getPosition();
+   %targetPos = %player.getAimObject().getPosition();
+   //%targetPos = "-45 89 20";
+   %targetVec = VectorNormalize(VectorSub(%targetPos, %currPos));
+   %newPos = VectorAdd(%currPos, VectorScale(%targetVec, 10));
 
-	//%heightdiff = getTerrainLevel(%pos) - getTerrainHeight(%desc);
-	%heightdiff = getTerrainHeight(getTerrainLevel(%pos)) - getTerrainHeight(%dest);
-	%dmg = %heightdiff * %player.getDataBlock().speedDamageScale;
-	%dmgbuff = %player.getDataBlock().damageBuffer;
+   %player.setMoveDestination(%currPos);
+   %n = 50;
+   while(%n-- > 0)
+   {
+      %dest = getTerrainLevel(getRandomHorizontalPos(%newPos, 10));
+      InitContainerRadiusSearch(%dest, 0.0001, $TypeMasks::TacticalZoneObjectType);
+      %obj = containerSearchNext();
+      error(%obj SPC "->" SPC %obj.aiIgnore);
+		if(%obj == 0 || %obj.aiIgnore) continue;
 
-//	if (%heightdiff < 0) {
-//		%player.jump();
-//	}
-	if (%dmg < %dmgbuff) {
-		%player.setMoveDestination(%dest);
-	}
-	%player.moveThread = schedule((getRandom(1)+1)*1000,%player,xxx_aiUpdateMove,%player);
+	   %heightdiff = getTerrainHeight(getTerrainLevel(%pos)) - getTerrainHeight(%dest);
+	   if(%heightdiff == 0) {
+		   %player.setMoveDestination(%dest);
+         break;
+	   }
+   }
+//	%player.moveThread = schedule((getRandom(1)+1)*1000,%player,xxx_aiUpdateMove,%player);
+	%player.moveThread = schedule(500,%player,xxx_aiUpdateMove,%player);
 }
 
