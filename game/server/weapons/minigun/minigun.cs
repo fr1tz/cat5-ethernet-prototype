@@ -109,9 +109,9 @@ datablock ShapeBaseImageData(MinigunImage)
 
 		// charge...
 		stateName[3]                     = "Charge";
-		stateTransitionOnNoAmmo[3]       = "NoAmmo";
+		stateTransitionOnNoAmmo[3]       = "Cooldown";
 		stateTransitionOnTriggerUp[3]    = "Cooldown";
-		stateTransitionOnTimeout[3]      = "Spin";
+		stateTransitionOnTimeout[3]      = "Fire";
 		stateTimeoutValue[3]             = 0.5;
       stateEnergyDrain[3]              = 50;
 		stateAllowImageChange[3]         = false;
@@ -127,7 +127,7 @@ datablock ShapeBaseImageData(MinigunImage)
       stateEnergyDrain[9]              = 20;
 		stateAllowImageChange[9]         = false;
 		stateArmThread[9]                = "aimblaster";
-		stateSound[9]                    = MinigunSpinSound;
+		stateSound[9]                    = MinigunSpinUpSound;
 		stateSpinThread[9]               = "FullSpeed";
 
 		// fire!...
@@ -144,7 +144,7 @@ datablock ShapeBaseImageData(MinigunImage)
 		stateArmThread[4]                = "aimblaster";
 		stateSequence[4]                 = "fire";
 		stateSequenceRandomFlash[4]      = true;
-		stateSound[4]                    = MinigunSpinSound;
+		stateSound[4]                    = MinigunFireSound;
 		stateEmitter[4]                  = MinigunFireEmitter;
 		stateEmitterNode[4]              = "fireparticles";
 		stateEmitterTime[4]              = 0.1;
