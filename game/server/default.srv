@@ -9,7 +9,7 @@
 //-----------------------------------------------------------------------------
 
 // Default mission for the server
-$Server::MissionFile = "game/arenas/cat5/eth-pond.mis";
+$Server::MissionFile = "game/arenas/cat5-ethernet/test1.mis";
 
 // Information about the server
 $Pref::Server::RegionMask = 2;
