@@ -18,7 +18,7 @@ datablock ParticleData(WhitePumpgunFireEmitter_Particles)
 	constantAcceleration  = 0.0;
 	lifetimeMS            = 100;
 	lifetimeVarianceMS    = 0;
-	textureName           = "share/textures/rotc/smoke_particle";
+	textureName           = "share/textures/cat5/smoke1";
 	colors[0]             = "1.0 1.0 1.0 1.0";
 	colors[1]             = "1.0 0.0 0.0 1.0";
 	colors[2]             = "1.0 0.0 0.0 0.0";

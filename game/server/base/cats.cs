@@ -34,83 +34,40 @@ function executeCatScripts()
 	$CatEquipment::Etherboard      = %i; %i++;
 	$CatEquipment::Permaboard      = %i; %i++;
 	$CatEquipment::Regeneration    = %i; %i++;
-	
-	exec("./cats.sfx.cs");
-	exec("./cats.gfx.cs");
 }
 
 executeCatScripts();
 
 //------------------------------------------------------------------------------
 
+function Cat::onAdd(%this, %obj)
+{
+	Parent::onAdd(%this, %obj);
+	//%obj.mountImage(StandardCatLightImage, 3);
+   if(%obj.client.PPN !$= "")
+      %obj.playAudio(0, VoxPumpgunnerSpawn2);
+   else
+      %obj.playAudio(0, VoxPumpgunnerSpawn1);
+   error("weex");
+   %obj.playAudio(0, VoxPumpgunnerSpawn2);
+}
+
 function Cat::useWeapon(%this, %obj, %nr)
 {
-	%client = %obj.client;
-
    return;
 
-	if(%nr == 4)
-	{
-		dropGreen(%obj);
-		return;
-	}
-
-   if(%nr == -17)
+   %sound = "";
+   switch(%nr)
    {
-		if(%client.hasBounce)
-			deployRepel3(%obj);
-      return;
+      case 1: %sound = VoxPumpgunnerRetreating;
+      case 2: %sound = VoxPumpgunnerHolding;
+      case 3: %sound = VoxPumpgunnerMoving;
+      case 4: %sound = VoxPumpgunnerRetreat;
+      case 5: %sound = VoxPumpgunnerHold;
+      case 6: %sound = VoxPumpgunnerMove;
    }
 
-	// discs...
-	if($Game::GameType == $Game::Ethernet)
-	{
-		if(%nr == 6)
-		{
-			launchExplosiveDisc(%obj);
-			return;
-		}
-	}
-	
-	if(%client.numWeapons == 0)
-		return;
-
-	if(%nr > %client.numWeapons)
-		return;
-
-	if(%nr == 0)
-		%obj.currWeapon++;
-	else
-		%obj.currWeapon = %nr;
-	
-	if(%obj.currWeapon > %client.numWeapons)
-		%obj.currWeapon = 1;	
-
-	%wpn = %client.weapons[%obj.currWeapon-1];
-
-	if(%wpn == 1)
-	{
-   	%obj.mountImage(ShotgunImage, 0, -1, true);
-	}
-	else if(%wpn == $CatEquipment::BattleRifle)
-	{
-		%obj.mountImage(BounceGunImage, 0, -1, true);
-	}
-	else if(%wpn == $CatEquipment::SniperRifle)
-	{
-		%obj.mountImage(SniperRifleImage, 0, -1, true);
-	}
-	else if(%wpn == $CatEquipment::MiniGun)
-	{
-		%obj.mountImage(MinigunImage, 0, -1, true);
-	}
-	else if(%wpn == $CatEquipment::RepelGun)
-	{
-		%obj.mountImage(RepelGunImage, 0, -1, true);
-	}
-	else if(%wpn == $CatEquipment::GrenadeLauncher)
-	{
-		%obj.mountImage(GrenadeLauncherImage, 0, -1, true);
-	}
+   if(isObject(%sound))
+      %obj.playAudio(0, %sound);
 }
 

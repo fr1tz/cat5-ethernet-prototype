@@ -11,28 +11,11 @@
 function executePlayerScripts()
 {
 	echo(" ----- executing player scripts ----- ");
-
-	exec("./players.gfx.red.cs");
-	exec("./players.gfx.blue.cs");
 }
 
 executePlayerScripts();
 
 //-----------------------------------------------------------------------------
-
-// bleed effects...
-$PlayerBleedHeavy[1]  = RedPlayerBleedEffect_Heavy;
-$PlayerBleedHeavy[2]  = BluePlayerBleedEffect_Heavy;
-$PlayerBleedMedium[1] = RedPlayerBleedEffect_Medium;
-$PlayerBleedMedium[2] = BluePlayerBleedEffect_Medium;
-$PlayerBleedLight[1]  = RedPlayerBleedEffect_Light;
-$PlayerBleedLight[2]  = BluePlayerBleedEffect_Light;
-$PlayerBleedSting[1]  = RedPlayerBleedEffect_Sting;
-$PlayerBleedSting[2]  = BluePlayerBleedEffect_Sting;
-$PlayerBleedBuffer[1] = RedPlayerBleedEffect_Buffer;
-$PlayerBleedBuffer[2] = BluePlayerBleedEffect_Buffer;
-$PlayerBleedBarrier[1] = RedPlayerBleedEffect_Barrier;
-$PlayerBleedBarrier[2] = BluePlayerBleedEffect_Barrier;
 
 // damage applied every 50ms for entering liquid...
 $DamageLava		 = 10.0;
@@ -418,7 +401,7 @@ function PlayerData::onDamage(%this, %obj, %delta)
 					%client.dmgFlash = 0;
 				%client.setHudBackground(
 					1,
-					"share/textures/rotc/screen.damage",
+					"share/textures/cat5/screen.damage",
 					"255 0 0",
 					false,
 					%client.dmgFlash * 255,

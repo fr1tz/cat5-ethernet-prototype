@@ -4,84 +4,6 @@
 //------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
-// projectile particle emitter
-
-datablock ParticleData(WhitePumpgunProjectileParticleEmitter_Particles)
-{
-	dragCoefficient      = 1;
-	gravityCoefficient   = 0.0;
-	windCoefficient      = 0.0;
-	inheritedVelFactor	 = 0.0;
-	constantAcceleration = 0.0;
-	lifetimeMS			 = 100;
-	lifetimeVarianceMS	 = 0;
-	spinRandomMin        = 0;
-	spinRandomMax        = 0;
-	textureName			 = "share/shapes/rotc/weapons/blaster/projectile.impact.red";
-	colors[0]            = "1.0 0.0 0.0 10.5";
-	colors[1]            = "1.0 0.0 0.0 0.0";
-	sizes[0]             = 0.25;
-	sizes[1]             = 0.0;
-	times[0]             = 0.0;
-	times[1]             = 1.0;
-	useInvAlpha          = false;
-	renderDot            = true;
-};
-
-datablock ParticleEmitterData(WhitePumpgunProjectileParticleEmitter)
-{
-	ejectionPeriodMS = 10;
-	periodVarianceMS = 2;
-	ejectionVelocity = 5;
-	velocityVariance = 2.5;
-	ejectionOffset   = 0.0;
-	thetaMin         = 0;
-	thetaMax         = 0;
-	phiReferenceVel  = 0;
-	phiVariance      = 0;
-	overrideAdvances = false;
-	orientParticles  = false;
-	lifetimeMS		 = 0;
-	particles = "WhitePumpgunProjectileParticleEmitter_Particles";
-};
-
-//-----------------------------------------------------------------------------
-// laser tail...
-
-datablock LaserBeamData(WhitePumpgunProjectileLaserTail)
-{
-	hasLine = true;
-	lineStartColor	= "1.00 0.00 0.00 0.0";
-	lineBetweenColor = "1.00 0.00 0.00 0.25";
-	lineEndColor	  = "1.00 0.00 0.00 0.5";
-	lineWidth		  = 2.0;
-
-	hasInner = false;
-	innerStartColor = "0.00 0.00 0.90 0.5";
-	innerBetweenColor = "0.50 0.00 0.90 0.9";
-	innerEndColor = "1.00 1.00 1.00 0.9";
-	innerStartWidth = "0.05";
-	innerBetweenWidth = "0.05";
-	innerEndWidth = "0.05";
-
-	hasOuter = false;
-	outerStartColor = "0.00 0.00 0.90 0.0";
-	outerBetweenColor = "0.50 0.00 0.90 0.8";
-	outerEndColor = "1.00 1.00 1.00 0.8";
-	outerStartWidth = "0.3";
-	outerBetweenWidth = "0.25";
-	outerEndWidth = "0.1";
-	
-	bitmap = "share/shapes/rotc/weapons/blaster/lasertail.red";
-	bitmapWidth = 0.20;
-//	crossBitmap = "share/shapes/rotc/weapons/blaster/lasertail.red.cross";
-//	crossBitmapWidth = 0.10;
-
-	betweenFactor = 0.5;
-	blendMode = 1;
-};
-
-//-----------------------------------------------------------------------------
 // laser trail
 
 datablock MultiNodeLaserBeamData(WhitePumpgunProjectileLaserTrail)
@@ -180,7 +102,7 @@ datablock ParticleData(WhitePumpgunProjectileImpact_Smoke)
 
 	useInvAlpha =  true;
 
-	textureName = "share/textures/rotc/smoke_particle";
+	textureName = "share/textures/cat5/smoke1";
 
 	colors[0]	  = "1.0 1.0 1.0 0.5";
 	colors[1]	  = "1.0 1.0 1.0 0.0";
@@ -208,29 +130,6 @@ datablock ParticleEmitterData(WhitePumpgunProjectileImpact_SmokeEmitter)
 	lifetimeMS		 = 100;
 
 	particles = "WhitePumpgunProjectileImpact_Smoke";
-};
-
-datablock DebrisData(WhitePumpgunProjectileImpact_Debris)
-{
-	// shape...
-	shapeFile = "share/shapes/rotc/misc/debris1.white.dts";
-
-	// bounce...
-	staticOnMaxBounce = true;
-	numBounces = 5;
-
-	// physics...
-	gravModifier = 2.0;
-	elasticity = 0.6;
-	friction = 0.1;
-
-	// spin...
-	minSpinSpeed = 60;
-	maxSpinSpeed = 600;
-
-	// lifetime...
-	lifetime = 4.0;
-	lifetimeVariance = 1.0;
 };
 
 datablock ExplosionData(WhitePumpgunProjectileImpact)
@@ -284,7 +183,7 @@ datablock ParticleData(WhitePumpgunProjectileHit_Particle)
 
 	useInvAlpha =  false;
 
-	textureName	= "share/textures/rotc/star1";
+	textureName	= "share/textures/cat5/circle1";
 
 	colors[0]	  = "1.0 1.0 1.0 1.0";
 	colors[1]	  = "1.0 0.0 0.0 1.0";

@@ -11,7 +11,7 @@ datablock ShapeBaseImageData(StandardCatLightImage)
    allowColorization = true;
 
 	// basic item properties
-	shapeFile = "share/shapes/rotc/misc/nothing.dts";
+	shapeFile = "share/shapes/cat5/nothing.dts";
 	emap = true;
 
 	// mount point & mount offset...
@@ -48,7 +48,7 @@ datablock ParticleData(StandardCatSlideFootEmitter_Particle)
 	times[0]		= 0.0;
 	times[1]		= 0.5;
 	times[2]		= 1.0;
-	textureName	= "share/textures/rotc/dustParticle";
+	textureName	= "share/textures/cat5/pink";
 	allowLighting = false;
 };
 
@@ -88,7 +88,7 @@ datablock ParticleData(CatSlideContactTrailEmitter_Particle)
 	times[0]		= 0.0;
 	times[1]		= 0.5;
 	times[2]		= 1.0;
-	textureName	= "share/textures/rotc/dustParticle";
+	textureName	= "share/textures/cat5/pink";
 	useInvAlpha = true;
 	allowLighting = false;
 };
@@ -129,7 +129,7 @@ datablock ParticleData(CatSkidFootEmitter_Particle)
 	times[0]		= 0.0;
 	times[1]		= 0.5;
 	times[2]		= 1.0;
-	textureName	= "share/textures/rotc/dustParticle";
+	textureName	= "share/textures/cat5/pink";
 	allowLighting = false;
 };
 
@@ -169,7 +169,7 @@ datablock ParticleData(CatSkidTrailEmitter0_Particle)
 	times[0]		= 0.0;
 	times[1]		= 0.5;
 	times[2]		= 1.0;
-	textureName	= "share/textures/rotc/spark00";
+	textureName	= "share/textures/cat5/pink";
 	useInvAlpha = false;
 	allowLighting = false;
 };
@@ -210,7 +210,7 @@ datablock ParticleData(CatSkidTrailEmitter1_Particle)
 	times[0]		= 0.0;
 	times[1]		= 0.5;
 	times[2]		= 1.0;
-	textureName	= "share/textures/rotc/smoke_particle";
+	textureName	= "share/textures/cat5/pink";
 	useInvAlpha = true;
 	allowLighting = false;
 };
@@ -414,7 +414,7 @@ datablock ParticleData(StandardCatSplashMist)
 	useInvAlpha			 = false;
 	spinRandomMin		  = -90.0;
 	spinRandomMax		  = 500.0;
-	textureName			 = "share/shapes/rotc/players/shared/splash";
+	textureName			 = "share/textures/cat5/pink";
 	colors[0]	  = "0.7 0.8 1.0 1.0";
 	colors[1]	  = "0.7 0.8 1.0 0.5";
 	colors[2]	  = "0.7 0.8 1.0 0.0";
@@ -452,7 +452,7 @@ datablock ParticleData(StandardCatBubbleParticle)
 	lifetimeMS			  = 400;
 	lifetimeVarianceMS	= 100;
 	useInvAlpha			 = false;
-	textureName			 = "share/shapes/rotc/players/shared/splash";
+	textureName			 = "share/textures/cat5/pink";
 	colors[0]	  = "0.7 0.8 1.0 0.4";
 	colors[1]	  = "0.7 0.8 1.0 0.4";
 	colors[2]	  = "0.7 0.8 1.0 0.0";
@@ -490,7 +490,7 @@ datablock ParticleData(StandardCatFoamParticle)
 	useInvAlpha			 = false;
 	spinRandomMin		  = -90.0;
 	spinRandomMax		  = 500.0;
-	textureName			 = "share/shapes/rotc/players/shared/splash";
+	textureName			 = "share/textures/cat5/pink";
 	colors[0]	  = "0.7 0.8 1.0 0.20";
 	colors[1]	  = "0.7 0.8 1.0 0.20";
 	colors[2]	  = "0.7 0.8 1.0 0.00";
@@ -526,7 +526,7 @@ datablock ParticleData(StandardCatFoamDropletsParticle)
 	constantAcceleration = -0.0;
 	lifetimeMS			  = 600;
 	lifetimeVarianceMS	= 0;
-	textureName			 = "share/shapes/rotc/players/shared/splash";
+	textureName			 = "share/textures/cat5/pink";
 	colors[0]	  = "0.7 0.8 1.0 1.0";
 	colors[1]	  = "0.7 0.8 1.0 0.5";
 	colors[2]	  = "0.7 0.8 1.0 0.0";
@@ -603,7 +603,7 @@ datablock SplashData(StandardCatSplash)
 	acceleration = -3.0;
 	texWrap = 5.0;
 
-	texture = "share/shapes/rotc/players/shared/splash";
+	texture = "share/textures/cat5/pink";
 
 	emitter[0] = StandardCatSplashEmitter;
 	emitter[1] = StandardCatSplashMistEmitter;
@@ -626,7 +626,7 @@ datablock DecalData(StandardCatFootprint)
 {
 	sizeX = "0.60";
 	sizeY = "0.60";
-	textureName = "share/textures/rotc/footprint.red";
+	textureName	= "share/textures/cat5/pink";
 	SelfIlluminated = true;
 };
 
@@ -634,7 +634,7 @@ datablock DecalData(RedStandardCatFootprint)
 {
 	sizeX = "0.60";
 	sizeY = "0.60";
-	textureName = "share/textures/rotc/footprint.blue";
+	textureName	= "share/textures/cat5/pink";
 	SelfIlluminated = true;
 };
 
@@ -662,7 +662,7 @@ datablock ParticleData(StandardCatFootPuff)
 	times[0]		= 0.0;
 	times[1]		= 0.5;
 	times[2]		= 1.0;
-	textureName	= "share/textures/rotc/smoke_particle";
+	textureName	= "share/textures/cat5/pink";
 };
 
 datablock ParticleEmitterData(StandardCatFootPuffEmitter)
@@ -699,7 +699,7 @@ datablock ParticleData(StandardCatLiftoffDust)
 	colors[0]	  = "1.0 1.0 1.0 1.0";
 	sizes[0]		= 1.0;
 	times[0]		= 1.0;
-	textureName	= "share/textures/rotc/dustParticle";
+	textureName	= "share/textures/cat5/pink";
 };
 
 datablock ParticleEmitterData(StandardCatLiftoffDustEmitter)
@@ -718,39 +718,3 @@ datablock ParticleEmitterData(StandardCatLiftoffDustEmitter)
 	particles = StandardCatLiftoffDust;
 };
 
-//----------------------------------------------------------------------------
-// Ground connection beam
-//----------------------------------------------------------------------------
-
-datablock LaserBeamData(StandardCatGroundConnectionBeam)
-{
-	hasLine = true;
-	lineStartColor	= "1.00 1.00 1.00 0.5";
-	lineBetweenColor = "1.00 1.00 1.00 0.5";
-	lineEndColor	  = "1.00 1.00 1.00 0.5";
- 	lineWidth		  = 1.0;
-
-	hasInner = false;
-	innerStartColor	= "1.00 1.00 0.00 0.5";
-	innerBetweenColor = "1.00 1.00 0.00 0.5";
-	innerEndColor	  = "1.00 1.00 0.00 0.5";
-	innerStartWidth	= "0.0";
-	innerBetweenWidth = "0.05";
-	innerEndWidth	  = "0.1";
-
-	hasOuter = false;
-	outerStartColor	= "1.00 1.00 0.00 0.0";
-	outerBetweenColor = "1.00 1.00 0.00 0.2";
-	outerEndColor	  = "1.00 1.00 0.00 0.2";
-	outerStartWidth	= "0.0";
-	outerBetweenWidth = "0.3";
-	outerEndWidth	  = "0.0";
-
-	bitmap = "share/textures/rotc/groundconnection";
-	bitmapWidth = 0.35;
-//	crossBitmap = "share/shapes/rotc/weapons/OrangeAssaultRifle/lasertail.cross";
-//	crossBitmapWidth = 0.25;
-
-	betweenFactor = 0.5;
-	blendMode = 1;
-};

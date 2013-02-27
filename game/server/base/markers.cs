@@ -11,7 +11,7 @@
 datablock MissionMarkerData(SpawnSphereMarker)
 {
 	category = "Misc";
-	shapeFile = "share/shapes/rotc/markers/octahedron.dts";
+	shapeFile = "share/shapes/tge/octahedron.dts";
 };
 
 function SpawnSphereMarker::create(%data)

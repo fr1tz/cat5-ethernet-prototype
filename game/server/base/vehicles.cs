@@ -11,8 +11,6 @@
 function executeVehicleScripts()
 {
 	 echo(" ----- executing vehicle scripts ----- ");
-	 
-	 exec("./vehicles.gfx.cs");
 }
 
 executeVehicleScripts();

@@ -52,82 +52,6 @@ datablock ParticleEmitterData(WhiteBounceGunProjectileParticleEmitter)
 };
 
 //-----------------------------------------------------------------------------
-// laser trail
-
-datablock MultiNodeLaserBeamData(WhiteBounceGunProjectileLaserTrail)
-{
-	hasLine = true;
-	lineColor	= "0.00 0.00 1.00 1.00";
-	lineWidth = 1;
-
-	hasInner = false;
-	innerColor = "0.00 1.00 0.00 1.00";
-	innerWidth = "0.05";
-
-	hasOuter = false;
-	outerColor = "1.00 0.00 0.00 0.02";
-	outerWidth = "0.10";
-
-	bitmap = "share/shapes/rotc/weapons/disc/lasertrail2.blue";
-	bitmapWidth = 0.25;
-
-	blendMode = 1;
- 
-    windCoefficient = 0.0;
-
-    // node x movement...
-    nodeMoveMode[0]     = $NodeMoveMode::None;
-    nodeMoveSpeed[0]    = -0.002;
-    nodeMoveSpeedAdd[0] =  0.004;
-    // node y movement...
-    nodeMoveMode[1]     = $NodeMoveMode::None;
-    nodeMoveSpeed[1]    = -0.002;
-    nodeMoveSpeedAdd[1] =  0.004;
-    // node z movement...
-    nodeMoveMode[2]     = $NodeMoveMode::None;
-    nodeMoveSpeed[2]    = 0.5;
-    nodeMoveSpeedAdd[2] = 0.5;
- 
-	fadeTime = 200;
-};
-
-//-----------------------------------------------------------------------------
-// laser tail...
-
-datablock LaserBeamData(WhiteBounceGunProjectileLaserTail)
-{
-	hasLine = true;
-	lineStartColor	= "0.00 0.00 1.00 0.0";
-	lineBetweenColor = "0.00 0.00 1.00 0.5";
-	lineEndColor	  = "0.00 0.00 1.00 1.0";
- 	lineWidth		  = 2.0;
-
-	hasInner = false;
-	innerStartColor	= "1.00 1.00 0.00 0.5";
-	innerBetweenColor = "1.00 1.00 0.00 0.5";
-	innerEndColor	  = "1.00 1.00 0.00 0.5";
-	innerStartWidth	= "0.0";
-	innerBetweenWidth = "0.05";
-	innerEndWidth	  = "0.1";
-
-	hasOuter = false;
-	outerStartColor	= "1.00 1.00 0.00 0.0";
-	outerBetweenColor = "1.00 1.00 0.00 0.2";
-	outerEndColor	  = "1.00 1.00 0.00 0.2";
-	outerStartWidth	= "0.0";
-	outerBetweenWidth = "0.3";
-	outerEndWidth	  = "0.0";
-
-	bitmap = "share/shapes/rotc/weapons/assaultrifle/lasertail.blue";
-	bitmapWidth = 0.1;
-//	crossBitmap = "share/shapes/rotc/weapons/WhiteBounceGun/lasertail.cross";
-//	crossBitmapWidth = 0.25;
-
-	betweenFactor = 0.5;
-	blendMode = 1;
-};
-
-//-----------------------------------------------------------------------------
 // bounce
 
 datablock ParticleData(WhiteBounceGunProjectileBounceExplosion_Smoke)
@@ -202,7 +126,7 @@ datablock ParticleData(WhiteBounceGunProjectileExplosion_Cloud)
 //	spinRandomMin = -200.0;
 //	spinRandomMax =  200.0;
 
-	textureName = "share/textures/rotc/corona.png";
+	textureName = "share/textures/cat5/corona.png";
 
 	colors[0]	  = "0.9 0.9 0.9 1.0";
 	colors[1]	  = "0.9 0.9 0.9 0.5";
@@ -244,7 +168,7 @@ datablock ParticleData(WhiteBounceGunProjectileExplosion_Dust)
 	useInvAlpha			 = true;
 	spinRandomMin		  = -90.0;
 	spinRandomMax		  = 500.0;
-	textureName			 = "share/textures/rotc/smoke_particle.png";
+	textureName			 = "share/textures/cat5/smoke1";
 	colors[0]	  = "0.9 0.9 0.9 0.5";
 	colors[1]	  = "0.9 0.9 0.9 0.5";
 	colors[2]	  = "0.9 0.9 0.9 0.0";
@@ -287,7 +211,7 @@ datablock ParticleData(WhiteBounceGunProjectileExplosion_Smoke)
 	spinRandomMin = -200.0;
 	spinRandomMax =  200.0;
 
-	textureName = "share/textures/rotc/smoke_particle.png";
+	textureName = "share/textures/cat5/smoke1";
 
 	colors[0]	  = "0.9 0.9 0.9 0.4";
 	colors[1]	  = "0.9 0.9 0.9 0.2";
@@ -326,7 +250,7 @@ datablock ParticleData(WhiteBounceGunProjectileExplosion_Sparks)
 	constantAcceleration = 0.0;
 	lifetimeMS			  = 300;
 	lifetimeVarianceMS	= 150;
-	textureName			 = "share/textures/rotc/spark01.png";
+	textureName			 = "share/textures/cat5/beam2.white.png";
 	colors[0]	  = "0.9 0.9 0.9 1";
 	colors[1]	  = "0.9 0.9 0.9 1";
 	colors[2]	  = "0.9 0.9 0.9 0";
@@ -404,13 +328,13 @@ datablock ExplosionData(WhiteBounceGunProjectileExplosion)
 	lifetimeMS = 200;
 
  	// shape...
-	explosionShape = "share/shapes/rotc/effects/explosion2_white.dts";
-	faceViewer	  = false;
-	playSpeed = 8.0;
-	sizes[0] = "0.2 0.2 0.2";
-	sizes[1] = "0.2 0.2 0.2";
-	times[0] = 0.0;
-	times[1] = 1.0;
+	//explosionShape = "share/shapes/rotc/effects/explosion2_white.dts";
+	//faceViewer	  = false;
+	//playSpeed = 8.0;
+	//sizes[0] = "0.2 0.2 0.2";
+	//sizes[1] = "0.2 0.2 0.2";
+	//times[0] = 0.0;
+	//times[1] = 1.0;
 
 	//debris = 0; //WhiteBounceGunProjectileExplosion_Debris;
 	//debrisThetaMin = 0;

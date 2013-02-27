@@ -163,7 +163,7 @@ datablock ParticleData(WhiteShotgunProjectileImpact_Smoke)
 
 	useInvAlpha =  true;
 
-	textureName = "share/textures/rotc/smoke_particle";
+	textureName = "share/textures/cat5/smoke1";
 
 	colors[0]	  = "1.0 1.0 1.0 0.5";
 	colors[1]	  = "1.0 1.0 1.0 0.0";
@@ -237,13 +237,13 @@ datablock ExplosionData(WhiteShotgunProjectileMissedEnemyEffect)
 	soundProfile = ShotgunProjectileMissedEnemySound;
 
 	// shape...
-	explosionShape = "share/shapes/rotc/effects/explosion2_white.dts";
-	faceViewer	  = true;
-	playSpeed = 8.0;
-	sizes[0] = "0.07 0.07 0.07";
-	sizes[1] = "0.01 0.01 0.01";
-	times[0] = 0.0;
-	times[1] = 1.0;
+	//explosionShape = "share/shapes/rotc/effects/explosion2_white.dts";
+	//faceViewer	  = true;
+	//playSpeed = 8.0;
+	//sizes[0] = "0.07 0.07 0.07";
+	//sizes[1] = "0.01 0.01 0.01";
+	//times[0] = 0.0;
+	//times[1] = 1.0;
 
 	// dynamic light...
 	//lightStartRadius = 0;

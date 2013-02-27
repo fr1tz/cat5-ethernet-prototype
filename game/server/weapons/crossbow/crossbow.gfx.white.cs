@@ -52,46 +52,6 @@ datablock ParticleEmitterData(WhiteCrossbowProjectileParticleEmitter)
 };
 
 //-----------------------------------------------------------------------------
-// laser trail
-
-datablock MultiNodeLaserBeamData(WhiteCrossbowProjectileLaserTrail)
-{
-	hasLine = true;
-	lineColor	= "0.00 0.00 1.00 1.00";
-	lineWidth = 1;
-
-	hasInner = false;
-	innerColor = "0.00 1.00 0.00 1.00";
-	innerWidth = "0.05";
-
-	hasOuter = false;
-	outerColor = "1.00 0.00 0.00 0.02";
-	outerWidth = "0.10";
-
-	bitmap = "share/shapes/rotc/weapons/disc/lasertrail2.blue";
-	bitmapWidth = 0.25;
-
-	blendMode = 1;
- 
-    windCoefficient = 0.0;
-
-    // node x movement...
-    nodeMoveMode[0]     = $NodeMoveMode::None;
-    nodeMoveSpeed[0]    = -0.002;
-    nodeMoveSpeedAdd[0] =  0.004;
-    // node y movement...
-    nodeMoveMode[1]     = $NodeMoveMode::None;
-    nodeMoveSpeed[1]    = -0.002;
-    nodeMoveSpeedAdd[1] =  0.004;
-    // node z movement...
-    nodeMoveMode[2]     = $NodeMoveMode::None;
-    nodeMoveSpeed[2]    = 0.5;
-    nodeMoveSpeedAdd[2] = 0.5;
- 
-	fadeTime = 200;
-};
-
-//-----------------------------------------------------------------------------
 // laser tail...
 
 datablock LaserBeamData(WhiteCrossbowProjectileLaserTail)

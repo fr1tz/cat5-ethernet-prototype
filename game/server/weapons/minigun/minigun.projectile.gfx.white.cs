@@ -205,7 +205,7 @@ datablock ParticleData(WhiteMinigunProjectileImpact_Smoke)
 
 	useInvAlpha =  true;
 
-	textureName = "share/textures/rotc/smoke_particle";
+	textureName = "share/textures/cat5/smoke1";
 
 	colors[0]	  = "1.0 1.0 1.0 0.5";
 	colors[1]	  = "1.0 1.0 1.0 0.0";

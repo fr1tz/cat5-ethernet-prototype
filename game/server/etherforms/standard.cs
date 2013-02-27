@@ -117,7 +117,7 @@ datablock EtherformData(EthStandard)
 	//debris = BomberDebris;
 	//debrisShapeName = "share/shapes/rotc/vehicles/bomber/vehicle.dts";
 
-	mass = 40;
+	mass = 40; // hack: used as max speed
 	drag = 0.999;
 	density = 10;
 
