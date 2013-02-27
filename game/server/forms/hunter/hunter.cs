@@ -275,7 +275,7 @@ datablock PlayerData(FrmHunter)
 //	bufferRepairParticleEmitter = GreenCatBufferRepairEmitter;
 //	damageParticleEmitter = GreenCatDamageEmitter;
 //	bufferDamageParticleEmitter = GreenCatBufferDamageEmitter;
-	damageDebris = BlueCatDamageDebris;
+	damageDebris = StandardCatDamageDebris;
 //	bufferDamageDebris = CatBufferDamageDebris;
 
 	// not implemented in engine...

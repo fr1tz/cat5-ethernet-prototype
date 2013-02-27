@@ -365,6 +365,40 @@ datablock DebrisData(StandardCatDebris)
    decals[0] = StandardCatDebrisDecalOne;
 };
 
+//------------------------------------------------------------------------------
+
+datablock DebrisData(StandardCatDamageDebris)
+{
+    // 2d billboard...
+    //render2D = true;
+    //texture = "share/textures/rotc/halo1.blue.png";
+    //textureWidth = 0.5;
+
+	// shape...
+	shapeFile = "share/shapes/cat5/bluedebris1.dts";
+
+   // decals...
+	decals[0] = StandardCatDebrisDecalOne;
+
+	// bounce...
+	//staticOnMaxBounce = true;
+   explodeOnMaxBounce = true;
+	numBounces = 0;
+
+	// physics...
+	gravModifier = 4.0;
+	elasticity = 0.6;
+	friction = 0.1;
+
+	// spin...
+	minSpinSpeed = 60;
+	maxSpinSpeed = 600;
+
+	// lifetime...
+	lifetime = 4.0;
+	lifetimeVariance = 1.0;
+};
+
 //----------------------------------------------------------------------------
 // Splash
 //----------------------------------------------------------------------------
