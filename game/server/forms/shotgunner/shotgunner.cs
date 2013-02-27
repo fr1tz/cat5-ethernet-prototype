@@ -132,7 +132,7 @@ datablock PlayerData(FrmShotgunner)
 	cmdCategory = "Clients";
 
 	renderWhenDestroyed = false;
-	debrisShapeName = "share/shapes/cat5/shapedebris1.dts";
+	debrisShapeName = "share/shapes/cat5/shapedebris2.dts";
 	debris = StandardCatDebris;
 
 	aiAvoidThis = true;

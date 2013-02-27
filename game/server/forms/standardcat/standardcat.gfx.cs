@@ -326,8 +326,8 @@ datablock ParticleEmitterData(StandardCatDebris_FireEmitter)
 
 datablock DecalData(StandardCatDebrisDecalOne)
 {
-	sizeX = "3.0";
-	sizeY = "3.0";
+	sizeX = "1.5";
+	sizeY = "1.5";
 	textureName = "share/textures/cat5/bluedecal1";
 	SelfIlluminated = true;
 };

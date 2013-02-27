@@ -130,7 +130,7 @@ datablock PlayerData(StandardCat)
 	cmdCategory = "Clients";
 
 	renderWhenDestroyed = false;
-	debrisShapeName = "share/shapes/rotc/players/standardcat/debris.red.dts";
+	debrisShapeName = "share/shapes/cat5/shapedebris2.dts";
 	debris = StandardCatDebris;
 
 	aiAvoidThis = true;

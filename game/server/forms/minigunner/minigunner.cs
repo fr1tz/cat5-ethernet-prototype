@@ -133,7 +133,7 @@ datablock PlayerData(FrmMinigunner)
 
 	renderWhenDestroyed = false;
 	debrisShapeName = "share/shapes/cat5/shapedebris1.dts";
-	debris = StandardCatDebris;
+	debris = FrmMinigunnerDebris;
 
 	aiAvoidThis = true;
 
