@@ -318,7 +318,10 @@ function PlayerData::damage(%this, %obj, %sourceObject, %pos, %damage, %damageTy
 
 		// blow up when damage is high...
 		//if(%damage > 2 * %this.maxDamage)
+      //{
 			%obj.setDamageState("Destroyed");
+         createExplosion(PumpgunnerDeathExplosion, %obj.getPosition(), "0 0 1");
+      //}
 		//else
 		//	%obj.setDamageState("Disabled");
 
