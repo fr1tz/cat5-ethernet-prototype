@@ -203,7 +203,7 @@ addMessageCallback('MsgMusic', clientPlayMusic);
 
 function clientUpdateMusic()
 {
-	echo("clientUpdateMusic()" SPC $CMusic::CurrProfile SPC "->" SPC $CMusic::NextProfile);
+	//echo("clientUpdateMusic()" SPC $CMusic::CurrProfile SPC "->" SPC $CMusic::NextProfile);
 	cancel($CMusic::UpdateThread);
 	if($CMusic::NextProfile !$= $CMusic::CurrProfile)
 	{
