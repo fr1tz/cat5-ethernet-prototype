@@ -133,7 +133,7 @@ datablock ParticleEmitterData(WhiteShotgunProjectileHit_Emitter)
 
 datablock ExplosionData(WhiteShotgunProjectileHit)
 {
-	soundProfile = ShotgunProjectileImpactSound;
+	soundProfile = ShotgunProjectileHitSound;
 
 	lifetimeMS = 450;
 

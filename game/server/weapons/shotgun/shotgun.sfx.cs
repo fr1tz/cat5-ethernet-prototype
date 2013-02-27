@@ -10,37 +10,23 @@ datablock AudioProfile(ShotgunFireSound)
 	preload = true;
 };
 
-datablock AudioProfile(ShotgunProjectileSound)
-{
-	filename = "share/sounds/cat5/silence.wav";
-	description = AudioCloseLooping3D;
-	preload = true;	
-};
-
-datablock AudioProfile(ShotgunProjectileExplosionSound)
-{
-	filename = "share/sounds/cat5/silence.wav";
-	description = AudioDefault3D;
-	preload = true;	
-};
-
 datablock AudioProfile(ShotgunProjectileImpactSound)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/impact1a.wav";
 	description = AudioDefault3D;
 	preload = true;
 };
 
 datablock AudioProfile(ShotgunProjectileHitSound)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/impact1b.wav";
 	description = AudioDefault3D;
 	preload = true;
 };
 
 datablock AudioProfile(ShotgunProjectileMissedEnemySound)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/whoosh1.wav";
 	description = AudioClose3D;
 	preload = true;
 };
