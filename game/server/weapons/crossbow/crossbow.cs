@@ -83,7 +83,7 @@ datablock ProjectileData(CrossbowProjectile)
 
 	//sound = CrossbowProjectileSound;
  
-// projectileShapeName = "share/shapes/cat5/bounceprojectile.dts";
+   projectileShapeName = "share/shapes/cat5/missile1.dts";
 
 	explosion             = WhiteCrossbowProjectileImpact;
 //	bounceExplosion       = WhiteCrossbowProjectileBounceExplosion;
@@ -95,7 +95,7 @@ datablock ProjectileData(CrossbowProjectile)
 	missEnemyEffectRadius = 10;
 	missEnemyEffect = CrossbowProjectileMissedEnemyEffect;
 
-//	particleEmitter = WhiteCrossbowProjectileParticleEmitter;
+	particleEmitter = WhiteCrossbowProjectileParticleEmitter;
 //	laserTrail[0]   = CrossbowProjectileLaserTrail;
 //	laserTrail[1]   = GreenCrossbowProjectileLaserTrail;
 	laserTail	    = WhiteCrossbowProjectileLaserTail;
@@ -135,6 +135,7 @@ function CrossbowProjectile::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dis
 		return;
 
    %col.setDamageDt(1, $DamageType::Impact, "crossbow");
+   %col.playAudio(1, CrossbowProjectileDrillSound);
 }
 
 //--------------------------------------------------------------------------
