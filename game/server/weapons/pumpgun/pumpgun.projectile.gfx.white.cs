@@ -146,7 +146,7 @@ datablock MultiNodeLaserBeamData(WhitePumpgunProjectileLaserTrailTwo)
 
 	blendMode = 1;
 	renderMode = $MultiNodeLaserBeamRenderMode::FaceViewer;
-	fadeTime = 250;
+	fadeTime = 1000;
 
     windCoefficient = 0.0;
 
@@ -320,7 +320,7 @@ datablock ParticleEmitterData(WhitePumpgunProjectileHit_Emitter)
 
 datablock ExplosionData(WhitePumpgunProjectileHit)
 {
-	soundProfile = PumpgunProjectileImpactSound;
+	soundProfile = PumpgunProjectileHitSound;
 
 	lifetimeMS = 450;
 

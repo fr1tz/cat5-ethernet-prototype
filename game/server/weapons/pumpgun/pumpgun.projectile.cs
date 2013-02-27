@@ -28,7 +28,7 @@ datablock ShotgunProjectileData(PumpgunProjectile)
 
 	numBullets = 1; // 9 // number of shotgun bullets
 
-	range = 40; // shotgun range
+	range = 30; // shotgun range
 	muzzleSpreadRadius = 0.0;
 	referenceSpreadRadius = 0.0;
 	referenceSpreadDistance = 25;

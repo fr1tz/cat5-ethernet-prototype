@@ -5,7 +5,14 @@
 
 datablock AudioProfile(PumpgunProjectileImpactSound)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/impact1a.wav";
+	description = AudioDefault3D;
+	preload = true;
+};
+
+datablock AudioProfile(PumpgunProjectileHitSound)
+{
+	filename = "share/sounds/cat5/impact1b.wav";
 	description = AudioDefault3D;
 	preload = true;
 };
@@ -19,7 +26,7 @@ datablock AudioProfile(PumpgunProjectileFlybySound)
 
 datablock AudioProfile(PumpgunProjectileMissedEnemySound)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/whoosh1.wav";
 	description = AudioClose3D;
 	preload = true;
 };
