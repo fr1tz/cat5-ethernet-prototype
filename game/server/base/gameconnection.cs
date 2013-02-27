@@ -463,7 +463,7 @@ function GameConnection::spawnPlayer(%this)
 	};
 
 	// player setup...
-	%obj.setTransform(setWord(%spawnSphere.getTransform(), 2, "20.01"));
+	%obj.setTransform(setWord(%spawnSphere.getTransform(), 2, "20.02"));
 	%obj.setCurrTagged(0);
 	%obj.setCurrTaggedPos("0 0 0");
 
@@ -688,7 +688,7 @@ function GameConnection::togglePlayerForm(%this, %forced)
 	%vel = %this.player.getVelocity();
 
 	//%obj.setTransform(getWord(%pos,0) SPC getWord(%pos,1) SPC "21 0 0 1 0");
-   %obj.setTransform(setWord(%mat, 2, "20.01"));
+   %obj.setTransform(setWord(%mat, 2, "20.02"));
 	%obj.setDamageLevel(%dmg);
 	%obj.setShieldLevel(%buf);
 	
