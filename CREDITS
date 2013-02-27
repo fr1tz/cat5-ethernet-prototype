@@ -1,4 +1,8 @@
-Made by Michael "fr1tz" Goldener <mg@wasted.ch>
+Cat5 
+prototype 1
+
+Result of a project called "1 Guy, 2 Weeks, 1 Game: Cat5"
+by Michael "fr1tz" Goldener <mg@wasted.ch> 
 
 Powered by the Torque Game Engine
 (http://www.garagegames.com)
@@ -7,72 +11,132 @@ Hosted at http://wasted.ch
 
 Attributions...
 
-RemingtonGunshot.wav by fastson -- http://www.freesound.org/people/fastson/sounds/50618/ -- License: Attribution
--> share/sound/cat5/_freesound_50618__fastson__remingtongunshot.wav
-
-Gunshot and reload.wav by gcmax -- http://www.freesound.org/people/gcmax/sounds/86808/ -- License: Attribution
--> share/sound/cat5/_freesound_86808__gcmax__gunshot-and-reload.wav
-
-shotgun sounds by lensflare8642 -- http://www.freesound.org/people/lensflare8642/sounds/145209/ -- License: Creative Commons 0
--> share/sound/cat5/_freesound_145209__lensflare8642__shotgun-sounds.mp3
-
-Drill.wav by aharri6 -- http://www.freesound.org/people/aharri6/sounds/71080/ -- License: Sampling+
--> share/sound/cat5/_freesound_71080__aharri6__drill.wav
-
-Whoosh_Swish_02.wav by mich3d -- http://www.freesound.org/people/mich3d/sounds/12657/ -- License: Attribution
--> share/sound/cat5/_freesound_12657__mich3d__whoosh-swish-02.wav
-
-Crossbow Shot by LeMudCrab -- http://www.freesound.org/people/LeMudCrab/sounds/163453/ -- License: Creative Commons 0
--> share/sound/cat5/_freesound_163453__lemudcrab__crossbow-shot.wav
-
-teleport.wav by Sergenious -- http://www.freesound.org/people/Sergenious/sounds/55853/ -- License: Attribution
--> share/sound/cat5/_freesound_55853__sergenious__teleport.wav
-
-beep1.wav by Freezeman -- http://www.freesound.org/people/Freezeman/sounds/153213/ -- License: Attribution
--> share/sound/cat5/_freesound_153213__freezeman__beep1.wav
-
-Cappucino Machine Steam by blouhond -- http://www.freesound.org/people/blouhond/sounds/157815/ -- License: Attribution
--> share/sound/cat5/_freesound_157815__blouhond__cappucino-machine-steam.wav
-
-Machine X 02.aif by Stomp -- http://www.freesound.org/people/Stomp/sounds/17498/ -- License: Sampling+
--> share/sound/cat5/_freesound_17498__stomp__machine-x-02.wav
-
-Small Explosion.wav by ryansnook -- http://www.freesound.org/people/ryansnook/sounds/110115/ -- License: Attribution Noncommercial
--> share/sound/cat5/_freesound_110115__ryansnook__small-explosion.wav
-
+------------------------------------------------------------------------
+welding a piece of metal with sparks flying all over the place.aif by Tomlija
+http://www.freesound.org/people/Tomlija/sounds/103333/
+License: Attribution
+  -> share/sound/cat5/_freesound.org_103333__tomlija__welding-a-piece-of-metal-with-sparks-flying-all-over-the-place.wav
+------------------------------------------------------------------------
 camera flash charge.wav by adeluc4 
 http://www.freesound.org/people/adeluc4/sounds/125326/
 License: Creative Commons 0
--> share/sound/cat5/_freesound.org_125326__adeluc4__camera-flash-charge.wav
-
-click2.wav by florian_reinke
-http://www.freesound.org/people/florian_reinke/sounds/63532/
+  -> share/sound/cat5/_freesound.org_125326__adeluc4__camera-flash-charge.wav
+------------------------------------------------------------------------
+laser by kafokafo
+http://www.freesound.org/people/kafokafo/sounds/128229/
 License: Creative Commons 0
--> share/sound/cat5/_freesound.org_63532__florian-reinke__click2.wav
-
-radio click 7.wav by ERH
-http://www.freesound.org/people/ERH/sounds/30331/
+  -> share/sound/cat5/_freesound.org_128229__kafokafo__laser.wav
+------------------------------------------------------------------------
+Bullet_Impact_3 by toxicwafflezz
+http://www.freesound.org/people/toxicwafflezz/sounds/150839/
 License: Attribution
--> share/sound/cat5/_freesound.org_30331__erh__radio-click-7.wav
-
-camera click_NIKON.wav by Snapper4298
-http://www.freesound.org/people/Snapper4298/sounds/178186/
+  -> share/sound/cat5/_freesound.org_150839__toxicwafflezz__bullet-impact-3.wav
+------------------------------------------------------------------------
+Laser Shot Silenced by bubaproducer
+http://www.freesound.org/people/bubaproducer/sounds/151022/
 License: Attribution
--> share/sound/cat5/_freesound.org_178186__snapper4298__camera-click-nikon.wav
-
+  -> share/sound/cat5/_freesound.org_151022__bubaproducer__laser-shot-silenced.wav
+------------------------------------------------------------------------
 rain_near_smooth.aif by loopbasedmusic
 http://www.freesound.org/people/loopbasedmusic/sounds/157487/
 License: Creative Commons 0
--> share/sound/cat5/_freesound.org_157487__loopbasedmusic__rain-near-smooth.wav
-
+  -> share/sound/cat5/_freesound.org_157487__loopbasedmusic__rain-near-smooth.wav
+------------------------------------------------------------------------
+metal_rings_04.wav by Department64
+http://www.freesound.org/people/Department64/sounds/95275/
+License: Creative Commons 0
+  -> share/sound/cat5/_freesound.org_160045__jorickhoofd__metal-hit-with-metal-bar-resonance.wav
+------------------------------------------------------------------------
 one use camera flash load.wav by emmanuel
 http://www.freesound.org/people/emmanuel/sounds/16462/
 License: Attribution
--> share/sound/cat5/_freesound.org_16462__emmanuel__one-use-camera-flash-load.wav
-
-
-
-
+  -> share/sound/cat5/_freesound.org_16462__emmanuel__one-use-camera-flash-load.wav
+------------------------------------------------------------------------
+Impact by chriskalos
+http://www.freesound.org/people/chriskalos/sounds/172779/
+License: Creative Commons 0
+  -> share/sound/cat5/_freesound.org_172779__chriskalos__impact.wav
+------------------------------------------------------------------------
+camera click_NIKON.wav by Snapper4298
+http://www.freesound.org/people/Snapper4298/sounds/178186/
+License: Attribution
+  -> share/sound/cat5/_freesound.org_178186__snapper4298__camera-click-nikon.wav
+------------------------------------------------------------------------
+radio click 7.wav by ERH
+http://www.freesound.org/people/ERH/sounds/30331/
+License: Attribution
+  -> share/sound/cat5/_freesound.org_30331__erh__radio-click-7.wav
+------------------------------------------------------------------------
+Laser Wrath 4.wav by marcuslee
+http://www.freesound.org/people/marcuslee/sounds/42106/
+License: Sampling+
+  -> share/sound/cat5/_freesound.org_42106__marcuslee__laser-wrath-4.wav
+------------------------------------------------------------------------
+click2.wav by florian_reinke
+http://www.freesound.org/people/florian_reinke/sounds/63532/
+License: Creative Commons 0
+  -> share/sound/cat5/_freesound.org_63532__florian-reinke__click2.wav
+------------------------------------------------------------------------
+metal_rings_04.wav by Department64
+http://www.freesound.org/people/Department64/sounds/95275/
+License: Creative Commons 0
+  -> share/sound/cat5/_freesound.org_95275__department64__metal-rings-04.wav
+------------------------------------------------------------------------
+Small Explosion.wav by ryansnook
+http://www.freesound.org/people/ryansnook/sounds/110115/
+License: Attribution Noncommercial
+  -> share/sound/cat5/_freesound_110115__ryansnook__small-explosion.wav
+------------------------------------------------------------------------
+Whoosh_Swish_02.wav by mich3d
+http://www.freesound.org/people/mich3d/sounds/12657/
+License: Attribution
+  -> share/sound/cat5/_freesound_12657__mich3d__whoosh-swish-02.wav
+------------------------------------------------------------------------
+shotgun sounds by lensflare8642
+http://www.freesound.org/people/lensflare8642/sounds/145209/
+License: Creative Commons 0
+  -> share/sound/cat5/_freesound_145209__lensflare8642__shotgun-sounds.wav
+------------------------------------------------------------------------
+beep1.wav by Freezeman
+http://www.freesound.org/people/Freezeman/sounds/153213/
+License: Attribution
+  -> share/sound/cat5/_freesound_153213__freezeman__beep1.wav
+------------------------------------------------------------------------
+Cappucino Machine Steam by blouhond
+http://www.freesound.org/people/blouhond/sounds/157815/
+License: Attribution
+  -> share/sound/cat5/_freesound_157815__blouhond__cappucino-machine-steam.wav
+------------------------------------------------------------------------
+Crossbow Shot by LeMudCrab
+http://www.freesound.org/people/LeMudCrab/sounds/163453/
+License: Creative Commons 0
+  -> share/sound/cat5/_freesound_163453__lemudcrab__crossbow-shot.wav
+------------------------------------------------------------------------
+Machine X 02.aif by Stomp
+http://www.freesound.org/people/Stomp/sounds/17498/
+License: Sampling+
+  -> share/sound/cat5/_freesound_17498__stomp__machine-x-02.wav
+------------------------------------------------------------------------
+RemingtonGunshot.wav by fastson
+http://www.freesound.org/people/fastson/sounds/50618/
+License: Attribution
+  -> share/sound/cat5/_freesound_50618__fastson__remingtongunshot.wav
+------------------------------------------------------------------------
+teleport.wav by Sergenious
+http://www.freesound.org/people/Sergenious/sounds/55853/
+License: Attribution
+  -> share/sound/cat5/_freesound_55853__sergenious__teleport.wav
+------------------------------------------------------------------------
+Drill.wav by aharri6
+http://www.freesound.org/people/aharri6/sounds/71080/
+License: Sampling+
+  -> share/sound/cat5/_freesound_71080__aharri6__drill.wav
+------------------------------------------------------------------------
+Gunshot and reload.wav by gcmax
+http://www.freesound.org/people/gcmax/sounds/86808/
+License: Attribution
+  -> share/sound/cat5/_freesound_86808__gcmax__gunshot-and-reload.wav
+------------------------------------------------------------------------
 
 
 
