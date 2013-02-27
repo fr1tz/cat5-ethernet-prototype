@@ -172,7 +172,7 @@ datablock ParticleEmitterData(PumpgunnerSpawnExplosion_SparksEmitter)
 
 datablock ExplosionData(PumpgunnerSpawnExplosion)
 {
-	soundProfile = CatSpawnSound;
+	soundProfile = FrmPumpgunnerSpawnSound;
 
 	faceViewer	  = true;
 	explosionScale = "0.8 0.8 0.8";
