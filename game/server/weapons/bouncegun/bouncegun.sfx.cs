@@ -5,7 +5,7 @@
 
 datablock AudioProfile(BounceGunFireSound)
 {
-	filename = "share/sounds/cat5/lasershot1.wav";
+	filename = "share/sounds/cat5/lasershot3.wav";
 	description = AudioDefault3D;
 	preload = true;
 };
@@ -19,23 +19,9 @@ datablock AudioProfile(BounceGunProjectileSound)
 
 datablock AudioProfile(BounceGunProjectileExplosionSound)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/explosion2.wav";
 	description = AudioDefault3D;
 	preload = true;	
-};
-
-datablock AudioProfile(BounceGunProjectileImpactSound)
-{
-	filename = "share/sounds/cat5/silence.wav";
-	description = AudioDefault3D;
-	preload = true;
-};
-
-datablock AudioProfile(BounceGunProjectileHitSound)
-{
-	filename = "share/sounds/cat5/silence.wav";
-	description = AudioDefault3D;
-	preload = true;
 };
 
 datablock AudioProfile(BounceGunProjectileBounceSound)

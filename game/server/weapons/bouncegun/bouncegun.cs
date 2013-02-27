@@ -69,10 +69,10 @@ datablock ProjectileData(BounceGunProjectile)
 	stat = "br";
 
 	// script damage properties...
-	impactDamage       = 0;
+	impactDamage       = 40;
 	impactImpulse      = 500;
-	splashDamage       = 40;
-	splashDamageRadius = 2;
+	splashDamage       = 0;
+	splashDamageRadius = 0;
 	splashImpulse      = 0;
 	bypassDamageBuffer = false;
 	
@@ -86,11 +86,11 @@ datablock ProjectileData(BounceGunProjectile)
  
    projectileShapeName = "share/shapes/cat5/bounceprojectile.dts";
 
-	explosion             = WhiteBounceGunProjectileImpact;
-	bounceExplosion       = WhiteBounceGunProjectileBounceExplosion;
-	hitEnemyExplosion     = WhiteBounceGunProjectileExplosion;
-	nearEnemyExplosion    = WhiteBounceGunProjectileExplosion;
-	hitTeammateExplosion  = WhiteBounceGunProjectileExplosion;
+	explosion             = WhiteBounceGunProjectileExplosion;
+	bounceExplosion       = WhiteBounceGunProjectileExplosion;
+//	hitEnemyExplosion     = WhiteBounceGunProjectileExplosion;
+//	nearEnemyExplosion    = WhiteBounceGunProjectileExplosion;
+//	hitTeammateExplosion  = WhiteBounceGunProjectileExplosion;
 //	hitDeflectorExplosion = DiscDeflectedEffect;
 
 	missEnemyEffectRadius = 10;
