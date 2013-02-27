@@ -32,7 +32,7 @@ datablock DebrisData(FrmMinigunnerDebris)
 	gravModifier = 4.0;
 
 	useRadiusMass = true;
-	baseRadius = 1;
+	baseRadius = 0.5;
 
 	velocity = 18.0;
 	velocityVariance = 12.0;
