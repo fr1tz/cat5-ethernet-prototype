@@ -56,26 +56,14 @@ function RecordingControlsWindow::onWake(%this)
 function RecordingControlsWindow::onSleep(%this)
 {
 	cancel(%this.demoPositionThread);
+    RecordingFreelookGui.camMovementSpeed =
+		$Pref::Recording::FreelookMoveSpeed;
 }
 
 function RecordingControlsWindow::updateDemoCurrentPosition(%this)
 {
 	updateDemoCurrentPosition();
 	%this.demoPositionThread = %this.schedule(50, "updateDemoCurrentPosition");		
-}
-
-//------------------------------------------------------------------------------
-// RecordingSettingsWindow GUI stuff...
-
-function RecordingSettingsWindow::onWake(%this)
-{
-
-}
-
-function RecordingSettingsWindow::onSleep(%this)
-{
-    RecordingFreelookGui.camMovementSpeed =
-		$Pref::Recording::FreelookMoveSpeed;
 }
 
 //------------------------------------------------------------------------------
@@ -211,7 +199,7 @@ function onDemoLoaded()
 	$DemoPaused = true;
 	$DemoStatus = "PAUSED";
 
-	$ShellDlgActive = true;
+	//$ShellDlgActive = true;
 	ServerConnection.prepDemoPlayback();
     pushActionMap(RecordingActionMap);
 }
@@ -261,10 +249,12 @@ function startDemoPlayback(%file, %position)
 	$DemoStatus = "LOADING...";
 
 	RecordingJumpTo.setText($DemoTargetPosition);
-	addWindow(RecordingControlsWindow);
 
 	if(ServerConnection.playDemo($DemoFileName))
 	{	
+      MissionWindow.visible = false;
+      RecordingControlsWindow.visible = true;
+
 		$DemoStartTime = getSimTime();
 
         StartClientReplication();
@@ -304,7 +294,7 @@ function StartSelectedDemo()
 function demoPlaybackComplete()
 {
 	disconnect();
-    popActionMap(RecordingActionMap);
+   popActionMap(RecordingActionMap);
 	Canvas.setContent("Shell");
 }
 

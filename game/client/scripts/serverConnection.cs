@@ -206,6 +206,7 @@ function disconnectedCleanup()
 	//removeWindow(RecordingControlsWindow);
 
    // Reset shell state
+   RecordingControlsWindow.visible = false;
    IngameMenuDisconnect.visible = false;
    IngameMenuReturn.visible = false;
    IngameWindow.visible = false;

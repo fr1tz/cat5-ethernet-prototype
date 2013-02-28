@@ -23,6 +23,8 @@ function onConnectionInitiated()
 {
    ShellTS.visible = false;
 
+   RecordingControlsWindow.visible = false;
+
 	// Reset all the loading stuff...
    LoadingProgress.visible = true;
 	LoadingProgressTxt.setText("WAITING FOR SERVER");

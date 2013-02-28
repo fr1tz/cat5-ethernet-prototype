@@ -35,6 +35,7 @@ function addWindow(%control, %inactive)
 //		windowSelected(%control);
    if(ShellWindows.getCount() > 0)
    {
+      ShellTS.pan(0, 48);
       ShellSidebar.visible = false;
       ShellMissionWindowContainer.visible = false;
       ShellWindows.visible = true;
@@ -49,6 +50,7 @@ function removeWindow(%control)
 	%control.onRemovedAsWindow();
    if(ShellWindows.getCount() == 0)
    {
+      ShellTS.pan(-22, 48);
       ShellSidebar.visible = true;
       ShellMissionWindowContainer.visible = true;
       ShellStack.pushToBack(ShellMissionWindowContainer);
@@ -154,6 +156,7 @@ function Shell::onWake(%this)
 	ShellVersionString.setText("version:" SPC $GameVersionString);
 	//windowSelected(RootMenuWindow);
    ShellMissionWindowContainer.add(MissionWindow);
+   ShellMissionWindowContainer.add(RecordingControlsWindow);
 	startUpdateHilightedGuiControlsThread();
 }
 
