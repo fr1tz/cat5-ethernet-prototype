@@ -771,14 +771,14 @@ new GuiBitmapCtrl(Cockpit) {
          };
       };
    };
-   new GuiAdditiveBitmapCtrl(centerPrint) {
+   new GuiBitmapCtrl(centerPrint) {
       canSaveDynamicFields = "0";
       Profile = "HudDefaultProfile";
       HorizSizing = "center";
       VertSizing = "center";
-      Position = "20 190";
-      Extent = "600 100";
-      MinExtent = "600 100";
+      Position = "20 115";
+      Extent = "600 250";
+      MinExtent = "600 300";
       canSave = "1";
       Visible = "0";
       hovertime = "1000";
@@ -801,7 +801,7 @@ new GuiBitmapCtrl(Cockpit) {
          maxChars = "-1";
       };
    };
-   new GuiAdditiveBitmapCtrl(bottomPrint) {
+   new GuiBitmapCtrl(bottomPrint) {
       canSaveDynamicFields = "0";
       Profile = "HudDefaultProfile";
       HorizSizing = "left";
