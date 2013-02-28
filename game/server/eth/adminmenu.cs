@@ -18,12 +18,21 @@ function AdminMenu_Link(%text, %client, %arg1, %arg2, %arg3, %arg4)
 
 function GameConnection::showAdminMenu(%this)
 {
+	%this.beginMenuText(%this.menu $= "admin");
+   %this.addMenuText("Nothing here yet", 1);
+	%this.endMenuText();
+   return;
+
+
+
+
+
 	%L3 = om_init();
 	%L3 = %L3 @ om_head(%this, "Arena Admin");
 
    if(!%this.isAdmin)
    {
-   	%L3 = %L3 @ "<just:center><spush><font:Arial:24><color:AA0000>";
+   	%L3 = %L3 @ "<just:center><spush><font:NovaSquare:24><color:AA0000>";
    	%L3 = %L3 @ "You are not an admin!";
    	%L3 = %L3 @ "<spop><just:left>\n\n";
    }

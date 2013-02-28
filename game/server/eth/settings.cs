@@ -5,6 +5,14 @@
 
 function showSettings(%client, %section)
 {
+	%client.beginMenuText(%this.menu $= "admin");
+   %client.addMenuText("Nothing here yet, sorry :/", 1);
+	%client.endMenuText();
+   return;
+
+
+
+
 	%newtxt = om_init();
 	%client.beginMenuText();
 	
@@ -55,7 +63,7 @@ function showSettings(%client, %section)
 	%newtxt = %newtxt @ "\n\n";				
 	
 	%n = 0;
-	%schemeName[%n] = "condition";
+	%schemeName[%n] = "";
 	%schemeDesc[%n] = "based_on_condition"; %n++;
 	%schemeName[%n] = "team";
 	%schemeDesc[%n] = "based_on_team"; %n++;
@@ -110,7 +118,7 @@ function setSetting(%client, %str)
 		if(%mode !$= "")
 		{
 			%client.initialTopHudMenu = %mode;
-			%client.sendCookie("ROTC_HudMenuTMode", %mode);
+			%client.sendCookie("Alux_HudMenuTMode", %mode);
 		
 			if(%client.menu $= "settings")
 				serverCmdShowSettings(%client);
@@ -120,7 +128,7 @@ function setSetting(%client, %str)
 	{
 		%hudColor = %value;
 		%client.hudColor = %hudColor;
-		%client.sendCookie("ROTC_HudColor", %hudColor);		
+		%client.sendCookie("Alux_HudColor", %hudColor);		
 		%client.updateHudColors();
 		
 		if(%client.menu $= "settings")
@@ -129,7 +137,7 @@ function setSetting(%client, %str)
 	else if (%name $= "handicap")
 	{
 		%client.setHandicap(%value);
-		%client.sendCookie("ROTC_Handicap", %value);
+		%client.sendCookie("Alux_Handicap", %value);
 
 		if(%client.menu $= "settings")
 			serverCmdShowSettings(%client);

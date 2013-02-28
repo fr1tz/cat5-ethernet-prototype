@@ -18,24 +18,24 @@ function GameConnection::showTeamsMenu(%this)
 	%L3 = om_init();
 	%L3 = %L3 @ om_head(%this, "Switch Team");
 
-	%joinText = "<just:center>Join Team:\n<spush><font:Arial:24>";
+	%joinText = "<just:center>Join Team:\n<spush><font:Cat5:24>\n";
 	if(%this.team != $Team1)
 		%joinText = %joinText @ "<a:cmd JoinTeam 1>";
-	%joinText = %joinText @ "Reds (" @ $Team1.numPlayers @ ")";
+	%joinText = %joinText @ $Team1.name @  " (" @ $Team1.numPlayers @ ")";
 	if(%this.team != $Team1)
 		%joinText = %joinText @ "</a>";
-	%joinText = %joinText @ "    ";
+	%joinText = %joinText @ "\n\n";
 	if(%this.team != $Team2)
 		%joinText = %joinText @ "<a:cmd JoinTeam 2>";
-	%joinText = %joinText @ "Blues (" @ $Team2.numPlayers @ ")";
+	%joinText = %joinText @ $Team2.name @  " (" @ $Team2.numPlayers @ ")";
 	if(%this.team != $Team2)
 		%joinText = %joinText @ "</a>";
-	%joinText = %joinText @ "    ";
-	if(%this.team != $Team0)
-		%joinText = %joinText @ "<a:cmd JoinTeam 0>";
-	%joinText = %joinText @ "Observers (" @ $Team0.numPlayers @ ")";
-	if(%this.team != $Team0)
-		%joinText = %joinText @ "</a>";
+	%joinText = %joinText @ "\n\n";
+//	if(%this.team != $Team0)
+//		%joinText = %joinText @ "<a:cmd JoinTeam 0>";
+//	%joinText = %joinText @ $Team0.name @  " (" @ $Team0.numPlayers @ ")";
+//	if(%this.team != $Team0)
+//		%joinText = %joinText @ "</a>";
    %joinText = %joinText @ "<spop>";
 
    %L3 = %L3 @ %joinText;

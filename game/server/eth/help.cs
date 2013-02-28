@@ -5,11 +5,17 @@
 
 function GameConnection::showHelpMenu(%this)
 {
+	%this.beginMenuText(false);
+   %this.addMenuText("Nothing here yet, sorry :/", 1);
+	%this.endMenuText();
+   return;
+
+
 	%L3 = om_init();
 	%L3 = %L3 @ om_head(%this, "Help");
-	%L3 = %L3 @ "<lmargin:24><font:Arial:36>";
+	%L3 = %L3 @ "<lmargin:24><font:NovaSquare:36>";
 
-	%spc = " <spush><font:Arial:12>\n\n<spop>";
+	%spc = " <spush><font:NovaSquare:12>\n\n<spop>";
 
 	%L4 = %L3;
 

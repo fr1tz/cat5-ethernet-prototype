@@ -10,7 +10,7 @@
 
 function om_init()
 {
-	return "<font:Arial:16>";
+	return "<font:Cat5:14><linkcolor:27379d><linkcolorhl:FFFF00>";
 }
 
 function om_head(%client, %title, %prev, %refresh)
@@ -25,7 +25,7 @@ function om_head(%client, %title, %prev, %refresh)
 	if(%title !$= "")
 	{
 		%r = %r @
-			"<spush><font:Arial:24>" @ %title;
+			"<spush><font:Cat5:24>" @ %title;
 
 		if(%refresh !$= "")
 		{

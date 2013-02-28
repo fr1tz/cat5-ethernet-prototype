@@ -7,7 +7,7 @@ function showMainMenu(%client)
 {
 	%newtxt = om_init();
 
-	%bg = %newtext @ "\n\n\n<bitmap:share/ui/rotc/logo>";
+	%bg = %newtext @ "\n\n\n";
 
 	%mutators = "";
 	for(%i = 0; %i < getRecordCount($MissionInfo::MutatorDesc); %i++)
@@ -34,8 +34,8 @@ function showMainMenu(%client)
 			@ "<spop>" @ %mutators;
 
 	%fg = %newtxt @
-		om_head(%client, "Arena Info") @
-		"<spush><font:Arial:20>" @
+		om_head(%client, "Server Info") @
+		"<spush><font:Cat5:20>" @
 		"Welcome to" SPC $Pref::Server::Name @
 		"<spop>\n\n" @
 		"<tab:15,30,130>Game:\n" @

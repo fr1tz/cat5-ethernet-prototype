@@ -1275,7 +1275,7 @@ function GameConnection::setHudMenuC(%this, %slot, %text, %repetitions, %visible
 
 function GameConnection::updateQuickbar(%this)
 {
-   %head = "<just:center><font:Arial:16>";
+   %head = "<just:center><font:Cat5:18><linkcolor:27379d><linkcolorhl:FFFF00>";
 
    %B1 = true;
    %B2 = true;
@@ -1307,47 +1307,18 @@ function GameConnection::updateQuickbar(%this)
       (%B7?"<B:7:cmd Help 0>":"") @ %msk @ (%B7?"</b>":"") @
       "\n";
 
-   %B1Link1 = (%B1?"<B:1:cmd MainMenu>":"") @ "Arena" @ (%B1?"</b>":"");
-   %B1Link2 = (%B1?"<B:1:cmd MainMenu>":"") @ "Info" @ (%B1?"</b>":"");
-   %B2Link1 = (%B2?"<B:2:cmd ShowPlayerList>":"") @ "Player" @ (%B2?"</b>":"");
-   %B2Link2 = (%B2?"<B:2:cmd ShowPlayerList>":"") @ "List" @ (%B2?"</b>":"");
-   %B3Link1 = (%B3?"<B:3:cmd Loadout>":"") @ "Edit" @ (%B3?"</b>":"");
-   %B3Link2 = (%B3?"<B:3:cmd Loadout>":"") @ "Loadouts" @ (%B3?"</b>":"");
-   %B4Link1 = (%B4?"<B:4:cmd Teams>":"") @ "Switch" @ (%B4?"</b>":"");
-   %B4Link2 = (%B4?"<B:4:cmd Teams>":"") @ "Team" @ (%B4?"</b>":"");
-   %B5Link1 = (%B5?"<B:5:cmd ShowSettings>":"") @ "Game" @ (%B5?"</b>":"");
-   %B5Link2 = (%B5?"<B:5:cmd ShowSettings>":"") @ "Settings" @ (%B5?"</b>":"");
-   %B6Link1 = (%B6?"<B:6:cmd Admin>":"") @ "Arena" @ (%B6?"</b>":"");
-   %B6Link2 = (%B6?"<B:6:cmd Admin>":"") @ "Admin" @ (%B6?"</b>":"");
-   %B7Link1 = (%B7?"<B:7:cmd Help>":"") @ "Help" @ (%B7?"</b>":"");
+   %B1Link1 = (%B1?"<B:1:cmd MainMenu>":"") @ "Server Info" @ (%B1?"</b>":"");
+   %B2Link1 = (%B2?"<B:2:cmd ShowPlayerList>":"") @ "Player List" @ (%B2?"</b>":"");
+   %B3Link1 = (%B4?"<B:4:cmd Teams>":"") @ "Switch Team" @ (%B4?"</b>":"");
+   %B4Link1 = (%B7?"<B:7:cmd Help>":"") @ "Help" @ (%B7?"</b>":"");
 
-   %tabsFG = %tmp @ %tmp @ %tmp @
-      "  "@%B1Link1@"      " @
-      %B2Link1@"       " @
-      %B3Link1@"        " @
-      %B4Link1@"  " @
-      " " @ // center of line
-      "   "@%B5Link1@"       " @
-      %B6Link1@"         " @
-      "             " @
-      %B7Link1@"   " @
-      "\n" @
-      %B1Link2@"          " @
-      %B2Link2@"     " @
-      %B3Link2@"     " @
-      %B4Link2@"   " @
-      "" @ // center of line
-      "  "@%B5Link2@"    " @
-      %B6Link2@"                           " @
-      "";
-
-   %tabsBG = "<bitmap:share/ui/rotc/qbbg>";
+   %text = "\n"
+      @ %B1Link1 SPC "|" SPC %B2Link1 SPC "|"
+      SPC %B3Link1 SPC "|" SPC %B4Link1 @ "\n";
 
 	%this.beginQuickbarText();
-	%this.addQuickbarText(%head, 3);
-	%this.addQuickbarText(%tabsFG, 1);
-	%this.addQuickbarText(%tabsBG, 2);
-
+	%this.addQuickbarText(%head, 1);
+	%this.addQuickbarText(%text, 1);
 	%this.endQuickbarText();
 }
 

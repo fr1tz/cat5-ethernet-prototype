@@ -354,14 +354,16 @@ new GuiControlProfile(GuiScrollProfile : GuiDefaultProfile)
 
 new GuiControlProfile(MissionWindowQuickbarScrollProfile : GuiScrollProfile)
 {
-	border = 0;
+	border = 1;
 	borderThickness = 0;
+	fillColor = "0 0 0 200";
 };
 
 new GuiControlProfile(MissionWindowMenuScrollProfile : GuiScrollProfile)
 {
 	border = 1;
 	borderThickness = 5;
+	fillColor = "0 0 0 200";
 };
 
 new GuiControlProfile(GuiCheckBoxProfile : GuiDefaultProfile)
