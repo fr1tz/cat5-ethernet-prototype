@@ -184,20 +184,26 @@ function TerritoryZones_call(%func)
 //-----------------------------------------------------------------------------
 // Territory Zone Sounds
 
-datablock AudioProfile(ZoneAquiredSound)
+datablock AudioProfile(OwnZonesIncreasedSound)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/ditty1upshort.ogg";
+	description = AudioCritical2D;
+	preload = true;
+};
+
+datablock AudioProfile(EnemyZonesIncreasedSound)
+{
+	filename = "share/sounds/cat5/ditty1downshort.ogg";
 	description = AudioCritical2D;
 	preload = true;
 };
 
 datablock AudioProfile(ZoneAttackedSound)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/alert1.wav";
 	description = AudioCritical2D;
 	preload = true;
 };
-
 
 //-----------------------------------------------------------------------------
 // Territory Zone
@@ -406,19 +412,21 @@ function TerritoryZone::setZoneOwner(%this, %zone, %teamId)
 	
 		%sound = 0;
 
-		if(%client.team == $Team1)
+		if(%client.team == $Team0)
 		{
 			if(%teamId == 1)
-				%sound = ZoneAquiredSound;
+				%sound = OwnZonesIncreasedSound;
 			else if(%teamId == 2)
-				%sound = ZoneAttackedSound;
+				%sound = EnemyZonesIncreasedSound;
 		}
-		else if(%client.team == $Team2)
+		else
 		{
-			if(%teamId == 2)
-				%sound = ZoneAquiredSound;
-			else if(%teamId == 1)
+         if(%teamId == 0 && %oldTeamId != 0)
 				%sound = ZoneAttackedSound;
+			else if(%client.team.teamId == %teamId)
+				%sound = OwnZonesIncreasedSound;
+			else if(%teamId != 0)
+				%sound = EnemyZonesIncreasedSound;
 		}
 
 		if(isObject(%sound))
