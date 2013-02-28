@@ -391,7 +391,7 @@ function GameConnection::joinTeam(%this, %teamId)
 	%this.clearSimpleControl();
 
 	// notify all clients of team change...
-	MessageAll('MsgClientJoinTeam', '\c2%1 joined the %2.',
+	MessageAll('MsgClientJoinTeam', '\c2%1 joined %2.',
 		%this.name,
 		%this.team.name,
 		%this.team.teamId,
