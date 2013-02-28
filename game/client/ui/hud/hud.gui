@@ -191,10 +191,10 @@ new GuiBitmapCtrl(Cockpit) {
       new GuiScannerHud(ScannerHud) {
          canSaveDynamicFields = "0";
          Profile = "HudDefaultProfile";
-         HorizSizing = "relative";
-         VertSizing = "relative";
+         HorizSizing = "width";
+         VertSizing = "height";
          Position = "0 0";
-         Extent = "633 480";
+         Extent = "640 480";
          MinExtent = "8 8";
          canSave = "1";
          Visible = "1";
