@@ -169,7 +169,7 @@ new GuiControl(OptionsWindowForEditing) {
             canSave = "1";
             Visible = "1";
             hovertime = "1000";
-            text = "Player name:";
+            text = "Pseudonym:";
             maxLength = "255";
          };
          new GuiTextEditCtrl(txtPlayerName) {
