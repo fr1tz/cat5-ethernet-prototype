@@ -308,19 +308,44 @@ function checkRoundEnd()
 	}
 	else
 	{
+      %winner = 0;
 		if($Team1.numTerritoryZones == 0 && $Team1.numCATs == 0)
-		{
-			centerPrintAll($Team2.name @ " have won!",3);
-			serverPlay2D(BlueVictorySound);
-			schedule(5000, MissionEnvironment, "startNewRound");
-			$Game::RoundRestarting = true;
-		}
+         %winner = 2;
 		else if($Team2.numTerritoryZones == 0 && $Team2.numCATs == 0)
-		{
-			centerPrintAll($Team1.name @ " have won!",3);
-			serverPlay2D(RedVictorySound);
+         %winner = 1;
+
+      if(%winner != 0)
+      {
+   	   for(%idx = 0; %idx < ClientGroup.getCount(); %idx++)
+      	{
+		      %client = ClientGroup.getObject(%idx);
+      		%sound = 0;
+            %text = "";
+		      if(%client.team == $Team0)
+		      {
+               %text = "TEAM" SPC %winner SPC "ELMIMINATED THE OTHER TEAM!";
+				   %sound = VictorySound;
+		      }
+		      else
+		      {
+			      if(%client.team.teamId == %winner)
+               {
+                  %text = "YOU ELIMINATED\nTHE OTHER TEAM!";
+				      %sound = VictorySound;
+               }
+			      else
+               {
+         			%text = "YOUR TEAM\n HAS BEEN ELIMINATED!";
+				      %sound = DefeatSound;
+               }
+		      }
+            %text = "<just:center><font:Cat5:36>\n\n" @ %text;
+     			centerPrint(%client, %text, 5);
+   		   if(isObject(%sound))
+			      %client.play2D(%sound);
+      	}
 			schedule(5000, MissionEnvironment, "startNewRound");
 			$Game::RoundRestarting = true;
-		}
-	}
+      }
+   }
 }

@@ -55,16 +55,16 @@ datablock AudioProfile(ChatMessageSound)
 	preload = true;
 };
 
-datablock AudioProfile(RedVictorySound)
+datablock AudioProfile(VictorySound)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/ditty1up.ogg";
 	description = Audio2D;
 	preload = true;
 };
 
-datablock AudioProfile(BlueVictorySound)
+datablock AudioProfile(DefeatSound)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/ditty1down.ogg";
 	description = Audio2D;
 	preload = true;
 };
