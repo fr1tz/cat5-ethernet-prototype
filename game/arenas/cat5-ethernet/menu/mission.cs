@@ -9,7 +9,7 @@ function sMissionCallback_onBotDestroyed(%data, %obj)
 
 function sMissionCallback_onNewRound()
 {
-   schedule(1000, $Server::Game, "sMission_addBots");
+   schedule(0, $Server::Game, "sMission_addBots");
 }
 
 function sMission_addBot(%team, %class)
