@@ -162,7 +162,7 @@ function onMissionDownloadComplete()
    {
       LoadingProgress.visible = false;
       ShellTS.viewMode = 1;
-      ShellTS.pan(-22, 48);
+      ShellTS.pan(0, 48);
    }
    else
    {

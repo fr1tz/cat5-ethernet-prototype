@@ -35,7 +35,11 @@ function addWindow(%control, %inactive)
 //		windowSelected(%control);
    if(ShellWindows.getCount() > 0)
    {
-      ShellTS.pan(0, 48);
+      %w = getWord(Shell.extent, 0);
+      %h = getWord(Shell.extent, 1);
+      ShellTS.setPosition(0, 0);
+      ShellTS.setExtent(%w, %h);
+
       ShellSidebar.visible = false;
       ShellMissionWindowContainer.visible = false;
       ShellWindows.visible = true;
@@ -50,7 +54,11 @@ function removeWindow(%control)
 	%control.onRemovedAsWindow();
    if(ShellWindows.getCount() == 0)
    {
-      ShellTS.pan(-22, 48);
+      %w = getWord(Shell.extent, 0);
+      %h = getWord(Shell.extent, 1);
+      ShellTS.setPosition(160, 0);
+      ShellTS.setExtent(%w - 160, %h);
+
       ShellSidebar.visible = true;
       ShellMissionWindowContainer.visible = true;
       ShellStack.pushToBack(ShellMissionWindowContainer);
