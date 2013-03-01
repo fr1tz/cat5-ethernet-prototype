@@ -185,7 +185,8 @@ function GameConnection::onClientEnterGame(%this)
 // *** callback function: called by script code in "common"
 function GameConnection::onClientLeaveGame(%this)
 {
-	%this.team.numPlayers--;
+   if(isObject(%this.team))
+   	%this.team.numPlayers--;
 
 	%this.clearFullControl();
 	%this.clearSimpleControl();
@@ -461,6 +462,7 @@ function GameConnection::spawnPlayer(%this)
 		client = %this;
 		teamId = %this.team.teamId;
 	};
+   MissionCleanup.add(%obj);
 
 	// player setup...
 	%obj.setTransform(setWord(%spawnSphere.getTransform(), 2, "20.02"));
