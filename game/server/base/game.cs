@@ -260,6 +260,8 @@ function startNewRound()
 
 	serverUpdateMusic();
 	serverUpdateGameStatus();
+
+   sMissionCallback_onNewRound();
 	
 	$Game::RoundRestarting = false;
 }
