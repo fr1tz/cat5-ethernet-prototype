@@ -78,7 +78,7 @@ datablock EtherformData(EthFr1tz : EthStandard)
 	shapeFile = "share/shapes/cat5/etherforms/fr1tz.dts";
 
 	// laser trail...
-	laserTrail[0] = EthFr1tz_LaserTrailOne;
-	laserTrail[1] = EthFr1tz_LaserTrailTwo;
-	laserTrail[2] = EthFr1tz_LaserTrailThree;
+	//laserTrail[0] = EthFr1tz_LaserTrailOne;
+	//laserTrail[1] = EthFr1tz_LaserTrailTwo;
+	//laserTrail[2] = EthFr1tz_LaserTrailThree;
 };
