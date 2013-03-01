@@ -188,13 +188,11 @@ function GameConnection::setPlayerName(%client,%name)
    }
 
 	%client.nameBase = %name;
-   %client.name = %name;
 
    if(%client.PPN $= "")
-   {
-   	// Tag the name with the "smurf" color
-   	%client.name = addTaggedString("\cp\c8" @ %name @ "\co");
-   }
+   	%name = "\cp\c8" @ %name @ "\co"; // Add "smurf" color to name
+
+  	%client.name = addTaggedString(%name);
 }
 
 function isNameUnique(%name)
