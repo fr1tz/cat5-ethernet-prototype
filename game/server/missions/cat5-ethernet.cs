@@ -17,7 +17,9 @@ $Server::MissionEnvironmentFile = $Server::MissionDirectory @ "mission.env";
 
 function executeMissionScript()
 {
-	exec($Server::MissionDirectory @ "mission.cs"); 
+   // Clear mission callback functions first.
+   exec("game/server/missions/missioncallbacks.cs");
+   exec($Server::MissionDirectory @ "mission.cs"); 
 }
 
 function executeEnvironmentScript()
