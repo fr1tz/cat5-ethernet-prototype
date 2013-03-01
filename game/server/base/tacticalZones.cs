@@ -186,14 +186,14 @@ function TerritoryZones_call(%func)
 
 datablock AudioProfile(OwnZonesIncreasedSound)
 {
-	filename = "share/sounds/cat5/ditty1upshort.ogg";
+	filename = "share/sounds/cat5/ditty1upshort.wav";
 	description = AudioCritical2D;
 	preload = true;
 };
 
 datablock AudioProfile(EnemyZonesIncreasedSound)
 {
-	filename = "share/sounds/cat5/ditty1downshort.ogg";
+	filename = "share/sounds/cat5/ditty1downshort.wav";
 	description = AudioCritical2D;
 	preload = true;
 };
