@@ -2,7 +2,7 @@
 
 Cat5
 
-Copyright (C) 2008-2013 Michael Goldener <mg@wasted.ch>
+Copyright (C) 2013 Michael Goldener <mg@wasted.ch>
 
 Cat5 is licensed under the pretty restrictive
 Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 
@@ -11,8 +11,8 @@ License (http://creativecommons.org/licenses/by-nc-nd/3.0/).
 However, all game content is made available under the permissive 
 Creative Commons Attribution 3.0 License
 (http://creativecommons.org/licenses/by/3.0/).
-Game content refers to all files except the engine binaries (rotc.exe,
-rotc.bin and rotcd.bin) and the third-party library binaries (the .dll
+Game content refers to all files except the engine binaries (cat5.exe,
+cat5.bin and cat5d.bin) and the third-party library binaries (the .dll
 files and everything in the lib/ directory).
 
 **********************************************************************

@@ -1,25 +1,17 @@
-README
 
-  Cat5 is a A multiplayer top-down team-based tactical action game.
+  Cat5 is a a multiplayer top-down team-based tactical action game.
   Think ROTC: Ethernet meets Frozen Synapse meets Hotline Miami.
   
-  This is a pre-release version of prototype 1 of the game, so there
-  are still things missing, unpolished or maybe even broken.
+  This is prototype 1 of the game, a largely untested version that's
+  the result of a project called  "1 Guy, 2 Weeks, 1 Game: Cat5".
+  As the name suggests, the idea behind the project was to have just
+  one guy try to create a small but fun game in just two weeks.
   
-  Cat5 is currently being developed single-handedly by the author of
-  ROTC: Ethernet (http:/ethernet.wasted.ch) as part of a project called
+  There will be bugs!
   
-                    1 Guy, 2 Weeks, 1 Game: Cat5
-  
-      http://www.indiegogo.com/projects/1-guy-2-weeks-1-game-cat5       
-      
-  The IndieGoGo campaign runs until the end of february 2013 and is an
-  attempt to cover the author's living costs for the two weeks he's
-  currently dedicating to nothing else than working on the game.
-  
-  Donate a couple of bucks and get perks!
-  
-  
+  Cat5 website: http://cat5.wasted.ch
+
+
 Known Issues
 
   - This version is not very optimized in terms of speed, but the 
