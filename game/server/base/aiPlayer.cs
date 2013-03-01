@@ -29,7 +29,7 @@ function aiAdd(%teamid, %class)
 {
 	if( !isObject($aiPlayers) )
 	{
-		$aiPlayers = new Array();
+		$aiPlayers = new SimSet();
 		MissionCleanup.add($aiPlayers);
 	}
 	
@@ -43,10 +43,7 @@ function aiAdd(%teamid, %class)
 	}
 	
 
-	%nameadd = "_" @ $aiPlayers.count();
-	if(isObject($aiPlayers)) {
-		%nameadd = "_" @ $aiPlayers.count();
-	}
+	%nameadd = $aiPlayers.count();
 
 	%spawnSphere = pickSpawnSphere(%teamid);
 	
@@ -90,8 +87,9 @@ function aiAdd(%teamid, %class)
 		%player.setTagged();
 
 	%pos = getRandomHorizontalPos(%spawnSphere.position,%spawnSphere.radius);
-	%player.setShapeName("wayne" @ %nameadd);
+	%player.setShapeName("Target" @ %nameadd);
 	%player.setTransform(%pos);
+   %player.zClass = %class;
 
 	%player.aiWeapon = %weaponNum;
    if(%weaponNum == 3 || %weaponNum == 4)
@@ -99,7 +97,7 @@ function aiAdd(%teamid, %class)
    else
    	%player.aiCharge = 100;
 
-	$aiPlayers.push_back("",%player);
+	$aiPlayers.add(%player);
 	$aiPlayersPseudoClient.weapons[0] = %weaponNum;
 	$aiPlayersPseudoClient.numWeapons = 1;
 
@@ -112,37 +110,25 @@ function aiAdd(%teamid, %class)
 // called by user
 //-----
 
-function aiAddRed(%weaponNum)
-{
-	%player = aiAdd(1, %weaponNum);
-	return %player;
-}
-
-function aiAddBlue(%weaponNum)
-{
-	%player = aiAdd(2, %weaponNum);
-	return %player;
-}
-
 function aiStartMove() {
-	for( %i = 0; %i < $aiPlayers.count(); %i++ ) {
-		xxx_aiStartMove($aiPlayers.getValue(%i));
+	for( %i = 0; %i < $aiPlayers.getCount(); %i++ ) {
+		xxx_aiStartMove($aiPlayers.getObject(%i));
 	}
 }
 function aiStartFire() {
-	for( %i = 0; %i < $aiPlayers.count(); %i++ ) {
-		xxx_aiStartFire($aiPlayers.getValue(%i));
+	for( %i = 0; %i < $aiPlayers.getCount(); %i++ ) {
+		xxx_aiStartFire($aiPlayers.getObject(%i));
 	}
 }
 function aiStartFight() {
-	for( %i = 0; %i < $aiPlayers.count(); %i++ ) {
-		xxx_aiStartMove($aiPlayers.getValue(%i));
-		xxx_aiStartFire($aiPlayers.getValue(%i));
+	for( %i = 0; %i < $aiPlayers.getCount(); %i++ ) {
+		xxx_aiStartMove($aiPlayers.getObject(%i));
+		xxx_aiStartFire($aiPlayers.getObject(%i));
 	}
 }
 function aiKill() {
-	for( %i = 0; %i < $aiPlayers.count(); %i++ ) {
-		%player = $aiPlayers.getValue(%i);
+	for( %i = 0; %i < $aiPlayers.getCount(); %i++ ) {
+		%player = $aiPlayers.getObject(%i);
 		%player.kill();
 	}
 	$aiPlayers.empty();
@@ -151,15 +137,6 @@ function aiKill() {
 function aiWayneStopFire()
 {
 
-}
-
-function aiTransformInto(%what)
-{
-	for( %i = 0; %i < $aiPlayers.count(); %i++ )
-	{
-		%player = $aiPlayers.getValue(%i);
-		Team2Scout::transformInto(0,%player,%what);
-	}
 }
 
 
@@ -220,7 +197,7 @@ function xxx_aiUpdateTarget(%player)
 	%position = %player.getPosition();
 	%radius = 500;
 
-	InitContainerRadiusSearch(%position, %radius, $TypeMasks::ShapeBaseObjectType);
+	InitContainerRadiusSearch(%position, %radius, $TypeMasks::PlayerObjectType);
 	while ((%targetObject = containerSearchNext()) != 0)
 	{
 		if( %targetObject.teamId > 0
@@ -238,10 +215,50 @@ function xxx_aiUpdateTarget(%player)
 	%player.targetUpdateThread = schedule(2500,%player,xxx_aiUpdateTarget,%player);
 }
 
+function xxx_aiFindMoveDestination(%player)
+{
+   %pos = %player.getPosition();
+   %dist = 500;
+   %dest = "";
+	InitContainerRadiusSearch(%pos, %dist, $TypeMasks::TacticalZoneObjectType);
+	while((%srchObj = containerSearchNext()) != 0)
+   {
+      if(%srchObj.aiIgnore) continue;
+      if(%srchObj.getTeamId() == %player.getTeamId()) continue;
+
+      %d = VectorLen(VectorSub(%srchObj.getPosition(), %pos));
+      if(%d < %dist)
+      {
+         %dest = %srchObj;
+         %dist = %d;
+         //error(%dist);
+      }
+   }
+   //error(%pos SPC "->" SPC %dest.getPosition());
+   %player.zMoveDestination = %dest;
+}
+
 function xxx_aiUpdateMove(%player)
 {
+//	%player.moveThread = schedule((getRandom(1)+1)*1000,%player,xxx_aiUpdateMove,%player);
+	%player.moveThread = schedule(500,%player,xxx_aiUpdateMove,%player);
+
+   %findNewMoveDestination = false;
+   if(!isObject(%player.zMoveDestination))
+      %findNewMoveDestination = true;
+   else if(%player.zMoveDestination.getTeamId() == %player.getTeamId())
+      %findNewMoveDestination = true;
+
+   if(%findNewMoveDestination)
+   {
+      xxx_aiFindMoveDestination(%player);
+      if(!isObject(%player.zMoveDestination))
+         return;
+   }
+
    %currPos = %player.getPosition();
-   %targetPos = %player.getAimObject().getPosition();
+   %targetPos = %player.zMoveDestination.getPosition();
+   //%targetPos = %player.getAimObject().getPosition();
    //%targetPos = "-45 89 20";
    %targetVec = VectorNormalize(VectorSub(%targetPos, %currPos));
    %newPos = VectorAdd(%currPos, VectorScale(%targetVec, 10));
@@ -253,7 +270,7 @@ function xxx_aiUpdateMove(%player)
       %dest = getTerrainLevel(getRandomHorizontalPos(%newPos, 10));
       InitContainerRadiusSearch(%dest, 0.0001, $TypeMasks::TacticalZoneObjectType);
       %obj = containerSearchNext();
-      error(%obj SPC "->" SPC %obj.aiIgnore);
+      //error(%obj SPC "->" SPC %obj.aiIgnore);
 		if(%obj == 0 || %obj.aiIgnore) continue;
 
 	   %heightdiff = getTerrainHeight(getTerrainLevel(%pos)) - getTerrainHeight(%dest);
@@ -262,7 +279,5 @@ function xxx_aiUpdateMove(%player)
          break;
 	   }
    }
-//	%player.moveThread = schedule((getRandom(1)+1)*1000,%player,xxx_aiUpdateMove,%player);
-	%player.moveThread = schedule(500,%player,xxx_aiUpdateMove,%player);
 }
 
