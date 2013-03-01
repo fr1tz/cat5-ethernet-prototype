@@ -160,9 +160,6 @@ function PlayerData::onAdd(%this,%obj)
 // callback function: called by engine
 function PlayerData::onRemove(%this, %obj)
 {
-   if(%obj.getClassName() $= "AiPlayer")
-      sMissionCallback_onBotRemoved(%this, %obj);
-
 	Parent::onRemove(%this,%obj);
 
 	if(%obj.isCAT)
@@ -299,6 +296,9 @@ function PlayerData::damage(%this, %obj, %sourceObject, %pos, %damage, %damageTy
 	%totalDamage = %obj.getDamageLevel();
 	if(%totalDamage >= %this.maxDamage)
 	{
+      if(%obj.getClassName() $= "AiPlayer")
+         sMissionCallback_onBotDestroyed(%this, %obj);
+
       // Stop talking...
       %obj.stopAudio(0);
 
