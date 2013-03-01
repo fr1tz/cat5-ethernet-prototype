@@ -1,5 +1,5 @@
 exec("./common.cs");
-$MissionInfo::Name = "Test 1";
-$MissionInfo::Desc = "TODO";
+$MissionInfo::Name = "Testmap 1";
+$MissionInfo::Desc = "Simple unbalanced linear map";
 
 
