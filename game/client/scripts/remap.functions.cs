@@ -349,7 +349,7 @@ function mouseZoom(%val)
 	%step = %maxZoom/$Pref::Player::MouseZoomSteps;
 
 	if($MouseZoomValue == 0)
-		$MouseZoomValue = 0.2;
+		$MouseZoomValue = 0.5;
 
 	if(%val > 0)
 		$MouseZoomValue -= %step;
