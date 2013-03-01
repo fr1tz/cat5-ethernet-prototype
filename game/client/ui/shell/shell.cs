@@ -153,6 +153,14 @@ function Shell::onAdd(%this)
 
 function Shell::onWake(%this)
 {
+   if(!$cTorqueSplashDone)
+   {
+      ShellTS.visible = false;
+      ShellStack.visible = false;
+      ShellTorqueSplash.visible = true;
+      Shell.schedule(100, checkTorqueSplashScreenDone);
+   }
+
 	ShellVersionString.setText("version:" SPC $GameVersionString);
 	//windowSelected(RootMenuWindow);
    ShellMissionWindowContainer.add(MissionWindow);
@@ -184,6 +192,23 @@ function ShellRoot::onMouseDown(%this,%modifier,%coord,%clickCount)
 function ShellRoot::onMouseEnter(%this,%modifier,%coord,%clickCount)
 {
  //
+}
+
+function Shell::checkTorqueSplashScreenDone(%this)
+{
+   if(ShellTorqueSplash.done)
+   {
+      $cTorqueSplashDone = true;
+
+      ShellTS.visible = true;
+      ShellStack.visible = true;
+      ShellTorqueSplash.visible = false;
+
+      if(!$Pref::Audio::ChannelMuted[$SimAudioType])
+         alxSetChannelVolume($SimAudioType, $pref::Audio::ChannelVolume[$SimAudioType]);
+   }
+   else
+      %this.schedule(100, checkTorqueSplashScreenDone);
 }
 
 function windowChangeProfile(%ctrl, %profile)

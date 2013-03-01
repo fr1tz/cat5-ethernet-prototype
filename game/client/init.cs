@@ -66,7 +66,7 @@ function initClient()
  
 	// Our GUI profiles need to be created before initCanvas is called
 	// and creates default profiles for essential ones that don't exist.
-	exec("./ui/shell/profiles.cs");
+   exec("./ui/shell/profiles.cs");
 	exec("./ui/hud/profiles.cs");
 
 	// InitCanvas starts up the graphics system.
@@ -108,22 +108,23 @@ function initClient()
 	setDefaultFov( $Pref::Player::DefaultFov );
 	setZoomSpeed( $Pref::Player::ZoomSpeed );
 
-    // Set default cursor.
-    Canvas.setCursor(DefaultCursor);
- 
-    if($JoinGameAddress !$= "")
-    {
-        // If we are instantly connecting to an address, go directly
-        // to the shell and attempt the connect.
-        Canvas.setContent(Shell);
-        connect($JoinGameAddress, "", $Pref::Player::Name);
-    }
-    else
-    {
-        // Otherwise go to the splash screen.
-        // showTorqueSplashScreen(Shell);
-        clientLoadMenu();
-    }
+   // Set default cursor.
+   Canvas.setCursor(DefaultCursor);
+
+   // Select splash screen bitmap according to resolution aspect ratio.
+   %res = getRes();
+   if(getWord(%res,0) / getWord(%res, 1) > 1.5)
+      ShellTorqueSplash.setBitmap("common/ui/torquesplash_16x9");
+   else
+      ShellTorqueSplash.setBitmap("common/ui/torquesplash_4x3");
+
+   // Mute "sim" channel until the splash screen is done.
+   alxSetChannelVolume($SimAudioType, 0);
+
+   if($JoinGameAddress !$= "")
+      connect($JoinGameAddress, "", $Pref::Player::Name);
+   else
+      clientLoadMenu();
 }
 
 //-----------------------------------------------------------------------------

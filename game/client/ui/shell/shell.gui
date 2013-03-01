@@ -330,6 +330,21 @@ new GuiBitmapCtrl(Shell) {
          };
       };
    };
+   new GuiFadeinBitmapCtrl(ShellTorqueSplash) {
+      profile = "GuiDefaultProfile";
+      horizSizing = "width";
+      vertSizing = "height";
+      position = "0 0";
+      extent = "640 480";
+      minExtent = "8 8";
+      visible = "1";
+      helpTag = "0";
+      bitmap = "";
+      wrap = "0";
+      fadeinTime = "0";
+      waitTime   = "4000";
+      fadeoutTime = "1000";
+   };      
    new GuiRulerHud() {
       canSaveDynamicFields = "0";
       Profile = "HudDefaultProfile";
