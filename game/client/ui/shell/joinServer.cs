@@ -288,7 +288,7 @@ function XSLconn::onLine(%this, %line)
 
 function XSLconn::onConnected(%this)
 {
-	XSLconn.send("rotc/serverlist+/v1/list\n");
+	XSLconn.send("cat5/serverlist+/v1/list\n");
 }
 
 function XSLconn::onConnectFailed(%this)

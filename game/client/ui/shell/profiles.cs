@@ -198,7 +198,7 @@ new GuiControlProfile(GuiControlListPopupProfile : GuiDefaultProfile)
 
 new GuiControlProfile(GuiTextArrayProfile : GuiTextProfile)
 {
-	dummyField = true;
+	fontSize = 12;
 };
 
 new GuiControlProfile(GuiTextListProfile : GuiTextProfile) ;
