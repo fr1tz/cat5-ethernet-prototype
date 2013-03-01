@@ -200,7 +200,7 @@ function GameConnection::changeInventory(%this, %nr)
       {
 			%this.inventoryMode = "select";
 			%this.inventoryMode[1] = 1;
-        	%this.play2D(BipMessageSound);
+        	%this.play2D(BipMessageSoundOne);
          %this.displayInventory(0);
       }
 	}
@@ -216,7 +216,7 @@ function GameConnection::changeInventory(%this, %nr)
 
 		%this.inventoryMode = "show";
 		%this.displayInventory(0);
-     	%this.play2D(BipMessageSound);
+     	%this.play2D(BipMessageSoundTwo);
 	}
 }
 

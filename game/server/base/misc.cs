@@ -34,9 +34,16 @@ function fxLightData::create(%data)
 	return %obj;
 }
 
-datablock AudioProfile(BipMessageSound)
+datablock AudioProfile(BipMessageSoundOne)
 {
-	filename = "share/sounds/cat5/silence.wav";
+	filename = "share/sounds/cat5/beep1a.wav";
+	description = AudioCritical2D;
+	preload = true;
+};
+
+datablock AudioProfile(BipMessageSoundTwo)
+{
+	filename = "share/sounds/cat5/beep1b.wav";
 	description = AudioCritical2D;
 	preload = true;
 };
