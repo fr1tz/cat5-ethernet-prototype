@@ -114,8 +114,8 @@ datablock ProjectileData(BounceGunProjectile)
 	gravityMod  = 5.0 * $Server::Game.slowpokemod;
 
 	armingDelay			= 0;
-	lifetime				= 1000*5;
-	fadeDelay			  = 5000;
+	lifetime				= 3000;
+	fadeDelay			= 2500;
 	
 	numBounces = 2;
 	
