@@ -412,16 +412,9 @@ function TerritoryZone::setZoneOwner(%this, %zone, %teamId)
 	
 		%sound = 0;
 
-		if(%client.team == $Team0)
+		if(%client.team != $Team0)
 		{
-			if(%teamId == 1)
-				%sound = OwnZonesIncreasedSound;
-			else if(%teamId == 2)
-				%sound = EnemyZonesIncreasedSound;
-		}
-		else
-		{
-         if(%teamId == 0 && %oldTeamId != 0)
+         if(%teamId == 0 && %oldTeamId == %client.team.teamId)
 				%sound = ZoneAttackedSound;
 			else if(%client.team.teamId == %teamId)
 				%sound = OwnZonesIncreasedSound;
