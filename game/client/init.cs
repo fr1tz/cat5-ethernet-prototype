@@ -118,8 +118,8 @@ function initClient()
    else
       ShellTorqueSplash.setBitmap("common/ui/torquesplash_4x3");
 
-   // Mute "sim" channel until the splash screen is done.
-   alxSetChannelVolume($SimAudioType, 0);
+   // Mute sound until the splash screen is done.
+   alxListenerf(AL_GAIN_LINEAR, 0);
 
    if($JoinGameAddress !$= "")
       connect($JoinGameAddress, "", $Pref::Player::Name);

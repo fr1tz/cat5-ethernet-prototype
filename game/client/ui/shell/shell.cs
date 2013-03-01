@@ -212,8 +212,8 @@ function Shell::checkTorqueSplashScreenDone(%this)
       ShellStack.visible = true;
       ShellTorqueSplash.visible = false;
 
-      if(!$Pref::Audio::ChannelMuted[$SimAudioType])
-         alxSetChannelVolume($SimAudioType, $pref::Audio::ChannelVolume[$SimAudioType]);
+      if(!$Pref::Audio::MasterMuted)
+    	   alxListenerf(AL_GAIN_LINEAR, $Pref::Audio::MasterVolume );
    }
    else
       %this.schedule(100, checkTorqueSplashScreenDone);
