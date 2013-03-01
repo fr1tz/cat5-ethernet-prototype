@@ -708,7 +708,7 @@ function ShapeBaseData::updateShapeName(%this, %obj)
 		%handicap = %client.handicap;
 		if(%handicap == 1)
 			%handicap = "1.0";
-		%name = getTaggedString(%client.name) @ "-" @ %handicap;
+		%name = getTaggedString(%client.name); // @ "-" @ %handicap;
 		%obj.setShapeName(%name);
 		%obj.getHudInfo().markAsControlled(%obj.client, 0);
 	}
