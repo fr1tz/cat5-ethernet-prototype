@@ -28,17 +28,25 @@ new GuiControl(MissionWindowForEditing) {
       Visible = "1";
       hovertime = "1000";
 
-      new GuiControl(IngameWindow) {
+      new GuiWindowCtrl(IngameWindow) {
          canSaveDynamicFields = "0";
          Profile = "GuiWindowProfile";
          HorizSizing = "center";
          VertSizing = "center";
-         position = "10 47";
-         Extent = "460 423";
+         position = "4 5";
+         Extent = "470 470";
          MinExtent = "5 5";
          canSave = "1";
-         Visible = "0";
+         Visible = "1";
          hovertime = "1000";
+         maxLength = "1024";
+         resizeWidth = "0";
+         resizeHeight = "0";
+         canMove = "0";
+         canClose = "0";
+         canMinimize = "0";
+         canMaximize = "0";
+         minSize = "50 50";
 
          new GuiControl(MissionServerInput) {
             canSaveDynamicFields = "0";
@@ -46,7 +54,7 @@ new GuiControl(MissionWindowForEditing) {
             HorizSizing = "width";
             VertSizing = "height";
             position = "0 0";
-            Extent = "460 423";
+            Extent = "470 470";
             MinExtent = "8 2";
             canSave = "1";
             Visible = "0";
@@ -57,7 +65,7 @@ new GuiControl(MissionWindowForEditing) {
                Profile = "GuiDefaultProfile";
                HorizSizing = "center";
                VertSizing = "center";
-               position = "80 136";
+               position = "85 160";
                Extent = "300 150";
                MinExtent = "8 2";
                canSave = "1";
@@ -149,8 +157,8 @@ new GuiControl(MissionWindowForEditing) {
             Profile = "MissionWindowQuickbarScrollProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            position = "7 7";
-            Extent = "446 68";
+            position = "8 40";
+            Extent = "454 82";
             MinExtent = "8 2";
             canSave = "1";
             Visible = "1";
@@ -167,7 +175,7 @@ new GuiControl(MissionWindowForEditing) {
                HorizSizing = "width";
                VertSizing = "height";
                position = "0 0";
-               Extent = "449 14";
+               Extent = "457 14";
                MinExtent = "8 2";
                canSave = "1";
                Visible = "1";
@@ -182,7 +190,7 @@ new GuiControl(MissionWindowForEditing) {
                HorizSizing = "width";
                VertSizing = "height";
                position = "0 0";
-               Extent = "449 14";
+               Extent = "457 14";
                MinExtent = "8 2";
                canSave = "1";
                Visible = "1";
@@ -197,7 +205,7 @@ new GuiControl(MissionWindowForEditing) {
                HorizSizing = "width";
                VertSizing = "height";
                position = "2 2";
-               Extent = "449 14";
+               Extent = "457 14";
                MinExtent = "8 2";
                canSave = "1";
                Visible = "1";
@@ -212,7 +220,7 @@ new GuiControl(MissionWindowForEditing) {
                HorizSizing = "width";
                VertSizing = "height";
                position = "2 2";
-               Extent = "449 54";
+               Extent = "457 54";
                MinExtent = "8 2";
                canSave = "1";
                Visible = "1";
@@ -227,8 +235,8 @@ new GuiControl(MissionWindowForEditing) {
             Profile = "GuiScrollProfile";
             HorizSizing = "width";
             VertSizing = "top";
-            position = "9 232";
-            Extent = "460 172";
+            position = "9 279";
+            Extent = "470 172";
             MinExtent = "8 8";
             canSave = "1";
             Visible = "0";
@@ -245,7 +253,7 @@ new GuiControl(MissionWindowForEditing) {
                HorizSizing = "width";
                VertSizing = "bottom";
                position = "3 3";
-               Extent = "438 16";
+               Extent = "448 16";
                MinExtent = "355 14";
                canSave = "1";
                Visible = "1";
@@ -262,8 +270,8 @@ new GuiControl(MissionWindowForEditing) {
             Profile = "MissionWindowMenuScrollProfile";
             HorizSizing = "width";
             VertSizing = "height";
-            position = "7 73";
-            Extent = "446 342";
+            position = "8 126";
+            Extent = "454 336";
             MinExtent = "8 2";
             canSave = "1";
             Visible = "1";
@@ -280,7 +288,7 @@ new GuiControl(MissionWindowForEditing) {
                HorizSizing = "width";
                VertSizing = "height";
                position = "5 5";
-               Extent = "418 14";
+               Extent = "426 14";
                MinExtent = "8 2";
                canSave = "1";
                Visible = "1";
@@ -295,7 +303,7 @@ new GuiControl(MissionWindowForEditing) {
                HorizSizing = "width";
                VertSizing = "height";
                position = "5 5";
-               Extent = "418 14";
+               Extent = "426 14";
                MinExtent = "8 2";
                canSave = "1";
                Visible = "1";
@@ -310,7 +318,7 @@ new GuiControl(MissionWindowForEditing) {
                HorizSizing = "width";
                VertSizing = "height";
                position = "5 5";
-               Extent = "418 56";
+               Extent = "426 56";
                MinExtent = "8 2";
                canSave = "1";
                Visible = "1";
@@ -325,7 +333,7 @@ new GuiControl(MissionWindowForEditing) {
                HorizSizing = "width";
                VertSizing = "height";
                position = "5 5";
-               Extent = "418 256";
+               Extent = "426 256";
                MinExtent = "8 2";
                canSave = "1";
                Visible = "1";
@@ -341,7 +349,7 @@ new GuiControl(MissionWindowForEditing) {
             HorizSizing = "width";
             VertSizing = "height";
             position = "14 0";
-            Extent = "455 377";
+            Extent = "465 424";
             MinExtent = "8 2";
             canSave = "1";
             Visible = "0";
@@ -367,11 +375,11 @@ new GuiControl(MissionWindowForEditing) {
             Profile = "GuiButtonProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            position = "4 4";
-            Extent = "90 25";
+            position = "-1 4";
+            Extent = "90 26";
             MinExtent = "8 8";
             canSave = "1";
-            Visible = "0";
+            Visible = "1";
             Command = "clientLoadMenu();";
             hovertime = "1000";
             text = "Disconnect";
@@ -383,11 +391,11 @@ new GuiControl(MissionWindowForEditing) {
             Profile = "GuiProgressProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            position = "95 7";
-            Extent = "270 20";
+            position = "92 7";
+            Extent = "274 20";
             MinExtent = "8 8";
             canSave = "1";
-            Visible = "0";
+            Visible = "1";
             hovertime = "1000";
             maxLength = "1024";
 
@@ -397,12 +405,12 @@ new GuiControl(MissionWindowForEditing) {
                HorizSizing = "width";
                VertSizing = "bottom";
                position = "0 1";
-               Extent = "270 20";
+               Extent = "274 20";
                MinExtent = "8 8";
                canSave = "1";
                Visible = "1";
                hovertime = "1000";
-               text = "Press (unbound) to play \x10\c7Cat5 Ethernet\c2 p.1-dev\x11";
+               text = "Press esc to play \x10\c7Cat5 Ethernet\c2 p.1-dev\x11";
                maxLength = "255";
             };
          };
@@ -411,11 +419,11 @@ new GuiControl(MissionWindowForEditing) {
             Profile = "GuiButtonProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            position = "366 4";
+            position = "369 4";
             Extent = "90 26";
             MinExtent = "8 8";
             canSave = "1";
-            Visible = "0";
+            Visible = "1";
             Command = "toggleShell();";
             hovertime = "1000";
             text = "Play!";

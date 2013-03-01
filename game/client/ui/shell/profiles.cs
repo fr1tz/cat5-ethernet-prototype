@@ -31,15 +31,15 @@ new GuiControlProfile(GuiDefaultProfile)
 
 	// fill color
 	opaque = false;
-	fillColor = "0 0 0 150";
-	fillColorHL = "50 50 50 150";
-	fillColorNA = "221 202 173 150";
+	fillColor = "0 0 0 220";
+	fillColorHL = "50 50 50 220";
+	fillColorNA = "221 202 173 220";
 
 	// border color
 	border = false;
-	borderColor	= "100 100 100 220";
-	borderColorHL = "100 100 100 220";
-	borderColorNA = "100 100 100 220";
+	borderColor	= "0 128 0 220";
+	borderColorHL = "0 128 0 220";
+	borderColorNA = "0 128 0 220";
 
 	// font
 	fontType = "Cat5";
@@ -297,9 +297,9 @@ new GuiControlProfile(GuiWindowProfile : GuiDefaultProfile)
 	canKeyFocus = true;
 	opaque = false;
 	border = 8;
-	fillColor = "0 0 0 150";
-	fillColorHL = "0 0 0 150";
-	fillColorNA = "0 0 0 150";
+	fillColor = "0 0 0 220";
+	fillColorHL = "0 0 0 220";
+	fillColorNA = "0 0 0 220";
 	fontColor = "0 210 255";
 	fontColorHL = "0 210 255";
 	text = "GuiWindowCtrl test";
@@ -347,7 +347,7 @@ new GuiControlProfile(GuiScrollProfile : GuiDefaultProfile)
 	opaque = false;
 	border = 3;
 	borderThickness = 3;
-	bitmap = "./pixmaps/simpleScrollTransparent";
+	bitmap = "./pixmaps/cat5scroll";
 	hasBitmapArray = true;
 	fillColor = "0 0 0 0";
 };
@@ -372,14 +372,14 @@ new GuiControlProfile(GuiCheckBoxProfile : GuiDefaultProfile)
 	border = false;
 	fixedExtent = true;
 	justify = "left";
-	bitmap = "./pixmaps/simpleCheckTransparent";
+	bitmap = "./pixmaps/cat5check";
 	hasBitmapArray = true;
 };
 
 new GuiControlProfile(GuiRadioProfile : GuiDefaultProfile)
 {
 	fixedExtent = true;
-	bitmap = "./pixmaps/simpleRadioTransparent";
+	bitmap = "./pixmaps/cat5radio";
 	hasBitmapArray = true;
 };
 
