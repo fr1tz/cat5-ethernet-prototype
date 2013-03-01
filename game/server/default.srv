@@ -24,8 +24,7 @@ $Pref::Server::Info = ""
 
 // Mutators
 $Pref::Server::Mutators = "" 
-	//@	" slowpoke " // uncomment to enable slowpoke mutator
-	//@	" superblaster " // uncomment to enable superblaster mutator
+	//@	" ff " // uncomment to enable ff (friendly fire) mutator
 	@ "";
 
 // The connection error message is transmitted to the client immediatly

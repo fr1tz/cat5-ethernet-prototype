@@ -75,54 +75,16 @@ function initMission()
 	$Server::Game.temptag   = 1;
 	$Server::Game.tagMode = $Server::Game.alwaystag;
 	$Server::Game.slowpokemod = 1.0;
+	$Server::Game.friendlyfire = false;
 	%recognized = "";
 	for(%i = 0; %i < getWordCount($Pref::Server::Mutators); %i++)
 	{
 		%mutator = getWord($Pref::Server::Mutators, %i);
-		if(%mutator $= "temptag")
+		if(%mutator $= "ff")
 		{
-		 %recognized = %mutator SPC %recognized;
-			$Server::Game.tagMode = $Server::Game.temptag;
+		   %recognized = %mutator SPC %recognized;
+			$Server::Game.friendlyfire = true;
 			$Server::Game.mutators = %mutator SPC $Server::Game.mutators;
-		}
-		else if(%mutator $= "nevertag")
-		{
-		%recognized = %mutator SPC %recognized;
-			$Server::Game.tagMode = $Server::Game.nevertag;
-			$Server::Game.mutators = %mutator SPC $Server::Game.mutators;
-		}
-		else if(%mutator $= "noshield")
-		{
-		%recognized = %mutator SPC %recognized;
-			$Server::Game.noshield = true;
-			$Server::Game.mutators = %mutator SPC $Server::Game.mutators;
-		}
-		else if(%mutator $= "lowhealth")
-		{
-		%recognized = %mutator SPC %recognized;
-			$Server::Game.lowhealth = true;
-			$Server::Game.mutators = %mutator SPC $Server::Game.mutators;
-		}
-		else if(%mutator $= "slowpoke")
-		{
-		%recognized = %mutator SPC %recognized;
-			$Server::Game.slowpoke = true;
-			$Server::Game.slowpokemod = 0.5;
-			$Server::Game.mutators = %mutator SPC $Server::Game.mutators;
-		}
-		else if(%mutator $= "superblaster")
-		{
-		%recognized = %mutator SPC %recognized;
-			$Server::Game.superblaster = true;
-			$Server::Game.mutators = %mutator SPC $Server::Game.mutators;
-		}
-		else if(%mutator $= "QUICKDEATH")
-		{
-		%recognized = %mutator SPC %recognized;
-			$Server::Game.noshield = true;
-			$Server::Game.lowhealth = true;
-			$Server::Game.mutators = $Server::Game.mutators SPC
-				"noshield" SPC "lowhealth";
 		}
 	}
 	%recognized = trim(%recognized);

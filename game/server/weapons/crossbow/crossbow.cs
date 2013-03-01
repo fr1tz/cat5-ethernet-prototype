@@ -89,7 +89,7 @@ datablock ProjectileData(CrossbowProjectile)
 //	bounceExplosion       = WhiteCrossbowProjectileBounceExplosion;
 	hitEnemyExplosion     = WhiteCrossbowProjectileHit;
 //	nearEnemyExplosion    = WhiteCrossbowProjectileExplosion;
-	hitTeammateExplosion  = WhiteCrossbowProjectileHit;
+	hitTeammateExplosion  = WhiteCrossbowProjectileImpact;
 //	hitDeflectorExplosion = DiscDeflectedEffect;
 
 	missEnemyEffectRadius = 10;
@@ -127,8 +127,15 @@ datablock ProjectileData(CrossbowProjectile)
 	lightColor  = "0.4 0.4 0.4";
 };
 
+if($Server::Game.friendlyfire)
+   CrossbowProjectile.hitTeammateExplosion = WhiteCrossbowProjectileHit;
+
 function CrossbowProjectile::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist)
 {
+   if($Server::Game.friendlyfire == false)
+      if(%obj.getTeamId() == %col.getTeamId())
+         return;
+
    Parent::onCollision(%this,%obj,%col,%fade,%pos,%normal,%dist);
 
 	if( !(%col.getType() & $TypeMasks::ShapeBaseObjectType) )

@@ -358,6 +358,12 @@ function ShapeBaseData::getBleed(%this, %obj, %dmg)
 // called by ShapeBase::damage()
 function ShapeBaseData::damage(%this, %obj, %sourceObject, %pos, %damage, %damageType)
 {
+   if($Server::Game.friendlyfire == false)
+   {
+      if(%obj.getTeamId() == %sourceObject.getTeamId())
+         return;
+   }
+
 	%dstat = 0;
     if(%obj.client)
 	{
