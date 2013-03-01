@@ -18,13 +18,10 @@ $Pref::AIMS::Server[0] = "spica.dyndns.info";
 
 // Default server prefs when starting a server via the GUI
 $Pref::Server::RegionMask = 2;
-$Pref::Server::Name = "Lazy Hoster's Funhouse";
+$Pref::Server::Name = "Cat5 Server";
 $Pref::Server::Info =
 	"<just:center>" @
-	"\n[ Default Arena description ]\n" @
-	"<spush><font:Arial:16><color:AA0000>" @
-	"Daily meetup time: 8pm CET<spop>\n" @
-	"Scheduled matches: None";
+	"\nNothing special about this server.\n";
 $Pref::Server::ConnectionError =
 	"You do not have the correct version of Cat5 or "@
 	"the related art needed to connect to this server.";
