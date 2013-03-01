@@ -13,13 +13,10 @@ $Server::MissionFile = "game/arenas/cat5-ethernet/test1.mis";
 
 // Information about the server
 $Pref::Server::RegionMask = 2;
-$Pref::Server::Name = "Lazy Hoster's Funhouse";
+$Pref::Server::Name = "Cat5 Server";
 $Pref::Server::Info = "" 
 	@	"<just:center>" 
-	@	"\n[ Default Arena description ]\n" 
-	@	"<spush><font:NovaSquare:16><color:AA0000>" 
-	@	"Daily meetup time: 8pm CET<spop>\n" 
-	@	"Scheduled matches: None" 
+	@	"\nNothing special about this server.\n" 
 	@ "";
 
 // Mutators
