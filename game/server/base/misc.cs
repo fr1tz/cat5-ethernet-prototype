@@ -58,14 +58,14 @@ datablock AudioProfile(ChatMessageSound)
 datablock AudioProfile(VictorySound)
 {
 	filename = "share/sounds/cat5/ditty1up.ogg";
-	description = Audio2D;
+	description = AudioCritical2D;
 	preload = true;
 };
 
 datablock AudioProfile(DefeatSound)
 {
 	filename = "share/sounds/cat5/ditty1down.ogg";
-	description = Audio2D;
+	description = AudioCritical2D;
 	preload = true;
 };
 
