@@ -369,7 +369,7 @@ function GameConnection::joinTeam(%this, %teamId)
 		%this.setNewbieHelp("You are in observer mode. Click on 'Switch Team' at the top" SPC
 			"of the arena window to join a team. Press @bind01 if the arena window is not visible.");		
    
-      %this.setLoadingBarText("Use the 'Switch Team' menu to join red or blue!");
+      %this.setLoadingBarText("Use the 'Switch Team' menu to join a team!");
 	}
 	else
    {
@@ -384,7 +384,7 @@ function GameConnection::joinTeam(%this, %teamId)
    		$Team2.numPlayers++;
    	}
     
-      %this.setLoadingBarText("Press @bind01 to play" SPC  $Server::MissionType);
+      %this.setLoadingBarText("Press esc to play" SPC  $Server::MissionType);
    }
 
 	// full and simple control cleanup...
