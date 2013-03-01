@@ -1,7 +1,0 @@
-exec("./common.cs");
-$MissionInfo::Name = "/env/malloc";
-$MissionInfo::Desc       = "Minimalist arena for testing / template for new arenas." SPC
-                           "See https://github.com/fr1tz/cat5-game/wiki/Mapping";
-
-
-
