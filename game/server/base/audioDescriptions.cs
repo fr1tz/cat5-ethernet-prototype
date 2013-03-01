@@ -167,7 +167,7 @@ datablock AudioDescription(AudioLooping2D)
 // Critical game events use a the GUI audio channel
 datablock AudioDescription(AudioCritical2D)
 {
-	volume = 0.5;
+	volume = 1.0;
 	isLooping = false;
 	is3D = false;
 	type = $GuiAudioType;
