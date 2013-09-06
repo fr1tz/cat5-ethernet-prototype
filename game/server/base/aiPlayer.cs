@@ -64,7 +64,7 @@ function aiAdd(%teamid, %class)
 	else
 	{
       if(%class == 1)
-	      %playerData = FrmPumpgunner;
+	      %playerData = FrmGrunt;
       else if(%class == 2)
 	      %playerData = FrmShotgunner;
       else if(%class == 3)

@@ -644,7 +644,7 @@ function GameConnection::togglePlayerForm(%this, %forced)
 			{
             if(%this.class == 1)
             {
-				   %data = FrmPumpgunner;
+				   %data = FrmGrunt;
                %aimmode = 1;
             }
             else if(%this.class == 2)

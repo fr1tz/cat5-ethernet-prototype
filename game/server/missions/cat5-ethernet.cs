@@ -34,12 +34,14 @@ function executeGameScripts()
 	exec("game/server/etherforms/exec.cs");
 	exec("game/server/forms/standardcat/exec.cs");
 	exec("game/server/forms/pumpgunner/exec.cs");
+	exec("game/server/forms/grunt/exec.cs");
 	exec("game/server/forms/shotgunner/exec.cs");
 	exec("game/server/forms/minigunner/exec.cs");
 	exec("game/server/forms/specialist/exec.cs");
 	exec("game/server/forms/hunter/exec.cs");
 	exec("game/server/weapons/weapons.cs");
 	exec("game/server/weapons/pumpgun/exec.cs");
+	exec("game/server/weapons/assaultrifle/exec.cs");
 	exec("game/server/weapons/shotgun/exec.cs");
 	exec("game/server/weapons/minigun/exec.cs");
 	exec("game/server/weapons/bouncegun/exec.cs");
