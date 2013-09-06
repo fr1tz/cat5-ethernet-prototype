@@ -465,7 +465,8 @@ function GameConnection::spawnPlayer(%this)
    MissionCleanup.add(%obj);
 
 	// player setup...
-	%obj.setTransform(setWord(%spawnSphere.getTransform(), 2, "20.02"));
+   %height = MissionArea.playfieldHeight + "0.02";
+	%obj.setTransform(setWord(%spawnSphere.getTransform(), 2, %height));
 	%obj.setCurrTagged(0);
 	%obj.setCurrTaggedPos("0 0 0");
 
@@ -690,7 +691,8 @@ function GameConnection::togglePlayerForm(%this, %forced)
 	%vel = %this.player.getVelocity();
 
 	//%obj.setTransform(getWord(%pos,0) SPC getWord(%pos,1) SPC "21 0 0 1 0");
-   %obj.setTransform(setWord(%mat, 2, "20.02"));
+   %height = MissionArea.playfieldHeight + "0.02";
+   %obj.setTransform(setWord(%mat, 2, %height));
 	%obj.setDamageLevel(%dmg);
 	%obj.setShieldLevel(%buf);
 	
