@@ -9,40 +9,32 @@ new GuiControl(OptionsWindowForEditing) {
    Profile = "GuiDefaultProfile";
    HorizSizing = "right";
    VertSizing = "bottom";
-   Position = "0 0";
+   position = "0 0";
    Extent = "640 480";
    MinExtent = "8 8";
    canSave = "1";
    Visible = "1";
    hovertime = "1000";
 
-   new GuiWindowCtrl(OptionsWindow) {
+   new GuiControl(OptionsWindow) {
       canSaveDynamicFields = "0";
       Profile = "GuiWindowProfile";
       HorizSizing = "center";
       VertSizing = "center";
-      Position = "0 0";
-      Extent = "640 480";
-      MinExtent = "640 480";
+      position = "0 0";
+      Extent = "640 456";
+      MinExtent = "640 456";
       canSave = "1";
       Visible = "1";
       hovertime = "1000";
-      maxLength = "255";
-      resizeWidth = "0";
-      resizeHeight = "0";
-      canMove = "0";
-      canClose = "0";
-      canMinimize = "0";
-      canMaximize = "0";
-      minSize = "50 50";
 
       new GuiTextCtrl() {
          canSaveDynamicFields = "0";
-         Profile = "GuiBigTextProfile";
+         Profile = "GuiMediumTextProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "10 10";
-         Extent = "120 40";
+         position = "10 10";
+         Extent = "81 28";
          MinExtent = "8 2";
          canSave = "1";
          Visible = "1";
@@ -55,11 +47,11 @@ new GuiControl(OptionsWindowForEditing) {
          Profile = "GuiButtonProfile";
          HorizSizing = "left";
          VertSizing = "bottom";
-         Position = "592 7";
+         position = "592 7";
          Extent = "40 40";
          MinExtent = "8 2";
          canSave = "1";
-         Visible = "1";
+         Visible = "0";
          Command = "removeWindow(OptionsWindow);";
          hovertime = "1000";
          text = "X";
@@ -71,55 +63,7 @@ new GuiControl(OptionsWindowForEditing) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "63 50";
-         Extent = "117 30";
-         MinExtent = "8 8";
-         canSave = "1";
-         Visible = "1";
-         Command = "OptionsWindow.showWindow(OptPlayerWindow);";
-         hovertime = "1000";
-         text = "Player";
-         groupNum = "-1";
-         buttonType = "PushButton";
-      };
-      new GuiButtonCtrl() {
-         canSaveDynamicFields = "0";
-         Profile = "GuiButtonProfile";
-         HorizSizing = "right";
-         VertSizing = "bottom";
-         Position = "316 50";
-         Extent = "117 30";
-         MinExtent = "8 8";
-         canSave = "1";
-         Visible = "1";
-         Command = "OptionsWindow.showWindow(OptGraphicsWindow);";
-         hovertime = "1000";
-         text = "Graphics";
-         groupNum = "-1";
-         buttonType = "PushButton";
-      };
-      new GuiButtonCtrl() {
-         canSaveDynamicFields = "0";
-         Profile = "GuiButtonProfile";
-         HorizSizing = "right";
-         VertSizing = "bottom";
-         Position = "443 50";
-         Extent = "117 30";
-         MinExtent = "8 8";
-         canSave = "1";
-         Visible = "1";
-         Command = "OptionsWindow.showWindow(OptAudioWindow);";
-         hovertime = "1000";
-         text = "Audio";
-         groupNum = "-1";
-         buttonType = "PushButton";
-      };
-      new GuiButtonCtrl() {
-         canSaveDynamicFields = "0";
-         Profile = "GuiButtonProfile";
-         HorizSizing = "right";
-         VertSizing = "bottom";
-         Position = "515 48";
+         position = "515 48";
          Extent = "117 30";
          MinExtent = "8 8";
          canSave = "1";
@@ -130,32 +74,16 @@ new GuiControl(OptionsWindowForEditing) {
          groupNum = "-1";
          buttonType = "PushButton";
       };
-      new GuiButtonCtrl() {
-         canSaveDynamicFields = "0";
-         Profile = "GuiButtonProfile";
-         HorizSizing = "right";
-         VertSizing = "bottom";
-         Position = "189 50";
-         Extent = "117 30";
-         MinExtent = "8 8";
-         canSave = "1";
-         Visible = "1";
-         Command = "OptionsWindow.showWindow(OptControlsWindow);";
-         hovertime = "1000";
-         text = "Controls";
-         groupNum = "-1";
-         buttonType = "PushButton";
-      };
       new GuiControl(OptPlayerWindow) {
          canSaveDynamicFields = "0";
          Profile = "GuiWindowProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "160 180";
+         position = "160 180";
          Extent = "301 147";
          MinExtent = "8 8";
          canSave = "1";
-         Visible = "1";
+         Visible = "0";
          hovertime = "1000";
 
          new GuiTextCtrl() {
@@ -163,41 +91,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "8 28";
-            Extent = "80 18";
-            MinExtent = "8 2";
-            canSave = "1";
-            Visible = "1";
-            hovertime = "1000";
-            text = "Pseudonym:";
-            maxLength = "255";
-         };
-         new GuiTextEditCtrl(txtPlayerName) {
-            canSaveDynamicFields = "0";
-            Profile = "GuiTextEditProfile";
-            HorizSizing = "right";
-            VertSizing = "bottom";
-            Position = "104 29";
-            Extent = "187 18";
-            MinExtent = "8 2";
-            canSave = "1";
-            Visible = "1";
-            Variable = "$pref::Player::Name";
-            hovertime = "1000";
-            maxLength = "30";
-            historySize = "0";
-            password = "0";
-            tabComplete = "0";
-            sinkAllKeyEvents = "0";
-            password = "0";
-            passwordMask = "*";
-         };
-         new GuiTextCtrl() {
-            canSaveDynamicFields = "0";
-            Profile = "GuiTextProfile";
-            HorizSizing = "right";
-            VertSizing = "bottom";
-            Position = "8 58";
+            position = "8 8";
             Extent = "91 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -211,7 +105,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "105 58";
+            position = "105 8";
             Extent = "187 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -228,7 +122,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "105 78";
+            position = "105 28";
             Extent = "187 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -245,7 +139,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "105 98";
+            position = "105 48";
             Extent = "187 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -262,7 +156,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "105 118";
+            position = "105 68";
             Extent = "187 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -280,8 +174,8 @@ new GuiControl(OptionsWindowForEditing) {
          Profile = "GuiWindowProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "0 80";
-         Extent = "640 400";
+         position = "0 80";
+         Extent = "640 377";
          MinExtent = "8 8";
          canSave = "1";
          Visible = "0";
@@ -292,8 +186,8 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiScrollProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "12 20";
-            Extent = "617 347";
+            position = "12 20";
+            Extent = "617 329";
             MinExtent = "8 8";
             canSave = "1";
             Visible = "1";
@@ -309,7 +203,7 @@ new GuiControl(OptionsWindowForEditing) {
                Profile = "GuiTextListProfile";
                HorizSizing = "right";
                VertSizing = "bottom";
-               Position = "3 3";
+               position = "3 3";
                Extent = "595 8";
                MinExtent = "8 8";
                canSave = "1";
@@ -328,7 +222,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "15 2";
+            position = "15 2";
             Extent = "39 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -342,7 +236,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "316 2";
+            position = "316 2";
             Extent = "44 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -356,7 +250,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "16 373";
+            position = "16 353";
             Extent = "109 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -370,7 +264,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiPopUpMenuProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "93 34";
+            position = "93 34";
             Extent = "147 15";
             MinExtent = "8 2";
             canSave = "1";
@@ -385,7 +279,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiSliderProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "131 375";
+            position = "131 355";
             Extent = "213 16";
             MinExtent = "8 2";
             canSave = "1";
@@ -401,7 +295,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "351 373";
+            position = "351 353";
             Extent = "27 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -422,7 +316,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "377 373";
+            position = "387 353";
             Extent = "102 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -440,7 +334,7 @@ new GuiControl(OptionsWindowForEditing) {
          Profile = "GuiWindowProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "138 86";
+         position = "138 86";
          Extent = "365 374";
          MinExtent = "8 8";
          canSave = "1";
@@ -452,7 +346,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "21 30";
+            position = "21 30";
             Extent = "92 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -466,7 +360,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "21 56";
+            position = "21 56";
             Extent = "66 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -480,7 +374,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "top";
-            Position = "21 311";
+            position = "21 311";
             Extent = "137 25";
             MinExtent = "8 8";
             canSave = "1";
@@ -497,7 +391,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiButtonProfile";
             HorizSizing = "right";
             VertSizing = "top";
-            Position = "145 342";
+            position = "145 342";
             Extent = "78 23";
             MinExtent = "8 8";
             canSave = "1";
@@ -513,7 +407,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiPopUpMenuProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "203 30";
+            position = "203 30";
             Extent = "130 23";
             MinExtent = "8 8";
             canSave = "1";
@@ -528,7 +422,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiPopUpMenuProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "203 56";
+            position = "203 56";
             Extent = "130 23";
             MinExtent = "8 8";
             canSave = "1";
@@ -543,7 +437,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "21 82";
+            position = "21 82";
             Extent = "63 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -557,7 +451,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiPopUpMenuProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "203 82";
+            position = "203 82";
             Extent = "130 23";
             MinExtent = "8 8";
             canSave = "1";
@@ -572,7 +466,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "21 108";
+            position = "21 108";
             Extent = "96 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -586,7 +480,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiPopUpMenuProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "203 108";
+            position = "203 108";
             Extent = "130 23";
             MinExtent = "8 8";
             canSave = "1";
@@ -601,7 +495,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "21 134";
+            position = "21 134";
             Extent = "58 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -615,7 +509,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiPopUpMenuProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "203 134";
+            position = "203 134";
             Extent = "130 23";
             MinExtent = "8 8";
             canSave = "1";
@@ -629,7 +523,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "61 170";
+            position = "61 170";
             Extent = "80 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -643,7 +537,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiSliderProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "153 191";
+            position = "153 191";
             Extent = "85 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -659,7 +553,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "95 190";
+            position = "95 190";
             Extent = "46 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -673,7 +567,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "243 190";
+            position = "243 190";
             Extent = "40 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -693,7 +587,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "95 210";
+            position = "95 210";
             Extent = "33 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -707,7 +601,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiSliderProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "153 211";
+            position = "153 211";
             Extent = "85 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -723,7 +617,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "243 210";
+            position = "243 210";
             Extent = "40 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -743,7 +637,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "95 230";
+            position = "95 230";
             Extent = "50 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -757,7 +651,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiSliderProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "153 231";
+            position = "153 231";
             Extent = "85 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -773,7 +667,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "243 230";
+            position = "243 230";
             Extent = "40 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -793,7 +687,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "95 250";
+            position = "95 250";
             Extent = "35 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -807,7 +701,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiSliderProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "153 251";
+            position = "153 251";
             Extent = "85 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -823,7 +717,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "243 250";
+            position = "243 250";
             Extent = "40 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -843,7 +737,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "top";
-            Position = "21 286";
+            position = "21 286";
             Extent = "215 25";
             MinExtent = "8 8";
             canSave = "1";
@@ -861,7 +755,7 @@ new GuiControl(OptionsWindowForEditing) {
          Profile = "GuiWindowProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "140 123";
+         position = "140 123";
          Extent = "361 291";
          MinExtent = "8 8";
          canSave = "1";
@@ -873,7 +767,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiSliderProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "107 232";
+            position = "107 232";
             Extent = "189 34";
             MinExtent = "8 8";
             canSave = "1";
@@ -883,14 +777,14 @@ new GuiControl(OptionsWindowForEditing) {
             hovertime = "1000";
             range = "0 1";
             ticks = "8";
-            value = "0.480447";
+            value = "0.513967";
          };
          new GuiSliderCtrl(OptAudioVolumeSim) {
             canSaveDynamicFields = "0";
             Profile = "GuiSliderProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "107 192";
+            position = "107 192";
             Extent = "189 34";
             MinExtent = "8 8";
             canSave = "1";
@@ -900,14 +794,14 @@ new GuiControl(OptionsWindowForEditing) {
             hovertime = "1000";
             range = "0 1";
             ticks = "8";
-            value = "0.49162";
+            value = "1";
          };
          new GuiTextCtrl() {
             canSaveDynamicFields = "0";
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "16 119";
+            position = "16 119";
             Extent = "92 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -921,7 +815,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "21 156";
+            position = "21 156";
             Extent = "78 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -935,7 +829,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "24 193";
+            position = "24 193";
             Extent = "71 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -949,7 +843,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiSliderProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "106 118";
+            position = "106 118";
             Extent = "189 34";
             MinExtent = "8 8";
             canSave = "1";
@@ -959,14 +853,14 @@ new GuiControl(OptionsWindowForEditing) {
             hovertime = "1000";
             range = "0 1";
             ticks = "8";
-            value = "0.502793";
+            value = "0.899441";
          };
          new GuiSliderCtrl(OptAudioVolumeShell) {
             canSaveDynamicFields = "0";
             Profile = "GuiSliderProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "106 155";
+            position = "106 155";
             Extent = "189 34";
             MinExtent = "8 8";
             canSave = "1";
@@ -976,14 +870,14 @@ new GuiControl(OptionsWindowForEditing) {
             hovertime = "1000";
             range = "0 1";
             ticks = "8";
-            value = "0.5";
+            value = "0.50838";
          };
          new GuiTextCtrl() {
             canSaveDynamicFields = "0";
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "23 29";
+            position = "23 29";
             Extent = "77 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -997,7 +891,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "86 254";
+            position = "86 254";
             Extent = "91 30";
             MinExtent = "8 2";
             canSave = "1";
@@ -1014,7 +908,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "192 260";
+            position = "192 260";
             Extent = "43 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1028,7 +922,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "242 260";
+            position = "242 260";
             Extent = "80 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1042,7 +936,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiScrollProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "107 29";
+            position = "107 29";
             Extent = "242 82";
             MinExtent = "8 2";
             canSave = "1";
@@ -1059,7 +953,7 @@ new GuiControl(OptionsWindowForEditing) {
                Profile = "GuiMLTextProfile";
                HorizSizing = "right";
                VertSizing = "bottom";
-               Position = "3 3";
+               position = "3 3";
                Extent = "190 14";
                MinExtent = "8 8";
                canSave = "1";
@@ -1075,7 +969,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "18 233";
+            position = "18 233";
             Extent = "84 18";
             MinExtent = "8 8";
             canSave = "1";
@@ -1089,7 +983,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "303 113";
+            position = "303 113";
             Extent = "46 30";
             MinExtent = "8 2";
             canSave = "1";
@@ -1107,7 +1001,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "303 150";
+            position = "303 150";
             Extent = "46 30";
             MinExtent = "8 2";
             canSave = "1";
@@ -1125,7 +1019,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "303 187";
+            position = "303 187";
             Extent = "46 30";
             MinExtent = "8 2";
             canSave = "1";
@@ -1143,7 +1037,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "303 227";
+            position = "303 227";
             Extent = "46 30";
             MinExtent = "8 2";
             canSave = "1";
@@ -1162,7 +1056,7 @@ new GuiControl(OptionsWindowForEditing) {
          Profile = "GuiWindowProfile";
          HorizSizing = "center";
          VertSizing = "center";
-         Position = "71 103";
+         position = "71 91";
          Extent = "497 273";
          MinExtent = "8 8";
          canSave = "1";
@@ -1174,7 +1068,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiButtonProfile";
             HorizSizing = "left";
             VertSizing = "bottom";
-            Position = "453 5";
+            position = "453 5";
             Extent = "39 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1190,7 +1084,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "17 42";
+            position = "17 42";
             Extent = "85 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1204,7 +1098,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "84 42";
+            position = "84 42";
             Extent = "146 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1224,7 +1118,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "84 62";
+            position = "84 62";
             Extent = "146 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1244,7 +1138,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "30 62";
+            position = "30 62";
             Extent = "73 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1258,7 +1152,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "84 82";
+            position = "84 82";
             Extent = "146 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1278,7 +1172,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "28 82";
+            position = "28 82";
             Extent = "79 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1292,7 +1186,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "374 62";
+            position = "374 62";
             Extent = "81 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1306,7 +1200,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "437 62";
+            position = "437 62";
             Extent = "41 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1326,7 +1220,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "400 81";
+            position = "400 81";
             Extent = "44 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1340,7 +1234,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "437 81";
+            position = "437 81";
             Extent = "41 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1360,7 +1254,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "389 101";
+            position = "389 101";
             Extent = "62 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1374,7 +1268,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "437 101";
+            position = "437 101";
             Extent = "41 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1394,7 +1288,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "366 121";
+            position = "366 121";
             Extent = "94 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1408,7 +1302,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "437 121";
+            position = "437 121";
             Extent = "41 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1428,7 +1322,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "19 103";
+            position = "19 103";
             Extent = "77 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1442,7 +1336,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "84 103";
+            position = "84 103";
             Extent = "146 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1462,7 +1356,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "32 143";
+            position = "32 143";
             Extent = "62 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1476,7 +1370,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "84 143";
+            position = "84 143";
             Extent = "252 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1496,7 +1390,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "24 123";
+            position = "24 123";
             Extent = "82 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1510,7 +1404,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "84 123";
+            position = "84 123";
             Extent = "146 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1530,7 +1424,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "32 163";
+            position = "32 163";
             Extent = "62 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1544,7 +1438,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "84 163";
+            position = "84 163";
             Extent = "252 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1564,7 +1458,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "295 202";
+            position = "295 202";
             Extent = "41 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1584,7 +1478,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "15 202";
+            position = "15 202";
             Extent = "371 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1598,7 +1492,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "295 223";
+            position = "295 223";
             Extent = "41 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1618,7 +1512,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "53 223";
+            position = "53 223";
             Extent = "321 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1632,7 +1526,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "295 183";
+            position = "295 183";
             Extent = "41 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1652,7 +1546,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "90 183";
+            position = "90 183";
             Extent = "262 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1666,7 +1560,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "relative";
             VertSizing = "relative";
-            Position = "367 42";
+            position = "367 42";
             Extent = "91 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1680,7 +1574,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "437 42";
+            position = "437 42";
             Extent = "41 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -1700,7 +1594,7 @@ new GuiControl(OptionsWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "376 135";
+            position = "376 135";
             Extent = "104 30";
             MinExtent = "8 2";
             canSave = "1";
@@ -1712,6 +1606,74 @@ new GuiControl(OptionsWindowForEditing) {
             buttonType = "ToggleButton";
             useInactiveState = "0";
          };
+      };
+      new GuiRadioCtrl() {
+         canSaveDynamicFields = "0";
+         Profile = "GuiRadioProfile";
+         HorizSizing = "right";
+         VertSizing = "bottom";
+         position = "63 40";
+         Extent = "117 30";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         Command = "OptionsWindow.showWindow(OptPlayerWindow);";
+         hovertime = "1000";
+         text = "HUD";
+         groupNum = "-1";
+         buttonType = "RadioButton";
+         useInactiveState = "0";
+      };
+      new GuiRadioCtrl() {
+         canSaveDynamicFields = "0";
+         Profile = "GuiRadioProfile";
+         HorizSizing = "right";
+         VertSizing = "bottom";
+         position = "189 40";
+         Extent = "117 30";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         Command = "OptionsWindow.showWindow(OptControlsWindow);";
+         hovertime = "1000";
+         text = "Controls";
+         groupNum = "-1";
+         buttonType = "RadioButton";
+         useInactiveState = "0";
+      };
+      new GuiRadioCtrl() {
+         canSaveDynamicFields = "0";
+         Profile = "GuiRadioProfile";
+         HorizSizing = "right";
+         VertSizing = "bottom";
+         position = "316 40";
+         Extent = "117 30";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         Command = "OptionsWindow.showWindow(OptGraphicsWindow);";
+         hovertime = "1000";
+         text = "Graphics";
+         groupNum = "-1";
+         buttonType = "RadioButton";
+         useInactiveState = "0";
+      };
+      new GuiRadioCtrl() {
+         canSaveDynamicFields = "0";
+         Profile = "GuiRadioProfile";
+         HorizSizing = "right";
+         VertSizing = "bottom";
+         position = "443 40";
+         Extent = "117 30";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         Command = "OptionsWindow.showWindow(OptAudioWindow);";
+         hovertime = "1000";
+         text = "Sound";
+         groupNum = "-1";
+         buttonType = "RadioButton";
+         useInactiveState = "0";
       };
    };
 };

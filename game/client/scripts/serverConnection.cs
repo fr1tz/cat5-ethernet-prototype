@@ -206,15 +206,9 @@ function disconnectedCleanup()
 	//removeWindow(RecordingControlsWindow);
 
    // Reset shell state
-   RecordingControlsWindow.visible = false;
-   IngameMenuDisconnect.visible = false;
-   IngameMenuReturn.visible = false;
-   IngameWindow.visible = false;
-   ShellWindows.visible = false;
-   ShellSidebar.visible = true;
-   ShellMissionWindowContainer.visible = true;
-   ShellStack.pushToBack(ShellMissionWindowContainer);
-   ShellStack.pushToBack(ShellSidebar);
+   PlayWindow.clear();
+   PlayWindow.add(AuthWindow);
+   addWindow(PlayWindow);
 
 	// Make sure we're displaying the shell
 	Canvas.setContent(Shell);

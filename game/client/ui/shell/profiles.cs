@@ -31,26 +31,26 @@ new GuiControlProfile(GuiDefaultProfile)
 
 	// fill color
 	opaque = false;
-	fillColor = "0 0 0 220";
+	fillColor = "0 0 0 0";
 	fillColorHL = "50 50 50 220";
 	fillColorNA = "221 202 173 220";
 
 	// border color
 	border = false;
-	borderColor	= "0 128 0 220";
-	borderColorHL = "0 128 0 220";
-	borderColorNA = "0 128 0 220";
+	borderColor	= "200 200 200 255";
+	borderColorHL = "100 100 100 255";
+	borderColorNA = "100 100 100 255";
 
 	// font
 	fontType = "Cat5";
 	fontSize = 14;
 
-	fontColor = "200 200 200";
-	fontColorHL = "255 255 0";
-	fontColorNA = "100 100 100";
-	fontColorSEL= "200 200 200";
-	fontColors[4] = "255 96 96"; // aka fontColorLink
-	fontColors[5] = "0 0 255"; // aka fontColorLinkHL
+	fontColor = "255 255 255 255";
+	fontColorHL = "39 55 157 255";
+	fontColorNA = "100 100 100 255";
+	fontColorSEL= "255 255 255 255";
+	fontColors[4] = "255 96 96 255"; // aka fontColorLink
+	fontColors[5] = "0 0 255 255"; // aka fontColorLinkHL
 	fontColors[6] = "0 200 0 255";
 	fontColors[7] = "200 0 200 255";
 	fontColors[8] = "255 200 0 255";
@@ -83,6 +83,12 @@ new GuiControlProfile(GuiScanlinesProfile : GuiDefaultProfile)
    fillColor = "0 255 255 100";
 };
 
+new GuiControlProfile(GuiCursorEffectsProfile : GuiDefaultProfile)
+{
+   modal = false;
+   fillColor = "255 255 255 255";
+};
+
 //--------------------------------------------------------------------------
 // Console Window
 //
@@ -102,7 +108,6 @@ new GuiControlProfile(GuiConsoleProfile : GuiDefaultProfile)
 
 new GuiControlProfile(GuiButtonProfile : GuiDefaultProfile)
 {
-	fontColor = "63 89 255";
 	opaque = false;
 	border = true;
 	fixedExtent = true;
@@ -172,9 +177,8 @@ new GuiControlProfile(GuiCenterTextProfile : GuiTextProfile)
 new GuiControlProfile(GuiTextEditProfile : GuiDefaultProfile)
 {
 	opaque = true;
-	border = 3;
-	borderThickness = 2;
-	borderColor = "0 0 0";
+	border = true;
+	borderThickness = 3;
 	textOffset = "0 2";
 	autoSizeWidth = false;
 	autoSizeHeight = true;
@@ -240,8 +244,8 @@ new GuiControlProfile(LoadTextProfile : GuiDefaultProfile)
 new GuiControlProfile(GuiMLTextProfile : GuiDefaultProfile)
 {
 	fillColor = "0 0 0 0";
-	fontColorLink = "0 150 0";
-	fontColorLinkHL = "100 255 100";
+	fontColorLink = "39 55 157 255";
+	fontColorLinkHL = "63 255 255 255";
 };
 
 new GuiControlProfile(GuiMLTextNoSelectProfile : GuiDefaultProfile)
@@ -378,6 +382,7 @@ new GuiControlProfile(GuiCheckBoxProfile : GuiDefaultProfile)
 
 new GuiControlProfile(GuiRadioProfile : GuiDefaultProfile)
 {
+	fillColorHL = "0 128 255 255";
 	fixedExtent = true;
 	bitmap = "./pixmaps/cat5radio";
 	hasBitmapArray = true;

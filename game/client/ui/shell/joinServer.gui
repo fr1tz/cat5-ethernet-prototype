@@ -9,21 +9,21 @@ new GuiControl(JoinServerWindowForEditing) {
    Profile = "GuiDefaultProfile";
    HorizSizing = "right";
    VertSizing = "bottom";
-   Position = "0 0";
+   position = "0 0";
    Extent = "640 480";
    MinExtent = "8 8";
    canSave = "1";
    Visible = "1";
    hovertime = "1000";
 
-   new GuiWindowCtrl(JoinServerWindow) {
+   new GuiControl(JoinServerWindow) {
       canSaveDynamicFields = "0";
       Profile = "GuiWindowProfile";
       HorizSizing = "center";
       VertSizing = "center";
-      Position = "0 0";
-      Extent = "640 480";
-      MinExtent = "640 480";
+      position = "0 0";
+      Extent = "640 456";
+      MinExtent = "640 456";
       canSave = "1";
       Visible = "1";
       hovertime = "1000";
@@ -38,11 +38,11 @@ new GuiControl(JoinServerWindowForEditing) {
 
       new GuiTextCtrl() {
          canSaveDynamicFields = "0";
-         Profile = "GuiBigTextProfile";
+         Profile = "GuiMediumTextProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "10 10";
-         Extent = "194 40";
+         position = "10 10";
+         Extent = "131 28";
          MinExtent = "8 2";
          canSave = "1";
          Visible = "1";
@@ -55,11 +55,11 @@ new GuiControl(JoinServerWindowForEditing) {
          Profile = "GuiButtonProfile";
          HorizSizing = "left";
          VertSizing = "bottom";
-         Position = "592 7";
+         position = "592 7";
          Extent = "40 40";
          MinExtent = "8 2";
          canSave = "1";
-         Visible = "1";
+         Visible = "0";
          Command = "JoinServerWindow.exit();";
          hovertime = "1000";
          text = "X";
@@ -71,7 +71,7 @@ new GuiControl(JoinServerWindowForEditing) {
          Profile = "GuiButtonProfile";
          HorizSizing = "left";
          VertSizing = "top";
-         Position = "407 449";
+         position = "407 425";
          Extent = "110 23";
          MinExtent = "8 8";
          canSave = "1";
@@ -87,7 +87,7 @@ new GuiControl(JoinServerWindowForEditing) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "246 82";
+         position = "306 10";
          Extent = "145 30";
          MinExtent = "8 8";
          canSave = "1";
@@ -103,7 +103,7 @@ new GuiControl(JoinServerWindowForEditing) {
          Profile = "GuiButtonProfile";
          HorizSizing = "left";
          VertSizing = "top";
-         Position = "521 449";
+         position = "521 425";
          Extent = "110 23";
          MinExtent = "8 8";
          canSave = "1";
@@ -119,7 +119,7 @@ new GuiControl(JoinServerWindowForEditing) {
          Profile = "GuiScrollProfile";
          HorizSizing = "width";
          VertSizing = "bottom";
-         Position = "13 157";
+         position = "13 67";
          Extent = "616 18";
          MinExtent = "8 8";
          canSave = "1";
@@ -136,8 +136,8 @@ new GuiControl(JoinServerWindowForEditing) {
             Profile = "GuiTextArrayProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "3 2";
-            Extent = "500 16";
+            position = "3 2";
+            Extent = "514 16";
             MinExtent = "500 16";
             canSave = "1";
             Visible = "1";
@@ -154,8 +154,8 @@ new GuiControl(JoinServerWindowForEditing) {
          Profile = "GuiScrollProfile";
          HorizSizing = "width";
          VertSizing = "height";
-         Position = "13 178";
-         Extent = "616 169";
+         position = "13 88";
+         Extent = "616 222";
          MinExtent = "8 8";
          canSave = "1";
          Visible = "1";
@@ -171,7 +171,7 @@ new GuiControl(JoinServerWindowForEditing) {
             Profile = "GuiTextArrayProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "3 3";
+            position = "3 3";
             Extent = "16 16";
             MinExtent = "16 16";
             canSave = "1";
@@ -189,7 +189,7 @@ new GuiControl(JoinServerWindowForEditing) {
          Profile = "GuiDefaultProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "413 69";
+         position = "454 14";
          Extent = "168 22";
          MinExtent = "168 22";
          canSave = "1";
@@ -202,7 +202,7 @@ new GuiControl(JoinServerWindowForEditing) {
          Profile = "GuiWindowProfile";
          HorizSizing = "center";
          VertSizing = "center";
-         Position = "155 236";
+         position = "165 203";
          Extent = "310 50";
          MinExtent = "8 8";
          canSave = "1";
@@ -214,7 +214,7 @@ new GuiControl(JoinServerWindowForEditing) {
             Profile = "GuiButtonProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "9 15";
+            position = "9 15";
             Extent = "64 20";
             MinExtent = "8 8";
             canSave = "1";
@@ -230,7 +230,7 @@ new GuiControl(JoinServerWindowForEditing) {
             Profile = "GuiProgressProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "84 15";
+            position = "84 15";
             Extent = "207 20";
             MinExtent = "8 8";
             canSave = "1";
@@ -243,7 +243,7 @@ new GuiControl(JoinServerWindowForEditing) {
             Profile = "GuiProgressTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "85 14";
+            position = "85 14";
             Extent = "205 20";
             MinExtent = "8 8";
             canSave = "1";
@@ -257,7 +257,7 @@ new GuiControl(JoinServerWindowForEditing) {
          Profile = "GuiScrollProfile";
          HorizSizing = "width";
          VertSizing = "top";
-         Position = "13 369";
+         position = "13 335";
          Extent = "616 75";
          MinExtent = "8 8";
          canSave = "1";
@@ -274,7 +274,7 @@ new GuiControl(JoinServerWindowForEditing) {
             Profile = "GuiMLTextEditProfile";
             HorizSizing = "width";
             VertSizing = "height";
-            Position = "3 2";
+            position = "3 2";
             Extent = "455 310";
             MinExtent = "245 310";
             canSave = "1";
@@ -290,7 +290,7 @@ new GuiControl(JoinServerWindowForEditing) {
          Profile = "GuiTextProfile";
          HorizSizing = "right";
          VertSizing = "top";
-         Position = "13 349";
+         position = "13 315";
          Extent = "68 18";
          MinExtent = "8 2";
          canSave = "1";
@@ -304,7 +304,7 @@ new GuiControl(JoinServerWindowForEditing) {
          Profile = "GuiTextProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "62 134";
+         position = "62 44";
          Extent = "499 18";
          MinExtent = "8 2";
          canSave = "1";
@@ -318,7 +318,7 @@ new GuiControl(JoinServerWindowForEditing) {
          Profile = "GuiButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "313 131";
+         position = "313 41";
          Extent = "148 23";
          MinExtent = "8 8";
          canSave = "1";
@@ -333,42 +333,8 @@ new GuiControl(JoinServerWindowForEditing) {
          canSaveDynamicFields = "0";
          Profile = "GuiTextProfile";
          HorizSizing = "right";
-         VertSizing = "bottom";
-         Position = "23 62";
-         Extent = "72 18";
-         MinExtent = "8 2";
-         canSave = "1";
-         Visible = "1";
-         hovertime = "1000";
-         text = "Pseudonym:";
-         maxLength = "255";
-      };
-      new GuiTextEditCtrl() {
-         canSaveDynamicFields = "0";
-         Profile = "GuiTextEditProfile";
-         HorizSizing = "right";
-         VertSizing = "bottom";
-         Position = "102 63";
-         Extent = "127 18";
-         MinExtent = "8 2";
-         canSave = "1";
-         Visible = "1";
-         Variable = "$pref::Player::Name";
-         hovertime = "1000";
-         maxLength = "30";
-         historySize = "0";
-         password = "0";
-         tabComplete = "0";
-         sinkAllKeyEvents = "0";
-         password = "0";
-         passwordMask = "*";
-      };
-      new GuiTextCtrl() {
-         canSaveDynamicFields = "0";
-         Profile = "GuiTextProfile";
-         HorizSizing = "right";
-         VertSizing = "bottom";
-         Position = "23 82";
+         VertSizing = "top";
+         position = "203 426";
          Extent = "63 18";
          MinExtent = "8 2";
          canSave = "1";
@@ -381,8 +347,8 @@ new GuiControl(JoinServerWindowForEditing) {
          canSaveDynamicFields = "0";
          Profile = "GuiTextEditProfile";
          HorizSizing = "right";
-         VertSizing = "bottom";
-         Position = "102 83";
+         VertSizing = "top";
+         position = "282 427";
          Extent = "127 18";
          MinExtent = "8 2";
          canSave = "1";
@@ -402,7 +368,7 @@ new GuiControl(JoinServerWindowForEditing) {
          Profile = "GuiHilightButtonProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "246 52";
+         position = "156 10";
          Extent = "145 30";
          MinExtent = "8 8";
          canSave = "1";
@@ -412,7 +378,7 @@ new GuiControl(JoinServerWindowForEditing) {
          text = "Search Internet";
          groupNum = "-1";
          buttonType = "PushButton";
-      };    
+      };
    };
 };
 //--- OBJECT WRITE END ---

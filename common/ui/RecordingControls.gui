@@ -11,30 +11,32 @@ new GuiControl(RecordingControlsWindowForEditing) {
    Visible = "1";
    hovertime = "1000";
 
-   new GuiWindowCtrl(RecordingControlsWindow) {
+   new GuiControl(RecordingControlsWindow) {
       canSaveDynamicFields = "0";
       Profile = "GuiWindowProfile";
       HorizSizing = "center";
       VertSizing = "center";
       position = "0 0";
-      Extent = "480 480";
-      MinExtent = "480 480";
+      Extent = "640 456";
+      MinExtent = "480 456";
       canSave = "1";
-      Visible = "0";
+      Visible = "1";
       hovertime = "1000";
+      maxLength = "1024";
       resizeWidth = "0";
       resizeHeight = "0";
       canMove = "0";
       canClose = "0";
       canMinimize = "0";
-      canMaximize = "0";      
+      canMaximize = "0";
+      minSize = "50 50";
 
       new GuiButtonCtrl() {
          canSaveDynamicFields = "0";
          Profile = "GuiButtonProfile";
          HorizSizing = "left";
          VertSizing = "bottom";
-         position = "348 9";
+         position = "508 9";
          Extent = "122 39";
          MinExtent = "8 8";
          canSave = "1";
@@ -94,13 +96,13 @@ new GuiControl(RecordingControlsWindowForEditing) {
          HorizSizing = "right";
          VertSizing = "bottom";
          position = "76 94";
-         Extent = "114 18";
+         Extent = "60 18";
          MinExtent = "8 2";
          canSave = "1";
          Visible = "1";
          Variable = "$DemoCurrentPosition";
          hovertime = "1000";
-         text = "4.30133e+006";
+         text = "505312";
          maxLength = "1024";
       };
       new GuiTextCtrl() {

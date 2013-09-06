@@ -22,7 +22,7 @@ if(isObject(DefaultCursor))
 function addWindow(%control, %inactive)
 {
 	%oldparent = %control.getParent();
-	%parent = ShellWindows;
+	%parent = ShellContent;
 	if(%control.getParent().getId() != %parent.getId())
 	{
       %parent.clear();
@@ -33,7 +33,7 @@ function addWindow(%control, %inactive)
 	}
 //	if(!%inactive)
 //		windowSelected(%control);
-   if(ShellWindows.getCount() > 0)
+   if(false && ShellWindows.getCount() > 0)
    {
       %w = getWord(Shell.extent, 0);
       %h = getWord(Shell.extent, 1);
@@ -52,7 +52,8 @@ function removeWindow(%control)
 {
 	%control.getParent().remove(%control);
 	%control.onRemovedAsWindow();
-   if(ShellWindows.getCount() == 0)
+   addWindow(PlayWindow);
+   if(false && ShellWindows.getCount() == 0)
    {
       %w = getWord(Shell.extent, 0);
       %h = getWord(Shell.extent, 1);
@@ -147,7 +148,7 @@ function clientUpdateScanlinesThread()
    }
 
    //error(GuiScanlinesProfile.zPulse);
-   GuiScanlinesProfile.fillColor = "0 255" SPC GuiScanlinesProfile.zPulse SPC "100";
+   GuiScanlinesProfile.fillColor = "0 255" SPC GuiScanlinesProfile.zPulse SPC "25";
 
    //if(getRandom(100) == 0)
    //   GuiScanlinesProfile.fillColor = "0 255 255 140";
@@ -161,6 +162,9 @@ function Shell::onAdd(%this)
 
 function Shell::onWake(%this)
 {
+   AuthWindowMethodAIMS.setValue($Pref::AIMS::Authenticate);
+   AuthWindowMethodNone.setValue(!$Pref::AIMS::Authenticate);
+
    if(!$cTorqueSplashDone)
    {
       ShellTS.visible = false;
@@ -171,8 +175,8 @@ function Shell::onWake(%this)
 
 	ShellVersionString.setText("version:" SPC $GameVersionString);
 	//windowSelected(RootMenuWindow);
-   ShellMissionWindowContainer.add(MissionWindow);
-   ShellMissionWindowContainer.add(RecordingControlsWindow);
+   //ShellMissionWindowContainer.add(MissionWindow);
+   //ShellMissionWindowContainer.add(RecordingControlsWindow);
 	startUpdateHilightedGuiControlsThread();
 }
 
@@ -209,7 +213,7 @@ function Shell::checkTorqueSplashScreenDone(%this)
       $cTorqueSplashDone = true;
 
       ShellTS.visible = true;
-      ShellStack.visible = true;
+      //ShellStack.visible = true;
       ShellTorqueSplash.visible = false;
 
       if(!$Pref::Audio::MasterMuted)

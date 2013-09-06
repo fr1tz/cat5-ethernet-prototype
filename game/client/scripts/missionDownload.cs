@@ -21,40 +21,27 @@
 
 function onConnectionInitiated()
 {
-   ShellTS.visible = false;
-
-   RecordingControlsWindow.visible = false;
-
 	// Reset all the loading stuff...
    LoadingProgress.visible = true;
 	LoadingProgressTxt.setText("WAITING FOR SERVER");
 	IngameMenuReturn.setActive(false);
 	IngameMenuText.setText("");
 
+   PlayWindow.clear();
+   PlayWindow.add(MissionWindow);
    if($Server::ServerType $= "Menu")
    {
-      ShellScanlines.visible = true;
       IngameMenuDisconnect.visible = false;
       IngameMenuReturn.visible = false;
       IngameWindow.visible = false;
    }
    else
    {
-      ShellScanlines.visible = true;
       IngameMenuDisconnect.visible = true;
       IngameMenuReturn.visible = true;
       IngameWindow.visible = true;
    }
-
-   ShellWindows.visible = false;
-   ShellSidebar.visible = true;
-   ShellMissionWindowContainer.visible = true;
-   ShellStack.pushToBack(ShellMissionWindowContainer);
-   ShellStack.pushToBack(ShellSidebar);
-
-	//addWindow(MissionWindow);
-	//addWindow(ServerMessagesWindow);
-	//MissionWindow.resizeIdeal();
+   addWindow(PlayWindow);
 }
 
 //----------------------------------------------------------------------------

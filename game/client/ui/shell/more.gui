@@ -1,0 +1,159 @@
+//------------------------------------------------------------------------------
+// Cat5
+// Copyright notices are in the file named COPYING.
+//------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+// Torque Game Engine
+// Copyright (c) 2001 GarageGames.Com
+//-----------------------------------------------------------------------------
+
+//--- OBJECT WRITE BEGIN ---
+new GuiControl(MoreWindowForEditing) {
+   canSaveDynamicFields = "0";
+   Profile = "GuiDefaultProfile";
+   HorizSizing = "right";
+   VertSizing = "bottom";
+   position = "0 0";
+   Extent = "640 480";
+   MinExtent = "8 8";
+   canSave = "1";
+   Visible = "1";
+   hovertime = "1000";
+
+   new GuiControl(MoreWindow) {
+      canSaveDynamicFields = "0";
+      Profile = "GuiWindowProfile";
+      HorizSizing = "center";
+      VertSizing = "center";
+      position = "0 0";
+      Extent = "640 456";
+      MinExtent = "640 456";
+      canSave = "1";
+      Visible = "1";
+      hovertime = "1000";
+
+      new GuiButtonCtrl() {
+         canSaveDynamicFields = "0";
+         Profile = "GuiButtonProfile";
+         HorizSizing = "left";
+         VertSizing = "bottom";
+         position = "166 50";
+         Extent = "42 18";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         Command = "addWindow(RecordingsWindow);";
+         hovertime = "1000";
+         text = "Demos";
+         groupNum = "-1";
+         buttonType = "PushButton";
+      };
+      new GuiButtonCtrl() {
+         canSaveDynamicFields = "0";
+         Profile = "GuiButtonProfile";
+         HorizSizing = "left";
+         VertSizing = "bottom";
+         position = "166 10";
+         Extent = "75 18";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         Command = "addWindow(JoinServerWindow);";
+         hovertime = "1000";
+         text = "Join Server";
+         groupNum = "-1";
+         buttonType = "PushButton";
+      };
+      new GuiButtonCtrl() {
+         canSaveDynamicFields = "0";
+         Profile = "GuiButtonProfile";
+         HorizSizing = "left";
+         VertSizing = "bottom";
+         position = "166 30";
+         Extent = "78 18";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         Command = "addWindow(StartServerWindow);";
+         hovertime = "1000";
+         text = "Host Server";
+         groupNum = "-1";
+         buttonType = "PushButton";
+      };
+      new GuiButtonCtrl() {
+         canSaveDynamicFields = "0";
+         Profile = "GuiButtonProfile";
+         HorizSizing = "left";
+         VertSizing = "bottom";
+         position = "166 70";
+         Extent = "68 18";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         Command = "addWindow(StartServerWindow);";
+         hovertime = "1000";
+         text = "Map Editor";
+         groupNum = "-1";
+         buttonType = "PushButton";
+      };
+      new GuiTextCtrl() {
+         canSaveDynamicFields = "0";
+         Profile = "GuiTextProfile";
+         HorizSizing = "right";
+         VertSizing = "bottom";
+         position = "154 10";
+         Extent = "8 18";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         hovertime = "1000";
+         text = "/";
+         maxLength = "1024";
+      };
+      new GuiTextCtrl() {
+         canSaveDynamicFields = "0";
+         Profile = "GuiTextProfile";
+         HorizSizing = "right";
+         VertSizing = "bottom";
+         position = "154 30";
+         Extent = "8 18";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         hovertime = "1000";
+         text = "/";
+         maxLength = "1024";
+      };
+      new GuiTextCtrl() {
+         canSaveDynamicFields = "0";
+         Profile = "GuiTextProfile";
+         HorizSizing = "right";
+         VertSizing = "bottom";
+         position = "154 50";
+         Extent = "8 18";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         hovertime = "1000";
+         text = "/";
+         maxLength = "1024";
+      };
+      new GuiTextCtrl() {
+         canSaveDynamicFields = "0";
+         Profile = "GuiTextProfile";
+         HorizSizing = "right";
+         VertSizing = "bottom";
+         position = "154 70";
+         Extent = "8 18";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         hovertime = "1000";
+         text = "/";
+         maxLength = "1024";
+      };
+   };
+};
+//--- OBJECT WRITE END ---
+

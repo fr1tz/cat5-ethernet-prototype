@@ -9,43 +9,35 @@ new GuiControl(IrcWindowForEditing) {
    Profile = "GuiDefaultProfile";
    HorizSizing = "right";
    VertSizing = "bottom";
-   Position = "0 0";
+   position = "0 0";
    Extent = "640 480";
    MinExtent = "8 8";
    canSave = "1";
    Visible = "1";
    hovertime = "1000";
 
-   new GuiWindowCtrl(IrcWindow) {
+   new GuiControl(IrcWindow) {
       canSaveDynamicFields = "0";
       Profile = "GuiWindowProfile";
       HorizSizing = "center";
       VertSizing = "center";
-      Position = "0 0";
-      Extent = "640 480";
-      MinExtent = "640 480";
+      position = "0 0";
+      Extent = "640 456";
+      MinExtent = "640 456";
       canSave = "1";
       Visible = "1";
       hovertime = "1000";
-      maxLength = "255";
-      resizeWidth = "0";
-      resizeHeight = "0";
-      canMove = "0";
-      canClose = "0";
-      canMinimize = "0";
-      canMaximize = "0";
-      minSize = "50 50";
 
       new GuiControl(IrcConnected) {
          canSaveDynamicFields = "0";
          Profile = "GuiDefaultProfile";
          HorizSizing = "width";
          VertSizing = "height";
-         Position = "13 56";
-         Extent = "619 414";
+         position = "10 0";
+         Extent = "620 456";
          MinExtent = "8 2";
          canSave = "1";
-         Visible = "1";
+         Visible = "0";
          hovertime = "1000";
 
          new GuiButtonCtrl(IrcDisconnect) {
@@ -53,14 +45,14 @@ new GuiControl(IrcWindowForEditing) {
             Profile = "GuiButtonProfile";
             HorizSizing = "left";
             VertSizing = "bottom";
-            Position = "501 20";
-            Extent = "118 23";
+            position = "505 10";
+            Extent = "115 23";
             MinExtent = "8 8";
             canSave = "1";
             Visible = "1";
             Command = "irc_disconnect(\"Disconnected\");";
             hovertime = "1000";
-            text = "Leave Chat";
+            text = "Disconnect";
             groupNum = "-1";
             buttonType = "PushButton";
          };
@@ -69,8 +61,8 @@ new GuiControl(IrcWindowForEditing) {
             Profile = "GuiButtonProfile";
             HorizSizing = "left";
             VertSizing = "top";
-            Position = "501 370";
-            Extent = "118 23";
+            position = "385 10";
+            Extent = "115 23";
             MinExtent = "8 8";
             canSave = "1";
             Visible = "1";
@@ -85,8 +77,8 @@ new GuiControl(IrcWindowForEditing) {
             Profile = "GuiScrollProfile";
             HorizSizing = "width";
             VertSizing = "height";
-            Position = "0 23";
-            Extent = "499 367";
+            position = "0 64";
+            Extent = "500 359";
             MinExtent = "8 8";
             canSave = "1";
             Visible = "1";
@@ -102,8 +94,8 @@ new GuiControl(IrcWindowForEditing) {
                Profile = "GuiMLTextProfile";
                HorizSizing = "width";
                VertSizing = "bottom";
-               Position = "3 3";
-               Extent = "477 14";
+               position = "3 3";
+               Extent = "478 14";
                MinExtent = "8 2";
                canSave = "1";
                Visible = "1";
@@ -118,8 +110,8 @@ new GuiControl(IrcWindowForEditing) {
             Profile = "GuiTextEditProfile";
             HorizSizing = "width";
             VertSizing = "top";
-            Position = "33 395";
-            Extent = "466 18";
+            position = "33 428";
+            Extent = "392 18";
             MinExtent = "100 18";
             canSave = "1";
             Visible = "1";
@@ -137,8 +129,8 @@ new GuiControl(IrcWindowForEditing) {
             Profile = "GuiScrollProfile";
             HorizSizing = "left";
             VertSizing = "height";
-            Position = "504 45";
-            Extent = "112 323";
+            position = "505 64";
+            Extent = "115 382";
             MinExtent = "8 8";
             canSave = "1";
             Visible = "1";
@@ -154,8 +146,8 @@ new GuiControl(IrcWindowForEditing) {
                Profile = "GuiMLTextProfile";
                HorizSizing = "width";
                VertSizing = "bottom";
-               Position = "2 3";
-               Extent = "108 14";
+               position = "2 3";
+               Extent = "111 14";
                MinExtent = "8 2";
                canSave = "1";
                Visible = "1";
@@ -170,7 +162,7 @@ new GuiControl(IrcWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "top";
-            Position = "5 395";
+            position = "5 428";
             Extent = "26 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -184,7 +176,7 @@ new GuiControl(IrcWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "0 2";
+            position = "0 42";
             Extent = "140 18";
             MinExtent = "8 2";
             canSave = "1";
@@ -198,7 +190,7 @@ new GuiControl(IrcWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "149 1";
+            position = "149 41";
             Extent = "98 20";
             MinExtent = "8 2";
             canSave = "1";
@@ -215,7 +207,7 @@ new GuiControl(IrcWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "256 1";
+            position = "256 41";
             Extent = "52 20";
             MinExtent = "8 2";
             canSave = "1";
@@ -232,7 +224,7 @@ new GuiControl(IrcWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "315 1";
+            position = "315 41";
             Extent = "110 20";
             MinExtent = "8 2";
             canSave = "1";
@@ -249,7 +241,7 @@ new GuiControl(IrcWindowForEditing) {
             Profile = "GuiCheckBoxProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "437 1";
+            position = "437 41";
             Extent = "129 20";
             MinExtent = "8 2";
             canSave = "1";
@@ -266,25 +258,25 @@ new GuiControl(IrcWindowForEditing) {
             Profile = "GuiButtonProfile";
             HorizSizing = "left";
             VertSizing = "top";
-            Position = "501 392";
-            Extent = "118 23";
+            position = "430 426";
+            Extent = "70 23";
             MinExtent = "8 8";
             canSave = "1";
             Visible = "1";
             Command = "IrcSend.onReturn();";
             hovertime = "1000";
-            text = "<-- Say this";
+            text = "Send";
             groupNum = "-1";
             buttonType = "PushButton";
          };
       };
       new GuiControl(IrcConnect) {
          canSaveDynamicFields = "0";
-         Profile = "GuiTransparentWindowProfile";
+         Profile = "GuiWindowProfile";
          HorizSizing = "width";
          VertSizing = "height";
-         Position = "7 7";
-         Extent = "626 466";
+         position = "7 7";
+         Extent = "626 442";
          MinExtent = "8 2";
          canSave = "1";
          Visible = "1";
@@ -295,7 +287,7 @@ new GuiControl(IrcWindowForEditing) {
             Profile = "GuiTextProfile";
             HorizSizing = "right";
             VertSizing = "top";
-            Position = "117 366";
+            position = "117 342";
             Extent = "386 18";
             MinExtent = "18 18";
             canSave = "1";
@@ -309,7 +301,7 @@ new GuiControl(IrcWindowForEditing) {
             Profile = "GuiDefaultProfile";
             HorizSizing = "right";
             VertSizing = "bottom";
-            Position = "103 179";
+            position = "103 179";
             Extent = "401 100";
             MinExtent = "8 2";
             canSave = "1";
@@ -321,7 +313,7 @@ new GuiControl(IrcWindowForEditing) {
                Profile = "GuiButtonProfile";
                HorizSizing = "center";
                VertSizing = "bottom";
-               Position = "160 50";
+               position = "160 50";
                Extent = "80 30";
                MinExtent = "8 8";
                canSave = "1";
@@ -337,7 +329,7 @@ new GuiControl(IrcWindowForEditing) {
                Profile = "GuiTextEditProfile";
                HorizSizing = "center";
                VertSizing = "bottom";
-               Position = "139 28";
+               position = "139 28";
                Extent = "120 18";
                MinExtent = "18 18";
                canSave = "1";
@@ -357,7 +349,7 @@ new GuiControl(IrcWindowForEditing) {
                Profile = "GuiCenterTextProfile";
                HorizSizing = "relative";
                VertSizing = "bottom";
-               Position = "0 81";
+               position = "0 81";
                Extent = "401 14";
                MinExtent = "8 2";
                canSave = "1";
@@ -372,7 +364,7 @@ new GuiControl(IrcWindowForEditing) {
                Profile = "GuiTextProfile";
                HorizSizing = "center";
                VertSizing = "top";
-               Position = "148 5";
+               position = "148 5";
                Extent = "104 18";
                MinExtent = "18 18";
                canSave = "1";
@@ -385,11 +377,11 @@ new GuiControl(IrcWindowForEditing) {
       };
       new GuiTextCtrl() {
          canSaveDynamicFields = "0";
-         Profile = "GuiBigTextProfile";
+         Profile = "GuiMediumTextProfile";
          HorizSizing = "right";
          VertSizing = "bottom";
-         Position = "10 10";
-         Extent = "309 40";
+         position = "10 10";
+         Extent = "204 28";
          MinExtent = "8 2";
          canSave = "1";
          Visible = "1";
@@ -402,11 +394,11 @@ new GuiControl(IrcWindowForEditing) {
          Profile = "GuiButtonProfile";
          HorizSizing = "left";
          VertSizing = "bottom";
-         Position = "592 7";
+         position = "592 7";
          Extent = "40 40";
          MinExtent = "8 2";
          canSave = "1";
-         Visible = "1";
+         Visible = "0";
          Command = "removeWindow(IrcWindow);";
          hovertime = "1000";
          text = "X";

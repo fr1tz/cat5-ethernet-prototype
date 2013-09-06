@@ -87,6 +87,7 @@ function irc_disconnect(%error)
 	IrcNickname.setActive(true);
 	IrcConnectButton.setActive(true);
 	IrcConnect.setVisible(true);
+	IrcConnected.setVisible(false);
 
 	$IRC::Offline = true;
 }
@@ -158,6 +159,7 @@ function irc_process_line(%line)
 		{
 			irc_set_status("Now talking in" SPC $IRC::Channel);
 			IrcConnect.setVisible(false);		
+			IrcConnected.setVisible(true);
 		}
 		else
 		{
@@ -238,7 +240,7 @@ function irc_talk(%usr, %msg)
 
 	%mltext = "<" @ irc_shorten_name(%usr) @ ">" SPC %msg;
 	if(strpos(%msg, $Pref::Irc::Name, 0) != -1)
-		%mltext = "<spush><shadowcolor:00ff00><shadow:1:1>" @ %mltext @ "<spop>";
+		%mltext = "<spush><shadowcolor:ff0000><shadow:1:1>" @ %mltext @ "<spop>";
 
 	%rawtext = "<" @ irc_shorten_name(%usr, true) @ ">" SPC %msg;
 

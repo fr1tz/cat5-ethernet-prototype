@@ -9,6 +9,8 @@ function executeShellScripts()
 	exec("./shell/mission.gui");
 	exec("./shell/shell.cs");
 	exec("./shell/shell.gui");
+	exec("./shell/more.cs");
+	exec("./shell/more.gui");
 	exec("./shell/rootMenu.cs");
 	exec("./shell/rootMenu.gui");
 	exec("./shell/startServer.cs");

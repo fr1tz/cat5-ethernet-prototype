@@ -36,6 +36,7 @@
 function clientLoadMenu()
 {
    disconnect();
+   return;
 	createServer("Menu", "game/arenas/cat5-ethernet/menu.mis");
    %conn = new GameConnection(ServerConnection);
    RootGroup.add(ServerConnection);

@@ -84,7 +84,8 @@ function SS_missionList::onSelect(%this, %id, %text)
 
 function StartServerWindow::showMutatorsWindow(%this, %show)
 {
-   MutatorsWindow.visible = %show;
+   MutatorsWindow.setVisible(%show);
+   StartServerWindowContent.setVisible(!%show);
 }
 
 function SS_AddMutator()
@@ -143,7 +144,12 @@ function SS_StartMission()
 	createServer(%serverType, %mapInfoFile);
 	%conn = new GameConnection(ServerConnection);
 	RootGroup.add(ServerConnection);
-	%conn.setConnectArgs($GameNameString, $GameVersionString, $Pref::Player::Name);
+	%conn.setConnectArgs(
+      $GameNameString,
+      $GameVersionString,
+      cGetPseudonym(),
+      cGetAuthAlgs()
+   );
 	%conn.setJoinPassword($Client::Password);
 	%conn.connectLocal();
 	onConnectionInitiated();
