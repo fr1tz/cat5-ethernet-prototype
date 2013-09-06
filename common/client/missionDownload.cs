@@ -143,11 +143,32 @@ function sceneLightingComplete()
 // Helper functions
 //----------------------------------------------------------------------------
 
+function cGetPseudonym()
+{
+   if($Pref::AIMS::Authenticate == 1)
+      return $Pref::AIMS::PlayerName;
+
+   return $Pref::Player::Name;
+}
+
+function cGetAuthAlgs()
+{
+   if($Pref::AIMS::Authenticate == 1)
+      return "aims/playerdb/auth.1";
+
+   return "";
+}
+
 function connect(%server)
 {
    disconnect();
-	%conn = new GameConnection();
-	%conn.setConnectArgs($GameNameString, $GameVersionString, $Pref::Player::Name);
+	%conn = new GameConnection(ServerConnection);
+	%conn.setConnectArgs(
+      $GameNameString,
+      $GameVersionString,
+      cGetPseudonym(),
+      cGetAuthAlgs()
+   );
 	%conn.setJoinPassword($Client::Password);
 	%conn.connect(%server);
 	onConnectionInitiated();

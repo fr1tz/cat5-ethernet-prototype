@@ -41,6 +41,7 @@ function GameConnection::onConnect( %client,
 	%gameNameString = %arg0;
 	%gameVersionString = %arg1;
 	%pseudonym = %arg2;
+   %authalgs = %arg3;
 
 	// Send down the connection error info, the client is
 	// responsible for displaying this message if a connection
@@ -62,7 +63,42 @@ function GameConnection::onConnect( %client,
          }
       }
    }
-	
+
+   %client.authAlg = "";
+   %client.authStage = 0;
+   if(%authalgs !$= "")
+   {
+      for(%i = 0; %i < getWordCount(%authalgs); %i++)
+      {
+         %alg = getWord(%authalgs, %i);
+         if(%alg $= "aims/playerdb/auth.1")
+         {
+            %client.authAlg = %alg;
+            break;
+         }
+      }
+
+      if(%client.authAlg $= "aims/playerdb/auth.1")
+      {
+         // Send authentication challenge
+         %client.authServerTime = getTime();
+         %client.authServerRand = getRandom(999999);
+         commandToClient(%client, 'AuthChallenge',
+            %client.authAlg,
+            $Pref::Server::Name,
+            %client.authServerTime,
+            %client.authServerRand
+         );
+         %client.authStage = 1;
+      }
+      else
+      {
+         // No usable auth algorithm offered, auth not possible.
+         messageClient(%client, 'MsgClientAuth',
+            '\c2Authentication aborted: Unable to agree on auth algorithm.');
+      }
+   }
+
 	// Simulated client lag for testing...
 	// %client.setSimulatedNetParams(0.1, 30);
 
@@ -183,8 +219,8 @@ function GameConnection::setPlayerName(%client,%name)
    // Is the client a pseudo?
    if(%client.PPN $= "")
    {
-      // Add (Pseudo) tag to name
-      %name = "(P)" SPC %name;
+      // Add [Pseudo] tag to name
+      %name = "[P]" SPC %name;
    }
 
 	%client.nameBase = %name;

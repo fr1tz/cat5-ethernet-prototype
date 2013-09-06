@@ -47,6 +47,8 @@ function createServer(%serverType, %missionFile)
 
 		if ($pref::Net::DisplayOnMaster !$= "Never" )
 			schedule(0,0,startHeartbeat);
+
+      schedule(0, 0, sAuthStart);
 	}
 
 	// Load the mission
@@ -73,6 +75,7 @@ function destroyServer()
 	$Server::ServerType = "";
 	allowConnections(false);
 	stopHeartbeat();
+   sAuthStop();
 	$missionRunning = false;
 	
 	// End any running mission

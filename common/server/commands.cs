@@ -13,6 +13,34 @@
 //-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
+// Authentication
+
+function serverCmdAuthResponse(%client, %arg1, %arg2, %arg3, %arg4, %arg5, %arg6)
+{
+   //error("serverCmdAuthResponse():" SPC %client SPC
+   //   %arg1 SPC %arg2 SPC %arg3 SPC %arg4 SPC %arg5 SPC %arg6);
+
+   if(%client.authStage != 1)
+      return;
+
+   %alg = %arg1;
+   if(%alg !$= "aims/playerdb/auth.1")
+   {
+      %client.authStage = 0;
+      return;
+   }
+
+   %client.authHash = %arg2;
+   %client.authPlayerId = %arg3;
+   %client.authServerName = %arg4;
+   %client.authClientTime = %arg5;
+   %client.authClientRand = %arg6;
+   %client.authStage = 2;
+
+   sAimsAuthConn.processAuth();
+}
+
+//-----------------------------------------------------------------------------
 
 function serverCmdSAD( %client, %password )
 {
